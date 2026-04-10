@@ -21,43 +21,21 @@ export default function Navbar() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(logoRef.current, {
-        opacity: 0,
-        x: -30,
-        duration: 1,
-        ease: "power3.out",
-        delay: 0.3,
-      });
+      gsap.from(logoRef.current, { opacity: 0, x: -30, duration: 1, ease: "power3.out", delay: 0.3 });
       gsap.from(linksRef.current?.children as unknown as Element[], {
-        opacity: 0,
-        y: -20,
-        duration: 0.7,
-        ease: "power3.out",
-        stagger: 0.08,
-        delay: 0.5,
+        opacity: 0, y: -20, duration: 0.7, ease: "power3.out", stagger: 0.08, delay: 0.5,
       });
-      gsap.from(ctaRef.current, {
-        opacity: 0,
-        x: 30,
-        duration: 1,
-        ease: "power3.out",
-        delay: 0.3,
-      });
+      gsap.from(ctaRef.current, { opacity: 0, x: 30, duration: 1, ease: "power3.out", delay: 0.3 });
     }, navRef);
 
     const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      ctx.revert();
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => { ctx.revert(); window.removeEventListener("scroll", handleScroll); };
   }, []);
 
   const scrollTo = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -65,7 +43,7 @@ export default function Navbar() {
       <nav
         ref={navRef}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? "nav-blur" : "bg-transparent"
+          scrolled ? "nav-blur" : "bg-white/80 backdrop-blur-md border-b border-black/5"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -88,7 +66,7 @@ export default function Navbar() {
                 <button
                   key={link.href}
                   onClick={() => scrollTo(link.href)}
-                  className="text-[15px] text-[#86868b] hover:text-white transition-colors duration-200 font-medium"
+                  className="text-[15px] text-[#6e6e73] hover:text-[#1d1d1f] transition-colors duration-200 font-medium"
                 >
                   {link.label}
                 </button>
@@ -107,13 +85,13 @@ export default function Navbar() {
 
             {/* Mobile toggle */}
             <button
-              className="lg:hidden text-white p-2"
+              className="lg:hidden p-2"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
-              <div className={`w-6 h-0.5 bg-white transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
-              <div className={`w-6 h-0.5 bg-white mt-1.5 transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
-              <div className={`w-6 h-0.5 bg-white mt-1.5 transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
+              <div className={`w-6 h-0.5 bg-[#1d1d1f] transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
+              <div className={`w-6 h-0.5 bg-[#1d1d1f] mt-1.5 transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
+              <div className={`w-6 h-0.5 bg-[#1d1d1f] mt-1.5 transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
             </button>
           </div>
         </div>
@@ -121,7 +99,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       <div
-        className={`fixed inset-0 z-40 nav-blur transition-all duration-500 lg:hidden ${
+        className={`fixed inset-0 z-40 transition-all duration-500 lg:hidden bg-white/95 backdrop-blur-xl ${
           mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         style={{ paddingTop: "80px" }}
@@ -131,7 +109,7 @@ export default function Navbar() {
             <button
               key={link.href}
               onClick={() => scrollTo(link.href)}
-              className="text-2xl font-semibold text-white hover:text-[#30d158] transition-colors duration-200"
+              className="text-2xl font-semibold text-[#1d1d1f] hover:text-[#1a8c3c] transition-colors duration-200"
             >
               {link.label}
             </button>

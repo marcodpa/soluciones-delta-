@@ -10,8 +10,8 @@ const values = [
   {
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z" stroke="#30d158" strokeWidth="1.5" strokeLinejoin="round"/>
-        <path d="M9 12l2 2 4-4" stroke="#30d158" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z" stroke="#1a8c3c" strokeWidth="1.5" strokeLinejoin="round"/>
+        <path d="M9 12l2 2 4-4" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
     title: "Seguridad Primero",
@@ -20,8 +20,8 @@ const values = [
   {
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="9" stroke="#30d158" strokeWidth="1.5"/>
-        <path d="M12 7v5l3 3" stroke="#30d158" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="12" cy="12" r="9" stroke="#1a8c3c" strokeWidth="1.5"/>
+        <path d="M12 7v5l3 3" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
     title: "Respuesta Inmediata",
@@ -30,8 +30,8 @@ const values = [
   {
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9" stroke="#30d158" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M16 3h5v5M21 3l-8 8" stroke="#30d158" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round"/>
+        <path d="M16 3h5v5M21 3l-8 8" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
     title: "Tecnología de Punta",
@@ -40,7 +40,7 @@ const values = [
   {
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#30d158" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
     title: "Solución Integral",
@@ -53,32 +53,19 @@ export default function AboutSection() {
   const headerRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
   const valuesRef = useRef<HTMLDivElement>(null);
-  const counterRefs = useRef<(HTMLSpanElement | null)[]>([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(headerRef.current?.children as unknown as Element[], {
-        opacity: 0,
-        y: 40,
-        duration: 0.9,
-        ease: "power3.out",
-        stagger: 0.1,
+        opacity: 0, y: 40, duration: 0.9, ease: "power3.out", stagger: 0.1,
         scrollTrigger: { trigger: headerRef.current, start: "top 85%" },
       });
       gsap.from(contentRef.current?.children as unknown as Element[], {
-        opacity: 0,
-        y: 40,
-        duration: 0.9,
-        ease: "power3.out",
-        stagger: 0.15,
+        opacity: 0, y: 40, duration: 0.9, ease: "power3.out", stagger: 0.15,
         scrollTrigger: { trigger: contentRef.current, start: "top 80%" },
       });
       gsap.from(valuesRef.current?.children as unknown as Element[], {
-        opacity: 0,
-        y: 50,
-        duration: 0.7,
-        ease: "power3.out",
-        stagger: 0.1,
+        opacity: 0, y: 50, duration: 0.7, ease: "power3.out", stagger: 0.1,
         scrollTrigger: { trigger: valuesRef.current, start: "top 80%" },
       });
     }, sectionRef);
@@ -86,65 +73,54 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section id="nosotros" ref={sectionRef} className="py-32 relative overflow-hidden">
-      {/* BG */}
+    <section id="nosotros" ref={sectionRef} className="py-32 relative overflow-hidden" style={{ background: "#f5f5f7" }}>
+      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 50%, transparent 100%)" }} />
+      <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.06) 50%, transparent 100%)" }} />
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 50% 60% at 20% 50%, rgba(48,209,88,0.04) 0%, transparent 70%)",
-        }}
+        style={{ background: "radial-gradient(ellipse 50% 60% at 20% 50%, rgba(26,140,60,0.03) 0%, transparent 70%)" }}
       />
-      <div className="absolute top-0 left-0 right-0 h-px divider" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
         <div ref={headerRef} className="text-center mb-20">
           <div className="section-label mb-4">Quiénes Somos</div>
-          <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight text-white leading-tight">
+          <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight text-[#1d1d1f] leading-tight">
             Comprometidos con la{" "}
             <span className="text-gradient">excelencia operacional</span>
           </h2>
         </div>
 
-        {/* Company info */}
         <div ref={contentRef} className="grid lg:grid-cols-2 gap-12 mb-20">
           <div className="space-y-6">
-            <p className="text-[17px] text-[#aeaeb2] leading-relaxed">
-              <strong className="text-white">Soluciones Delta, C.A.</strong> es una empresa venezolana
+            <p className="text-[17px] text-[#3a3a3c] leading-relaxed">
+              <strong className="text-[#1d1d1f]">Soluciones Delta, C.A.</strong> es una empresa venezolana
               especializada en servicios técnicos para la industria petrolera, ubicada en San Francisco,
               Estado Zulia — el corazón energético de Venezuela.
             </p>
-            <p className="text-[17px] text-[#86868b] leading-relaxed">
+            <p className="text-[17px] text-[#6e6e73] leading-relaxed">
               Contamos con equipamiento propio de última generación, incluyendo unidades vacuum de
               fabricación 2026, diseñadas y construidas con acero A36 de alta resistencia para
               garantizar rendimiento óptimo en las condiciones más exigentes del campo petrolero.
             </p>
-            <p className="text-[17px] text-[#86868b] leading-relaxed">
+            <p className="text-[17px] text-[#6e6e73] leading-relaxed">
               Nuestra filosofía se basa en brindar soluciones integrales que combinen seguridad,
               eficiencia y responsabilidad ambiental, acompañando a nuestros clientes desde el
               bombeo inicial hasta la disposición final de los residuos generados.
             </p>
-            <div className="flex items-center gap-3 pt-2">
-              <a
-                href="#contacto"
-                onClick={(e) => { e.preventDefault(); document.querySelector("#contacto")?.scrollIntoView({ behavior: "smooth" }); }}
-                className="btn-primary"
-              >
-                Solicitar Información
-              </a>
-            </div>
+            <a
+              href="#contacto"
+              onClick={(e) => { e.preventDefault(); document.querySelector("#contacto")?.scrollIntoView({ behavior: "smooth" }); }}
+              className="btn-primary inline-flex mt-2"
+            >
+              Solicitar Información
+            </a>
           </div>
 
-          {/* Company details card */}
+          {/* Company card */}
           <div className="glass-card rounded-2xl p-8 space-y-5">
-            <div className="text-white font-semibold text-lg mb-6">Datos de la Empresa</div>
+            <div className="text-[#1d1d1f] font-semibold text-lg mb-6">Datos de la Empresa</div>
             {[
-              {
-                icon: "📍",
-                label: "Dirección",
-                value: "Calle 13 con Av 5, Local 26A-162, Ofic. 2, Sector Manzanillo, San Francisco, Zulia",
-              },
+              { icon: "📍", label: "Dirección", value: "Calle 13 con Av 5, Local 26A-162, Ofic. 2, Sector Manzanillo, San Francisco, Zulia" },
               { icon: "📞", label: "Teléfono", value: "0424-6472446" },
               { icon: "📧", label: "Correo", value: "solucionesdeltaca@gmail.com" },
               { icon: "🏢", label: "RIF", value: "J-50735393-1" },
@@ -153,8 +129,8 @@ export default function AboutSection() {
               <div key={i} className="flex items-start gap-4">
                 <span className="text-lg mt-0.5">{item.icon}</span>
                 <div>
-                  <div className="text-[12px] text-[#86868b] mb-0.5">{item.label}</div>
-                  <div className="text-[14px] text-white">{item.value}</div>
+                  <div className="text-[12px] text-[#6e6e73] mb-0.5">{item.label}</div>
+                  <div className="text-[14px] text-[#1d1d1f] font-medium">{item.value}</div>
                 </div>
               </div>
             ))}
@@ -165,12 +141,14 @@ export default function AboutSection() {
         <div ref={valuesRef} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {values.map((v, i) => (
             <div key={i} className="glass-card rounded-2xl p-6 text-center group cursor-default">
-              <div className="w-12 h-12 rounded-2xl mx-auto mb-4 flex items-center justify-center"
-                style={{ background: "rgba(48,209,88,0.08)", border: "1px solid rgba(48,209,88,0.15)" }}>
+              <div
+                className="w-12 h-12 rounded-2xl mx-auto mb-4 flex items-center justify-center"
+                style={{ background: "rgba(26,140,60,0.07)", border: "1px solid rgba(26,140,60,0.13)" }}
+              >
                 {v.icon}
               </div>
-              <h4 className="text-white font-semibold mb-2 text-[15px]">{v.title}</h4>
-              <p className="text-[13px] text-[#86868b] leading-relaxed">{v.description}</p>
+              <h4 className="text-[#1d1d1f] font-semibold mb-2 text-[15px]">{v.title}</h4>
+              <p className="text-[13px] text-[#6e6e73] leading-relaxed">{v.description}</p>
             </div>
           ))}
         </div>

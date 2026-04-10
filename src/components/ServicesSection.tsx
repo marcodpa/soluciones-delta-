@@ -11,9 +11,9 @@ const services = [
     id: "bombeo",
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <circle cx="14" cy="14" r="5" stroke="#30d158" strokeWidth="2"/>
-        <path d="M4 14h5M19 14h5" stroke="#30d158" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M7.5 7.5l3.5 3.5M17 17l3.5 3.5M7.5 20.5l3.5-3.5M17 11l3.5-3.5" stroke="#30d158" strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
+        <circle cx="14" cy="14" r="5" stroke="#1a8c3c" strokeWidth="2"/>
+        <path d="M4 14h5M19 14h5" stroke="#1a8c3c" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M7.5 7.5l3.5 3.5M17 17l3.5 3.5M7.5 20.5l3.5-3.5M17 11l3.5-3.5" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
       </svg>
     ),
     tag: "Bombeo de Crudo",
@@ -49,10 +49,10 @@ const services = [
     id: "vacuum",
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <rect x="4" y="9" width="20" height="13" rx="3" stroke="#30d158" strokeWidth="2"/>
-        <path d="M4 13h20" stroke="#30d158" strokeWidth="1" strokeDasharray="3 2" opacity="0.4"/>
-        <path d="M10 9V7a4 4 0 018 0v2" stroke="#30d158" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M9 16h2M13 16h2M17 16h2" stroke="#30d158" strokeWidth="1.5" strokeLinecap="round" opacity="0.7"/>
+        <rect x="4" y="9" width="20" height="13" rx="3" stroke="#1a8c3c" strokeWidth="2"/>
+        <path d="M4 13h20" stroke="#1a8c3c" strokeWidth="1" strokeDasharray="3 2" opacity="0.4"/>
+        <path d="M10 9V7a4 4 0 018 0v2" stroke="#1a8c3c" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M9 16h2M13 16h2M17 16h2" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" opacity="0.7"/>
       </svg>
     ),
     tag: "Vacuum",
@@ -88,12 +88,12 @@ const services = [
     id: "fractanks",
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <rect x="2" y="8" width="24" height="13" rx="3" stroke="#30d158" strokeWidth="2"/>
-        <path d="M6 8V6h16v2" stroke="#30d158" strokeWidth="2" strokeLinecap="round"/>
-        <path d="M7 8v13M14 8v13M21 8v13" stroke="#30d158" strokeWidth="1" opacity="0.3"/>
-        <circle cx="9" cy="24" r="2.5" stroke="#30d158" strokeWidth="1.5"/>
-        <circle cx="19" cy="24" r="2.5" stroke="#30d158" strokeWidth="1.5"/>
-        <path d="M11.5 24h5" stroke="#30d158" strokeWidth="1.5" strokeLinecap="round"/>
+        <rect x="2" y="8" width="24" height="13" rx="3" stroke="#1a8c3c" strokeWidth="2"/>
+        <path d="M6 8V6h16v2" stroke="#1a8c3c" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M7 8v13M14 8v13M21 8v13" stroke="#1a8c3c" strokeWidth="1" opacity="0.3"/>
+        <circle cx="9" cy="24" r="2.5" stroke="#1a8c3c" strokeWidth="1.5"/>
+        <circle cx="19" cy="24" r="2.5" stroke="#1a8c3c" strokeWidth="1.5"/>
+        <path d="M11.5 24h5" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round"/>
       </svg>
     ),
     tag: "Almacenamiento",
@@ -121,7 +121,7 @@ const services = [
       "Insulated para operaciones con vapor",
       "Gas Tight para fluidos con H2S",
       "Fácil movilización con lowboy",
-      "Compatible con unidad vacuum para limpieza",
+      "Compatible con unidad vacuum",
       "Configuración múltiple en batería",
     ],
   },
@@ -129,9 +129,9 @@ const services = [
     id: "desechos",
     icon: (
       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-        <path d="M14 3C8.477 3 4 7.477 4 13s4.477 10 10 10 10-4.477 10-10S19.523 3 14 3z" stroke="#30d158" strokeWidth="2"/>
-        <path d="M14 7v6l4 2" stroke="#30d158" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M9 21l-3 3M19 21l3 3" stroke="#30d158" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+        <path d="M14 3C8.477 3 4 7.477 4 13s4.477 10 10 10 10-4.477 10-10S19.523 3 14 3z" stroke="#1a8c3c" strokeWidth="2"/>
+        <path d="M14 7v6l4 2" stroke="#1a8c3c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M9 21l-3 3M19 21l3 3" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
       </svg>
     ),
     tag: "Gestión Ambiental",
@@ -165,46 +165,42 @@ const services = [
   },
 ];
 
-function ServiceCard({ service, index }: { service: typeof services[0]; index: number }) {
+function ServiceCard({ service }: { service: typeof services[0] }) {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="glass-card rounded-2xl overflow-hidden group cursor-default">
-      {/* Top section — always visible */}
       <div className="p-8">
-        {/* Tag + icon row */}
         <div className="flex items-start justify-between mb-6">
           <div className="feature-icon">{service.icon}</div>
           <span
             className="text-[11px] font-semibold tracking-widest uppercase px-3 py-1 rounded-full"
-            style={{ background: "rgba(48,209,88,0.1)", color: "#30d158", border: "1px solid rgba(48,209,88,0.2)" }}
+            style={{ background: "rgba(26,140,60,0.08)", color: "#1a8c3c", border: "1px solid rgba(26,140,60,0.15)" }}
           >
             {service.tag}
           </span>
         </div>
 
-        <h3 className="text-xl font-bold text-white mb-1">{service.title}</h3>
-        <div className="text-[13px] text-[#30d158] font-medium mb-4">{service.subtitle}</div>
-        <p className="text-[15px] text-[#86868b] leading-relaxed">{service.summary}</p>
+        <h3 className="text-xl font-bold text-[#1d1d1f] mb-1">{service.title}</h3>
+        <div className="text-[13px] text-[#1a8c3c] font-semibold mb-4">{service.subtitle}</div>
+        <p className="text-[15px] text-[#6e6e73] leading-relaxed">{service.summary}</p>
 
-        {/* Features grid */}
         <div className="mt-6 grid grid-cols-2 gap-2">
           {service.features.map((f, j) => (
             <div key={j} className="flex items-start gap-2">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="flex-shrink-0 mt-0.5">
-                <circle cx="7" cy="7" r="6" stroke="rgba(48,209,88,0.35)" strokeWidth="1"/>
-                <path d="M4.5 7l1.8 1.8L9.5 5.5" stroke="#30d158" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <circle cx="7" cy="7" r="6" stroke="rgba(26,140,60,0.3)" strokeWidth="1"/>
+                <path d="M4.5 7l1.8 1.8L9.5 5.5" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              <span className="text-[13px] text-[#aeaeb2] leading-tight">{f}</span>
+              <span className="text-[13px] text-[#6e6e73] leading-tight">{f}</span>
             </div>
           ))}
         </div>
 
-        {/* Expand button */}
         <button
           onClick={() => setOpen(!open)}
           className="mt-7 flex items-center gap-2 text-[13px] font-semibold transition-colors duration-200"
-          style={{ color: open ? "#30d158" : "#86868b" }}
+          style={{ color: open ? "#1a8c3c" : "#aeaeb2" }}
         >
           <span>{open ? "Ver menos" : "Ver descripción completa"}</span>
           <svg
@@ -217,31 +213,29 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
         </button>
       </div>
 
-      {/* Expanded body */}
       <div
         className="overflow-hidden transition-all duration-500 ease-in-out"
         style={{ maxHeight: open ? "1000px" : "0px" }}
       >
         <div
           className="mx-8 mb-8 rounded-2xl p-6 space-y-5"
-          style={{ background: "rgba(48,209,88,0.03)", border: "1px solid rgba(48,209,88,0.1)" }}
+          style={{ background: "rgba(26,140,60,0.03)", border: "1px solid rgba(26,140,60,0.1)" }}
         >
           {service.body.map((block, k) => (
             <div key={k}>
               <div className="flex items-center gap-2 mb-2">
-                <div className="w-1 h-4 rounded-full bg-[#30d158]" />
-                <h4 className="text-[14px] font-semibold text-white">{block.heading}</h4>
+                <div className="w-1 h-4 rounded-full bg-[#1a8c3c]" />
+                <h4 className="text-[14px] font-semibold text-[#1d1d1f]">{block.heading}</h4>
               </div>
-              <p className="text-[14px] text-[#86868b] leading-relaxed pl-3">{block.text}</p>
+              <p className="text-[14px] text-[#6e6e73] leading-relaxed pl-3">{block.text}</p>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Bottom hover line */}
       <div
         className="h-0.5 transition-all duration-500 group-hover:opacity-100 opacity-0"
-        style={{ background: "linear-gradient(90deg, #30d158, transparent)" }}
+        style={{ background: "linear-gradient(90deg, #1a8c3c, transparent)" }}
       />
     </div>
   );
@@ -255,19 +249,11 @@ export default function ServicesSection() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(headerRef.current?.children as unknown as Element[], {
-        opacity: 0,
-        y: 50,
-        duration: 0.9,
-        ease: "power3.out",
-        stagger: 0.1,
+        opacity: 0, y: 50, duration: 0.9, ease: "power3.out", stagger: 0.1,
         scrollTrigger: { trigger: headerRef.current, start: "top 85%" },
       });
       gsap.from(cardsRef.current?.children as unknown as Element[], {
-        opacity: 0,
-        y: 60,
-        duration: 0.8,
-        ease: "power3.out",
-        stagger: 0.12,
+        opacity: 0, y: 60, duration: 0.8, ease: "power3.out", stagger: 0.12,
         scrollTrigger: { trigger: cardsRef.current, start: "top 80%" },
       });
     }, sectionRef);
@@ -275,43 +261,36 @@ export default function ServicesSection() {
   }, []);
 
   return (
-    <section id="servicios" ref={sectionRef} className="py-32 relative overflow-hidden">
-      <div
-        className="absolute top-0 left-0 right-0 h-px"
-        style={{ background: "linear-gradient(90deg, transparent 0%, rgba(48,209,88,0.3) 50%, transparent 100%)" }}
-      />
+    <section id="servicios" ref={sectionRef} className="py-32 relative overflow-hidden" style={{ background: "#f5f5f7" }}>
+      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent 0%, rgba(26,140,60,0.25) 50%, transparent 100%)" }} />
+      <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.06) 50%, transparent 100%)" }} />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
         <div ref={headerRef} className="text-center mb-20">
           <div className="section-label mb-4">Nuestros Servicios</div>
-          <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight text-white leading-tight mb-6">
+          <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight text-[#1d1d1f] leading-tight mb-6">
             Soluciones técnicas para cada{" "}
             <span className="text-gradient">desafío operacional</span>
           </h2>
-          <p className="text-[17px] text-[#86868b] max-w-2xl mx-auto leading-relaxed">
+          <p className="text-[17px] text-[#6e6e73] max-w-2xl mx-auto leading-relaxed">
             Desde la extracción hasta la disposición final, ofrecemos la cadena completa de servicios
             que la industria petrolera demanda. Haga clic en cada servicio para ver la descripción completa.
           </p>
         </div>
 
-        {/* Cards */}
         <div ref={cardsRef} className="grid md:grid-cols-2 gap-6">
-          {services.map((service, i) => (
-            <ServiceCard key={service.id} service={service} index={i} />
+          {services.map((service) => (
+            <ServiceCard key={service.id} service={service} />
           ))}
         </div>
 
-        {/* Bottom CTA strip */}
         <div
           className="mt-16 rounded-2xl p-8 flex flex-col sm:flex-row items-center justify-between gap-6"
-          style={{ background: "rgba(48,209,88,0.05)", border: "1px solid rgba(48,209,88,0.15)" }}
+          style={{ background: "linear-gradient(135deg, rgba(26,140,60,0.07) 0%, rgba(48,209,88,0.04) 100%)", border: "1px solid rgba(26,140,60,0.15)" }}
         >
           <div>
-            <div className="text-white font-semibold text-lg mb-1">¿Necesita un servicio a medida?</div>
-            <div className="text-[15px] text-[#86868b]">
-              Contacte a nuestro equipo técnico y diseñamos la solución específica para su operación.
-            </div>
+            <div className="text-[#1d1d1f] font-semibold text-lg mb-1">¿Necesita un servicio a medida?</div>
+            <div className="text-[15px] text-[#6e6e73]">Contacte a nuestro equipo técnico y diseñamos la solución específica para su operación.</div>
           </div>
           <a
             href="#contacto"

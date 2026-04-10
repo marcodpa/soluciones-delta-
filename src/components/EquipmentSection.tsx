@@ -49,26 +49,15 @@ export default function EquipmentSection() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from(headerRef.current?.children as unknown as Element[], {
-        opacity: 0,
-        y: 40,
-        duration: 0.9,
-        ease: "power3.out",
-        stagger: 0.1,
+        opacity: 0, y: 40, duration: 0.9, ease: "power3.out", stagger: 0.1,
         scrollTrigger: { trigger: headerRef.current, start: "top 85%" },
       });
       gsap.from(leftRef.current, {
-        opacity: 0,
-        x: -50,
-        duration: 1,
-        ease: "power3.out",
+        opacity: 0, x: -50, duration: 1, ease: "power3.out",
         scrollTrigger: { trigger: leftRef.current, start: "top 80%" },
       });
       gsap.from(rightRef.current?.children as unknown as Element[], {
-        opacity: 0,
-        x: 40,
-        duration: 0.8,
-        ease: "power3.out",
-        stagger: 0.1,
+        opacity: 0, x: 40, duration: 0.8, ease: "power3.out", stagger: 0.1,
         scrollTrigger: { trigger: rightRef.current, start: "top 80%" },
       });
     }, sectionRef);
@@ -76,25 +65,20 @@ export default function EquipmentSection() {
   }, []);
 
   return (
-    <section id="equipos" ref={sectionRef} className="py-32 relative overflow-hidden">
-      {/* BG accent */}
+    <section id="equipos" ref={sectionRef} className="py-32 relative overflow-hidden bg-white">
       <div
         className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 60% 40% at 80% 50%, rgba(48,209,88,0.05) 0%, transparent 70%)",
-        }}
+        style={{ background: "radial-gradient(ellipse 60% 40% at 80% 50%, rgba(26,140,60,0.04) 0%, transparent 70%)" }}
       />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        {/* Header */}
         <div ref={headerRef} className="mb-20">
           <div className="section-label mb-4">Ficha Técnica</div>
-          <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight text-white leading-tight max-w-3xl">
+          <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight text-[#1d1d1f] leading-tight max-w-3xl">
             Equipamiento de última{" "}
             <span className="text-gradient">generación</span>
           </h2>
-          <p className="text-[17px] text-[#86868b] mt-4 max-w-2xl leading-relaxed">
+          <p className="text-[17px] text-[#6e6e73] mt-4 max-w-2xl leading-relaxed">
             Nuestra flota cuenta con unidades fabricadas en 2026 con los más altos
             estándares de seguridad industrial, certificadas y listas para operar en condiciones
             extremas del sector petrolero.
@@ -103,57 +87,51 @@ export default function EquipmentSection() {
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left — spec table */}
-          <div ref={leftRef} className="glass-card rounded-2xl overflow-hidden">
-            {/* Header */}
-            <div
-              className="p-6 border-b"
-              style={{
-                borderColor: "rgba(255,255,255,0.07)",
-                background: "rgba(48,209,88,0.06)",
-              }}
-            >
+          <div ref={leftRef} className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}>
+            <div className="p-6" style={{ borderBottom: "1px solid rgba(0,0,0,0.06)", background: "rgba(26,140,60,0.04)" }}>
               <div className="flex items-center gap-3">
                 <div className="feature-icon w-10 h-10">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <rect x="2" y="6" width="16" height="8" rx="2" stroke="#30d158" strokeWidth="1.5"/>
-                    <path d="M2 9h16" stroke="#30d158" strokeWidth="1" opacity="0.5"/>
-                    <circle cx="6" cy="16" r="2" stroke="#30d158" strokeWidth="1.5"/>
-                    <circle cx="14" cy="16" r="2" stroke="#30d158" strokeWidth="1.5"/>
+                    <rect x="2" y="6" width="16" height="8" rx="2" stroke="#1a8c3c" strokeWidth="1.5"/>
+                    <path d="M2 9h16" stroke="#1a8c3c" strokeWidth="1" opacity="0.5"/>
+                    <circle cx="6" cy="16" r="2" stroke="#1a8c3c" strokeWidth="1.5"/>
+                    <circle cx="14" cy="16" r="2" stroke="#1a8c3c" strokeWidth="1.5"/>
                   </svg>
                 </div>
                 <div>
-                  <div className="text-white font-semibold">Semirremolque Tipo Vacuum</div>
-                  <div className="text-[12px] text-[#86868b]">Fabricado 2026 · RIF J-50735393-1</div>
+                  <div className="text-[#1d1d1f] font-semibold">Semirremolque Tipo Vacuum</div>
+                  <div className="text-[12px] text-[#6e6e73]">Fabricado 2026 · RIF J-50735393-1</div>
                 </div>
               </div>
             </div>
-
-            {/* Specs grid */}
-            <div className="divide-y" style={{ divideColor: "rgba(255,255,255,0.05)" }}>
+            <div>
               {specs.map((s, i) => (
                 <div
                   key={i}
-                  className="flex items-center justify-between px-6 py-3.5 hover:bg-white/[0.02] transition-colors"
+                  className="flex items-center justify-between px-6 py-3.5 transition-colors"
+                  style={{ borderBottom: i < specs.length - 1 ? "1px solid rgba(0,0,0,0.05)" : "none" }}
+                  onMouseEnter={e => (e.currentTarget.style.background = "rgba(26,140,60,0.03)")}
+                  onMouseLeave={e => (e.currentTarget.style.background = "transparent")}
                 >
-                  <span className="text-[13px] text-[#86868b]">{s.label}</span>
-                  <span className="text-[14px] font-medium text-white">{s.value}</span>
+                  <span className="text-[13px] text-[#6e6e73]">{s.label}</span>
+                  <span className="text-[14px] font-semibold text-[#1d1d1f]">{s.value}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Right — systems */}
-          <div ref={rightRef} className="space-y-5">
+          <div ref={rightRef} className="space-y-4">
             {systems.map((sys, i) => (
               <div key={i} className="glass-card rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-1.5 h-5 rounded-full bg-[#30d158]" />
-                  <h4 className="text-white font-semibold text-[15px]">{sys.title}</h4>
+                  <div className="w-1.5 h-5 rounded-full bg-[#1a8c3c]" />
+                  <h4 className="text-[#1d1d1f] font-semibold text-[15px]">{sys.title}</h4>
                 </div>
                 <ul className="space-y-2">
                   {sys.items.map((item, j) => (
-                    <li key={j} className="flex items-center gap-3 text-[14px] text-[#86868b]">
-                      <span className="w-1 h-1 rounded-full bg-[#30d158] flex-shrink-0" />
+                    <li key={j} className="flex items-center gap-3 text-[14px] text-[#6e6e73]">
+                      <span className="w-1 h-1 rounded-full bg-[#1a8c3c] flex-shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -161,25 +139,20 @@ export default function EquipmentSection() {
               </div>
             ))}
 
-            {/* Certificate badge */}
+            {/* Badge */}
             <div
               className="rounded-2xl p-5 flex items-center gap-4"
-              style={{
-                background: "rgba(48,209,88,0.07)",
-                border: "1px solid rgba(48,209,88,0.2)",
-              }}
+              style={{ background: "rgba(26,140,60,0.06)", border: "1px solid rgba(26,140,60,0.18)" }}
             >
               <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-                style={{ background: "rgba(48,209,88,0.15)" }}>
+                style={{ background: "rgba(26,140,60,0.12)" }}>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M10 2l1.9 5.9H18l-4.9 3.6 1.9 5.9L10 14l-5 3.4 1.9-5.9L2 8h6.1L10 2z" stroke="#30d158" strokeWidth="1.5" strokeLinejoin="round" fill="rgba(48,209,88,0.2)"/>
+                  <path d="M10 2l1.9 5.9H18l-4.9 3.6 1.9 5.9L10 14l-5 3.4 1.9-5.9L2 8h6.1L10 2z" stroke="#1a8c3c" strokeWidth="1.5" strokeLinejoin="round" fill="rgba(26,140,60,0.15)"/>
                 </svg>
               </div>
               <div>
-                <div className="text-[14px] font-semibold text-white">Válvulas Calibradas y Certificadas</div>
-                <div className="text-[12px] text-[#86868b] mt-0.5">
-                  Todas las válvulas de seguridad cuentan con certificación vigente
-                </div>
+                <div className="text-[14px] font-semibold text-[#1d1d1f]">Válvulas Calibradas y Certificadas</div>
+                <div className="text-[12px] text-[#6e6e73] mt-0.5">Todas las válvulas de seguridad cuentan con certificación vigente</div>
               </div>
             </div>
           </div>
