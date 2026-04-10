@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 export default function Footer() {
   const year = new Date().getFullYear();
   const scrollTo = (href: string) => {
@@ -21,16 +23,14 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-10 mb-16">
           {/* Brand */}
           <div className="md:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <svg viewBox="0 0 40 40" fill="none" className="w-9 h-9">
-                <polygon points="20,2 38,34 2,34" fill="none" stroke="#30d158" strokeWidth="2.5" strokeLinejoin="round"/>
-                <polygon points="20,10 32,30 8,30" fill="rgba(48,209,88,0.15)"/>
-                <line x1="20" y1="10" x2="20" y2="30" stroke="#30d158" strokeWidth="1.5" opacity="0.6"/>
-              </svg>
-              <div>
-                <div className="text-white font-bold text-base tracking-tight">Soluciones Delta, C.A.</div>
-                <div className="text-[10px] text-[#86868b] tracking-widest uppercase">RIF J-50735393-1</div>
-              </div>
+            <div className="mb-5">
+              <Image
+                src="/logo.png"
+                alt="Soluciones Delta C.A."
+                width={150}
+                height={60}
+                className="h-14 w-auto object-contain"
+              />
             </div>
             <p className="text-[14px] text-[#86868b] leading-relaxed max-w-sm">
               Especialistas en servicios técnicos para la industria petrolera venezolana.

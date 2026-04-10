@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Servicios", href: "#servicios" },
@@ -70,18 +71,15 @@ export default function Navbar() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <div ref={logoRef} className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
-              <div className="relative w-9 h-9">
-                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                  <polygon points="20,2 38,34 2,34" fill="none" stroke="#30d158" strokeWidth="2.5" strokeLinejoin="round"/>
-                  <polygon points="20,10 32,30 8,30" fill="rgba(48,209,88,0.15)" stroke="none"/>
-                  <line x1="20" y1="10" x2="20" y2="30" stroke="#30d158" strokeWidth="1.5" opacity="0.6"/>
-                </svg>
-              </div>
-              <div>
-                <div className="text-white font-bold text-base leading-tight tracking-tight">Soluciones Delta</div>
-                <div className="text-[10px] text-[#86868b] tracking-widest uppercase">C.A.</div>
-              </div>
+            <div ref={logoRef} className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+              <Image
+                src="/logo.png"
+                alt="Soluciones Delta C.A."
+                width={130}
+                height={52}
+                className="h-11 w-auto object-contain"
+                priority
+              />
             </div>
 
             {/* Desktop links */}
