@@ -73,7 +73,7 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section id="nosotros" ref={sectionRef} className="py-32 relative overflow-hidden" style={{ background: "#f5f5f7" }}>
+    <section id="nosotros" ref={sectionRef} className="py-32 relative overflow-hidden" style={{ background: "#eef0f2" }}>
       <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 50%, transparent 100%)" }} />
       <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.06) 50%, transparent 100%)" }} />
       <div
