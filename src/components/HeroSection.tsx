@@ -22,13 +22,13 @@ export default function HeroSection() {
       gsap.to(orb1Ref.current, { y: -40, x: 20, duration: 8, ease: "sine.inOut", repeat: -1, yoyo: true });
       gsap.to(orb2Ref.current, { y: 30, x: -30, duration: 10, ease: "sine.inOut", repeat: -1, yoyo: true, delay: 2 });
 
-      const tl = gsap.timeline({ delay: 0.8 });
-      tl.from(labelRef.current, { opacity: 0, y: 20, duration: 0.7, ease: "power3.out" })
-        .from(headingRef.current?.children as unknown as Element[], { opacity: 0, y: 60, duration: 1, ease: "power4.out", stagger: 0.15 }, "-=0.3")
-        .from(subRef.current, { opacity: 0, y: 30, duration: 0.9, ease: "power3.out" }, "-=0.5")
-        .from(buttonsRef.current?.children as unknown as Element[], { opacity: 0, y: 20, duration: 0.7, ease: "power3.out", stagger: 0.12 }, "-=0.4")
-        .from(statsRef.current?.children as unknown as Element[], { opacity: 0, y: 30, duration: 0.6, ease: "power3.out", stagger: 0.1 }, "-=0.3")
-        .from(vizRef.current, { opacity: 0, scale: 0.9, y: 40, duration: 1.2, ease: "power3.out" }, "-=1.2");
+      const tl = gsap.timeline({ delay: 0.5 });
+      tl.fromTo(labelRef.current, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" })
+        .fromTo(headingRef.current?.children as unknown as Element[], { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 1, ease: "power4.out", stagger: 0.15 }, "-=0.3")
+        .fromTo(subRef.current, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, "-=0.5")
+        .fromTo(buttonsRef.current?.children as unknown as Element[], { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.12 }, "-=0.4")
+        .fromTo(statsRef.current?.children as unknown as Element[], { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out", stagger: 0.1 }, "-=0.3")
+        .fromTo(vizRef.current, { opacity: 0, scale: 0.9, y: 40 }, { opacity: 1, scale: 1, y: 0, duration: 1.2, ease: "power3.out" }, "-=1.2");
 
       gsap.to(vizRef.current, {
         y: -80, ease: "none",

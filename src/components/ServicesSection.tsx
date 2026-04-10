@@ -248,13 +248,31 @@ export default function ServicesSection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(headerRef.current?.children as unknown as Element[], {
-        opacity: 0, y: 50, duration: 0.9, ease: "power3.out", stagger: 0.1,
-        scrollTrigger: { trigger: headerRef.current, start: "top 85%" },
+      // Header animation — only runs once when visible
+      ScrollTrigger.create({
+        trigger: headerRef.current,
+        start: "top 90%",
+        once: true,
+        onEnter: () => {
+          gsap.fromTo(
+            headerRef.current?.children as unknown as Element[],
+            { opacity: 0, y: 40 },
+            { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.1 }
+          );
+        },
       });
-      gsap.from(cardsRef.current?.children as unknown as Element[], {
-        opacity: 0, y: 60, duration: 0.8, ease: "power3.out", stagger: 0.12,
-        scrollTrigger: { trigger: cardsRef.current, start: "top 80%" },
+      // Cards animation
+      ScrollTrigger.create({
+        trigger: cardsRef.current,
+        start: "top 90%",
+        once: true,
+        onEnter: () => {
+          gsap.fromTo(
+            cardsRef.current?.children as unknown as Element[],
+            { opacity: 0, y: 40 },
+            { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.1 }
+          );
+        },
       });
     }, sectionRef);
     return () => ctx.revert();

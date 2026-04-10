@@ -48,17 +48,20 @@ export default function EquipmentSection() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(headerRef.current?.children as unknown as Element[], {
-        opacity: 0, y: 40, duration: 0.9, ease: "power3.out", stagger: 0.1,
-        scrollTrigger: { trigger: headerRef.current, start: "top 85%" },
+      ScrollTrigger.create({
+        trigger: headerRef.current, start: "top 90%", once: true,
+        onEnter: () => gsap.fromTo(headerRef.current?.children as unknown as Element[],
+          { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.1 }),
       });
-      gsap.from(leftRef.current, {
-        opacity: 0, x: -50, duration: 1, ease: "power3.out",
-        scrollTrigger: { trigger: leftRef.current, start: "top 80%" },
+      ScrollTrigger.create({
+        trigger: leftRef.current, start: "top 90%", once: true,
+        onEnter: () => gsap.fromTo(leftRef.current,
+          { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.9, ease: "power3.out" }),
       });
-      gsap.from(rightRef.current?.children as unknown as Element[], {
-        opacity: 0, x: 40, duration: 0.8, ease: "power3.out", stagger: 0.1,
-        scrollTrigger: { trigger: rightRef.current, start: "top 80%" },
+      ScrollTrigger.create({
+        trigger: rightRef.current, start: "top 90%", once: true,
+        onEnter: () => gsap.fromTo(rightRef.current?.children as unknown as Element[],
+          { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.7, ease: "power3.out", stagger: 0.1 }),
       });
     }, sectionRef);
     return () => ctx.revert();
