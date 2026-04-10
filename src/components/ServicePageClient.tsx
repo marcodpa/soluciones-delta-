@@ -1,0 +1,291 @@
+"use client";
+
+import { useEffect, useRef } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import type { ServiceData } from "@/lib/services-data";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const SERVICE_IMAGES: Record<string, string> = {
+  "bombeo-de-crudo": "/vacuum-truck.jpg",
+  "trasegado-vacuum": "/vacuum-truck.jpg",
+  "frac-tanks": "/vacuum-truck.jpg",
+  "manejo-de-desechos": "/vacuum-truck.jpg",
+};
+
+export default function ServicePageClient({ service }: { service: ServiceData }) {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        heroRef.current?.children as unknown as Element[],
+        { opacity: 0, y: 40 },
+        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.12, delay: 0.3 }
+      );
+
+      const sections = contentRef.current?.querySelectorAll(".animate-in");
+      sections?.forEach((el) => {
+        ScrollTrigger.create({
+          trigger: el,
+          start: "top 88%",
+          once: true,
+          onEnter: () =>
+            gsap.fromTo(el, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }),
+        });
+      });
+    });
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <>
+      <Navbar />
+      <main>
+        {/* ── HERO ── */}
+        <section
+          className="pt-28 pb-16 relative overflow-hidden"
+          style={{ background: `linear-gradient(160deg, ${service.heroColor} 0%, #ffffff 100%)` }}
+        >
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 40% at 80% 50%, rgba(26,140,60,0.06) 0%, transparent 70%)" }} />
+          <div className="max-w-6xl mx-auto px-6 lg:px-8">
+            <div ref={heroRef}>
+              {/* Breadcrumb */}
+              <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-[#6e6e73] mb-8">
+                <Link href="/" className="hover:text-[#1a8c3c] transition-colors">Inicio</Link>
+                <span>/</span>
+                <Link href="/#servicios" className="hover:text-[#1a8c3c] transition-colors">Servicios</Link>
+                <span>/</span>
+                <span className="text-[#1d1d1f] font-medium">{service.title}</span>
+              </nav>
+
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                {/* Left */}
+                <div>
+                  <div className="inline-flex items-center gap-2 mb-5">
+                    <span className="w-2 h-2 rounded-full bg-[#1a8c3c] animate-pulse" />
+                    <span className="section-label">{service.tag}</span>
+                  </div>
+                  <h1 className="text-[clamp(36px,5vw,64px)] font-bold tracking-tight leading-[1.06] text-[#1d1d1f] mb-4">
+                    {service.title}
+                  </h1>
+                  <p className="text-[18px] text-[#1a8c3c] font-semibold mb-4">{service.subtitle}</p>
+                  <p className="text-[17px] text-[#6e6e73] leading-relaxed mb-8 max-w-lg">{service.summary}</p>
+                  <div className="flex flex-wrap gap-4">
+                    <a href="#contacto-servicio" className="btn-primary">
+                      Solicitar este servicio
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </a>
+                    <Link href="/#servicios" className="btn-secondary">
+                      ← Todos los servicios
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Right — image */}
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video lg:aspect-[4/3]">
+                  <Image
+                    src={SERVICE_IMAGES[service.slug] || "/vacuum-truck.jpg"}
+                    alt={`${service.title} — Soluciones Delta C.A.`}
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-semibold text-white"
+                      style={{ background: "rgba(26,140,60,0.85)", backdropFilter: "blur(8px)" }}
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                      Soluciones Delta, C.A. — RIF J-50735393-1
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div ref={contentRef} className="max-w-6xl mx-auto px-6 lg:px-8 py-16 space-y-20">
+
+          {/* ── OVERVIEW ── */}
+          <div className="animate-in">
+            <div className="max-w-3xl">
+              <div className="section-label mb-3">Descripción General</div>
+              <p className="text-[18px] text-[#3a3a3c] leading-relaxed">{service.overview}</p>
+            </div>
+          </div>
+
+          {/* ── CONTENT SECTIONS ── */}
+          <div className="space-y-12">
+            {service.sections.map((sec, i) => (
+              <div key={i} className="animate-in grid lg:grid-cols-5 gap-8 items-start">
+                <div className="lg:col-span-2">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div
+                      className="w-8 h-8 rounded-xl flex items-center justify-center text-[13px] font-bold text-white flex-shrink-0"
+                      style={{ background: "#1a8c3c" }}
+                    >
+                      {i + 1}
+                    </div>
+                    <h2 className="text-[18px] font-bold text-[#1d1d1f] leading-tight">{sec.heading}</h2>
+                  </div>
+                </div>
+                <div className="lg:col-span-3">
+                  <p className="text-[15px] text-[#6e6e73] leading-relaxed mb-4">{sec.body}</p>
+                  {sec.list && (
+                    <ul className="space-y-2.5">
+                      {sec.list.map((item, j) => (
+                        <li key={j} className="flex items-start gap-3 text-[14px] text-[#3a3a3c]">
+                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0 mt-0.5">
+                            <circle cx="8" cy="8" r="7" stroke="rgba(26,140,60,0.3)" strokeWidth="1"/>
+                            <path d="M5 8l2 2 4-4" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* ── SPECS TABLE ── */}
+          {service.specs && (
+            <div className="animate-in">
+              <div className="section-label mb-6">Especificaciones Técnicas</div>
+              <div className="rounded-2xl overflow-hidden" style={{ border: "1.5px solid #e5e5ea", boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}>
+                <div className="grid grid-cols-2 sm:grid-cols-4">
+                  {service.specs.map((sp, i) => (
+                    <div
+                      key={i}
+                      className="p-5"
+                      style={{
+                        borderRight: (i + 1) % 4 !== 0 ? "1px solid #e5e5ea" : "none",
+                        borderBottom: i < service.specs!.length - 4 ? "1px solid #e5e5ea" : "none",
+                        background: i % 2 === 0 ? "#ffffff" : "#fafafa",
+                      }}
+                    >
+                      <div className="text-[11px] text-[#6e6e73] mb-1 font-medium uppercase tracking-wide">{sp.label}</div>
+                      <div className="text-[14px] font-bold text-[#1d1d1f]">{sp.value}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ── BENEFITS ── */}
+          <div className="animate-in">
+            <div className="section-label mb-6">Ventajas del Servicio</div>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {service.benefits.map((b, i) => (
+                <div
+                  key={i}
+                  className="p-6 rounded-2xl glass-card"
+                >
+                  <div
+                    className="w-11 h-11 rounded-xl flex items-center justify-center mb-4"
+                    style={{ background: "rgba(26,140,60,0.08)", border: "1px solid rgba(26,140,60,0.15)" }}
+                  >
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                      <path d={b.icon} stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <h3 className="text-[15px] font-bold text-[#1d1d1f] mb-2">{b.title}</h3>
+                  <p className="text-[13px] text-[#6e6e73] leading-relaxed">{b.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── FAQ ── */}
+          <div className="animate-in">
+            <div className="section-label mb-6">Preguntas Frecuentes</div>
+            <div className="space-y-4 max-w-3xl">
+              {service.faq.map((item, i) => (
+                <FaqItem key={i} q={item.q} a={item.a} />
+              ))}
+            </div>
+          </div>
+
+          {/* ── CTA ── */}
+          <div
+            id="contacto-servicio"
+            className="animate-in rounded-3xl p-10 text-center"
+            style={{ background: "linear-gradient(135deg, rgba(26,140,60,0.06) 0%, rgba(48,209,88,0.04) 100%)", border: "1.5px solid rgba(26,140,60,0.15)" }}
+          >
+            <div className="inline-flex items-center gap-2 mb-4">
+              <span className="w-2 h-2 rounded-full bg-[#1a8c3c] animate-pulse" />
+              <span className="section-label">¿Listo para comenzar?</span>
+            </div>
+            <h2 className="text-[clamp(24px,3.5vw,40px)] font-bold text-[#1d1d1f] mb-4">
+              Solicite una cotización para<br />
+              <span className="text-gradient">{service.title}</span>
+            </h2>
+            <p className="text-[16px] text-[#6e6e73] mb-8 max-w-lg mx-auto">
+              Nuestro equipo técnico responde en menos de 2 horas hábiles. Disponibles 24/7 para emergencias.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="mailto:solucionesdeltaca@gmail.com" className="btn-primary">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <rect x="2" y="4" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+                  <path d="M2 7l7 4 7-4" stroke="currentColor" strokeWidth="1.5"/>
+                </svg>
+                Enviar solicitud por email
+              </a>
+              <a href="tel:04246472446" className="btn-secondary">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path d="M4 2h3l1.5 4-2 1.5a10 10 0 004 4L12 9.5l4 1.5v3a2 2 0 01-2 2C6 16 2 10 2 4a2 2 0 012-2z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+                </svg>
+                0424-6472446
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </main>
+      <Footer />
+    </>
+  );
+}
+
+function FaqItem({ q, a }: { q: string; a: string }) {
+  const detailsRef = useRef<HTMLDetailsElement>(null);
+
+  return (
+    <details
+      ref={detailsRef}
+      className="group glass-card rounded-2xl overflow-hidden"
+    >
+      <summary className="flex items-center justify-between gap-4 p-6 cursor-pointer list-none select-none">
+        <span className="text-[15px] font-semibold text-[#1d1d1f] pr-4">{q}</span>
+        <div
+          className="faq-icon w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors group-open:bg-[#1a8c3c]"
+          style={{ background: "rgba(26,140,60,0.1)", border: "1px solid rgba(26,140,60,0.2)" }}
+        >
+          <svg
+            width="14" height="14" viewBox="0 0 14 14" fill="none"
+            className="transition-transform duration-300 group-open:rotate-45"
+          >
+            <path d="M7 2v10M2 7h10" strokeWidth="1.5" strokeLinecap="round" className="faq-path"/>
+          </svg>
+        </div>
+      </summary>
+      <div className="px-6 pb-6 -mt-1">
+        <p className="text-[14px] text-[#6e6e73] leading-relaxed">{a}</p>
+      </div>
+    </details>
+  );
+}

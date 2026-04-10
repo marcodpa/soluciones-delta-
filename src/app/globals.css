@@ -257,3 +257,11 @@
 .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
 nextjs-portal { display: none !important; }
+
+/* FAQ accordion icon color */
+.faq-path {
+  stroke: #1a8c3c;
+}
+details[open] .faq-path {
+  stroke: #ffffff;
+}
