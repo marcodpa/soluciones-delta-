@@ -41,6 +41,7 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
+      aria-label="Soluciones Delta C.A. — Servicios industriales para el sector petrolero"
       className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-24 pb-16"
       style={{ background: "linear-gradient(160deg, #ffffff 0%, #f0f9f3 50%, #ffffff 100%)" }}
     >

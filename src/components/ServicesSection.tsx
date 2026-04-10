@@ -279,14 +279,14 @@ export default function ServicesSection() {
   }, []);
 
   return (
-    <section id="servicios" ref={sectionRef} className="py-32 relative overflow-hidden" style={{ background: "#eef0f2" }}>
+    <section id="servicios" ref={sectionRef} aria-labelledby="servicios-heading" className="py-32 relative overflow-hidden" style={{ background: "#eef0f2" }}>
       <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent 0%, rgba(26,140,60,0.25) 50%, transparent 100%)" }} />
       <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.06) 50%, transparent 100%)" }} />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div ref={headerRef} className="text-center mb-20">
           <div className="section-label mb-4">Nuestros Servicios</div>
-          <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight text-[#1d1d1f] leading-tight mb-6">
+          <h2 id="servicios-heading" className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight text-[#1d1d1f] leading-tight mb-6">
             Soluciones técnicas para cada{" "}
             <span className="text-gradient">desafío operacional</span>
           </h2>

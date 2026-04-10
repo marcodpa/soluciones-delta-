@@ -1,30 +1,11 @@
-"use client";
-
-import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
-import ServicesSection from "@/components/ServicesSection";
-import EquipmentSection from "@/components/EquipmentSection";
-import AboutSection from "@/components/AboutSection";
-import ContactSection from "@/components/ContactSection";
-import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
+import ClientPage from "@/components/ClientPage";
 
 export default function Home() {
   return (
     <>
-      {/* Noise overlay for depth */}
-      <div className="noise-overlay" />
-
-      <Navbar />
-
-      <main>
-        <HeroSection />
-        <ServicesSection />
-        <EquipmentSection />
-        <AboutSection />
-        <ContactSection />
-      </main>
-
-      <Footer />
+      <JsonLd />
+      <ClientPage />
     </>
   );
 }

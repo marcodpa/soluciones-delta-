@@ -1,0 +1,26 @@
+{
+  "name": "Soluciones Delta, C.A.",
+  "short_name": "Delta C.A.",
+  "description": "Servicios industriales para la industria petrolera venezolana: bombeo de crudo, vacuum, Frac Tanks y manejo de desechos. Estado Zulia.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1a8c3c",
+  "lang": "es-VE",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
