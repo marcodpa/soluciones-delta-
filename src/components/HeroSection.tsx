@@ -7,29 +7,30 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const FRAME_COUNT = 100;
-const frameUrl = (i: number) =>
-  `/frames/frame_${String(i).padStart(4, "0")}.jpg`;
+const frameUrl = (i: number) => `/frames/frame_${String(i).padStart(4, "0")}.jpg`;
 
 export default function HeroSection() {
-  const wrapperRef  = useRef<HTMLDivElement>(null);
-  const canvasRef   = useRef<HTMLCanvasElement>(null);
-  const overlayRef  = useRef<HTMLDivElement>(null);
-  const panel1Ref   = useRef<HTMLDivElement>(null);
-  const panel2Ref   = useRef<HTMLDivElement>(null);
-  const panel3Ref   = useRef<HTMLDivElement>(null);
-  const statsRef    = useRef<HTMLDivElement>(null);
-  const dot1Ref     = useRef<HTMLDivElement>(null);
-  const dot2Ref     = useRef<HTMLDivElement>(null);
-  const dot3Ref     = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const canvasRef  = useRef<HTMLCanvasElement>(null);
+  const sceneRef   = useRef<HTMLDivElement>(null);   // the element we scale
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const panel1Ref  = useRef<HTMLDivElement>(null);
+  const panel2Ref  = useRef<HTMLDivElement>(null);
+  const panel3Ref  = useRef<HTMLDivElement>(null);
+  const statsRef   = useRef<HTMLDivElement>(null);
+  const dot1Ref    = useRef<HTMLDivElement>(null);
+  const dot2Ref    = useRef<HTMLDivElement>(null);
+  const dot3Ref    = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current!;
     const ctx    = canvas.getContext("2d")!;
     const images: HTMLImageElement[] = new Array(FRAME_COUNT);
-    let loaded = 0;
+    let loaded       = 0;
     let currentFrame = 0;
+    let introPlayed  = false;
 
-    // ── Resize canvas to fill viewport ─────────────────────────────
+    // ── Resize canvas ──────────────────────────────────────────────
     const resizeCanvas = () => {
       canvas.width  = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -38,25 +39,39 @@ export default function HeroSection() {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
 
-    // ── Draw a single frame (cover fit) ────────────────────────────
+    // ── Draw frame — cover fit ─────────────────────────────────────
     const drawFrame = (index: number) => {
-      const img = images[index];
+      const img = images[Math.max(0, Math.min(index, FRAME_COUNT - 1))];
       if (!img?.complete) return;
       const cw = canvas.width, ch = canvas.height;
-      const iw = img.naturalWidth, ih = img.naturalHeight;
-      const scale = Math.max(cw / iw, ch / ih);
-      const w = iw * scale, h = ih * scale;
-      const x = (cw - w) / 2, y = (ch - h) / 2;
+      const scale = Math.max(cw / img.naturalWidth, ch / img.naturalHeight);
+      const w = img.naturalWidth  * scale;
+      const h = img.naturalHeight * scale;
       ctx.clearRect(0, 0, cw, ch);
-      ctx.drawImage(img, x, y, w, h);
+      ctx.drawImage(img, (cw - w) / 2, (ch - h) / 2, w, h);
     };
 
-    // ── Preload all frames ──────────────────────────────────────────
+    // ── Intro animation (plays once when frame 0 ready) ───────────
+    const playIntro = () => {
+      if (introPlayed) return;
+      introPlayed = true;
+
+      // Start: scene zoomed in (immersive fullscreen feel)
+      gsap.set(sceneRef.current,  { scale: 1.14, transformOrigin: "center center" });
+      gsap.set(overlayRef.current,{ opacity: 0 });
+      gsap.set(panel1Ref.current, { opacity: 0, y: 50 });
+      gsap.set(statsRef.current,  { opacity: 0, y: 24 });
+
+      const tl = gsap.timeline();
+      // Zoom out to normal over 1.4s — gives "entering the world" feel
+      tl.to(sceneRef.current,   { scale: 1, duration: 1.6, ease: "power2.out" }, 0)
+        .to(overlayRef.current,  { opacity: 1, duration: 1.0, ease: "power2.out" }, 0.1)
+        .to(panel1Ref.current,   { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 0.4)
+        .to(statsRef.current,    { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.65);
+    };
+
+    // ── Preload frames ─────────────────────────────────────────────
     const frameObj = { frame: 0 };
-
-    const onAllLoaded = () => {
-      initGSAP();
-    };
 
     for (let i = 0; i < FRAME_COUNT; i++) {
       const img = new Image();
@@ -64,26 +79,16 @@ export default function HeroSection() {
       img.onload = () => {
         loaded++;
         if (i === 0) {
-          // Frame 0 loaded — show immediately with intro animation
           drawFrame(0);
-          gsap.to(overlayRef.current,  { opacity: 1, duration: 0.8, ease: "power2.out" });
-          gsap.fromTo(panel1Ref.current,
-            { opacity: 0, y: 50 },
-            { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.2 }
-          );
-          gsap.fromTo(statsRef.current,
-            { opacity: 0, y: 24 },
-            { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.45 }
-          );
+          playIntro();
         }
-        if (loaded === FRAME_COUNT) onAllLoaded();
+        if (loaded === FRAME_COUNT) initScrollAnim();
       };
       images[i] = img;
     }
 
-    // ── GSAP setup (runs after ALL images loaded) ──────────────────
-    const initGSAP = () => {
-      // panels 2 & 3 stay hidden until scroll
+    // ── Scroll animation (runs when ALL frames ready) ──────────────
+    const initScrollAnim = () => {
       gsap.set(panel2Ref.current, { opacity: 0, y: 60 });
       gsap.set(panel3Ref.current, { opacity: 0, y: 60 });
 
@@ -92,11 +97,11 @@ export default function HeroSection() {
           trigger: wrapperRef.current,
           start: "top top",
           end: "bottom bottom",
-          scrub: 1,
+          scrub: 1.2,
         },
       });
 
-      // ── Frame scrub ─────────────────────────────────────────────
+      // Frame scrub
       tl.to(frameObj, {
         frame: FRAME_COUNT - 1,
         snap: "frame",
@@ -111,21 +116,28 @@ export default function HeroSection() {
         },
       }, 0);
 
-      // ── Panel 1 exits (already visible from intro animation) ────
-      tl.to(panel1Ref.current, { opacity: 0, y: -55, duration: 0.09 }, 0.32);
+      // Subtle zoom in on scroll (1.0 → 1.04) for cinematic depth
+      tl.to(sceneRef.current, {
+        scale: 1.04,
+        ease: "none",
+        duration: 1,
+      }, 0);
 
-      // ── Panel 2 enters then exits ───────────────────────────────
-      tl.to(panel2Ref.current, { opacity: 1, y: 0, duration: 0.10 }, 0.40);
-      tl.to(panel2Ref.current, { opacity: 0, y: -55, duration: 0.09 }, 0.65);
+      // Panel 1 exits at ~30% scroll
+      tl.to(panel1Ref.current, { opacity: 0, y: -55, duration: 0.09 }, 0.30);
 
-      // ── Panel 3 stays ───────────────────────────────────────────
-      tl.to(panel3Ref.current, { opacity: 1, y: 0, duration: 0.11 }, 0.73);
+      // Panel 2 enters then exits
+      tl.to(panel2Ref.current, { opacity: 1, y: 0,   duration: 0.10 }, 0.38);
+      tl.to(panel2Ref.current, { opacity: 0, y: -55, duration: 0.09 }, 0.63);
 
-      // ── Dots ────────────────────────────────────────────────────
-      tl.to(dot1Ref.current, { width: 6, background: "rgba(255,255,255,0.28)", duration: 0.08 }, 0.32);
-      tl.to(dot2Ref.current, { width: 22, background: "#30d158",               duration: 0.08 }, 0.32);
-      tl.to(dot2Ref.current, { width: 6, background: "rgba(255,255,255,0.28)", duration: 0.08 }, 0.65);
-      tl.to(dot3Ref.current, { width: 22, background: "#30d158",               duration: 0.08 }, 0.65);
+      // Panel 3 enters
+      tl.to(panel3Ref.current, { opacity: 1, y: 0,   duration: 0.11 }, 0.71);
+
+      // Dots
+      tl.to(dot1Ref.current, { width: 6,  background: "rgba(255,255,255,0.28)", duration: 0.08 }, 0.30);
+      tl.to(dot2Ref.current, { width: 22, background: "#30d158",               duration: 0.08 }, 0.30);
+      tl.to(dot2Ref.current, { width: 6,  background: "rgba(255,255,255,0.28)", duration: 0.08 }, 0.63);
+      tl.to(dot3Ref.current, { width: 22, background: "#30d158",               duration: 0.08 }, 0.63);
     };
 
     return () => {
@@ -138,12 +150,18 @@ export default function HeroSection() {
     <div ref={wrapperRef} style={{ height: "380vh" }}>
       <div className="sticky top-0 w-full overflow-hidden" style={{ height: "100vh" }}>
 
-        {/* ── CANVAS — image sequence ── */}
-        <canvas
-          ref={canvasRef}
-          className="absolute inset-0 w-full h-full"
-          style={{ display: "block" }}
-        />
+        {/* Scene wrapper — this is what we scale for zoom effect */}
+        <div
+          ref={sceneRef}
+          className="absolute inset-0"
+          style={{ transformOrigin: "center center", willChange: "transform" }}
+        >
+          <canvas
+            ref={canvasRef}
+            className="absolute inset-0 w-full h-full"
+            style={{ display: "block" }}
+          />
+        </div>
 
         {/* Gradient overlay */}
         <div
@@ -152,40 +170,40 @@ export default function HeroSection() {
           style={{
             opacity: 0,
             background:
-              "linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.48) 55%, rgba(0,0,0,0.18) 100%)",
+              "linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.50) 50%, rgba(0,0,0,0.15) 100%)",
           }}
         />
         {/* Bottom vignette */}
         <div className="absolute inset-0 pointer-events-none"
-          style={{ background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 46%)" }}
+          style={{ background: "linear-gradient(to top, rgba(0,0,0,0.70) 0%, transparent 50%)" }}
         />
 
-        {/* ── PANELS ── */}
+        {/* ── TEXT PANELS ── */}
         <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24">
 
-          <div ref={panel1Ref} className="absolute max-w-2xl">
+          <div ref={panel1Ref} className="absolute max-w-2xl" style={{ opacity: 0 }}>
             <Eyebrow>Sector Petrolero · Zulia, Venezuela</Eyebrow>
-            <h1 className="text-[clamp(40px,6.5vw,86px)] font-bold leading-[1.03] tracking-tight text-white mb-6">
+            <h1 className="text-[clamp(42px,6.5vw,88px)] font-bold leading-[1.03] tracking-tight text-white mb-6">
               Potencia<br /><GreenText>industrial</GreenText><br />en cada operación.
             </h1>
-            <p className="text-[17px] text-white/70 max-w-lg leading-relaxed">
+            <p className="text-[18px] text-white/70 max-w-lg leading-relaxed">
               Trasegado con vacuum, bombeo de crudo, almacenamiento y gestión de desechos para la industria petrolera venezolana.
             </p>
           </div>
 
-          <div ref={panel2Ref} className="absolute max-w-2xl">
+          <div ref={panel2Ref} className="absolute max-w-2xl" style={{ opacity: 0 }}>
             <Eyebrow>Unidad Vacuum — Fabricación 2026</Eyebrow>
-            <h2 className="text-[clamp(36px,5.5vw,76px)] font-bold leading-[1.05] tracking-tight text-white mb-6">
+            <h2 className="text-[clamp(38px,5.5vw,78px)] font-bold leading-[1.04] tracking-tight text-white mb-6">
               160 barriles.<br /><GreenText>Acero A36.</GreenText><br />Compresor NVE 607.
             </h2>
-            <p className="text-[17px] text-white/70 max-w-lg leading-relaxed">
+            <p className="text-[18px] text-white/70 max-w-lg leading-relaxed">
               Semirremolque vacuum de última generación con motor Isuzu 4BD1. Operación continua 24/7 en campo.
             </p>
           </div>
 
-          <div ref={panel3Ref} className="absolute max-w-2xl">
+          <div ref={panel3Ref} className="absolute max-w-2xl" style={{ opacity: 0 }}>
             <Eyebrow>Soluciones Delta, C.A. — RIF J-50735393-1</Eyebrow>
-            <h2 className="text-[clamp(34px,5vw,70px)] font-bold leading-[1.05] tracking-tight text-white mb-8">
+            <h2 className="text-[clamp(36px,5vw,72px)] font-bold leading-[1.04] tracking-tight text-white mb-8">
               Soluciones técnicas<br /><GreenText>de alta precisión.</GreenText>
             </h2>
             <div className="flex flex-wrap gap-4">
@@ -219,8 +237,11 @@ export default function HeroSection() {
         </div>
 
         {/* ── STATS ── */}
-        <div ref={statsRef} className="absolute bottom-10 left-0 right-0 px-8 md:px-16 lg:px-24">
-          <div className="flex items-end gap-10 md:gap-16">
+        <div ref={statsRef} className="absolute bottom-12 left-0 right-0 px-8 md:px-16 lg:px-24" style={{ opacity: 0 }}>
+          <div
+            className="flex items-end gap-10 md:gap-16 pb-6 pt-6"
+            style={{ borderTop: "1px solid rgba(255,255,255,0.12)" }}
+          >
             {[
               { value: "160", unit: "Bbl", label: "Capacidad Vacuum" },
               { value: "500", unit: "Bbl", label: "Frac Tanks" },
@@ -228,21 +249,22 @@ export default function HeroSection() {
             ].map((s) => (
               <div key={s.label}>
                 <div className="flex items-end gap-1">
-                  <span className="text-[clamp(32px,4.5vw,56px)] font-bold text-white leading-none tracking-tight">{s.value}</span>
-                  {s.unit && <span className="text-[#30d158] font-semibold text-lg mb-1">{s.unit}</span>}
+                  <span className="text-[clamp(34px,4.5vw,58px)] font-bold text-white leading-none tracking-tight">{s.value}</span>
+                  {s.unit && <span className="text-[#30d158] font-semibold text-xl mb-1">{s.unit}</span>}
                 </div>
-                <div className="text-[12px] text-white/50 mt-1 font-medium tracking-wide">{s.label}</div>
+                <div className="text-[12px] text-white/45 mt-1.5 font-medium tracking-widest uppercase">{s.label}</div>
               </div>
             ))}
-            <div className="ml-auto hidden md:flex flex-col items-center gap-2 opacity-40 mb-1">
+            {/* Scroll hint */}
+            <div className="ml-auto hidden md:flex flex-col items-center gap-2 opacity-45 mb-1">
               <div className="w-0.5 h-10 bg-gradient-to-b from-transparent via-white to-transparent animate-pulse" />
               <span className="text-[10px] text-white tracking-widest uppercase">Scroll</span>
             </div>
           </div>
         </div>
 
-        {/* ── DOTS ── */}
-        <div className="absolute right-5 top-1/2 -translate-y-1/2 flex flex-col gap-2.5">
+        {/* ── PROGRESS DOTS ── */}
+        <div className="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col gap-3">
           <div ref={dot1Ref} style={{ width: 22, height: 6, borderRadius: 9999, background: "#30d158" }} />
           <div ref={dot2Ref} style={{ width:  6, height: 6, borderRadius: 9999, background: "rgba(255,255,255,0.28)" }} />
           <div ref={dot3Ref} style={{ width:  6, height: 6, borderRadius: 9999, background: "rgba(255,255,255,0.28)" }} />
@@ -255,9 +277,9 @@ export default function HeroSection() {
 
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex items-center gap-2 mb-5">
+    <div className="flex items-center gap-2 mb-6">
       <span className="w-2 h-2 rounded-full bg-[#30d158] animate-pulse" />
-      <span className="text-[12px] font-semibold tracking-[0.18em] uppercase text-[#30d158]">{children}</span>
+      <span className="text-[12px] font-semibold tracking-[0.20em] uppercase text-[#30d158]">{children}</span>
     </div>
   );
 }
