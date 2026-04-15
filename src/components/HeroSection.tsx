@@ -2,119 +2,109 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroSection() {
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const videoRef   = useRef<HTMLVideoElement>(null);
   const panel1Ref  = useRef<HTMLDivElement>(null);
   const panel2Ref  = useRef<HTMLDivElement>(null);
   const panel3Ref  = useRef<HTMLDivElement>(null);
   const statsRef   = useRef<HTMLDivElement>(null);
+  const overlayRef = useRef<HTMLDivElement>(null);
   const dot1Ref    = useRef<HTMLDivElement>(null);
   const dot2Ref    = useRef<HTMLDivElement>(null);
   const dot3Ref    = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const wrapper = wrapperRef.current;
-    if (!wrapper) return;
+    const ctx = gsap.context(() => {
 
-    // Set initial states
-    gsap.set([panel1Ref.current, panel2Ref.current, panel3Ref.current, statsRef.current], {
-      opacity: 0, y: 44,
-    });
+      // ── Initial hidden state ──────────────────────────────────────
+      gsap.set(overlayRef.current, { opacity: 0 });
+      gsap.set(panel1Ref.current,  { opacity: 0, y: 60 });
+      gsap.set(panel2Ref.current,  { opacity: 0, y: 60 });
+      gsap.set(panel3Ref.current,  { opacity: 0, y: 60 });
+      gsap.set(statsRef.current,   { opacity: 0, y: 30 });
 
-    // Entrance animation on load (panel 1 + stats)
-    const tl = gsap.timeline({ delay: 0.4 });
-    tl.to(panel1Ref.current, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" })
-      .to(statsRef.current,  { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" }, "-=0.4");
-
-    let currentPanel = 1;
-
-    const showPanel = (n: number) => {
-      if (n === currentPanel) return;
-      const refs = [null, panel1Ref, panel2Ref, panel3Ref];
-      const prev = refs[currentPanel]?.current;
-      const next = refs[n]?.current;
-      if (prev) gsap.to(prev, { opacity: 0, y: -36, duration: 0.5, ease: "power2.in" });
-      if (next) gsap.fromTo(next, { opacity: 0, y: 44 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" });
-      currentPanel = n;
-
-      // Dots
-      [[dot1Ref, n === 1], [dot2Ref, n === 2], [dot3Ref, n === 3]].forEach(([ref, active]) => {
-        const el = (ref as React.RefObject<HTMLDivElement>).current;
-        if (!el) return;
-        gsap.to(el, {
-          width: active ? 22 : 6,
-          background: active ? "#30d158" : "rgba(255,255,255,0.28)",
-          duration: 0.3, overwrite: true,
-        });
+      // ── Timeline driven by scroll ─────────────────────────────────
+      // trigger = wrapper (350vh tall)
+      // CSS sticky keeps the visual pinned — GSAP only drives text
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: wrapperRef.current,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1.5,
+        },
       });
-    };
 
-    const onScroll = () => {
-      const rect   = wrapper.getBoundingClientRect();
-      const total  = wrapper.offsetHeight - window.innerHeight;
-      const scrolled = Math.max(0, -rect.top);
-      const p = Math.min(1, scrolled / total);   // 0 → 1
+      // 0.00 – 0.08  overlay + panel 1 enter
+      tl.to(overlayRef.current, { opacity: 1, duration: 0.08 }, 0)
+        .to(panel1Ref.current,  { opacity: 1, y: 0, duration: 0.12 }, 0.03)
+        .to(statsRef.current,   { opacity: 1, y: 0, duration: 0.12 }, 0.06)
 
-      if      (p < 0.35) showPanel(1);
-      else if (p < 0.68) showPanel(2);
-      else               showPanel(3);
-    };
+      // 0.30 – 0.40  panel 1 exits up
+        .to(panel1Ref.current, { opacity: 0, y: -60, duration: 0.10 }, 0.30)
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      tl.kill();
-    };
+      // 0.38 – 0.50  panel 2 enters
+        .to(panel2Ref.current, { opacity: 1, y: 0,   duration: 0.12 }, 0.38)
+
+      // 0.62 – 0.72  panel 2 exits up
+        .to(panel2Ref.current, { opacity: 0, y: -60, duration: 0.10 }, 0.62)
+
+      // 0.70 – 0.85  panel 3 enters
+        .to(panel3Ref.current, { opacity: 1, y: 0,   duration: 0.14 }, 0.70)
+
+      // dots sync
+        .to(dot1Ref.current, { width: 6,  background: "rgba(255,255,255,0.28)", duration: 0.10 }, 0.30)
+        .to(dot2Ref.current, { width: 22, background: "#30d158",                duration: 0.10 }, 0.30)
+        .to(dot2Ref.current, { width: 6,  background: "rgba(255,255,255,0.28)", duration: 0.10 }, 0.62)
+        .to(dot3Ref.current, { width: 22, background: "#30d158",                duration: 0.10 }, 0.62);
+
+    }, wrapperRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
-    /* Tall wrapper — creates the scroll distance */
+    /* Tall wrapper — 350 vh of scroll distance */
     <div ref={wrapperRef} style={{ height: "350vh" }}>
 
-      {/* CSS sticky container — stays in viewport while wrapper scrolls */}
-      <div
-        className="sticky top-0 w-full overflow-hidden"
-        style={{ height: "100vh" }}
-      >
-        {/* ── VIDEO BACKGROUND (autoplay, no scrub) ── */}
+      {/* CSS sticky — fixed in viewport while wrapper scrolls */}
+      <div className="sticky top-0 w-full overflow-hidden" style={{ height: "100vh" }}>
+
+        {/* VIDEO — autoplay loop, no scrubbing */}
         <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
+          autoPlay muted loop playsInline preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
         >
           <source src="/hero-video.mp4" type="video/mp4" />
         </video>
 
-        {/* Dark gradient overlay */}
+        {/* Overlay (animated in with panel 1) */}
         <div
+          ref={overlayRef}
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "linear-gradient(to right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.46) 55%, rgba(0,0,0,0.22) 100%)",
+              "linear-gradient(to right, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.48) 55%, rgba(0,0,0,0.22) 100%)",
           }}
         />
-        {/* Bottom vignette */}
+        {/* Bottom vignette — always on */}
         <div
           className="absolute inset-0 pointer-events-none"
-          style={{ background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 45%)" }}
+          style={{ background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 46%)" }}
         />
 
-        {/* ── TEXT PANELS ── */}
+        {/* ── PANELS ── */}
         <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24">
 
           {/* Panel 1 */}
           <div ref={panel1Ref} className="absolute max-w-2xl">
             <Eyebrow>Sector Petrolero · Zulia, Venezuela</Eyebrow>
             <h1 className="text-[clamp(38px,6vw,80px)] font-bold leading-[1.04] tracking-tight text-white mb-6">
-              Potencia<br />
-              <GreenText>industrial</GreenText><br />
-              en cada operación.
+              Potencia<br /><GreenText>industrial</GreenText><br />en cada operación.
             </h1>
             <p className="text-[17px] text-white/70 max-w-lg leading-relaxed">
               Trasegado con vacuum, bombeo de crudo, almacenamiento y gestión de desechos para la industria petrolera venezolana.
@@ -125,9 +115,7 @@ export default function HeroSection() {
           <div ref={panel2Ref} className="absolute max-w-2xl">
             <Eyebrow>Unidad Vacuum — Fabricación 2026</Eyebrow>
             <h2 className="text-[clamp(34px,5.5vw,72px)] font-bold leading-[1.06] tracking-tight text-white mb-6">
-              160 barriles.<br />
-              <GreenText>Acero A36.</GreenText><br />
-              Compresor NVE 607.
+              160 barriles.<br /><GreenText>Acero A36.</GreenText><br />Compresor NVE 607.
             </h2>
             <p className="text-[17px] text-white/70 max-w-lg leading-relaxed">
               Semirremolque vacuum de última generación con motor Isuzu 4BD1. Operación continua 24/7 en campo.
@@ -137,9 +125,8 @@ export default function HeroSection() {
           {/* Panel 3 — CTA */}
           <div ref={panel3Ref} className="absolute max-w-2xl">
             <Eyebrow>Soluciones Delta, C.A. — RIF J-50735393-1</Eyebrow>
-            <h2 className="text-[clamp(34px,5vw,68px)] font-bold leading-[1.06] tracking-tight text-white mb-6">
-              Soluciones técnicas<br />
-              <GreenText>de alta precisión.</GreenText>
+            <h2 className="text-[clamp(34px,5vw,68px)] font-bold leading-[1.06] tracking-tight text-white mb-8">
+              Soluciones técnicas<br /><GreenText>de alta precisión.</GreenText>
             </h2>
             <div className="flex flex-wrap gap-4">
               <a
@@ -184,7 +171,7 @@ export default function HeroSection() {
             {[
               { value: "160", unit: "Bbl", label: "Capacidad Vacuum" },
               { value: "500", unit: "Bbl", label: "Frac Tanks" },
-              { value: "24/7", unit: "", label: "Operación Continua" },
+              { value: "24/7", unit: "",    label: "Operación Continua" },
             ].map((s) => (
               <div key={s.label}>
                 <div className="flex items-end gap-1">
@@ -205,22 +192,9 @@ export default function HeroSection() {
 
         {/* ── PROGRESS DOTS ── */}
         <div className="absolute right-5 top-1/2 -translate-y-1/2 flex flex-col gap-2.5 items-center">
-          {[
-            { ref: dot1Ref, active: true },
-            { ref: dot2Ref, active: false },
-            { ref: dot3Ref, active: false },
-          ].map(({ ref, active }, i) => (
-            <div
-              key={i}
-              ref={ref}
-              style={{
-                width: active ? 22 : 6,
-                height: 6,
-                borderRadius: 9999,
-                background: active ? "#30d158" : "rgba(255,255,255,0.28)",
-              }}
-            />
-          ))}
+          <div ref={dot1Ref} style={{ width: 22, height: 6, borderRadius: 9999, background: "#30d158" }} />
+          <div ref={dot2Ref} style={{ width:  6, height: 6, borderRadius: 9999, background: "rgba(255,255,255,0.28)" }} />
+          <div ref={dot3Ref} style={{ width:  6, height: 6, borderRadius: 9999, background: "rgba(255,255,255,0.28)" }} />
         </div>
 
       </div>
@@ -228,14 +202,11 @@ export default function HeroSection() {
   );
 }
 
-/* ── Small helpers ── */
 function Eyebrow({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-2 mb-5">
       <span className="w-2 h-2 rounded-full bg-[#30d158] animate-pulse" />
-      <span className="text-[12px] font-semibold tracking-[0.18em] uppercase text-[#30d158]">
-        {children}
-      </span>
+      <span className="text-[12px] font-semibold tracking-[0.18em] uppercase text-[#30d158]">{children}</span>
     </div>
   );
 }
