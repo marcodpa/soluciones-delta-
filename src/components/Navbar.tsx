@@ -74,18 +74,6 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* CTA */}
-            <a
-              href="#contacto"
-              onClick={(e) => { e.preventDefault(); scrollTo("#contacto"); }}
-              className={`hidden lg:flex items-center gap-2 font-semibold text-sm py-2.5 px-6 rounded-full transition-all duration-300 ${
-                scrolled
-                  ? "btn-primary"
-                  : "bg-white/15 text-white border border-white/30 hover:bg-white/25 backdrop-blur-sm"
-              }`}
-            >
-              Solicitar Servicio
-            </a>
 
             {/* Mobile toggle */}
             <button
