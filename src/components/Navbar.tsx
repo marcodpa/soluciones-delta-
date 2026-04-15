@@ -6,31 +6,24 @@ import Image from "next/image";
 
 const navLinks = [
   { label: "Servicios", href: "#servicios" },
-  { label: "Equipos", href: "#equipos" },
-  { label: "Nosotros", href: "#nosotros" },
-  { label: "Contacto", href: "#contacto" },
+  { label: "Equipos",   href: "#equipos"   },
+  { label: "Nosotros",  href: "#nosotros"  },
+  { label: "Contacto",  href: "#contacto"  },
 ];
 
 export default function Navbar() {
-  const navRef = useRef<HTMLElement>(null);
-  const logoRef = useRef<HTMLDivElement>(null);
-  const linksRef = useRef<HTMLDivElement>(null);
-  const ctaRef = useRef<HTMLAnchorElement>(null);
+  const navRef    = useRef<HTMLElement>(null);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(logoRef.current, { opacity: 0, x: -30, duration: 1, ease: "power3.out", delay: 0.3 });
-      gsap.from(linksRef.current?.children as unknown as Element[], {
-        opacity: 0, y: -20, duration: 0.7, ease: "power3.out", stagger: 0.08, delay: 0.5,
-      });
-      gsap.from(ctaRef.current, { opacity: 0, x: 30, duration: 1, ease: "power3.out", delay: 0.3 });
-    }, navRef);
+    // Start invisible — HeroSection intro plays first, then navbar fades in
+    gsap.set(navRef.current, { opacity: 0, y: -20 });
+    gsap.to(navRef.current,  { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 1.6 });
 
     const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => { ctx.revert(); window.removeEventListener("scroll", handleScroll); };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollTo = (href: string) => {
@@ -43,30 +36,40 @@ export default function Navbar() {
       <nav
         ref={navRef}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          scrolled ? "nav-blur" : "bg-white/80 backdrop-blur-md border-b border-black/5"
+          scrolled ? "nav-blur" : "bg-transparent"
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
-            {/* Logo */}
-            <div ref={logoRef} className="flex items-center cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+
+            {/* Logo — white when over hero, dark when scrolled */}
+            <div
+              className="flex items-center cursor-pointer"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
               <Image
                 src="/logo.png"
                 alt="Soluciones Delta C.A."
                 width={130}
                 height={52}
-                className="h-11 w-auto object-contain"
+                className={`h-11 w-auto object-contain transition-all duration-500 ${
+                  scrolled ? "" : "brightness-0 invert"
+                }`}
                 priority
               />
             </div>
 
             {/* Desktop links */}
-            <div ref={linksRef} className="hidden lg:flex items-center gap-8">
+            <div className="hidden lg:flex items-center gap-8">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => scrollTo(link.href)}
-                  className="text-[15px] text-[#6e6e73] hover:text-[#1d1d1f] transition-colors duration-200 font-medium"
+                  className={`text-[15px] font-medium transition-colors duration-300 ${
+                    scrolled
+                      ? "text-[#6e6e73] hover:text-[#1d1d1f]"
+                      : "text-white/80 hover:text-white"
+                  }`}
                 >
                   {link.label}
                 </button>
@@ -75,10 +78,13 @@ export default function Navbar() {
 
             {/* CTA */}
             <a
-              ref={ctaRef}
               href="#contacto"
               onClick={(e) => { e.preventDefault(); scrollTo("#contacto"); }}
-              className="hidden lg:flex btn-primary text-sm py-2.5 px-6"
+              className={`hidden lg:flex items-center gap-2 font-semibold text-sm py-2.5 px-6 rounded-full transition-all duration-300 ${
+                scrolled
+                  ? "btn-primary"
+                  : "bg-white/15 text-white border border-white/30 hover:bg-white/25 backdrop-blur-sm"
+              }`}
             >
               Solicitar Servicio
             </a>
@@ -89,9 +95,9 @@ export default function Navbar() {
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
-              <div className={`w-6 h-0.5 bg-[#1d1d1f] transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[7px]" : ""}`} />
-              <div className={`w-6 h-0.5 bg-[#1d1d1f] mt-1.5 transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
-              <div className={`w-6 h-0.5 bg-[#1d1d1f] mt-1.5 transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[7px]" : ""}`} />
+              <div className={`w-6 h-0.5 transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[7px] bg-[#1d1d1f]" : scrolled ? "bg-[#1d1d1f]" : "bg-white"}`} />
+              <div className={`w-6 h-0.5 mt-1.5 transition-all duration-300 ${mobileOpen ? "opacity-0 bg-[#1d1d1f]" : scrolled ? "bg-[#1d1d1f]" : "bg-white"}`} />
+              <div className={`w-6 h-0.5 mt-1.5 transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[7px] bg-[#1d1d1f]" : scrolled ? "bg-[#1d1d1f]" : "bg-white"}`} />
             </button>
           </div>
         </div>

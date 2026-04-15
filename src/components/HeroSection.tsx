@@ -56,18 +56,25 @@ export default function HeroSection() {
       if (introPlayed) return;
       introPlayed = true;
 
-      // Start: scene zoomed in (immersive fullscreen feel)
-      gsap.set(sceneRef.current,  { scale: 1.14, transformOrigin: "center center" });
+      // Phase 1: pure fullscreen image, slightly zoomed — no text, no overlay
+      gsap.set(sceneRef.current,  { scale: 1.18, transformOrigin: "center center" });
       gsap.set(overlayRef.current,{ opacity: 0 });
-      gsap.set(panel1Ref.current, { opacity: 0, y: 50 });
-      gsap.set(statsRef.current,  { opacity: 0, y: 24 });
+      gsap.set(panel1Ref.current, { opacity: 0, y: 70 });
+      gsap.set(statsRef.current,  { opacity: 0, y: 32 });
 
       const tl = gsap.timeline();
-      // Zoom out to normal over 1.4s — gives "entering the world" feel
-      tl.to(sceneRef.current,   { scale: 1, duration: 1.6, ease: "power2.out" }, 0)
-        .to(overlayRef.current,  { opacity: 1, duration: 1.0, ease: "power2.out" }, 0.1)
-        .to(panel1Ref.current,   { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 0.4)
-        .to(statsRef.current,    { opacity: 1, y: 0, duration: 0.8, ease: "power3.out" }, 0.65);
+
+      // 0.0s – 1.8s : slow zoom out — pure cinematic image, nothing else
+      tl.to(sceneRef.current, { scale: 1, duration: 2.0, ease: "power2.inOut" }, 0)
+
+      // 0.9s : overlay starts fading in
+        .to(overlayRef.current, { opacity: 1, duration: 1.1, ease: "power2.out" }, 0.9)
+
+      // 1.4s : text panel 1 rises from bottom
+        .to(panel1Ref.current, { opacity: 1, y: 0, duration: 1.0, ease: "power3.out" }, 1.4)
+
+      // 1.7s : stats slide up
+        .to(statsRef.current,  { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 1.7);
     };
 
     // ── Preload frames ─────────────────────────────────────────────
