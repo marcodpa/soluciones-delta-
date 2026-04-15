@@ -2,136 +2,145 @@
 
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const FRAME_COUNT = 100;
+const frameUrl = (i: number) =>
+  `/frames/frame_${String(i).padStart(4, "0")}.jpg`;
 
 export default function HeroSection() {
-  const wrapperRef = useRef<HTMLDivElement>(null);
-  const videoRef   = useRef<HTMLVideoElement>(null);
-  const overlayRef = useRef<HTMLDivElement>(null);
-  const panel1Ref  = useRef<HTMLDivElement>(null);
-  const panel2Ref  = useRef<HTMLDivElement>(null);
-  const panel3Ref  = useRef<HTMLDivElement>(null);
-  const statsRef   = useRef<HTMLDivElement>(null);
-  const dot1Ref    = useRef<HTMLDivElement>(null);
-  const dot2Ref    = useRef<HTMLDivElement>(null);
-  const dot3Ref    = useRef<HTMLDivElement>(null);
+  const wrapperRef  = useRef<HTMLDivElement>(null);
+  const canvasRef   = useRef<HTMLCanvasElement>(null);
+  const overlayRef  = useRef<HTMLDivElement>(null);
+  const panel1Ref   = useRef<HTMLDivElement>(null);
+  const panel2Ref   = useRef<HTMLDivElement>(null);
+  const panel3Ref   = useRef<HTMLDivElement>(null);
+  const statsRef    = useRef<HTMLDivElement>(null);
+  const dot1Ref     = useRef<HTMLDivElement>(null);
+  const dot2Ref     = useRef<HTMLDivElement>(null);
+  const dot3Ref     = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const wrapper = wrapperRef.current;
-    const video   = videoRef.current;
-    if (!wrapper || !video) return;
+    const canvas = canvasRef.current!;
+    const ctx    = canvas.getContext("2d")!;
+    const images: HTMLImageElement[] = new Array(FRAME_COUNT);
+    let loaded = 0;
+    let currentFrame = 0;
 
-    // ── initial GSAP states ──────────────────────────────────────────
-    gsap.set(overlayRef.current, { opacity: 0 });
-    gsap.set([panel1Ref.current, panel2Ref.current, panel3Ref.current], { opacity: 0, y: 56 });
-    gsap.set(statsRef.current, { opacity: 0, y: 28 });
+    // ── Resize canvas to fill viewport ─────────────────────────────
+    const resizeCanvas = () => {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+      if (images[currentFrame]?.complete) drawFrame(currentFrame);
+    };
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
-    let currentPanel = 0;   // track which panel is visible
-    let rafId: number;
-    let targetTime = 0;
-    let lerpTime   = 0;
-
-    // ── panel switcher ───────────────────────────────────────────────
-    const dots = [dot1Ref, dot2Ref, dot3Ref];
-
-    const showPanel = (n: number) => {
-      if (n === currentPanel) return;
-      const panels = [panel1Ref, panel2Ref, panel3Ref];
-
-      // exit current
-      if (currentPanel > 0) {
-        gsap.to(panels[currentPanel - 1].current, {
-          opacity: 0, y: -52, duration: 0.55, ease: "power2.in",
-        });
-      }
-      // enter new
-      gsap.fromTo(panels[n - 1].current,
-        { opacity: 0, y: 56 },
-        { opacity: 1, y: 0, duration: 0.65, ease: "power3.out" }
-      );
-
-      // activate dot
-      dots.forEach((d, i) => {
-        gsap.to(d.current, {
-          width:      i + 1 === n ? 22 : 6,
-          background: i + 1 === n ? "#30d158" : "rgba(255,255,255,0.28)",
-          duration: 0.3,
-        });
-      });
-
-      currentPanel = n;
+    // ── Draw a single frame (cover fit) ────────────────────────────
+    const drawFrame = (index: number) => {
+      const img = images[index];
+      if (!img?.complete) return;
+      const cw = canvas.width, ch = canvas.height;
+      const iw = img.naturalWidth, ih = img.naturalHeight;
+      const scale = Math.max(cw / iw, ch / ih);
+      const w = iw * scale, h = ih * scale;
+      const x = (cw - w) / 2, y = (ch - h) / 2;
+      ctx.clearRect(0, 0, cw, ch);
+      ctx.drawImage(img, x, y, w, h);
     };
 
-    // ── scroll handler ───────────────────────────────────────────────
-    const onScroll = () => {
-      const rect  = wrapper.getBoundingClientRect();
-      const total = wrapper.offsetHeight - window.innerHeight;
-      const p     = Math.min(1, Math.max(0, -rect.top / total));
+    // ── Preload all frames ──────────────────────────────────────────
+    const frameObj = { frame: 0 };
 
-      // video scrub target
-      if (video.duration) targetTime = p * video.duration;
-
-      // overlay fades in as soon as scroll starts
-      gsap.to(overlayRef.current, { opacity: Math.min(1, p * 12), duration: 0.3, overwrite: true });
-
-      // stats enter once
-      if (p > 0.04 && currentPanel === 0) {
-        gsap.to(statsRef.current, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out" });
-      }
-
-      // panel transitions
-      if      (p < 0.34) showPanel(1);
-      else if (p < 0.67) showPanel(2);
-      else               showPanel(3);
+    const onAllLoaded = () => {
+      drawFrame(0);
+      initGSAP();
     };
 
-    // ── rAF loop: smooth lerp on video.currentTime ───────────────────
-    const tick = () => {
-      lerpTime += (targetTime - lerpTime) * 0.10;   // 0.10 = smoothness
-      if (video.readyState >= 2 && Math.abs(targetTime - lerpTime) > 0.001) {
-        video.currentTime = lerpTime;
-      }
-      rafId = requestAnimationFrame(tick);
-    };
-
-    // ── init ─────────────────────────────────────────────────────────
-    const start = () => {
-      video.pause();                    // don't autoplay — scroll drives it
-      video.currentTime = 0;
-      window.addEventListener("scroll", onScroll, { passive: true });
-      rafId = requestAnimationFrame(tick);
-      onScroll();                        // run once to set initial state
-    };
-
-    if (video.readyState >= 1) {
-      start();
-    } else {
-      video.addEventListener("loadedmetadata", start, { once: true });
+    for (let i = 0; i < FRAME_COUNT; i++) {
+      const img = new Image();
+      img.src = frameUrl(i);
+      img.onload = () => {
+        loaded++;
+        if (i === 0) { drawFrame(0); }   // show first frame ASAP
+        if (loaded === FRAME_COUNT) onAllLoaded();
+      };
+      images[i] = img;
     }
 
+    // ── GSAP setup (runs after images loaded) ──────────────────────
+    const initGSAP = () => {
+      // Initial states
+      gsap.set(overlayRef.current,   { opacity: 0 });
+      gsap.set(panel1Ref.current,    { opacity: 0, y: 60 });
+      gsap.set(panel2Ref.current,    { opacity: 0, y: 60 });
+      gsap.set(panel3Ref.current,    { opacity: 0, y: 60 });
+      gsap.set(statsRef.current,     { opacity: 0, y: 30 });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: wrapperRef.current,
+          start: "top top",
+          end: "bottom bottom",
+          scrub: 1,
+        },
+      });
+
+      // ── Frame scrub ─────────────────────────────────────────────
+      tl.to(frameObj, {
+        frame: FRAME_COUNT - 1,
+        snap: "frame",
+        ease: "none",
+        duration: 1,
+        onUpdate() {
+          const f = Math.round(frameObj.frame);
+          if (f !== currentFrame) {
+            currentFrame = f;
+            drawFrame(f);
+          }
+        },
+      }, 0);
+
+      // ── Overlay fades in ────────────────────────────────────────
+      tl.to(overlayRef.current, { opacity: 1, duration: 0.08 }, 0.02);
+
+      // ── Panel 1 enters then exits ───────────────────────────────
+      tl.to(panel1Ref.current, { opacity: 1, y: 0, duration: 0.10 }, 0.04);
+      tl.to(statsRef.current,  { opacity: 1, y: 0, duration: 0.10 }, 0.06);
+      tl.to(panel1Ref.current, { opacity: 0, y: -55, duration: 0.09 }, 0.32);
+
+      // ── Panel 2 enters then exits ───────────────────────────────
+      tl.to(panel2Ref.current, { opacity: 1, y: 0, duration: 0.10 }, 0.40);
+      tl.to(panel2Ref.current, { opacity: 0, y: -55, duration: 0.09 }, 0.65);
+
+      // ── Panel 3 stays ───────────────────────────────────────────
+      tl.to(panel3Ref.current, { opacity: 1, y: 0, duration: 0.11 }, 0.73);
+
+      // ── Dots ────────────────────────────────────────────────────
+      tl.to(dot1Ref.current, { width: 6, background: "rgba(255,255,255,0.28)", duration: 0.08 }, 0.32);
+      tl.to(dot2Ref.current, { width: 22, background: "#30d158",               duration: 0.08 }, 0.32);
+      tl.to(dot2Ref.current, { width: 6, background: "rgba(255,255,255,0.28)", duration: 0.08 }, 0.65);
+      tl.to(dot3Ref.current, { width: 22, background: "#30d158",               duration: 0.08 }, 0.65);
+    };
+
     return () => {
-      window.removeEventListener("scroll", onScroll);
-      cancelAnimationFrame(rafId);
+      window.removeEventListener("resize", resizeCanvas);
+      ScrollTrigger.getAll().forEach((st) => st.kill());
     };
   }, []);
 
   return (
-    /* 350 vh wrapper = 2.5× viewport of scrollable distance */
-    <div ref={wrapperRef} style={{ height: "350vh" }}>
-
-      {/* CSS sticky — stays fixed while wrapper scrolls */}
+    <div ref={wrapperRef} style={{ height: "380vh" }}>
       <div className="sticky top-0 w-full overflow-hidden" style={{ height: "100vh" }}>
 
-        {/* VIDEO — paused; driven by scroll */}
-        <video
-          ref={videoRef}
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ willChange: "contents" }}
-        >
-          <source src="/hero-video.mp4" type="video/mp4" />
-        </video>
+        {/* ── CANVAS — image sequence ── */}
+        <canvas
+          ref={canvasRef}
+          className="absolute inset-0 w-full h-full"
+          style={{ display: "block" }}
+        />
 
         {/* Gradient overlay */}
         <div
@@ -139,7 +148,7 @@ export default function HeroSection() {
           className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "linear-gradient(to right, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.46) 55%, rgba(0,0,0,0.18) 100%)",
+              "linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.48) 55%, rgba(0,0,0,0.18) 100%)",
           }}
         />
         {/* Bottom vignette */}
@@ -147,13 +156,12 @@ export default function HeroSection() {
           style={{ background: "linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 46%)" }}
         />
 
-        {/* ── TEXT PANELS ── */}
+        {/* ── PANELS ── */}
         <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24">
 
-          {/* Panel 1 */}
           <div ref={panel1Ref} className="absolute max-w-2xl">
             <Eyebrow>Sector Petrolero · Zulia, Venezuela</Eyebrow>
-            <h1 className="text-[clamp(38px,6vw,80px)] font-bold leading-[1.04] tracking-tight text-white mb-6">
+            <h1 className="text-[clamp(40px,6.5vw,86px)] font-bold leading-[1.03] tracking-tight text-white mb-6">
               Potencia<br /><GreenText>industrial</GreenText><br />en cada operación.
             </h1>
             <p className="text-[17px] text-white/70 max-w-lg leading-relaxed">
@@ -161,10 +169,9 @@ export default function HeroSection() {
             </p>
           </div>
 
-          {/* Panel 2 */}
           <div ref={panel2Ref} className="absolute max-w-2xl">
             <Eyebrow>Unidad Vacuum — Fabricación 2026</Eyebrow>
-            <h2 className="text-[clamp(34px,5.5vw,72px)] font-bold leading-[1.06] tracking-tight text-white mb-6">
+            <h2 className="text-[clamp(36px,5.5vw,76px)] font-bold leading-[1.05] tracking-tight text-white mb-6">
               160 barriles.<br /><GreenText>Acero A36.</GreenText><br />Compresor NVE 607.
             </h2>
             <p className="text-[17px] text-white/70 max-w-lg leading-relaxed">
@@ -172,10 +179,9 @@ export default function HeroSection() {
             </p>
           </div>
 
-          {/* Panel 3 — CTA */}
           <div ref={panel3Ref} className="absolute max-w-2xl">
             <Eyebrow>Soluciones Delta, C.A. — RIF J-50735393-1</Eyebrow>
-            <h2 className="text-[clamp(34px,5vw,68px)] font-bold leading-[1.06] tracking-tight text-white mb-8">
+            <h2 className="text-[clamp(34px,5vw,70px)] font-bold leading-[1.05] tracking-tight text-white mb-8">
               Soluciones técnicas<br /><GreenText>de alta precisión.</GreenText>
             </h2>
             <div className="flex flex-wrap gap-4">
