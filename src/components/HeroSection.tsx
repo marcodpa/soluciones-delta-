@@ -55,7 +55,6 @@ export default function HeroSection() {
     const frameObj = { frame: 0 };
 
     const onAllLoaded = () => {
-      drawFrame(0);
       initGSAP();
     };
 
@@ -64,20 +63,29 @@ export default function HeroSection() {
       img.src = frameUrl(i);
       img.onload = () => {
         loaded++;
-        if (i === 0) { drawFrame(0); }   // show first frame ASAP
+        if (i === 0) {
+          // Frame 0 loaded — show immediately with intro animation
+          drawFrame(0);
+          gsap.to(overlayRef.current,  { opacity: 1, duration: 0.8, ease: "power2.out" });
+          gsap.fromTo(panel1Ref.current,
+            { opacity: 0, y: 50 },
+            { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", delay: 0.2 }
+          );
+          gsap.fromTo(statsRef.current,
+            { opacity: 0, y: 24 },
+            { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.45 }
+          );
+        }
         if (loaded === FRAME_COUNT) onAllLoaded();
       };
       images[i] = img;
     }
 
-    // ── GSAP setup (runs after images loaded) ──────────────────────
+    // ── GSAP setup (runs after ALL images loaded) ──────────────────
     const initGSAP = () => {
-      // Initial states
-      gsap.set(overlayRef.current,   { opacity: 0 });
-      gsap.set(panel1Ref.current,    { opacity: 0, y: 60 });
-      gsap.set(panel2Ref.current,    { opacity: 0, y: 60 });
-      gsap.set(panel3Ref.current,    { opacity: 0, y: 60 });
-      gsap.set(statsRef.current,     { opacity: 0, y: 30 });
+      // panels 2 & 3 stay hidden until scroll
+      gsap.set(panel2Ref.current, { opacity: 0, y: 60 });
+      gsap.set(panel3Ref.current, { opacity: 0, y: 60 });
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -103,12 +111,7 @@ export default function HeroSection() {
         },
       }, 0);
 
-      // ── Overlay fades in ────────────────────────────────────────
-      tl.to(overlayRef.current, { opacity: 1, duration: 0.08 }, 0.02);
-
-      // ── Panel 1 enters then exits ───────────────────────────────
-      tl.to(panel1Ref.current, { opacity: 1, y: 0, duration: 0.10 }, 0.04);
-      tl.to(statsRef.current,  { opacity: 1, y: 0, duration: 0.10 }, 0.06);
+      // ── Panel 1 exits (already visible from intro animation) ────
       tl.to(panel1Ref.current, { opacity: 0, y: -55, duration: 0.09 }, 0.32);
 
       // ── Panel 2 enters then exits ───────────────────────────────
@@ -147,6 +150,7 @@ export default function HeroSection() {
           ref={overlayRef}
           className="absolute inset-0 pointer-events-none"
           style={{
+            opacity: 0,
             background:
               "linear-gradient(to right, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.48) 55%, rgba(0,0,0,0.18) 100%)",
           }}
