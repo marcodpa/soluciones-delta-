@@ -52,9 +52,7 @@ export default function Navbar() {
                 alt="Soluciones Delta C.A."
                 width={130}
                 height={52}
-                className={`h-11 w-auto object-contain transition-all duration-500 ${
-                  scrolled ? "" : "brightness-0 invert"
-                }`}
+                className="h-11 w-auto object-contain"
                 priority
               />
             </div>
