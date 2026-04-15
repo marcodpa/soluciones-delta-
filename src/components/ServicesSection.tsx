@@ -115,45 +115,60 @@ export default function ServicesSection() {
         </div>
 
         {/* Cards grid */}
-        <div ref={cardsRef} className="grid md:grid-cols-2 gap-5">
+        <div ref={cardsRef} className="grid md:grid-cols-2 gap-4 md:gap-5">
           {services.map((service) => (
             <Link
               key={service.slug}
               href={`/servicios/${service.slug}`}
-              className="glass-card rounded-2xl p-7 group flex flex-col"
+              className="glass-card rounded-2xl group flex flex-col"
               style={{ textDecoration: "none" }}
             >
-              {/* Top row */}
-              <div className="flex items-start justify-between mb-5">
-                <div className="feature-icon">{service.icon}</div>
-                <span
-                  className="text-[11px] font-semibold tracking-widest uppercase px-3 py-1 rounded-full flex-shrink-0"
-                  style={{ background: "rgba(26,140,60,0.08)", color: "#1a8c3c", border: "1px solid rgba(26,140,60,0.15)" }}
-                >
-                  {service.tag}
-                </span>
+              {/* ── MOBILE layout — compact row ── */}
+              <div className="flex md:hidden items-center gap-4 px-5 py-4">
+                <div className="feature-icon flex-shrink-0" style={{ width: 44, height: 44, borderRadius: 12 }}>
+                  {service.icon}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-[11px] text-[#1a8c3c] font-semibold tracking-widest uppercase mb-0.5">{service.tag}</p>
+                  <h3 className="text-[16px] font-bold text-[#1d1d1f] truncate">{service.title}</h3>
+                  <p className="text-[12px] text-[#6e6e73] truncate">{service.subtitle}</p>
+                </div>
+                <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center group-hover:translate-x-0.5 transition-transform duration-200"
+                  style={{ background: "rgba(26,140,60,0.08)", border: "1px solid rgba(26,140,60,0.15)" }}>
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
               </div>
 
-              {/* Text */}
-              <h3 className="text-[18px] font-bold text-[#1d1d1f] mb-1">{service.title}</h3>
-              <p className="text-[13px] text-[#1a8c3c] font-semibold mb-3">{service.subtitle}</p>
-              <p className="text-[14px] text-[#6e6e73] leading-relaxed flex-1">{service.summary}</p>
-
-              {/* Highlights */}
-              <div className="flex flex-wrap gap-2 mt-5">
-                {service.highlights.map((h) => (
-                  <span key={h} className="text-[12px] font-medium px-2.5 py-1 rounded-lg text-[#3a3a3c]" style={{ background: "#f0f0f2", border: "1px solid #e0e0e5" }}>
-                    {h}
+              {/* ── DESKTOP layout — full card ── */}
+              <div className="hidden md:flex flex-col p-7 flex-1">
+                {/* Top row */}
+                <div className="flex items-start justify-between mb-5">
+                  <div className="feature-icon">{service.icon}</div>
+                  <span
+                    className="text-[11px] font-semibold tracking-widest uppercase px-3 py-1 rounded-full flex-shrink-0"
+                    style={{ background: "rgba(26,140,60,0.08)", color: "#1a8c3c", border: "1px solid rgba(26,140,60,0.15)" }}
+                  >
+                    {service.tag}
                   </span>
-                ))}
-              </div>
-
-              {/* CTA arrow */}
-              <div className="flex items-center gap-2 mt-5 text-[#1a8c3c] text-[13px] font-semibold group-hover:gap-3 transition-all duration-200">
-                <span>Ver servicio completo</span>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-200 group-hover:translate-x-1">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                </div>
+                <h3 className="text-[18px] font-bold text-[#1d1d1f] mb-1">{service.title}</h3>
+                <p className="text-[13px] text-[#1a8c3c] font-semibold mb-3">{service.subtitle}</p>
+                <p className="text-[14px] text-[#6e6e73] leading-relaxed flex-1">{service.summary}</p>
+                <div className="flex flex-wrap gap-2 mt-5">
+                  {service.highlights.map((h) => (
+                    <span key={h} className="text-[12px] font-medium px-2.5 py-1 rounded-lg text-[#3a3a3c]" style={{ background: "#f0f0f2", border: "1px solid #e0e0e5" }}>
+                      {h}
+                    </span>
+                  ))}
+                </div>
+                <div className="flex items-center gap-2 mt-5 text-[#1a8c3c] text-[13px] font-semibold group-hover:gap-3 transition-all duration-200">
+                  <span>Ver servicio completo</span>
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="transition-transform duration-200 group-hover:translate-x-1">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
               </div>
             </Link>
           ))}
