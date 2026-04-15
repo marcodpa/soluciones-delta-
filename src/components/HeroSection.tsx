@@ -59,16 +59,18 @@ export default function HeroSection() {
 
     // ── Intro ──────────────────────────────────────────────────────
     const playIntro = () => {
-      gsap.set(sceneRef.current,   { scale: 1.18, transformOrigin: "center center" });
+      // Scene starts invisible so loader→hero transition has no raw-image flash
+      gsap.set(sceneRef.current,   { scale: 1.18, opacity: 0, transformOrigin: "center center" });
       gsap.set(overlayRef.current, { opacity: 0 });
       gsap.set(panel1Ref.current,  { opacity: 0, y: 70 });
       gsap.set(statsRef.current,   { opacity: 0, y: 32 });
 
       gsap.timeline()
-        .to(sceneRef.current,   { scale: 1,    duration: 2.2, ease: "power2.inOut" }, 0)
-        .to(overlayRef.current, { opacity: 1,  duration: 1.1, ease: "power2.out"   }, 0.9)
-        .to(panel1Ref.current,  { opacity: 1, y: 0, duration: 1.0, ease: "power3.out" }, 1.4)
-        .to(statsRef.current,   { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 1.7);
+        // Overlay and scene fade in simultaneously — image always behind overlay
+        .to(sceneRef.current,   { opacity: 1, scale: 1, duration: 2.2, ease: "power2.inOut" }, 0)
+        .to(overlayRef.current, { opacity: 1, duration: 1.0, ease: "power2.out" }, 0.05)
+        .to(panel1Ref.current,  { opacity: 1, y: 0, duration: 1.0, ease: "power3.out" }, 1.3)
+        .to(statsRef.current,   { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }, 1.6);
     };
 
     // ── Scroll animation ───────────────────────────────────────────
@@ -209,7 +211,7 @@ export default function HeroSection() {
           <div
             ref={sceneRef}
             className="absolute inset-0"
-            style={{ transformOrigin: "center center", willChange: "transform" }}
+            style={{ transformOrigin: "center center", willChange: "transform", opacity: 0 }}
           >
             <canvas
               ref={canvasRef}
