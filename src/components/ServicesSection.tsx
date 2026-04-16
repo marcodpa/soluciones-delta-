@@ -73,6 +73,23 @@ const services = [
       </svg>
     ),
   },
+  {
+    slug: "alquiler-calderas-inyeccion-vapor",
+    tag: "Inyección de Vapor",
+    title: "Alquiler de Calderas",
+    subtitle: "Inyección de Vapor Industrial y Petrolero",
+    summary:
+      "Generación e inyección de vapor con calderas OTSG para estimulación de pozos (Huff & Puff, Steam Flooding, SAGD), calentamiento de tanques y sellos de bomba en carga de buques, y recuperación de crudo en fosas de pasivos ambientales.",
+    highlights: ["Huff & Puff · SAGD", "Pasivos ambientales", "Tratamiento de agua"],
+    icon: (
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <path d="M13 3C9 3 6 6 6 10c0 2.5 1.2 4.7 3 6.1V18h8v-1.9c1.8-1.4 3-3.6 3-6.1 0-4-3-7-7-7z" stroke="#1a8c3c" strokeWidth="2" strokeLinejoin="round"/>
+        <path d="M10 18v3h6v-3" stroke="#1a8c3c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M10 12c0-1.7 1.3-3 3-3" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" opacity="0.6"/>
+        <path d="M13 7v1.5M9.5 8.5l1 1M16.5 8.5l-1 1" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" opacity="0.5"/>
+      </svg>
+    ),
+  },
 ];
 
 export default function ServicesSection() {

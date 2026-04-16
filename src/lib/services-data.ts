@@ -497,6 +497,142 @@ export const SERVICES: ServiceData[] = [
   },
 ];
 
+  {
+    slug: "alquiler-calderas-inyeccion-vapor",
+    tag: "Inyección de Vapor",
+    title: "Alquiler de Calderas",
+    subtitle: "Inyección de Vapor Industrial y Petrolero",
+    summary:
+      "Servicio integral de generación e inyección de vapor para estimulación de pozos, calentamiento de sellos de bomba en carga de buques, patio de tanques y recuperación de crudo en fosas de pasivos ambientales.",
+    heroColor: "#fef4ee",
+    icon: "M12 2a10 10 0 100 20A10 10 0 0012 2z",
+    overview:
+      "La inyección de vapor es la tecnología más eficiente para la recuperación de crudo pesado y extrapesado. Ofrecemos el servicio completo de generación e inyección de vapor mediante calderas tipo OTSG (Once Through Steam Generators) con operación continua supervisada, tratamiento de agua y todas las modalidades de aplicación: estimulación de pozos, calentamiento de equipos en patios de tanques y carga de buques, y recuperación de crudo en fosas de pasivos ambientales.",
+    sections: [
+      {
+        heading: "Aplicaciones del servicio",
+        body: "Nuestra flota de calderas cubre todas las necesidades de vapor en operaciones petroleras y de superficie:",
+        list: [
+          "Recuperación de crudo en fosas petrolizadas de pasivos ambientales: inyección de vapor para fluidizar crudos solidificados o extrapesados atrapados en fosas históricas",
+          "Patio de tanques: calentamiento externo de tanques de almacenamiento para reducir viscosidad y facilitar bombeo",
+          "Calentamiento de sellos de bomba para carga de buques: vapor aplicado en sellos mecánicos y líneas de descarga para prevenir solidificación de crudo en operaciones de exportación",
+          "Estimulación de pozos (Huff and Puff – Inyección Cíclica)",
+          "Inyección Continua de Vapor (Steam Flooding) para empuje de crudo pesado",
+          "SAGD – Drenaje por Gravedad Asistido con Vapor para crudos extrapesados",
+        ],
+      },
+      {
+        heading: "Recuperación de Crudo en Fosas de Pasivos Ambientales",
+        body: "Las fosas petrolizadas heredadas de operaciones anteriores contienen crudo extrapesado y sólidos que no pueden movilizarse por métodos convencionales. La inyección de vapor en estas fosas permite:",
+        list: [
+          "Fluidización del crudo solidificado por reducción de viscosidad",
+          "Separación de emulsiones crudo-agua-arena por efecto térmico",
+          "Bombeo posterior con unidades de desplazamiento positivo o vacuum",
+          "Remediación progresiva de la fosa hasta su saneamiento total",
+          "Documentación del proceso para expedientes ambientales ante el MPPEA",
+        ],
+      },
+      {
+        heading: "Modalidades de Inyección de Vapor en Pozos",
+        body: "Ofrecemos las tres técnicas estándar de la industria para estimulación térmica de pozos:",
+        list: [
+          "Inyección Alterna de Vapor (Huff and Puff): ciclos de inyección, remojo y producción para reducir la viscosidad del crudo en el entorno del pozo",
+          "Inyección Continua de Vapor (Steam Flooding): vapor inyectado de manera continua en un pozo para desplazar crudo hacia pozos productores vecinos",
+          "SAGD (Steam Assisted Gravity Drainage): dos pozos horizontales paralelos, vapor en el superior crea una cámara que drena crudo por gravedad hacia el pozo inferior",
+        ],
+      },
+      {
+        heading: "Equipos OTSG – Once Through Steam Generators",
+        body: "Las calderas tipo OTSG son el estándar mundial para generación de vapor en campos petroleros. Sus ventajas sobre calderas convencionales son:",
+        list: [
+          "Arranque rápido: en operación plena en menos de 30 minutos",
+          "Alta calidad de vapor: 80% de fracción de vapor (dryness) controlable",
+          "Tolerancia a agua salina: diseñadas para trabajar con aguas de alta salinidad sin incrustaciones críticas",
+          "Eficiencia térmica superior al 85%",
+          "Operación continua con mínimo mantenimiento",
+          "Presiones de operación: desde 600 hasta 2,500 PSI según el modelo",
+        ],
+      },
+      {
+        heading: "Tratamiento de Agua para Calderas Petroleras",
+        body: "El agua de alimentación de las calderas es el factor más crítico para su vida útil y eficiencia. Incluimos en el servicio el tratamiento completo del agua:",
+        list: [
+          "Suavización por intercambio iónico: eliminación de calcio y magnesio (dureza)",
+          "Desmineralización: eliminación de sólidos disueltos totales (TDS)",
+          "Desgasificación: eliminación de oxígeno disuelto y CO₂ para evitar corrosión",
+          "Dosificación de químicos inhibidores de incrustación y corrosión",
+          "Análisis periódico de calidad del agua en campo",
+          "Control de ciclos de concentración para purgas eficientes",
+        ],
+      },
+      {
+        heading: "Vapor para Patio de Tanques y Carga de Buques",
+        body: "El vapor de baja y media presión es esencial para mantener la fluidez del crudo en superficie durante almacenamiento y exportación:",
+        list: [
+          "Serpentines de calefacción en tanques: vapor circulado por serpentines internos mantiene la temperatura del crudo por encima de su punto de fluidez",
+          "Trazado de líneas: tuberías de vapor paralelas a las líneas de proceso para evitar solidificación en trayectos largos",
+          "Calentamiento de sellos mecánicos de bomba: previene cristalización de parafinas en sellos durante paradas y arranques",
+          "Purgas y purificación de líneas: inyección de vapor para limpiar obstrucciones de parafina o asfalto",
+          "Apoyo a operaciones de carga de buques tanqueros con crudo extrapesado",
+        ],
+      },
+    ],
+    specs: [
+      { label: "Tipo de caldera", value: "OTSG (Once Through SG)" },
+      { label: "Fracción de vapor", value: "Hasta 80% dryness" },
+      { label: "Eficiencia térmica", value: "> 85%" },
+      { label: "Combustible", value: "Gas natural / Gasoil" },
+      { label: "Tratamiento agua", value: "Suavización + Desgasif." },
+      { label: "Modalidades", value: "Huff&Puff · Flooding · SAGD" },
+      { label: "Aplicaciones", value: "Pozos · Tanques · Buques · Fosas" },
+      { label: "Disponibilidad", value: "24 horas / 7 días" },
+    ],
+    benefits: [
+      {
+        title: "Recuperación de crudos extrapesados",
+        desc: "El vapor reduce la viscosidad del crudo extrapesado hasta un 95%, permitiendo su flujo y bombeo en condiciones donde otros métodos fallan.",
+        icon: "M13 10V3L4 14h7v7l9-11h-7z",
+      },
+      {
+        title: "Pasivos ambientales",
+        desc: "Tecnología probada para la remediación de fosas petrolizadas históricas, con documentación para expedientes regulatorios.",
+        icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064",
+      },
+      {
+        title: "Operación continua 24/7",
+        desc: "Las calderas OTSG permiten operación ininterrumpida con arranque en menos de 30 minutos y alta tolerancia a agua salina.",
+        icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
+      },
+      {
+        title: "Tratamiento de agua incluido",
+        desc: "Incluimos el tratamiento completo del agua de alimentación: suavización, desgasificación y dosificación química para máxima vida útil.",
+        icon: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z",
+      },
+    ],
+    faq: [
+      {
+        q: "¿Qué es el Huff and Puff y cuándo se recomienda?",
+        a: "El Huff and Puff (Inyección Alterna de Vapor) consiste en inyectar vapor al pozo durante varios días (huff), cerrar el pozo para que el calor se distribuya (soak) y luego producir el crudo fluidizado (puff). Se recomienda para pozos individuales con crudos pesados de viscosidad mayor a 1,000 cP y como técnica inicial antes de pasar a inyección continua.",
+      },
+      {
+        q: "¿Cómo funciona la recuperación de crudo en fosas de pasivos ambientales?",
+        a: "Se inyecta vapor directamente en la masa de crudo solidificado de la fosa mediante lanzas perforadas. El calor reduce la viscosidad del crudo, lo separa de los sólidos y lo hace bombeable. El crudo fluidizado se extrae con bomba de desplazamiento positivo o unidad vacuum. El proceso se documenta con mediciones antes/después para los expedientes ambientales.",
+      },
+      {
+        q: "¿Por qué es importante el tratamiento del agua para las calderas?",
+        a: "El agua sin tratar contiene calcio, magnesio y gases disueltos que forman incrustaciones (scaling) y corrosión en los tubos de la caldera, reduciendo la eficiencia y causando fallas prematuras. Una caldera con agua no tratada puede fallar en semanas. El tratamiento garantiza operación confiable y vida útil del equipo por varios años.",
+      },
+      {
+        q: "¿Qué diferencia hay entre SAGD y Steam Flooding?",
+        a: "En Steam Flooding, el vapor se inyecta en un pozo vertical para empujar el crudo horizontalmente hacia otros pozos. En SAGD, se perforan dos pozos horizontales paralelos a unos 5 metros de distancia: el superior inyecta vapor para crear una cámara caliente, y el crudo drena por gravedad hacia el pozo inferior que produce. SAGD es más eficiente para crudos extrapesados pero requiere mayor inversión de perforación.",
+      },
+      {
+        q: "¿Ofrecen el servicio de calentamiento de sellos para carga de buques?",
+        a: "Sí. Movilizamos unidades de generación de vapor al muelle o terminal marítimo para mantener la temperatura de los sellos mecánicos de las bombas de carga y las líneas de transferencia a lo largo de toda la operación de carga del buque, previniendo solidificaciones que puedan detener la operación.",
+      },
+    ],
+  },
+
 export function getServiceBySlug(slug: string): ServiceData | undefined {
   return SERVICES.find((s) => s.slug === slug);
 }
