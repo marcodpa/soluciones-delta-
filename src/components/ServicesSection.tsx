@@ -123,21 +123,30 @@ export default function ServicesSection() {
               className="glass-card rounded-2xl group flex flex-col"
               style={{ textDecoration: "none" }}
             >
-              {/* ── MOBILE layout — compact row ── */}
-              <div className="flex md:hidden items-center gap-4 px-5 py-4">
-                <div className="feature-icon flex-shrink-0" style={{ width: 44, height: 44, borderRadius: 12 }}>
-                  {service.icon}
+              {/* ── MOBILE layout — compact card with summary ── */}
+              <div className="flex md:hidden flex-col px-5 py-4 gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="feature-icon flex-shrink-0" style={{ width: 40, height: 40, borderRadius: 11 }}>
+                    {service.icon}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[11px] text-[#1a8c3c] font-semibold tracking-widest uppercase mb-0.5">{service.tag}</p>
+                    <h3 className="text-[15px] font-bold text-[#1d1d1f] leading-tight">{service.title}</h3>
+                  </div>
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center"
+                    style={{ background: "rgba(26,140,60,0.08)", border: "1px solid rgba(26,140,60,0.15)" }}>
+                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                      <path d="M3 8h10M9 4l4 4-4 4" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
                 </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-[11px] text-[#1a8c3c] font-semibold tracking-widest uppercase mb-0.5">{service.tag}</p>
-                  <h3 className="text-[16px] font-bold text-[#1d1d1f] truncate">{service.title}</h3>
-                  <p className="text-[12px] text-[#6e6e73] truncate">{service.subtitle}</p>
-                </div>
-                <div className="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center group-hover:translate-x-0.5 transition-transform duration-200"
-                  style={{ background: "rgba(26,140,60,0.08)", border: "1px solid rgba(26,140,60,0.15)" }}>
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
+                <p className="text-[12px] text-[#6e6e73] leading-relaxed line-clamp-2">{service.summary}</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {service.highlights.map((h) => (
+                    <span key={h} className="text-[11px] font-medium px-2 py-0.5 rounded-md text-[#3a3a3c]" style={{ background: "#f0f0f2", border: "1px solid #e0e0e5" }}>
+                      {h}
+                    </span>
+                  ))}
                 </div>
               </div>
 

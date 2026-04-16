@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -40,11 +40,14 @@ const systems = [
   },
 ];
 
+const KEY_SPECS = ["Capacidad", "Compresor", "Motor", "Material"];
+
 export default function EquipmentSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef = useRef<HTMLDivElement>(null);
   const leftRef = useRef<HTMLDivElement>(null);
   const rightRef = useRef<HTMLDivElement>(null);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -88,7 +91,96 @@ export default function EquipmentSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        {/* ── MOBILE compact summary ── */}
+        <div className="lg:hidden mb-8">
+          <div className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}>
+            {/* Header */}
+            <div className="p-5" style={{ borderBottom: "1px solid rgba(0,0,0,0.06)", background: "rgba(26,140,60,0.04)" }}>
+              <div className="flex items-center gap-3">
+                <div className="feature-icon w-10 h-10">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <rect x="2" y="6" width="16" height="8" rx="2" stroke="#1a8c3c" strokeWidth="1.5"/>
+                    <path d="M2 9h16" stroke="#1a8c3c" strokeWidth="1" opacity="0.5"/>
+                    <circle cx="6" cy="16" r="2" stroke="#1a8c3c" strokeWidth="1.5"/>
+                    <circle cx="14" cy="16" r="2" stroke="#1a8c3c" strokeWidth="1.5"/>
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-[#1d1d1f] font-semibold text-[14px]">Semirremolque Tipo Vacuum</div>
+                  <div className="text-[12px] text-[#6e6e73]">Fabricado 2026 · RIF J-50735393-1</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Key specs — always visible */}
+            <div>
+              {specs.filter(s => KEY_SPECS.includes(s.label)).map((s, i, arr) => (
+                <div
+                  key={i}
+                  className="flex items-center justify-between px-5 py-3.5"
+                  style={{ borderBottom: i < arr.length - 1 || expanded ? "1px solid rgba(0,0,0,0.05)" : "none" }}
+                >
+                  <span className="text-[13px] text-[#6e6e73]">{s.label}</span>
+                  <span className="text-[13px] font-semibold text-[#1d1d1f]">{s.value}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Expandable full specs */}
+            {expanded && (
+              <div>
+                {specs.filter(s => !KEY_SPECS.includes(s.label)).map((s, i, arr) => (
+                  <div
+                    key={i}
+                    className="flex items-center justify-between px-5 py-3.5"
+                    style={{ borderBottom: i < arr.length - 1 ? "1px solid rgba(0,0,0,0.05)" : "none" }}
+                  >
+                    <span className="text-[13px] text-[#6e6e73]">{s.label}</span>
+                    <span className="text-[13px] font-semibold text-[#1d1d1f]">{s.value}</span>
+                  </div>
+                ))}
+                {/* Systems */}
+                <div className="px-5 pb-5 pt-4 space-y-4" style={{ borderTop: "1px solid rgba(0,0,0,0.05)", background: "rgba(0,0,0,0.01)" }}>
+                  {systems.map((sys, i) => (
+                    <div key={i}>
+                      <div className="flex items-center gap-2 mb-2">
+                        <div className="w-1 h-4 rounded-full bg-[#1a8c3c]" />
+                        <h4 className="text-[13px] font-semibold text-[#1d1d1f]">{sys.title}</h4>
+                      </div>
+                      <ul className="space-y-1.5 pl-3">
+                        {sys.items.map((item, j) => (
+                          <li key={j} className="flex items-center gap-2 text-[12px] text-[#6e6e73]">
+                            <span className="w-1 h-1 rounded-full bg-[#1a8c3c] flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Toggle button */}
+            <button
+              onClick={() => setExpanded(!expanded)}
+              className="w-full flex items-center justify-center gap-2 py-3.5 text-[13px] font-semibold text-[#1a8c3c] transition-colors"
+              style={{ borderTop: "1px solid rgba(0,0,0,0.06)", background: "rgba(26,140,60,0.03)" }}
+            >
+              {expanded ? "Ocultar especificaciones" : "Ver ficha técnica completa"}
+              <svg
+                width="14" height="14" viewBox="0 0 14 14" fill="none"
+                className="transition-transform duration-300"
+                style={{ transform: expanded ? "rotate(180deg)" : "rotate(0deg)" }}
+              >
+                <path d="M2 5l5 5 5-5" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        {/* ── DESKTOP full layout ── */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-start">
           {/* Left — spec table */}
           <div ref={leftRef} className="rounded-2xl overflow-hidden" style={{ border: "1px solid rgba(0,0,0,0.08)", boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}>
             <div className="p-6" style={{ borderBottom: "1px solid rgba(0,0,0,0.06)", background: "rgba(26,140,60,0.04)" }}>
