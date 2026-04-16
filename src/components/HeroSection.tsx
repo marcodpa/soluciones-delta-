@@ -7,7 +7,7 @@ import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FRAME_COUNT = 80;
+const FRAME_COUNT = 45;
 const frameUrl = (i: number) => `/frames/frame_${String(i).padStart(4, "0")}.jpg`;
 
 export default function HeroSection() {
@@ -115,7 +115,7 @@ export default function HeroSection() {
     // ── Load + decode all frames ───────────────────────────────────
     let introStarted   = false;
     let scrollInited   = false;
-    const READY_THRESH = 0.35; // start scroll anim at 35% loaded
+    const READY_THRESH = 0.50; // start scroll anim at 50% loaded
 
     const checkMilestones = () => {
       const pct = decoded / FRAME_COUNT;
