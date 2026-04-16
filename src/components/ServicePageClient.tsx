@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { gsap } from "gsap";
@@ -19,6 +20,7 @@ const SERVICE_IMAGES: Record<string, string> = {
 };
 
 export default function ServicePageClient({ service }: { service: ServiceData }) {
+  const router = useRouter();
   const heroRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
@@ -48,6 +50,25 @@ export default function ServicePageClient({ service }: { service: ServiceData })
     <>
       <Navbar />
       <main>
+        {/* ── BACK BUTTON ── */}
+        <div className="fixed top-20 left-4 z-40 md:left-8">
+          <button
+            onClick={() => router.back()}
+            className="flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-semibold text-[#1d1d1f] transition-all duration-200 hover:gap-3"
+            style={{
+              background: "rgba(255,255,255,0.85)",
+              backdropFilter: "blur(12px)",
+              border: "1.5px solid rgba(0,0,0,0.1)",
+              boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M13 8H3M7 4l-4 4 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+            Volver
+          </button>
+        </div>
+
         {/* ── HERO ── */}
         <section
           className="pt-28 pb-16 relative overflow-hidden"
