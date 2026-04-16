@@ -495,7 +495,6 @@ export const SERVICES: ServiceData[] = [
       },
     ],
   },
-];
 
   {
     slug: "alquiler-calderas-inyeccion-vapor",
@@ -632,6 +631,7 @@ export const SERVICES: ServiceData[] = [
       },
     ],
   },
+];
 
 export function getServiceBySlug(slug: string): ServiceData | undefined {
   return SERVICES.find((s) => s.slug === slug);
