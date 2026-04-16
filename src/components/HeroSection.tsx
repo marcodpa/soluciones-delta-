@@ -7,7 +7,7 @@ import Image from "next/image";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FRAME_COUNT = 100;
+const FRAME_COUNT = 80;
 const frameUrl = (i: number) => `/frames/frame_${String(i).padStart(4, "0")}.jpg`;
 
 export default function HeroSection() {
@@ -113,39 +113,51 @@ export default function HeroSection() {
     };
 
     // ── Load + decode all frames ───────────────────────────────────
-    const loadFrames = async () => {
-      // Load in batches of 10 for parallelism without overwhelming browser
-      const BATCH = 10;
-      for (let start = 0; start < FRAME_COUNT; start += BATCH) {
-        const end  = Math.min(start + BATCH, FRAME_COUNT);
-        const jobs = [];
-        for (let i = start; i < end; i++) {
-          jobs.push(
-            fetch(frameUrl(i))
-              .then((r) => r.blob())
-              .then((blob) => createImageBitmap(blob))
-              .then((bmp)  => {
-                bitmaps[i] = bmp;
-                decoded++;
-                // Update loader progress
-                const pct = Math.round((decoded / FRAME_COUNT) * 100);
-                if (progressRef.current) progressRef.current.style.width = `${pct}%`;
-                if (pctRef.current)      pctRef.current.textContent       = `${pct}%`;
-                // Show first frame as soon as it's ready
-                if (i === 0) drawFrame(0);
-              })
-          );
-        }
-        await Promise.all(jobs);
+    let introStarted   = false;
+    let scrollInited   = false;
+    const READY_THRESH = 0.35; // start scroll anim at 35% loaded
+
+    const checkMilestones = () => {
+      const pct = decoded / FRAME_COUNT;
+
+      // Update loader bar
+      const p = Math.round(pct * 100);
+      if (progressRef.current) progressRef.current.style.width  = `${p}%`;
+      if (pctRef.current)      pctRef.current.textContent        = `${p}%`;
+
+      // Frame 0 ready → hide loader + play intro immediately
+      if (!introStarted && bitmaps[0]) {
+        introStarted = true;
+        drawFrame(0);
+        gsap.to(loaderRef.current, {
+          opacity: 0, duration: 0.5, ease: "power2.out",
+          onComplete: () => setLoaderVisible(false),
+        });
+        playIntro();
       }
 
-      // All frames decoded — hide loader, play intro, init scroll
-      gsap.to(loaderRef.current, {
-        opacity: 0, duration: 0.7, ease: "power2.out",
-        onComplete: () => setLoaderVisible(false),
-      });
-      playIntro();
-      initScrollAnim();
+      // 35% loaded → enable scroll animation
+      if (!scrollInited && pct >= READY_THRESH) {
+        scrollInited = true;
+        initScrollAnim();
+      }
+    };
+
+    const loadFrames = async () => {
+      // Fire all requests simultaneously — browser limits concurrent connections naturally
+      const jobs = Array.from({ length: FRAME_COUNT }, (_, i) =>
+        fetch(frameUrl(i))
+          .then((r) => r.blob())
+          .then((blob) => createImageBitmap(blob))
+          .then((bmp) => {
+            bitmaps[i] = bmp;
+            decoded++;
+            checkMilestones();
+          })
+      );
+      await Promise.all(jobs);
+      // Ensure scroll anim inits even if threshold wasn't hit sequentially
+      if (!scrollInited) { scrollInited = true; initScrollAnim(); }
     };
 
     loadFrames();
