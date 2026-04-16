@@ -8,7 +8,7 @@ import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger);
 
 const FRAME_COUNT = 45;
-const frameUrl = (i: number) => `/frames/frame_${String(i).padStart(4, "0")}.avif`;
+const frameUrl = (i: number) => `/frames/frame_${String(i).padStart(4, "0")}.webp`;
 
 export default function HeroSection() {
   const wrapperRef  = useRef<HTMLDivElement>(null);
@@ -147,7 +147,8 @@ export default function HeroSection() {
       fetch(frameUrl(i))
         .then((r) => r.blob())
         .then((blob) => createImageBitmap(blob))
-        .then((bmp) => { bitmaps[i] = bmp; decoded++; checkMilestones(); });
+        .then((bmp) => { bitmaps[i] = bmp; decoded++; checkMilestones(); })
+        .catch(() => { decoded++; checkMilestones(); });
 
     const loadFrames = async () => {
       // 1. Frame 0 first — show hero image ASAP
