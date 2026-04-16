@@ -8,7 +8,7 @@ import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger);
 
 const FRAME_COUNT = 45;
-const frameUrl = (i: number) => `/frames/frame_${String(i).padStart(4, "0")}.webp`;
+const frameUrl = (i: number) => `/frames/frame_${String(i).padStart(4, "0")}.avif`;
 
 export default function HeroSection() {
   const wrapperRef  = useRef<HTMLDivElement>(null);
@@ -143,20 +143,21 @@ export default function HeroSection() {
       }
     };
 
+    const loadFrame = (i: number) =>
+      fetch(frameUrl(i))
+        .then((r) => r.blob())
+        .then((blob) => createImageBitmap(blob))
+        .then((bmp) => { bitmaps[i] = bmp; decoded++; checkMilestones(); });
+
     const loadFrames = async () => {
-      // Fire all requests simultaneously — browser limits concurrent connections naturally
-      const jobs = Array.from({ length: FRAME_COUNT }, (_, i) =>
-        fetch(frameUrl(i))
-          .then((r) => r.blob())
-          .then((blob) => createImageBitmap(blob))
-          .then((bmp) => {
-            bitmaps[i] = bmp;
-            decoded++;
-            checkMilestones();
-          })
-      );
-      await Promise.all(jobs);
-      // Ensure scroll anim inits even if threshold wasn't hit sequentially
+      // 1. Frame 0 first — show hero image ASAP
+      await loadFrame(0);
+
+      // 2. Rest in sequential order — browser HTTP/2 multiplexes 6–8 at a time
+      //    Sequential order means frames near the top of the scroll are ready first
+      const rest = Array.from({ length: FRAME_COUNT - 1 }, (_, i) => i + 1);
+      await Promise.all(rest.map(loadFrame));
+
       if (!scrollInited) { scrollInited = true; initScrollAnim(); }
     };
 
