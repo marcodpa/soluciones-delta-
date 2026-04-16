@@ -8,7 +8,7 @@ import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger);
 
 const FRAME_COUNT = 45;
-const frameUrl = (i: number) => `/frames/frame_${String(i).padStart(4, "0")}.jpg`;
+const frameUrl = (i: number) => `/frames/frame_${String(i).padStart(4, "0")}.webp`;
 
 export default function HeroSection() {
   const wrapperRef  = useRef<HTMLDivElement>(null);
