@@ -107,7 +107,7 @@ export default function EquipmentSection() {
                 </div>
                 <div>
                   <div className="text-[#1d1d1f] font-semibold text-[14px]">Semirremolque Tipo Vacuum</div>
-                  <div className="text-[12px] text-[#6e6e73]">Fabricado 2026 · RIF J-50735393-1</div>
+                  <div className="text-[12px] text-[#6e6e73]">Fabricado 2026</div>
                 </div>
               </div>
             </div>
@@ -195,7 +195,7 @@ export default function EquipmentSection() {
                 </div>
                 <div>
                   <div className="text-[#1d1d1f] font-semibold">Semirremolque Tipo Vacuum</div>
-                  <div className="text-[12px] text-[#6e6e73]">Fabricado 2026 · RIF J-50735393-1</div>
+                  <div className="text-[12px] text-[#6e6e73]">Fabricado 2026</div>
                 </div>
               </div>
             </div>
