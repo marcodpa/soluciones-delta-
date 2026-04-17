@@ -77,7 +77,7 @@ export default function ContactSection() {
         style={{ background: "radial-gradient(ellipse 70% 50% at 50% 100%, rgba(26,140,60,0.04) 0%, transparent 60%)" }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="site-container">
         <div ref={headerRef} className="text-center mb-20">
           <div className="section-label mb-4">Contacto</div>
           <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight text-[#1d1d1f] leading-tight mb-4">

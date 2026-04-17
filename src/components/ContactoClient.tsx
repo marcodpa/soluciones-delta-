@@ -119,7 +119,7 @@ export default function ContactoClient() {
           style={{ background: "linear-gradient(160deg, #f0f4ff 0%, #ffffff 60%)" }}
         >
           <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 50% 50% at 80% 50%, rgba(26,140,60,0.05) 0%, transparent 70%)" }} />
-          <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="site-container">
             <div ref={heroRef}>
               <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-[#6e6e73] mb-10">
                 <Link href="/" className="hover:text-[#1a8c3c] transition-colors">Inicio</Link>
@@ -139,7 +139,7 @@ export default function ContactoClient() {
         </section>
 
         {/* ── CONTENT ── */}
-        <div ref={formRef} className="max-w-6xl mx-auto px-6 lg:px-8 py-16">
+        <div ref={formRef} className="site-container py-16">
           <div className="grid lg:grid-cols-5 gap-12">
 
             {/* ── FORM ── */}

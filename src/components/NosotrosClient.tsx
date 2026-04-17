@@ -121,7 +121,7 @@ export default function NosotrosClient() {
           style={{ background: "linear-gradient(160deg, #eef7f1 0%, #ffffff 60%)" }}
         >
           <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 80% 50%, rgba(26,140,60,0.06) 0%, transparent 70%)" }} />
-          <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="site-container">
             <div ref={heroRef}>
               <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-[#6e6e73] mb-10">
                 <Link href="/" className="hover:text-[#1a8c3c] transition-colors">Inicio</Link>
@@ -148,7 +148,7 @@ export default function NosotrosClient() {
           </div>
         </section>
 
-        <div ref={sectionRef} className="max-w-6xl mx-auto px-6 lg:px-8 py-20 space-y-24">
+        <div ref={sectionRef} className="site-container py-20 space-y-24">
 
           {/* ── ABOUT TEXT + DATA ── */}
           <div className="animate-in grid lg:grid-cols-2 gap-14 items-start">

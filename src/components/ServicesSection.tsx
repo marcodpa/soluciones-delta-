@@ -128,7 +128,7 @@ export default function ServicesSection() {
       {/* top line */}
       <div className="absolute top-0 left-0 right-0 pointer-events-none" style={{ height: 1, background: "linear-gradient(90deg,transparent,rgba(26,140,60,0.2),transparent)" }} />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="site-container">
 
         {/* Header */}
         <div ref={headerRef} className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">

@@ -139,7 +139,7 @@ export default function ServiciosClient() {
           style={{ background: "linear-gradient(160deg, #eef7f1 0%, #ffffff 60%)" }}
         >
           <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 80% 50%, rgba(26,140,60,0.06) 0%, transparent 70%)" }} />
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="site-container">
             <div ref={heroRef}>
               <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-[#6e6e73] mb-10">
                 <Link href="/" className="hover:text-[#1a8c3c] transition-colors">Inicio</Link>
@@ -178,7 +178,7 @@ export default function ServiciosClient() {
 
         {/* ── SERVICES GRID ── */}
         <section className="py-20" style={{ background: "#ffffff" }}>
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="site-container">
             <div ref={cardsRef} className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
               {services.map((s, i) => (
                 <Link
@@ -303,7 +303,7 @@ export default function ServiciosClient() {
 
         {/* ── BOTTOM CTA STRIP ── */}
         <section className="py-16" style={{ background: "#f9f9fb", borderTop: "1px solid #ebebef" }}>
-          <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="site-container">
             <div className="flex flex-col md:flex-row items-center justify-between gap-8">
               <div>
                 <h2 className="text-[clamp(22px,3vw,32px)] font-bold text-[#1d1d1f] mb-2">

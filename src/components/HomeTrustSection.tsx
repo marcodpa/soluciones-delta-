@@ -95,7 +95,7 @@ export default function HomeTrustSection() {
       {/* top line */}
       <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,0,0,0.07), transparent)" }} />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="site-container">
 
         {/* Header */}
         <div ref={headerRef} className="max-w-3xl mb-20">

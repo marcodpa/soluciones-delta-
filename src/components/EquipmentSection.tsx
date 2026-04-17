@@ -77,7 +77,7 @@ export default function EquipmentSection() {
         style={{ background: "radial-gradient(ellipse 60% 40% at 80% 50%, rgba(26,140,60,0.04) 0%, transparent 70%)" }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="site-container">
         <div ref={headerRef} className="mb-20">
           <div className="section-label mb-4">Ficha Técnica</div>
           <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight text-[#1d1d1f] leading-tight max-w-3xl">

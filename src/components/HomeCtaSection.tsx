@@ -26,7 +26,7 @@ export default function HomeCtaSection() {
 
   return (
     <section ref={sectionRef} className="py-8 pb-24 relative overflow-hidden" style={{ background: "#ffffff" }}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="site-container">
         <div
           className="rounded-3xl px-10 py-16 md:py-20 text-center relative overflow-hidden"
           style={{

@@ -46,7 +46,7 @@ export default function Navbar() {
             : "bg-white/95 backdrop-blur-xl border-b border-black/[0.06] shadow-sm"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="site-container">
           <div className="flex items-center justify-between h-16 lg:h-20">
 
             {/* Logo */}

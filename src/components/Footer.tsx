@@ -27,7 +27,7 @@ export default function Footer() {
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 30% at 50% 0%, rgba(26,140,60,0.07) 0%, transparent 60%)" }} />
       <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(48,209,88,0.2), transparent)" }} />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
+      <div className="site-container relative">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
 
           {/* Brand */}
