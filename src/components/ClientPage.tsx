@@ -4,8 +4,8 @@ import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import ServicesSection from "@/components/ServicesSection";
 import EquipmentSection from "@/components/EquipmentSection";
-import AboutSection from "@/components/AboutSection";
-import ContactSection from "@/components/ContactSection";
+import HomeTrustSection from "@/components/HomeTrustSection";
+import HomeCtaSection from "@/components/HomeCtaSection";
 import Footer from "@/components/Footer";
 
 export default function ClientPage() {
@@ -26,8 +26,8 @@ export default function ClientPage() {
         <HeroSection />
         <ServicesSection />
         <EquipmentSection />
-        <AboutSection />
-        <ContactSection />
+        <HomeTrustSection />
+        <HomeCtaSection />
       </main>
 
       <Footer />
