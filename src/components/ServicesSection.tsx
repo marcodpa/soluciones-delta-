@@ -133,7 +133,6 @@ export default function ServicesSection() {
         {/* Header */}
         <div ref={headerRef} className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
           <div>
-            <div className="section-label mb-4">Nuestros Servicios</div>
             <h2
               id="servicios-heading"
               className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight leading-tight text-[#1d1d1f]"
