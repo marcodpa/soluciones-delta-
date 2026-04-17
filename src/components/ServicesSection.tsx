@@ -138,8 +138,7 @@ export default function ServicesSection() {
               id="servicios-heading"
               className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight leading-tight text-[#1d1d1f]"
             >
-              Cinco líneas de servicio,<br />
-              <span className="text-gradient">un solo proveedor.</span>
+              Nuestros <span className="text-gradient">Servicios.</span>
             </h2>
           </div>
           <div className="flex flex-col items-start lg:items-end gap-3 flex-shrink-0">
