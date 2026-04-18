@@ -13,10 +13,20 @@ import Footer from "@/components/Footer";
 gsap.registerPlugin(ScrollTrigger);
 
 const SERVICE_IMAGES: Record<string, string> = {
-  "bombeo-de-crudo": "/vacuum-truck.jpg",
+  "bombeo-de-crudo": "/bombeo/bomba-en-fosa.jpg",
   "trasegado-vacuum": "/vacuum-truck.jpg",
   "frac-tanks": "/vacuum-truck.jpg",
   "manejo-de-desechos": "/vacuum-truck.jpg",
+};
+
+const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
+  "bombeo-de-crudo": [
+    { src: "/bombeo/motor-hidraulico.png", caption: "Motor y Bomba Hidráulica" },
+    { src: "/bombeo/bomba-tornillo.png",   caption: "Bomba de Tornillo" },
+    { src: "/bombeo/extraccion-crudo-1.png", caption: "Extracción de Crudo (Natilla)" },
+    { src: "/bombeo/extraccion-crudo-2.png", caption: "Succión en fosa de crudo" },
+    { src: "/bombeo/bomba-en-fosa.jpg",    caption: "Bomba hidráulica en operación" },
+  ],
 };
 
 export default function ServicePageClient({ service }: { service: ServiceData }) {
@@ -146,6 +156,34 @@ export default function ServicePageClient({ service }: { service: ServiceData })
               <p className="text-[18px] text-[#3a3a3c] leading-relaxed">{service.overview}</p>
             </div>
           </div>
+
+          {/* ── PHOTO GALLERY ── */}
+          {SERVICE_GALLERY[service.slug] && (
+            <div className="animate-in">
+              <div className="section-label mb-6">Galería de Equipos y Operaciones</div>
+              <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
+                {SERVICE_GALLERY[service.slug].map((img, i) => (
+                  <div
+                    key={i}
+                    className={`relative rounded-2xl overflow-hidden ${i === 0 ? "col-span-2 lg:col-span-1 row-span-2" : ""}`}
+                    style={{ aspectRatio: i === 0 ? "4/3" : "4/3", minHeight: 180 }}
+                  >
+                    <Image
+                      src={img.src}
+                      alt={img.caption}
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 768px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full hover:translate-y-0 transition-transform duration-300">
+                      <span className="text-[12px] font-semibold text-white">{img.caption}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
           {/* ── CONTENT SECTIONS ── */}
           <div className="space-y-12">
