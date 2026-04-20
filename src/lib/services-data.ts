@@ -281,7 +281,7 @@ export const SERVICES: ServiceData[] = [
     title: "Frac Tanks",
     subtitle: "Tanques Portátiles de 500 Barriles",
     summary:
-      "Suministro de Frac Tanks de 500 Bbl en 4 configuraciones especializadas: V-Bottom, Flat Bottom, Insulated y Gas Tight, según el tipo de fluido y las condiciones de cada operación.",
+      "Semirremolque tipo Frac Tank de 500 barriles. 14 m de largo, peso 10,000 kg, capacidad de carga 15,000 kg. Tomas de 4\", 8\" y 12\" con válvulas mariposa, boca de visita con escalera interna y traslado en un solo eje.",
     heroColor: "#fff8ee",
     icon: "M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z",
     overview:
@@ -337,14 +337,16 @@ export const SERVICES: ServiceData[] = [
       },
     ],
     specs: [
-      { label: "Capacidad nominal", value: "500 barriles" },
-      { label: "Capacidad litros", value: "79,500 litros" },
-      { label: "Configuraciones", value: "V-Bottom · Flat · Insulated · Gas Tight" },
-      { label: "Movilización", value: "Con lowboy o plataforma" },
-      { label: "Compatibilidad", value: "Unidad Vacuum para limpieza" },
-      { label: "Temperatura máx.", value: "Hasta 120°C (insulated)" },
-      { label: "Conexiones", value: "Entradas/Salidas 4\" y 6\"" },
-      { label: "Instalación", value: "Campo, batería, wellhead" },
+      { label: "Tipo", value: "Semirremolque Frac Tank" },
+      { label: "Capacidad", value: "500 barriles" },
+      { label: "Largo × Ancho × Alto", value: "14 m × 2.60 m × 2.70 m" },
+      { label: "Peso vacío", value: "10,000 kg" },
+      { label: "Carga máx.", value: "15,000 kg" },
+      { label: "Tomas frontal", value: "2 × 4\" + 1 × 12\" + 1 × 8\"" },
+      { label: "Toma trasera", value: "1 × 4\" (drenaje)" },
+      { label: "Válvulas", value: "Tipo Mariposa en todas las tomas" },
+      { label: "Traslado", value: "Un solo eje y pin" },
+      { label: "Acceso superior", value: "Boca de visita + escalera interna" },
     ],
     benefits: [
       {

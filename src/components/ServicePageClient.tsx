@@ -15,7 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
 const SERVICE_IMAGES: Record<string, string> = {
   "bombeo-de-crudo": "/bombeo/bomba-en-fosa.jpg",
   "trasegado-vacuum": "/vacuum-truck.jpg",
-  "frac-tanks": "/vacuum-truck.jpg",
+  "frac-tanks": "/frac-tanks/bateria-frac-tanks.jpg",
   "manejo-de-desechos": "/vacuum-truck.jpg",
   "alquiler-calderas-inyeccion-vapor": "/vapor/generador-vapor-otsg.jpg",
 };
@@ -28,6 +28,9 @@ const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
     { src: "/bombeo/bomba-tornillo.png",            caption: "Bomba Tipo Tornillo en campo" },
     { src: "/bombeo/extraccion-crudo-1.png",        caption: "Extracción de Crudo (Natilla)" },
     { src: "/bombeo/bomba-en-fosa.jpg",             caption: "Bomba hidráulica en operación en fosa" },
+  ],
+  "frac-tanks": [
+    { src: "/frac-tanks/bateria-frac-tanks.jpg", caption: "Batería de Frac Tanks en locación — Estado Zulia" },
   ],
   "alquiler-calderas-inyeccion-vapor": [
     { src: "/vapor/generador-vapor-otsg.jpg",   caption: "Generador de Vapor OTSG — Campo Boscán" },
