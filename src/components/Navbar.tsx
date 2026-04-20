@@ -53,9 +53,9 @@ export default function Navbar() {
               <Image
                 src="/logo.png"
                 alt="Soluciones Delta C.A."
-                width={180}
-                height={72}
-                className="h-14 w-auto object-contain"
+                width={120}
+                height={120}
+                className="h-14 w-14 object-contain"
                 priority
               />
             </Link>
