@@ -72,16 +72,16 @@ export default function ServicePageClient({ service }: { service: ServiceData })
     <>
       <Navbar />
       <main>
-        {/* ── BACK BUTTON ── */}
-        <div className="fixed top-20 left-4 z-40 md:left-8">
+        {/* ── BACK BUTTON (mobile only) ── */}
+        <div className="lg:hidden fixed top-20 left-4 z-40">
           <button
-            onClick={() => router.back()}
-            className="flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-semibold text-[#1d1d1f] transition-all duration-200 hover:gap-3"
+            onClick={() => window.history.length > 1 ? router.back() : router.push("/servicios")}
+            className="flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-semibold text-[#1d1d1f] transition-all duration-200 active:scale-95"
             style={{
-              background: "rgba(255,255,255,0.85)",
+              background: "rgba(255,255,255,0.92)",
               backdropFilter: "blur(12px)",
               border: "1.5px solid rgba(0,0,0,0.1)",
-              boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
+              boxShadow: "0 2px 12px rgba(0,0,0,0.10)",
             }}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
