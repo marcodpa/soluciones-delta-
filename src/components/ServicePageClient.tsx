@@ -14,7 +14,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const SERVICE_IMAGES: Record<string, string> = {
   "bombeo-de-crudo": "/bombeo/bomba-en-fosa.jpg",
-  "trasegado-vacuum": "/vacuum-truck.jpg",
+  "trasegado-vacuum": "/vacuum/nve-607-challenger.jpg",
   "frac-tanks": "/frac-tanks/bateria-frac-tanks.jpg",
   "manejo-de-desechos": "/vacuum-truck.jpg",
   "alquiler-calderas-inyeccion-vapor": "/vapor/generador-vapor-otsg.jpg",
@@ -28,6 +28,13 @@ const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
     { src: "/bombeo/bomba-tornillo.png",            caption: "Bomba Tipo Tornillo en campo" },
     { src: "/bombeo/extraccion-crudo-1.png",        caption: "Extracción de Crudo (Natilla)" },
     { src: "/bombeo/bomba-en-fosa.jpg",             caption: "Bomba hidráulica en operación en fosa" },
+  ],
+  "trasegado-vacuum": [
+    { src: "/vacuum/nve-607-challenger.jpg",    caption: "Compresor NVE 607 PRO Challenger Heavy-Duty" },
+    { src: "/vacuum/nve-607-pump-stand.jpg",    caption: "NVE 607 — Pump Stand con tanque separador" },
+    { src: "/vacuum/nve-607-hydraulic-drive.jpg", caption: "NVE 607 — Accionamiento hidráulico" },
+    { src: "/vacuum/nve-607-skid-package.jpg",  caption: "NVE 607 — Paquete completo en skid" },
+    { src: "/vacuum/nve-607-engine-drive.jpg",  caption: "NVE 607 — Engine Drive Package (TIER 4)" },
   ],
   "frac-tanks": [
     { src: "/frac-tanks/bateria-frac-tanks.jpg", caption: "Batería de Frac Tanks en locación — Estado Zulia" },
