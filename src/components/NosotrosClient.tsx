@@ -211,6 +211,55 @@ export default function NosotrosClient() {
             </div>
           </div>
 
+          {/* ── MISSION / VISION / QUALITY ── */}
+          <div className="animate-in">
+            <div className="section-label mb-10">Filosofía Gerencial</div>
+            <div className="grid lg:grid-cols-3 gap-6">
+              {[
+                {
+                  title: "Misión",
+                  icon: (
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                      <circle cx="11" cy="11" r="9" stroke="#1a8c3c" strokeWidth="1.5"/>
+                      <circle cx="11" cy="11" r="3" stroke="#1a8c3c" strokeWidth="1.5"/>
+                      <path d="M11 2v2M11 18v2M2 11h2M18 11h2" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round"/>
+                    </svg>
+                  ),
+                  body: "Prestar un servicio de calidad para satisfacer los requerimientos de nuestros clientes a través de servicios técnicos especializados para la industria petrolera, con personal competente y comprometido, promoviendo la conciencia ecológica y la mejora continua.",
+                },
+                {
+                  title: "Visión",
+                  icon: (
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                      <path d="M1 11s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z" stroke="#1a8c3c" strokeWidth="1.5" strokeLinejoin="round"/>
+                      <circle cx="11" cy="11" r="3" stroke="#1a8c3c" strokeWidth="1.5"/>
+                    </svg>
+                  ),
+                  body: "Proyectarnos como empresa líder en el sector petrolero venezolano, de desarrollo exitoso mediante la cultura de excelencia corporativa, siendo referente nacional por nuestra alta capacidad operacional y excelente calidad de servicio.",
+                },
+                {
+                  title: "Política de Calidad",
+                  icon: (
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                      <path d="M11 2L3 6v5c0 4.5 3.3 8.7 8 9.9 4.7-1.2 8-5.4 8-9.9V6L11 2z" stroke="#1a8c3c" strokeWidth="1.5" strokeLinejoin="round"/>
+                      <path d="M7.5 11l2.5 2.5L15 9" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  ),
+                  body: "Ofrecemos servicios de excelente calidad fundamentados en la mejora continua del sistema de gestión, el cumplimiento de requisitos legales y reglamentarios, y mecanismos de seguridad y salud en todas nuestras operaciones.",
+                },
+              ].map((item, i) => (
+                <div key={i} className="p-8 rounded-2xl" style={{ background: "#f9f9fb", border: "1.5px solid #ebebef" }}>
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
+                    style={{ background: "rgba(26,140,60,0.08)", border: "1px solid rgba(26,140,60,0.15)" }}>
+                    {item.icon}
+                  </div>
+                  <h3 className="text-[17px] font-bold text-[#1d1d1f] mb-3">{item.title}</h3>
+                  <p className="text-[14px] text-[#6e6e73] leading-relaxed">{item.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           {/* ── VALUES ── */}
           <div className="animate-in">
             <div className="section-label mb-10">Nuestros Valores</div>

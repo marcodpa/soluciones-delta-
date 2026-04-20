@@ -13,8 +13,7 @@ const services = [
 
 const navLinks = [
   { label: "Inicio",    href: "/" },
-  { label: "Servicios", href: "/#servicios" },
-  { label: "Equipos",   href: "/#equipos" },
+  { label: "Servicios", href: "/servicios" },
   { label: "Nosotros",  href: "/nosotros" },
   { label: "Contacto",  href: "/contacto" },
 ];
@@ -38,7 +37,8 @@ export default function Footer() {
                 alt="Soluciones Delta C.A."
                 width={150}
                 height={60}
-                className="h-14 w-auto object-contain brightness-0 invert"
+                className="h-14 w-14 object-contain"
+                style={{ mixBlendMode: "screen" }}
               />
             </div>
             <p className="text-[14px] text-[#6e6e73] leading-relaxed max-w-sm mb-6">
