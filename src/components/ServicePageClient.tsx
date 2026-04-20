@@ -17,15 +17,23 @@ const SERVICE_IMAGES: Record<string, string> = {
   "trasegado-vacuum": "/vacuum-truck.jpg",
   "frac-tanks": "/vacuum-truck.jpg",
   "manejo-de-desechos": "/vacuum-truck.jpg",
+  "alquiler-calderas-inyeccion-vapor": "/vapor/generador-vapor-otsg.jpg",
 };
 
 const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
   "bombeo-de-crudo": [
-    { src: "/bombeo/motor-hidraulico.png", caption: "Motor y Bomba Hidráulica" },
-    { src: "/bombeo/bomba-tornillo.png",   caption: "Bomba de Tornillo" },
-    { src: "/bombeo/extraccion-crudo-1.png", caption: "Extracción de Crudo (Natilla)" },
-    { src: "/bombeo/extraccion-crudo-2.png", caption: "Succión en fosa de crudo" },
-    { src: "/bombeo/bomba-en-fosa.jpg",    caption: "Bomba hidráulica en operación" },
+    { src: "/bombeo/motor-hidraulico.png",    caption: "Motor y Bomba Hidráulica" },
+    { src: "/bombeo/bomba-tornillo.png",      caption: "Bomba de Tornillo" },
+    { src: "/bombeo/extraccion-crudo-1.png",  caption: "Extracción de Crudo (Natilla)" },
+    { src: "/bombeo/extraccion-crudo-2.png",  caption: "Succión en fosa de crudo" },
+    { src: "/bombeo/bomba-en-fosa.jpg",       caption: "Bomba hidráulica en operación" },
+  ],
+  "alquiler-calderas-inyeccion-vapor": [
+    { src: "/vapor/generador-vapor-otsg.jpg",   caption: "Generador de Vapor OTSG — Campo Boscán" },
+    { src: "/vapor/fosa-campo-boscan.jpg",       caption: "Extracción de crudo en fosa — Campo Boscán" },
+    { src: "/vapor/fosa-pasivo-ambiental.jpg",   caption: "Fosa petrolizada — inicio de operación" },
+    { src: "/vapor/fosa-extraccion.jpg",         caption: "Fosa — vista panorámica" },
+    { src: "/vapor/campo-pozos.jpg",             caption: "Locación de pozos — Estado Zulia" },
   ],
 };
 
