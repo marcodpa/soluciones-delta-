@@ -24,11 +24,11 @@ export const SERVICES: ServiceData[] = [
     title: "Bombeo de Transferencia",
     subtitle: "Extracción y Transferencia de Crudo Pesado",
     summary:
-      "Sistema de bombeo hidráulico compuesto por motor hidráulico y bomba de tornillo con capacidad de 1,500 Bbl/24h. Maneja crudos livianos (aguas efluentes) y de API pesados, incluyendo extracción de crudo de natilla en fosas.",
+      "Servicio desnatador y de transferencia de crudo con bomba hidráulica tipo tornillo de 1,500 Bbl/día. Unidad de potencia a 15,000 PSI, succión por plato acerado desnatador y descarga por manguera de 6\". Motor y bomba separados para óptima ubicación en campo.",
     heroColor: "#eef7f1",
     icon: "M7 14h14M14 4v20",
     overview:
-      "Nuestro sistema de bombeo hidráulico es una solución de alto rendimiento para extracción y transferencia de crudo pesado. El motor hidráulico impulsa mediante aceite a presión variable (0 a 10,000 PSI) la bomba de tornillo, permitiendo succionar fluidos desde fosas de crudo y transferirlos hacia tanques de almacenamiento de 500 Bbl. El sistema incorpora un plato recolector de crudo liviano (natilla) que maximiza la recuperación con mínima contaminación.",
+      "Nuestro servicio desnatador y de transferencia de crudo utiliza una bomba tipo tornillo operada por unidad de potencia hidráulica a 15,000 PSI. El diseño con motor y bomba separados permite una mejor ubicación en campo, adaptándose a fosas de crudo de difícil acceso. La succión se realiza mediante un plato acerado acondicionado especialmente para recolección de crudo (natilla), con descarga a través de manguera de 6 pulgadas hacia tanques de almacenamiento.",
     sections: [
       {
         heading: "¿Cómo funciona el sistema?",
@@ -92,12 +92,12 @@ export const SERVICES: ServiceData[] = [
     ],
     specs: [
       { label: "Tipo de bomba", value: "Tornillo (Screw Pump)" },
-      { label: "Motor", value: "Hidráulico" },
-      { label: "Presión hidráulica", value: "0 – 10,000 PSI" },
-      { label: "Capacidad", value: "1,500 Bbl / 24 horas" },
-      { label: "Generador", value: "400 KVA" },
-      { label: "Fluidos", value: "Livianos y API pesados" },
-      { label: "Tanque destino", value: "Frac Tank 500 Bbl" },
+      { label: "Motor", value: "Unidad de potencia hidráulica" },
+      { label: "Presión hidráulica", value: "15,000 PSI" },
+      { label: "Capacidad", value: "1,500 Bbl / día" },
+      { label: "Descarga", value: "Manguera 6 pulgadas" },
+      { label: "Succión", value: "Plato acerado desnatador" },
+      { label: "Configuración", value: "Motor y bomba separados" },
       { label: "Disponibilidad", value: "24 horas / 7 días" },
     ],
     benefits: [
