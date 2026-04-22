@@ -25,12 +25,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
 
   title: {
-    default: "Soluciones Delta C.A. | Bombeo de Crudo · Vacuum · Frac Tanks · Zulia",
+    default: "Soluciones Delta C.A. | Servicios Petroleros Zulia",
     template: "%s | Soluciones Delta C.A.",
   },
 
   description:
-    "Empresa venezolana especializada en bombeo de transferencia de crudo pesado, trasegado con vacuum, suministro de Frac Tanks 500 Bbl y gestión de desechos industriales para la industria petrolera en el Estado Zulia. RIF J-50735393-1.",
+    "Servicios petroleros en Zulia: bombeo de crudo, vacuum, Frac Tanks 500 Bbl e inyección de vapor. Operación 24/7. RIF J-50735393-1.",
 
   keywords: [
     "bombeo de crudo Venezuela",
@@ -79,8 +79,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: BASE_URL,
     languages: {
-      "es-VE": BASE_URL,
-      es: BASE_URL,
+      "es": BASE_URL,
     },
   },
 
@@ -136,19 +135,16 @@ export default function RootLayout({
   return (
     <html lang="es" dir="ltr">
       <head>
-        {/* Preconnect for performance */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Geo tags */}
         <meta name="geo.region" content="VE-V" />
         <meta name="geo.placename" content="San Francisco, Estado Zulia, Venezuela" />
         <meta name="geo.position" content="10.6544;-71.6469" />
         <meta name="ICBM" content="10.6544, -71.6469" />
-        {/* Business contact */}
         <meta name="contact" content="solucionesdeltaca@gmail.com" />
         <meta name="reply-to" content="solucionesdeltaca@gmail.com" />
-        {/* Language */}
-        <meta httpEquiv="content-language" content="es-VE" />
+        <link rel="alternate" hrefLang="es" href={BASE_URL} />
+        <link rel="alternate" hrefLang="x-default" href={BASE_URL} />
       </head>
       <body className={`${inter.variable} antialiased`}>
         <ErrorReporter />
