@@ -3,6 +3,8 @@ import { getServiceBySlug, SERVICES } from "@/lib/services-data";
 import ServicePageClient from "@/components/ServicePageClient";
 import type { Metadata } from "next";
 
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://solucionesdeltaca.com";
+
 export async function generateStaticParams() {
   return SERVICES.map((s) => ({ slug: s.slug }));
 }
@@ -18,11 +20,11 @@ export async function generateMetadata({
   return {
     title: `${service.title} | Soluciones Delta C.A.`,
     description: service.summary,
-    alternates: { canonical: `https://solucionesdeltaca.com/servicios/${slug}` },
+    alternates: { canonical: `${BASE_URL}/servicios/${slug}` },
     openGraph: {
       title: `${service.title} — Soluciones Delta C.A.`,
       description: service.summary,
-      url: `https://solucionesdeltaca.com/servicios/${slug}`,
+      url: `${BASE_URL}/servicios/${slug}`,
     },
   };
 }

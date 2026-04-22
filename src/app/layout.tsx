@@ -13,7 +13,7 @@ const inter = Inter({
   preload: true,
 });
 
-const BASE_URL = "https://solucionesdeltaca.com";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://solucionesdeltaca.com";
 
 export const viewport: Viewport = {
   themeColor: "#1a8c3c",
@@ -143,7 +143,6 @@ export default function RootLayout({
         <meta name="ICBM" content="10.6544, -71.6469" />
         <meta name="contact" content="solucionesdeltaca@gmail.com" />
         <meta name="reply-to" content="solucionesdeltaca@gmail.com" />
-        <link rel="alternate" hrefLang="es" href={BASE_URL} />
         <link rel="alternate" hrefLang="x-default" href={BASE_URL} />
       </head>
       <body className={`${inter.variable} antialiased`}>
