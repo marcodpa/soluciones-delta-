@@ -13,7 +13,7 @@ import Footer from "@/components/Footer";
 gsap.registerPlugin(ScrollTrigger);
 
 const SERVICE_IMAGES: Record<string, string> = {
-  "bombeo-de-crudo": "/bombeo/bomba-en-fosa.jpg",
+  "bombeo-de-crudo": "/bombeo/equipo-principal.png",
   "trasegado-vacuum": "/vacuum-truck.jpg",
   "frac-tanks": "/frac-tanks/bateria-frac-tanks.jpg",
   "manejo-de-desechos": "/vacuum-truck.jpg",
@@ -28,6 +28,7 @@ const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
     { src: "/bombeo/bomba-tornillo.png",            caption: "Bomba Tipo Tornillo en campo" },
     { src: "/bombeo/extraccion-crudo-1.png",        caption: "Extracción de Crudo (Natilla)" },
     { src: "/bombeo/bomba-en-fosa.jpg",             caption: "Bomba hidráulica en operación en fosa" },
+    { src: "/bombeo/bomba-tornillo-corte.jpg",      caption: "Corte interno de Bomba Tipo Tornillo" },
   ],
   "trasegado-vacuum": [
     { src: "/vacuum/nve-607-challenger.jpg",  caption: "Compresor NVE 607 PRO Challenger Heavy-Duty" },
