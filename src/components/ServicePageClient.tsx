@@ -22,13 +22,7 @@ const SERVICE_IMAGES: Record<string, string> = {
 
 const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
   "bombeo-de-crudo": [
-    { src: "/bombeo/bomba-hidraulica-roja.jpg",    caption: "Bomba Hidráulica — Motor y acople 6\"" },
-    { src: "/bombeo/desnatador-plato-acerado.png",  caption: "Desnatador con Plato Acerado" },
-    { src: "/bombeo/motor-hidraulico.png",          caption: "Unidad de Potencia Hidráulica" },
-    { src: "/bombeo/bomba-tornillo.png",            caption: "Bomba Tipo Tornillo en campo" },
-    { src: "/bombeo/extraccion-crudo-1.png",        caption: "Extracción de Crudo (Natilla)" },
-    { src: "/bombeo/bomba-en-fosa.jpg",             caption: "Bomba hidráulica en operación en fosa" },
-    { src: "/bombeo/bomba-tornillo-corte.jpg",      caption: "Corte interno de Bomba Tipo Tornillo" },
+    { src: "/bombeo/bomba-hidraulica-roja.jpg", caption: "Bomba Hidráulica — Motor y acople 6\"" },
   ],
   "trasegado-vacuum": [
     { src: "/vacuum/nve-607-challenger.jpg",  caption: "Compresor NVE 607 PRO Challenger Heavy-Duty" },
