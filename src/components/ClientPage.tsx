@@ -13,14 +13,7 @@ export default function ClientPage() {
     <>
       <div className="noise-overlay" aria-hidden="true" />
 
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-[#1a8c3c] focus:text-white focus:rounded-lg focus:font-semibold"
-      >
-        Saltar al contenido principal
-      </a>
-
-      <Navbar />
+<Navbar />
 
       <main id="main-content" role="main">
         <HeroSection />
