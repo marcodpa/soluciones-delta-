@@ -38,7 +38,6 @@ export default function Footer() {
                 width={150}
                 height={60}
                 className="h-14 w-14 object-contain"
-                style={{ mixBlendMode: "screen" }}
               />
             </div>
             <p className="text-[14px] text-[#6e6e73] leading-relaxed max-w-sm mb-6">
