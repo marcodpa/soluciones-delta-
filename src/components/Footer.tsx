@@ -33,7 +33,7 @@ export default function Footer() {
           <div className="md:col-span-2">
             <div className="mb-5">
               <Image
-                src="/logo.png"
+                src="/logo-v2.png"
                 alt="Soluciones Delta C.A."
                 width={150}
                 height={60}

@@ -51,7 +51,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link href="/" className="flex items-center">
               <Image
-                src="/logo.png"
+                src="/logo-v2.png"
                 alt="Soluciones Delta C.A."
                 width={120}
                 height={120}
