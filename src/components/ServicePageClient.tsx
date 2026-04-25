@@ -102,7 +102,7 @@ export default function ServicePageClient({ service }: { service: ServiceData })
               <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-[#6e6e73] mb-8">
                 <Link href="/" className="hover:text-[#1a8c3c] transition-colors">Inicio</Link>
                 <span>/</span>
-                <Link href="/#servicios" className="hover:text-[#1a8c3c] transition-colors">Servicios</Link>
+                <Link href="/servicios" className="hover:text-[#1a8c3c] transition-colors">Servicios</Link>
                 <span>/</span>
                 <span className="text-[#1d1d1f] font-medium">{service.title}</span>
               </nav>
@@ -126,7 +126,7 @@ export default function ServicePageClient({ service }: { service: ServiceData })
                         <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </a>
-                    <Link href="/#servicios" className="btn-secondary">
+                    <Link href="/servicios" className="btn-secondary">
                       ← Todos los servicios
                     </Link>
                   </div>
