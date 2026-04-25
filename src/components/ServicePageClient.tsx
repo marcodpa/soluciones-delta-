@@ -17,7 +17,7 @@ const SERVICE_IMAGES: Record<string, string> = {
   "trasegado-vacuum": "/vacuum-truck.jpg",
   "frac-tanks": "/frac-tanks/frac-tank-ficha.jpg",
   "manejo-de-desechos": "/vacuum-truck.jpg",
-  "alquiler-calderas-inyeccion-vapor": "/vapor/generador-vapor-otsg.jpg",
+  "alquiler-calderas-inyeccion-vapor": "/vapor/caldera-otsg-semirremolque.jpg",
 };
 
 const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
