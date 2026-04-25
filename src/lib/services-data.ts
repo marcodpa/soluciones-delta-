@@ -145,8 +145,8 @@ export const SERVICES: ServiceData[] = [
   {
     slug: "trasegado-vacuum",
     tag: "Vacuum",
-    title: "Trasegado con Vacuum",
-    subtitle: "Servicio de Alto Vacío Industrial",
+    title: "Transporte de Fluidos",
+    subtitle: "Servicio de Vacuum — 160 Barriles",
     summary:
       "Succión, transporte y descarga de fluidos industriales con unidades vacuum propias de 160 Bbl (fabricación 2026). Limpieza de tanques, extracción de borras y manejo de efluentes.",
     heroColor: "#eef4ff",

@@ -93,7 +93,7 @@ export default function JsonLd() {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Trasegado con Vacuum",
+            name: "Transporte de Fluidos con Vacuum",
             description:
               "Servicio de succión, transporte y descarga de fluidos industriales con unidades vacuum propias de 160 barriles (fabricación 2026), compresor NVE Challenger 607 y motor Isuzu 4BD1. Incluye limpieza de tanques, extracción de borras asfálticas y manejo de lodos de perforación.",
             serviceType: "Vacuum Truck Services",

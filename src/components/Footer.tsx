@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const services = [
   { label: "Bombeo de Crudo",         slug: "bombeo-de-crudo" },
-  { label: "Trasegado Vacuum",        slug: "trasegado-vacuum" },
+  { label: "Transporte de Fluidos",   slug: "trasegado-vacuum" },
   { label: "Frac Tanks 500 Bbl",      slug: "frac-tanks" },
   { label: "Manejo de Desechos",      slug: "manejo-de-desechos" },
   { label: "Inyección de Vapor",      slug: "alquiler-calderas-inyeccion-vapor" },

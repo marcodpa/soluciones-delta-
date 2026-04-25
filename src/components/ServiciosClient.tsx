@@ -33,7 +33,7 @@ const services = [
     slug: "trasegado-vacuum",
     tag: "Vacuum Industrial",
     num: "02",
-    title: "Trasegado con Vacuum",
+    title: "Transporte de Fluidos",
     subtitle: "Unidades de Alto Vacío · 160 Barriles",
     summary:
       "Succión, transporte y descarga de fluidos de alta densidad con unidad vacuum propia de 160 Bbl (fabricación 2026). Acero A36 de 8 mm, compresor NVE Challenger 607, motor Isuzu 4BD1.",

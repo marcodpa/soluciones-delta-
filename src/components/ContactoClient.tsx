@@ -11,7 +11,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const serviceOptions = [
   "Bombeo de Transferencia (Carga/Descarga de Crudo)",
-  "Trasegado con Vacuum",
+  "Transporte de Fluidos con Vacuum (160 Bbl)",
   "Suministro de Frac Tanks 500 Bbl",
   "Manejo de Desechos Industriales",
   "Alquiler de Calderas / Inyección de Vapor",

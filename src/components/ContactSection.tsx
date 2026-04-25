@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const serviceOptions = [
   "Bombeo de Transferencia (Carga/Descarga)",
-  "Trasegado con Vacuum",
+  "Transporte de Fluidos con Vacuum (160 Bbl)",
   "Suministro de Frac Tanks",
   "Manejo de Desechos Industriales",
   "Otro / Consulta General",

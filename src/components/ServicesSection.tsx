@@ -28,7 +28,7 @@ const services = [
   {
     slug: "trasegado-vacuum",
     tag: "Vacuum",
-    title: "Trasegado con Vacuum",
+    title: "Transporte de Fluidos",
     subtitle: "Alto Vacío Industrial",
     summary: "Unidad vacuum propia 160 Bbl (fab. 2026), acero A36 8 mm, compresor NVE Challenger 607. Borras, lodos, efluentes y espacios confinados.",
     highlights: ["160 Bbl", "NVE 607", "Fab. 2026"],

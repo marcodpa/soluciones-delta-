@@ -25,8 +25,8 @@ const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
     { src: "/bombeo/bomba-hidraulica-roja.jpg", caption: "Bomba Hidráulica — Motor y acople 6\"" },
   ],
   "trasegado-vacuum": [
-    { src: "/vacuum/nve-607-challenger.jpg",  caption: "Compresor NVE 607 PRO Challenger Heavy-Duty" },
-    { src: "/vacuum/nve-607-engine-drive.jpg", caption: "NVE 607 — Engine Drive Package (TIER 4)" },
+    { src: "/vacuum/vacuum-truck-howo-pdvsa.jpg", caption: "Unidad Vacuum en operación — Locación PDVSA" },
+    { src: "/vacuum/vacuum-semirremolque.jpg",    caption: "Semirremolque Vacuum 160 Bbl — Soluciones Delta" },
   ],
   "frac-tanks": [
     { src: "/frac-tanks/bateria-frac-tanks.jpg", caption: "Batería de Frac Tanks en locación — Estado Zulia" },
