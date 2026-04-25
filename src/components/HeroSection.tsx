@@ -167,6 +167,18 @@ export default function HeroSection() {
     return () => {
       window.removeEventListener("resize", resizeCanvas);
       ScrollTrigger.getAll().forEach((st) => st.kill());
+      gsap.killTweensOf([
+        sceneRef.current, overlayRef.current, statsRef.current,
+        panel1Ref.current, panel2Ref.current, panel3Ref.current,
+        dot1Ref.current, dot2Ref.current, dot3Ref.current,
+      ]);
+      // Reset all panels to hidden so the next mount starts clean
+      if (panel1Ref.current) gsap.set(panel1Ref.current, { opacity: 0, y: 70 });
+      if (panel2Ref.current) gsap.set(panel2Ref.current, { opacity: 0, y: 60 });
+      if (panel3Ref.current) gsap.set(panel3Ref.current, { opacity: 0, y: 60 });
+      if (sceneRef.current)  gsap.set(sceneRef.current,  { opacity: 0, scale: 1.18 });
+      if (overlayRef.current) gsap.set(overlayRef.current, { opacity: 0 });
+      if (statsRef.current)  gsap.set(statsRef.current,  { opacity: 0, y: 32 });
       bitmaps.forEach((b) => b?.close());
     };
   }, []);
