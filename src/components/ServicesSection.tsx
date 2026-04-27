@@ -121,18 +121,11 @@ export default function ServicesSection() {
       ref={sectionRef}
       aria-labelledby="servicios-heading"
       className="py-32 relative overflow-hidden"
-      style={{ background: "#0d0d0f" }}
+      style={{ background: "#ffffff" }}
     >
-      {/* Ambient green glow */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(26,140,60,0.12) 0%, transparent 65%)" }} />
-
-      {/* Subtle dot grid */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.025]"
-        style={{
-          backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
-        }} />
+      {/* Subtle top green line */}
+      <div className="absolute top-0 inset-x-0 h-px pointer-events-none"
+        style={{ background: "linear-gradient(90deg,transparent,rgba(26,140,60,0.15),transparent)" }} />
 
       <div className="site-container relative">
 
@@ -141,11 +134,11 @@ export default function ServicesSection() {
           <div>
             <div className="section-label mb-4">Lo que hacemos</div>
             <h2 id="servicios-heading"
-              className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight leading-tight text-white">
+              className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight leading-tight text-[#1d1d1f]">
               Nuestros <span className="text-gradient">Servicios.</span>
             </h2>
           </div>
-          <p className="text-[15px] text-white/40 max-w-xs leading-relaxed lg:text-right flex-shrink-0">
+          <p className="text-[15px] text-[#6e6e73] max-w-xs leading-relaxed lg:text-right flex-shrink-0">
             Cinco áreas especializadas, un solo proveedor. Operación continua en el Estado Zulia.
           </p>
         </div>
@@ -163,36 +156,36 @@ export default function ServicesSection() {
             href="/servicios"
             className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 px-7 py-6 rounded-2xl overflow-hidden transition-all duration-300"
             style={{
-              background: "rgba(255,255,255,0.04)",
-              border: "1px solid rgba(255,255,255,0.08)",
+              background: "rgba(26,140,60,0.04)",
+              border: "1.5px solid rgba(26,140,60,0.14)",
               textDecoration: "none",
             }}
             onMouseEnter={e => {
               const el = e.currentTarget;
-              el.style.background = "rgba(26,140,60,0.1)";
-              el.style.borderColor = "rgba(26,140,60,0.35)";
+              el.style.background = "rgba(26,140,60,0.08)";
+              el.style.borderColor = "rgba(26,140,60,0.28)";
             }}
             onMouseLeave={e => {
               const el = e.currentTarget;
-              el.style.background = "rgba(255,255,255,0.04)";
-              el.style.borderColor = "rgba(255,255,255,0.08)";
+              el.style.background = "rgba(26,140,60,0.04)";
+              el.style.borderColor = "rgba(26,140,60,0.14)";
             }}
           >
             <div className="flex items-center gap-4">
               <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: "rgba(48,209,88,0.12)", border: "1px solid rgba(48,209,88,0.2)" }}>
+                style={{ background: "rgba(26,140,60,0.1)", border: "1px solid rgba(26,140,60,0.18)" }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M4 6h16M4 10h16M4 14h10" stroke="#30d158" strokeWidth="1.8" strokeLinecap="round"/>
-                  <circle cx="19" cy="17" r="3.5" stroke="#30d158" strokeWidth="1.8"/>
-                  <path d="M17.5 17l1 1 2-2" stroke="#30d158" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M4 6h16M4 10h16M4 14h10" stroke="#1a8c3c" strokeWidth="1.8" strokeLinecap="round"/>
+                  <circle cx="19" cy="17" r="3.5" stroke="#1a8c3c" strokeWidth="1.8"/>
+                  <path d="M17.5 17l1 1 2-2" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </div>
               <div>
-                <div className="text-white font-semibold text-[15px]">Ver catálogo completo de servicios</div>
-                <div className="text-white/35 text-[12px] mt-0.5">Fichas técnicas, especificaciones y casos de uso</div>
+                <div className="text-[#1d1d1f] font-semibold text-[15px]">Ver catálogo completo de servicios</div>
+                <div className="text-[#6e6e73] text-[12px] mt-0.5">Fichas técnicas, especificaciones y casos de uso</div>
               </div>
             </div>
-            <div className="flex items-center gap-2 text-[13px] font-semibold text-[#30d158] group-hover:gap-3 transition-all duration-200 flex-shrink-0">
+            <div className="flex items-center gap-2 text-[13px] font-semibold text-[#1a8c3c] group-hover:gap-3 transition-all duration-200 flex-shrink-0">
               Explorar
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
@@ -214,7 +207,7 @@ function ServiceRow({ s }: { s: typeof services[number] }) {
       style={{ textDecoration: "none" }}
       onMouseEnter={e => {
         const el = e.currentTarget;
-        el.style.background = "rgba(255,255,255,0.04)";
+        el.style.background = "rgba(26,140,60,0.04)";
       }}
       onMouseLeave={e => {
         const el = e.currentTarget;
@@ -222,33 +215,32 @@ function ServiceRow({ s }: { s: typeof services[number] }) {
       }}
     >
       {/* Number */}
-      <span className="text-[11px] font-bold tracking-widest flex-shrink-0 hidden sm:block w-6"
-        style={{ color: "rgba(255,255,255,0.2)" }}>
+      <span className="text-[11px] font-bold tracking-widest flex-shrink-0 hidden sm:block w-6 text-[#d4d4d8]">
         {s.num}
       </span>
 
       {/* Icon */}
       <div className="flex-shrink-0 w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-200"
-        style={{ background: "rgba(26,140,60,0.1)", border: "1px solid rgba(26,140,60,0.2)", color: "#30d158" }}>
+        style={{ background: "rgba(26,140,60,0.07)", border: "1px solid rgba(26,140,60,0.14)", color: "#1a8c3c" }}>
         {s.icon}
       </div>
 
       {/* Text */}
       <div className="flex-1 min-w-0 flex items-center gap-3">
-        <h3 className="text-[14px] font-semibold text-white/80 group-hover:text-white transition-colors duration-200 leading-snug">
+        <h3 className="text-[14px] font-semibold text-[#1d1d1f] group-hover:text-[#1a8c3c] transition-colors duration-200 leading-snug">
           {s.title}
         </h3>
         <span className="text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full flex-shrink-0 hidden sm:inline-block"
-          style={{ background: "rgba(48,209,88,0.1)", color: "#30d158", border: "1px solid rgba(48,209,88,0.18)" }}>
+          style={{ background: "rgba(26,140,60,0.07)", color: "#1a8c3c", border: "1px solid rgba(26,140,60,0.15)" }}>
           {s.tag}
         </span>
-        <span className="text-[12px] text-white/30 hidden lg:block truncate">{s.tagline}</span>
+        <span className="text-[12px] text-[#aeaeb2] hidden lg:block truncate">{s.tagline}</span>
       </div>
 
       {/* Arrow */}
       <svg width="13" height="13" viewBox="0 0 16 16" fill="none"
         className="flex-shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200 -translate-x-1 group-hover:translate-x-0">
-        <path d="M3 8h10M9 4l4 4-4 4" stroke="#30d158" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M3 8h10M9 4l4 4-4 4" stroke="#1a8c3c" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     </Link>
   );
