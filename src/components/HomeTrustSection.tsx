@@ -13,7 +13,7 @@ const pillars = [
     title: "Equipamiento propio",
     body: "Flota de unidades vacuum fabricadas en 2026 con acero A36. Sin subcontratos — el equipo que llega es el nuestro.",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+      <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
         <rect x="2" y="7" width="18" height="9" rx="2" stroke="#1a8c3c" strokeWidth="1.5"/>
         <circle cx="6" cy="18" r="2" stroke="#1a8c3c" strokeWidth="1.5"/>
         <circle cx="16" cy="18" r="2" stroke="#1a8c3c" strokeWidth="1.5"/>
@@ -26,7 +26,7 @@ const pillars = [
     title: "Operación 24 / 7",
     body: "Disponibles en todo momento para emergencias y operaciones continuas. Movilización en menos de 4 horas en el Estado Zulia.",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+      <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
         <circle cx="11" cy="11" r="8.5" stroke="#1a8c3c" strokeWidth="1.5"/>
         <path d="M11 6v5l3 3" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
@@ -37,7 +37,7 @@ const pillars = [
     title: "Cumplimiento normativo",
     body: "Operamos bajo el Decreto 2635, normas PDVSA-COVENIN y protocolos HSE vigentes. Documentación completa en cada servicio.",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+      <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
         <path d="M11 2L3 6v4.5c0 4.9 3.4 9.5 8 10.5 4.6-1 8-5.6 8-10.5V6L11 2z" stroke="#1a8c3c" strokeWidth="1.5" strokeLinejoin="round"/>
         <path d="M8 11l2 2 4-4" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
@@ -48,7 +48,7 @@ const pillars = [
     title: "Solución integral",
     body: "Desde la extracción del crudo hasta la disposición final de los residuos. Un solo proveedor para toda la cadena de operaciones.",
     icon: (
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+      <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
         <path d="M4 4v5h.5M18 13v5h-.5M4.5 9A7.5 7.5 0 0112 4.5M17.5 13A7.5 7.5 0 0110 17.5" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round"/>
         <path d="M4 9h3M18 13h-3" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round"/>
       </svg>
@@ -57,17 +57,17 @@ const pillars = [
 ];
 
 const stats = [
-  { value: "5+", label: "Servicios especializados" },
-  { value: "160", suffix: "Bbl", label: "Capacidad vacuum" },
-  { value: "500", suffix: "Bbl", label: "Frac Tanks disponibles" },
-  { value: "24/7", label: "Operación continua" },
+  { value: "5+",   suffix: "",    label: "Servicios especializados" },
+  { value: "160",  suffix: "Bbl", label: "Capacidad vacuum" },
+  { value: "500",  suffix: "Bbl", label: "Frac Tanks disponibles" },
+  { value: "24/7", suffix: "",    label: "Operación continua" },
 ];
 
 export default function HomeTrustSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const statsRef = useRef<HTMLDivElement>(null);
-  const pillarsRef = useRef<HTMLDivElement>(null);
+  const sectionRef  = useRef<HTMLElement>(null);
+  const headerRef   = useRef<HTMLDivElement>(null);
+  const statsRef    = useRef<HTMLDivElement>(null);
+  const pillarsRef  = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -91,14 +91,20 @@ export default function HomeTrustSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-32 relative overflow-hidden bg-white">
-      {/* top line */}
-      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(0,0,0,0.07), transparent)" }} />
+    <section ref={sectionRef} className="py-32 relative overflow-hidden" style={{ background: "#f5f5f7" }}>
+
+      {/* Top separator */}
+      <div className="absolute top-0 inset-x-0 h-px"
+        style={{ background: "linear-gradient(90deg,transparent,rgba(0,0,0,0.08),transparent)" }} />
+
+      {/* Subtle mesh */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse 60% 50% at 100% 0%, rgba(26,140,60,0.05) 0%, transparent 60%)" }} />
 
       <div className="site-container">
 
         {/* Header */}
-        <div ref={headerRef} className="max-w-3xl mb-20">
+        <div ref={headerRef} className="max-w-3xl mb-16">
           <div className="section-label mb-4">Por qué elegirnos</div>
           <h2 className="text-[clamp(32px,4.5vw,56px)] font-bold tracking-tight text-[#1d1d1f] leading-tight mb-5">
             Empresa propia, equipos propios,{" "}
@@ -110,72 +116,62 @@ export default function HomeTrustSection() {
         </div>
 
         {/* Stats bar */}
-        <div
-          ref={statsRef}
-          className="grid grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden mb-20"
-          style={{ border: "1.5px solid #e5e5ea", boxShadow: "0 4px 24px rgba(0,0,0,0.05)" }}
-        >
+        <div ref={statsRef}
+          className="grid grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden mb-16"
+          style={{ border: "1.5px solid rgba(0,0,0,0.06)", boxShadow: "0 2px 16px rgba(0,0,0,0.04)" }}>
           {stats.map((s, i) => (
-            <div
-              key={i}
+            <div key={i}
               className="flex flex-col items-center justify-center py-8 px-6 text-center"
               style={{
-                borderRight: i < stats.length - 1 ? "1px solid #e5e5ea" : "none",
+                borderRight: i < stats.length - 1 ? "1px solid rgba(0,0,0,0.06)" : "none",
                 background: i % 2 === 0 ? "#ffffff" : "#fafafa",
-              }}
-            >
+              }}>
               <div className="flex items-end gap-1 mb-2">
-                <span className="text-[clamp(32px,4vw,48px)] font-bold text-[#1d1d1f] leading-none">{s.value}</span>
-                {s.suffix && <span className="text-[#1a8c3c] font-bold text-lg mb-1">{s.suffix}</span>}
+                <span className="text-[clamp(28px,4vw,44px)] font-bold text-[#1d1d1f] leading-none">{s.value}</span>
+                {s.suffix && <span className="text-[#1a8c3c] font-bold text-base mb-0.5">{s.suffix}</span>}
               </div>
-              <div className="text-[12px] text-[#6e6e73] font-medium tracking-wide uppercase">{s.label}</div>
+              <div className="text-[11px] text-[#6e6e73] font-medium tracking-wide uppercase">{s.label}</div>
             </div>
           ))}
         </div>
 
         {/* Pillars grid */}
-        <div ref={pillarsRef} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-16">
+        <div ref={pillarsRef} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
           {pillars.map((p, i) => (
-            <div
-              key={i}
-              className="group p-7 rounded-2xl flex flex-col gap-4 transition-all duration-300 hover:-translate-y-1"
-              style={{
-                background: "#f9f9fb",
-                border: "1.5px solid #ebebef",
-                boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
-              }}
+            <div key={i}
+              className="group p-6 rounded-2xl flex flex-col gap-4 transition-all duration-300"
+              style={{ background: "#ffffff", border: "1.5px solid #e8e8ed", boxShadow: "0 1px 8px rgba(0,0,0,0.03)" }}
               onMouseEnter={e => {
-                (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(26,140,60,0.35)";
-                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 32px rgba(26,140,60,0.10)";
+                const el = e.currentTarget as HTMLDivElement;
+                el.style.borderColor = "rgba(26,140,60,0.3)";
+                el.style.boxShadow = "0 8px 28px rgba(26,140,60,0.09)";
+                el.style.transform = "translateY(-2px)";
               }}
               onMouseLeave={e => {
-                (e.currentTarget as HTMLDivElement).style.borderColor = "#ebebef";
-                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 12px rgba(0,0,0,0.04)";
-              }}
-            >
+                const el = e.currentTarget as HTMLDivElement;
+                el.style.borderColor = "#e8e8ed";
+                el.style.boxShadow = "0 1px 8px rgba(0,0,0,0.03)";
+                el.style.transform = "translateY(0)";
+              }}>
               <div className="flex items-start justify-between">
-                <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: "rgba(26,140,60,0.08)", border: "1px solid rgba(26,140,60,0.15)" }}
-                >
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: "rgba(26,140,60,0.07)", border: "1px solid rgba(26,140,60,0.13)" }}>
                   {p.icon}
                 </div>
-                <span className="text-[12px] font-bold text-[#d0d0d8] tracking-widest">{p.number}</span>
+                <span className="text-[11px] font-bold text-[#d4d4d8] tracking-widest">{p.number}</span>
               </div>
-              <h3 className="text-[16px] font-bold text-[#1d1d1f] leading-snug">{p.title}</h3>
-              <p className="text-[13px] text-[#6e6e73] leading-relaxed flex-1">{p.body}</p>
+              <h3 className="text-[14px] font-bold text-[#1d1d1f] leading-snug">{p.title}</h3>
+              <p className="text-[12.5px] text-[#6e6e73] leading-relaxed flex-1">{p.body}</p>
             </div>
           ))}
         </div>
 
         {/* Bottom CTA link */}
         <div className="text-center">
-          <Link
-            href="/nosotros"
-            className="inline-flex items-center gap-2 text-[14px] font-semibold text-[#1a8c3c] hover:gap-3 transition-all duration-200"
-          >
+          <Link href="/nosotros"
+            className="inline-flex items-center gap-2 text-[13px] font-semibold text-[#1a8c3c] hover:gap-3 transition-all duration-200">
             Conocer más sobre la empresa
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
               <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
             </svg>
           </Link>

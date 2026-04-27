@@ -9,50 +9,58 @@ gsap.registerPlugin(ScrollTrigger);
 const values = [
   {
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z" stroke="#1a8c3c" strokeWidth="1.5" strokeLinejoin="round"/>
-        <path d="M9 12l2 2 4-4" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z" stroke="#30d158" strokeWidth="1.5" strokeLinejoin="round"/>
+        <path d="M9 12l2 2 4-4" stroke="#30d158" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
     title: "Seguridad Primero",
-    description: "Todas nuestras operaciones se realizan bajo estrictos protocolos de seguridad industrial, con equipos certificados y personal capacitado.",
+    description: "Protocolos HSE certificados y ART en cada operación. EPP completo, aterramiento y kit antiderrame.",
   },
   {
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="9" stroke="#1a8c3c" strokeWidth="1.5"/>
-        <path d="M12 7v5l3 3" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="9" stroke="#30d158" strokeWidth="1.5"/>
+        <path d="M12 7v5l3 3" stroke="#30d158" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
     title: "Respuesta Inmediata",
-    description: "Disponibilidad operativa 24/7 para atender las demandas urgentes del sector petrolero con tiempos de movilización óptimos.",
+    description: "Disponibilidad operativa 24/7. Movilización en menos de 4 horas para emergencias en el Estado Zulia.",
   },
   {
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M16 3h5v5M21 3l-8 8" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M12 3C7.03 3 3 7.03 3 12s4.03 9 9 9 9-4.03 9-9" stroke="#30d158" strokeWidth="1.5" strokeLinecap="round"/>
+        <path d="M16 3h5v5M21 3l-8 8" stroke="#30d158" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
     title: "Tecnología de Punta",
-    description: "Equipos fabricados en 2026 con tecnología de última generación, diseñados para operaciones en condiciones extremas del sector petrolero venezolano.",
+    description: "Equipos fabricados en 2026. Compresor NVE Challenger 607 PRO, acero A36 8 mm, automatización total.",
   },
   {
     icon: (
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#30d158" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
     title: "Solución Integral",
-    description: "Desde el bombeo de transferencia hasta la gestión final de desechos, cubrimos toda la cadena de manejo de fluidos en operaciones petroleras.",
+    description: "Desde el bombeo de transferencia hasta la disposición final de residuos. Un solo proveedor.",
   },
+];
+
+const companyData = [
+  { label: "Dirección", value: "Calle 13 con Av 5, Local 26A-162, Sector Manzanillo, San Francisco, Zulia" },
+  { label: "Teléfono",  value: "0424-6472446" },
+  { label: "Correo",    value: "solucionesdeltaca@gmail.com" },
+  { label: "RIF",       value: "J-50735393-1" },
+  { label: "Flota",     value: "Unidades Vacuum · fabricación 2026" },
 ];
 
 export default function AboutSection() {
   const sectionRef = useRef<HTMLElement>(null);
-  const headerRef = useRef<HTMLDivElement>(null);
+  const headerRef  = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-  const valuesRef = useRef<HTMLDivElement>(null);
+  const valuesRef  = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -76,39 +84,54 @@ export default function AboutSection() {
   }, []);
 
   return (
-    <section id="nosotros" ref={sectionRef} className="py-32 relative overflow-hidden" style={{ background: "#eef0f2" }}>
-      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 50%, transparent 100%)" }} />
-      <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.06) 50%, transparent 100%)" }} />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 50% 60% at 20% 50%, rgba(26,140,60,0.03) 0%, transparent 70%)" }}
-      />
+    <section
+      id="nosotros"
+      ref={sectionRef}
+      className="py-32 relative overflow-hidden"
+      style={{ background: "#0d0d0f" }}
+    >
+      {/* Ambient glows */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse 55% 60% at 100% 40%, rgba(26,140,60,0.09) 0%, transparent 65%)" }} />
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse 40% 40% at 0% 80%, rgba(48,209,88,0.04) 0%, transparent 60%)" }} />
 
-      <div className="site-container">
+      {/* Subtle grid lines */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.025]"
+        style={{
+          backgroundImage: "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
+          backgroundSize: "80px 80px",
+        }} />
+
+      <div className="site-container relative">
+
+        {/* Header */}
         <div ref={headerRef} className="text-center mb-20">
           <div className="section-label mb-4">Quiénes Somos</div>
-          <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight text-[#1d1d1f] leading-tight">
+          <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight text-white leading-tight">
             Comprometidos con la{" "}
             <span className="text-gradient">excelencia operacional</span>
           </h2>
         </div>
 
-        <div ref={contentRef} className="grid lg:grid-cols-2 gap-12 mb-20">
-          <div className="space-y-6">
-            <p className="text-[17px] text-[#3a3a3c] leading-relaxed">
-              <strong className="text-[#1d1d1f]">Soluciones Delta, C.A.</strong> es una empresa venezolana
+        {/* Main content */}
+        <div ref={contentRef} className="grid lg:grid-cols-2 gap-10 mb-20">
+
+          {/* Text */}
+          <div className="space-y-5">
+            <p className="text-[17px] leading-relaxed" style={{ color: "rgba(255,255,255,0.82)" }}>
+              <strong className="text-white">Soluciones Delta, C.A.</strong> es una empresa venezolana
               especializada en servicios técnicos para la industria petrolera, ubicada en San Francisco,
               Estado Zulia — el corazón energético de Venezuela.
             </p>
-            <p className="text-[17px] text-[#6e6e73] leading-relaxed">
+            <p className="text-[15px] leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>
               Contamos con equipamiento propio de última generación, incluyendo unidades vacuum de
-              fabricación 2026, diseñadas y construidas con acero A36 de alta resistencia para
-              garantizar rendimiento óptimo en las condiciones más exigentes del campo petrolero.
+              fabricación 2026 con acero A36 de alta resistencia, garantizando rendimiento óptimo
+              en las condiciones más exigentes del campo petrolero.
             </p>
-            <p className="text-[17px] text-[#6e6e73] leading-relaxed">
-              Nuestra filosofía se basa en brindar soluciones integrales que combinen seguridad,
-              eficiencia y responsabilidad ambiental, acompañando a nuestros clientes desde el
-              bombeo inicial hasta la disposición final de los residuos generados.
+            <p className="text-[15px] leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>
+              Nuestra filosofía: soluciones integrales que combinan seguridad, eficiencia y
+              responsabilidad ambiental, desde el bombeo inicial hasta la disposición final.
             </p>
             <a
               href="#contacto"
@@ -120,20 +143,19 @@ export default function AboutSection() {
           </div>
 
           {/* Company card */}
-          <div className="glass-card rounded-2xl p-8 space-y-5">
-            <div className="text-[#1d1d1f] font-semibold text-lg mb-6">Datos de la Empresa</div>
-            {[
-              { icon: "📍", label: "Dirección", value: "Calle 13 con Av 5, Local 26A-162, Ofic. 2, Sector Manzanillo, San Francisco, Zulia" },
-              { icon: "📞", label: "Teléfono", value: "0424-6472446" },
-              { icon: "📧", label: "Correo", value: "solucionesdeltaca@gmail.com" },
-              { icon: "🏢", label: "RIF", value: "J-50735393-1" },
-              { icon: "📅", label: "Flota", value: "Unidades Vacuum fabricación 2026" },
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-4">
-                <span className="text-lg mt-0.5">{item.icon}</span>
+          <div className="rounded-2xl p-7 space-y-4"
+            style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
+            <div className="flex items-center gap-2 mb-6">
+              <span className="w-2 h-2 rounded-full bg-[#30d158] animate-pulse" />
+              <span className="text-white font-semibold text-[14px]">Datos de la Empresa</span>
+            </div>
+            {companyData.map((item, i) => (
+              <div key={i} className="flex items-start gap-4 pb-4"
+                style={{ borderBottom: i < companyData.length - 1 ? "1px solid rgba(255,255,255,0.06)" : "none" }}>
                 <div>
-                  <div className="text-[12px] text-[#6e6e73] mb-0.5">{item.label}</div>
-                  <div className="text-[14px] text-[#1d1d1f] font-medium">{item.value}</div>
+                  <div className="text-[10px] font-semibold tracking-widest uppercase mb-0.5"
+                    style={{ color: "rgba(255,255,255,0.28)" }}>{item.label}</div>
+                  <div className="text-[13px] font-medium" style={{ color: "rgba(255,255,255,0.75)" }}>{item.value}</div>
                 </div>
               </div>
             ))}
@@ -141,20 +163,31 @@ export default function AboutSection() {
         </div>
 
         {/* Values */}
-        <div ref={valuesRef} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div ref={valuesRef} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {values.map((v, i) => (
-            <div key={i} className="glass-card rounded-2xl p-6 text-center group cursor-default">
-              <div
-                className="w-12 h-12 rounded-2xl mx-auto mb-4 flex items-center justify-center"
-                style={{ background: "rgba(26,140,60,0.07)", border: "1px solid rgba(26,140,60,0.13)" }}
-              >
+            <div key={i}
+              className="rounded-2xl p-6 flex flex-col gap-3 transition-all duration-300 cursor-default"
+              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}
+              onMouseEnter={e => {
+                const el = e.currentTarget as HTMLDivElement;
+                el.style.background = "rgba(48,209,88,0.06)";
+                el.style.borderColor = "rgba(48,209,88,0.2)";
+              }}
+              onMouseLeave={e => {
+                const el = e.currentTarget as HTMLDivElement;
+                el.style.background = "rgba(255,255,255,0.04)";
+                el.style.borderColor = "rgba(255,255,255,0.07)";
+              }}>
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center"
+                style={{ background: "rgba(48,209,88,0.1)", border: "1px solid rgba(48,209,88,0.18)" }}>
                 {v.icon}
               </div>
-              <h4 className="text-[#1d1d1f] font-semibold mb-2 text-[15px]">{v.title}</h4>
-              <p className="text-[13px] text-[#6e6e73] leading-relaxed">{v.description}</p>
+              <h4 className="text-white font-semibold text-[14px]">{v.title}</h4>
+              <p className="text-[12.5px] leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>{v.description}</p>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );

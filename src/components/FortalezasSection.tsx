@@ -134,29 +134,31 @@ export default function FortalezasSection() {
       id="fortalezas"
       ref={sectionRef}
       className="py-32 relative overflow-hidden"
-      style={{ background: "#f2f2f4" }}
+      style={{ background: "#111113" }}
     >
-      {/* top/bottom subtle lines */}
-      <div className="absolute top-0 inset-x-0 h-px pointer-events-none"
-        style={{ background: "linear-gradient(90deg,transparent,rgba(0,0,0,0.07),transparent)" }} />
-      <div className="absolute bottom-0 inset-x-0 h-px pointer-events-none"
-        style={{ background: "linear-gradient(90deg,transparent,rgba(0,0,0,0.07),transparent)" }} />
+      {/* Noise texture */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style={{
+          backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+        }} />
 
-      {/* subtle green glow */}
+      {/* Soft green glow top-left */}
       <div className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 70% 50% at 50% 100%, rgba(48,209,88,0.05) 0%, transparent 70%)" }} />
+        style={{ background: "radial-gradient(ellipse 55% 45% at 0% 50%, rgba(26,140,60,0.1) 0%, transparent 65%)" }} />
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse 40% 35% at 100% 80%, rgba(48,209,88,0.06) 0%, transparent 60%)" }} />
 
-      <div className="site-container">
+      <div className="site-container relative">
 
         {/* ── HEADER ── */}
-        <div ref={headerRef} className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-20">
+        <div ref={headerRef} className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
           <div>
             <div className="section-label mb-4">Por qué elegirnos</div>
-            <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight leading-tight text-[#1d1d1f]">
+            <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight leading-tight text-white">
               Nuestras <span className="text-gradient">Fortalezas.</span>
             </h2>
           </div>
-          <p className="text-[15px] text-[#6e6e73] max-w-sm leading-relaxed lg:text-right flex-shrink-0">
+          <p className="text-[15px] text-white/40 max-w-sm leading-relaxed lg:text-right flex-shrink-0">
             No somos intermediarios. Flota propia, personal propio y más de una década operando en el sector petrolero venezolano.
           </p>
         </div>
@@ -177,77 +179,51 @@ export default function FortalezasSection() {
 }
 
 function Card({ f }: { f: typeof fortalezas[number] }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-
   return (
     <div
-      ref={cardRef}
-      className="group relative flex flex-col gap-5 p-7 rounded-3xl transition-all duration-300 cursor-default"
+      className="group relative flex flex-col gap-5 p-6 rounded-2xl transition-all duration-300 cursor-default"
       style={{
-        background: "#ffffff",
-        border: "1.5px solid #e8e8ed",
-        boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+        background: "rgba(255,255,255,0.04)",
+        border: "1px solid rgba(255,255,255,0.07)",
       }}
       onMouseEnter={(e) => {
         const el = e.currentTarget;
-        el.style.borderColor = `${f.accent}44`;
-        el.style.boxShadow = `0 12px 40px ${f.accent}18`;
-        el.style.transform = "translateY(-3px)";
+        el.style.background = `${f.accent}0d`;
+        el.style.borderColor = `${f.accent}30`;
+        el.style.transform = "translateY(-2px)";
       }}
       onMouseLeave={(e) => {
         const el = e.currentTarget;
-        el.style.borderColor = "#e8e8ed";
-        el.style.boxShadow = "0 2px 12px rgba(0,0,0,0.04)";
+        el.style.background = "rgba(255,255,255,0.04)";
+        el.style.borderColor = "rgba(255,255,255,0.07)";
         el.style.transform = "translateY(0)";
       }}
     >
-      {/* top row: icon + number */}
+      {/* top row: icon + stat */}
       <div className="flex items-start justify-between">
-        {/* icon bubble */}
-        <div
-          className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 transition-all duration-300"
-          style={{
-            color: f.accent,
-            background: `${f.accent}12`,
-            border: `1px solid ${f.accent}22`,
-          }}
-        >
+        <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0"
+          style={{ color: f.accent, background: `${f.accent}15`, border: `1px solid ${f.accent}25` }}>
           {f.icon}
         </div>
-
-        {/* stat badge */}
         <div className="text-right">
-          <div
-            className="text-[22px] font-bold leading-none tracking-tight"
-            style={{ color: f.accent }}
-          >
+          <div className="text-[20px] font-bold leading-none tracking-tight" style={{ color: f.accent }}>
             {f.stat}
           </div>
-          <div className="text-[10px] text-[#aeaeb2] mt-0.5 font-medium tracking-wide uppercase">
+          <div className="text-[9px] mt-0.5 font-medium tracking-widest uppercase" style={{ color: "rgba(255,255,255,0.25)" }}>
             {f.statLabel}
           </div>
         </div>
       </div>
 
-      {/* number label */}
-      <div
-        className="absolute top-7 left-1/2 -translate-x-1/2 text-[11px] font-bold tracking-widest"
-        style={{ color: "#d8d8dc" }}
-      >
-        {f.num}
-      </div>
-
       {/* text */}
-      <div className="flex-1 flex flex-col gap-2 mt-1">
-        <h3 className="text-[17px] font-bold text-[#1d1d1f] leading-snug">{f.title}</h3>
-        <p className="text-[13.5px] text-[#6e6e73] leading-relaxed">{f.body}</p>
+      <div className="flex flex-col gap-1.5">
+        <h3 className="text-[15px] font-bold text-white leading-snug">{f.title}</h3>
+        <p className="text-[13px] leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>{f.body}</p>
       </div>
 
-      {/* bottom accent line */}
-      <div
-        className="absolute bottom-0 left-6 right-6 h-0.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-        style={{ background: `linear-gradient(90deg, transparent, ${f.accent}, transparent)` }}
-      />
+      {/* bottom accent line on hover */}
+      <div className="absolute bottom-0 left-4 right-4 h-px rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{ background: `linear-gradient(90deg, transparent, ${f.accent}80, transparent)` }} />
     </div>
   );
 }

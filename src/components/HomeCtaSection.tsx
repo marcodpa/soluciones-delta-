@@ -25,25 +25,36 @@ export default function HomeCtaSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-8 pb-24 relative overflow-hidden" style={{ background: "#ffffff" }}>
+    <section ref={sectionRef} className="py-8 pb-24 relative overflow-hidden" style={{ background: "#f5f5f7" }}>
       <div className="site-container">
         <div
-          className="rounded-3xl px-10 py-16 md:py-20 text-center relative overflow-hidden"
-          style={{
-            background: "linear-gradient(135deg, #0d1f14 0%, #102918 50%, #0a1a10 100%)",
-          }}
+          className="rounded-3xl px-10 py-20 text-center relative overflow-hidden"
+          style={{ background: "linear-gradient(135deg, #0a1a10 0%, #0e2416 50%, #071410 100%)" }}
         >
-          {/* Ambient glow */}
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 100%, rgba(26,140,60,0.25) 0%, transparent 70%)" }} />
-          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(48,209,88,0.3), transparent)" }} />
+          {/* Glow rings */}
+          <div className="absolute inset-0 pointer-events-none"
+            style={{ background: "radial-gradient(ellipse 55% 60% at 50% 110%, rgba(48,209,88,0.22) 0%, transparent 65%)" }} />
+          <div className="absolute inset-0 pointer-events-none"
+            style={{ background: "radial-gradient(ellipse 30% 30% at 80% 20%, rgba(26,140,60,0.1) 0%, transparent 60%)" }} />
+
+          {/* Top line */}
+          <div className="absolute top-0 left-0 right-0 h-px"
+            style={{ background: "linear-gradient(90deg, transparent, rgba(48,209,88,0.4), transparent)" }} />
+
+          {/* Dot grid overlay */}
+          <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
+            style={{
+              backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
+              backgroundSize: "28px 28px",
+            }} />
 
           <div className="relative">
             <div className="cta-animate flex items-center justify-center gap-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#30d158] animate-pulse" />
-              <span className="text-[12px] font-semibold tracking-[0.2em] uppercase text-[#30d158]">Disponibles ahora</span>
+              <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-[#30d158]">Disponibles ahora · 24/7</span>
             </div>
 
-            <h2 className="cta-animate text-[clamp(32px,5vw,64px)] font-bold text-white tracking-tight leading-[1.06] mb-6">
+            <h2 className="cta-animate text-[clamp(32px,5vw,64px)] font-bold text-white tracking-tight leading-[1.06] mb-5">
               ¿Tiene una operación{" "}
               <span style={{
                 background: "linear-gradient(135deg,#30d158 0%,#1a8c3c 100%)",
@@ -55,12 +66,13 @@ export default function HomeCtaSection() {
               </span>
             </h2>
 
-            <p className="cta-animate text-[17px] text-white/60 max-w-xl mx-auto leading-relaxed mb-10">
+            <p className="cta-animate text-[16px] max-w-lg mx-auto leading-relaxed mb-10"
+              style={{ color: "rgba(255,255,255,0.5)" }}>
               Nuestro equipo técnico responde en menos de 2 horas hábiles. Para emergencias, operamos las 24 horas del día, los 7 días de la semana.
             </p>
 
             <div className="cta-animate flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/contacto" className="btn-primary !bg-[#1a8c3c] hover:!bg-[#176b30]">
+              <Link href="/contacto" className="btn-primary">
                 Solicitar cotización
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                   <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -69,9 +81,16 @@ export default function HomeCtaSection() {
               <a
                 href="tel:04246472446"
                 className="flex items-center gap-3 px-7 py-3.5 rounded-full text-[15px] font-semibold text-white transition-all duration-200"
-                style={{
-                  background: "rgba(255,255,255,0.08)",
-                  border: "1.5px solid rgba(255,255,255,0.18)",
+                style={{ background: "rgba(255,255,255,0.07)", border: "1.5px solid rgba(255,255,255,0.14)" }}
+                onMouseEnter={e => {
+                  const el = e.currentTarget as HTMLAnchorElement;
+                  el.style.background = "rgba(255,255,255,0.12)";
+                  el.style.borderColor = "rgba(255,255,255,0.25)";
+                }}
+                onMouseLeave={e => {
+                  const el = e.currentTarget as HTMLAnchorElement;
+                  el.style.background = "rgba(255,255,255,0.07)";
+                  el.style.borderColor = "rgba(255,255,255,0.14)";
                 }}
               >
                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
@@ -82,14 +101,11 @@ export default function HomeCtaSection() {
             </div>
 
             {/* Trust strip */}
-            <div className="cta-animate flex flex-wrap items-center justify-center gap-6 mt-12 pt-10" style={{ borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-              {[
-                "RIF J-50735393-1",
-                "San Francisco, Edo. Zulia",
-                "Operación 24/7",
-                "Flota propia 2026",
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 text-[12px] text-white/35 font-medium">
+            <div className="cta-animate flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-14 pt-10"
+              style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+              {["RIF J-50735393-1", "San Francisco, Edo. Zulia", "Operación 24/7", "Flota propia 2026"].map((item, i) => (
+                <div key={i} className="flex items-center gap-2 text-[11px] font-medium"
+                  style={{ color: "rgba(255,255,255,0.28)" }}>
                   <span className="w-1 h-1 rounded-full bg-[#30d158] opacity-60" />
                   {item}
                 </div>
