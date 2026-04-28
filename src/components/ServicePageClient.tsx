@@ -29,7 +29,7 @@ const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
     { src: "/vacuum/vacuum-semirremolque.jpg",    caption: "Semirremolque Vacuum 160 Bbl — Soluciones Delta" },
   ],
   "frac-tanks": [
-    { src: "/frac-tanks/bateria-frac-tanks.jpg", caption: "Batería de Frac Tanks en locación — Estado Zulia" },
+    { src: "/frac-tanks/bateria-frac-tanks-2.jpg", caption: "Batería de Frac Tanks en locación — Estado Zulia" },
   ],
   "alquiler-calderas-inyeccion-vapor": [
     { src: "/vapor/generador-vapor-otsg.jpg",   caption: "Generador de Vapor OTSG — Campo Boscán" },
