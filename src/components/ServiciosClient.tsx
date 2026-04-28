@@ -3,10 +3,16 @@
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+const DescargarCatalogoBtnn = dynamic(
+  () => import("@/components/ServicesCatalogoPDF"),
+  { ssr: false }
+);
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -150,6 +156,7 @@ export default function ServiciosClient() {
                       </svg>
                       0424-6472446
                     </a>
+                    <DescargarCatalogoBtnn />
                   </div>
                 </div>
 

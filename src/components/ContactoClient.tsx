@@ -229,7 +229,7 @@ export default function ContactoClient() {
               {/* Bottom trust strip */}
               <div
                 className="grid grid-cols-2 sm:grid-cols-4 divide-x"
-                style={{ borderTop: "1px solid rgba(255,255,255,0.07)", divideColor: "rgba(255,255,255,0.07)" }}
+                style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
               >
                 {[
                   { label: "RIF", value: "J-50735393-1" },
