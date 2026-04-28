@@ -26,7 +26,7 @@ const services = [
     slug: "trasegado-vacuum",
     num: "02",
     tag: "Vacuum",
-    title: "Trasegado con Vacuum",
+    title: "Servicio de Transporte de Fluidos",
     tagline: "160 Bbl. Borras, lodos, efluentes y espacios confinados.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
