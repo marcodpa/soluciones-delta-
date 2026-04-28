@@ -12,7 +12,7 @@ const services = [
     slug: "bombeo-de-crudo",
     num: "01",
     tag: "Bombeo",
-    title: "Bombeo de Transferencia",
+    title: "Bombeo de Crudo",
     tagline: "Crudo pesado API 8°–22°, caudal constante, sin emulsificación.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 28 28" fill="none">

@@ -14,8 +14,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const SERVICE_IMAGES: Record<string, string> = {
   "bombeo-de-crudo": "/bombeo/equipo-principal.png",
-  "trasegado-vacuum": "/vacuum-truck.jpg",
-  "frac-tanks": "/frac-tanks/frac-tank-ficha.jpg",
+  "trasegado-vacuum": "/vacuum/vacuum-semirremolque.jpg",
+  "frac-tanks": "/frac-tanks/bateria-frac-tanks.jpg",
   "manejo-de-desechos": "/vacuum-truck.jpg",
   "alquiler-calderas-inyeccion-vapor": "/vapor/caldera-otsg-semirremolque.jpg",
 };

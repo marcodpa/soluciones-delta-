@@ -21,7 +21,7 @@ export const SERVICES: ServiceData[] = [
   {
     slug: "bombeo-de-crudo",
     tag: "Bombeo de Crudo",
-    title: "Bombeo de Transferencia",
+    title: "Bombeo de Crudo",
     subtitle: "Extracción y Transferencia de Crudo Pesado",
     summary:
       "Servicio desnatador y de transferencia de crudo con bomba hidráulica tipo tornillo de 1,500 Bbl/día. Unidad de potencia a 15,000 PSI, succión por plato acerado desnatador y descarga por manguera de 6\". Motor y bomba separados para óptima ubicación en campo.",
