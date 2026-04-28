@@ -267,7 +267,7 @@ export default function HeroSection() {
             <div ref={panel1Ref} className="absolute max-w-2xl" style={{ opacity: 0 }}>
               <Eyebrow>Sector Petrolero · Zulia, Venezuela</Eyebrow>
               <h1 className="text-[clamp(42px,6.5vw,88px)] font-bold leading-[1.03] tracking-tight text-white mb-6">
-                Servicios petroleros<br /><GreenText>Zulia</GreenText> — 24/7.
+                Servicios<br />petroleros.
               </h1>
               <p className="text-[18px] text-white/70 max-w-lg leading-relaxed">
                 Bombeo de crudo, trasegado con vacuum, Frac Tanks 500 Bbl e inyección de vapor para la industria petrolera venezolana.
