@@ -2,6 +2,7 @@
 
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
 import ServicesSection from "@/components/ServicesSection";
 import FortalezasSection from "@/components/FortalezasSection";
 import HomeTrustSection from "@/components/HomeTrustSection";
@@ -13,10 +14,11 @@ export default function ClientPage() {
     <>
       <div className="noise-overlay" aria-hidden="true" />
 
-<Navbar />
+      <Navbar />
 
       <main id="main-content" role="main">
         <HeroSection />
+        <AboutSection />
         <ServicesSection />
         <FortalezasSection />
         <HomeTrustSection />
