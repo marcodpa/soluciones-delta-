@@ -21,7 +21,7 @@ const dmSans = DM_Sans({
   preload: true,
 });
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://solucionesdeltaca.com";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://soluciones-delta.com";
 
 export const viewport: Viewport = {
   themeColor: "#1a8c3c",
