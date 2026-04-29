@@ -150,7 +150,7 @@ export default function AboutSection() {
         {/* Stats bar */}
         <div
           ref={statsRef}
-          className="grid grid-cols-2 sm:grid-cols-4 rounded-2xl overflow-hidden"
+          className="grid grid-cols-3 rounded-2xl overflow-hidden"
           style={{ border: "1px solid rgba(255,255,255,0.07)" }}
         >
           {highlights.map((h, i) => (
