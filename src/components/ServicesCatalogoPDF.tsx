@@ -45,8 +45,8 @@ const SERVICE_PHOTOS: Record<string, { main: string; gallery: { src: string; cap
   "manejo-de-desechos": {
     main: "/vacuum/vacuum-truck-howo-pdvsa.jpg",
     gallery: [
-      { src: "/vacuum/vacuum-semirremolque.jpg",     caption: "Unidad de transporte certificada" },
-      { src: "/vacuum/nve-607-skid-package.jpg",     caption: "Compresor — skid package" },
+      { src: "/desechos/retroexcavadora-fosa.jpg", caption: "Retroexcavadora CAT en fosa petrolera" },
+      { src: "/desechos/cargador-fosa.jpg",        caption: "Cargador frontal CAT — saneamiento de fosa" },
     ],
   },
   "alquiler-calderas-inyeccion-vapor": {

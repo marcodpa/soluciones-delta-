@@ -37,6 +37,10 @@ const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
   "frac-tanks": [
     { src: "/frac-tanks/bateria-frac-tanks-2.jpg", caption: "Batería de Frac Tanks en locación — Estado Zulia" },
   ],
+  "manejo-de-desechos": [
+    { src: "/desechos/retroexcavadora-fosa.jpg", caption: "Retroexcavadora CAT en fosa petrolera" },
+    { src: "/desechos/cargador-fosa.jpg",        caption: "Cargador frontal CAT — saneamiento de fosa" },
+  ],
   "alquiler-calderas-inyeccion-vapor": [
     { src: "/vapor/generador-vapor-otsg.jpg",   caption: "Generador de Vapor OTSG — Campo Boscán" },
     { src: "/vapor/fosa-campo-boscan.jpg",       caption: "Extracción de crudo en fosa — Campo Boscán" },
