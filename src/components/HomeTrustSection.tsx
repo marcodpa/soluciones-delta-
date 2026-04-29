@@ -111,7 +111,7 @@ export default function HomeTrustSection() {
             <span className="text-gradient">resultados garantizados.</span>
           </h2>
           <p className="text-[17px] text-[#6e6e73] leading-relaxed">
-            No somos intermediarios. Contamos con nuestra propia flota, nuestro propio personal técnico y más de una década de experiencia operando en el sector petrolero venezolano.
+            No somos intermediarios. Contamos con nuestra propia flota, nuestro propio personal técnico y amplia experiencia operando en el sector petrolero venezolano.
           </p>
         </div>
 

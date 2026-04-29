@@ -82,7 +82,7 @@ const timeline = [
     imgAlt: "Batería de Frac Tanks en locación — Estado Zulia",
   },
   {
-    year: "2012–2019",
+    year: "",
     title: "Contratos con Chevron, Petroboscán y PDVSA",
     body: "Ejecutamos contratos de inyección de vapor en Campo Boscán (Chevron / Petroboscán) y en Estación Bolívar 54 (PDVSA GIV), logrando recuperación de 1,500 Bbl/día con ejecución del 100% en cada extensión.",
     img: "/vapor/campo-pozos.jpg",
@@ -251,7 +251,7 @@ export default function NosotrosClient() {
             <div className="animate-in grid lg:grid-cols-2 gap-14 items-start">
               <div className="space-y-6">
                 <h2 className="text-[clamp(26px,3.5vw,40px)] font-bold text-[#1d1d1f] leading-tight">
-                  Más de una década al servicio del sector petrolero venezolano
+                  Al servicio del sector petrolero venezolano
                 </h2>
                 <p className="text-[17px] text-[#3a3a3c] leading-relaxed">
                   Desde nuestra sede en San Francisco, Estado Zulia, hemos acompañado a operadoras, contratistas y empresas del sector petrolero en sus operaciones más exigentes — desde el vaciado de un Frac Tank en locación remota hasta la remediación de pasivos ambientales con inyección de vapor.

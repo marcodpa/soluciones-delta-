@@ -73,7 +73,7 @@ const services = [
     subtitle: "OTSG · Estimulación Térmica de Pozos",
     summary:
       "Calderas OTSG para Huff & Puff, Steam Flooding y SAGD. Trayectoria comprobada en Campo Boscán (Chevron/Petroboscán) con 1,500 Bbl/día demostrados.",
-    highlights: ["Huff & Puff · Steam Flooding · SAGD", "100% automatizado", "Pasivos ambientales", "Campo Boscán 2012–2019"],
+    highlights: ["Huff & Puff · Steam Flooding · SAGD", "100% automatizado", "Pasivos ambientales", "Campo Boscán"],
     img: "/vapor/caldera-otsg-semirremolque.jpg",
     color: "#fef4ee",
   },

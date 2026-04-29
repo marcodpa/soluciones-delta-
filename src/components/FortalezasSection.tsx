@@ -42,7 +42,7 @@ const fortalezas = [
   {
     num: "03",
     title: "Trayectoria Comprobada",
-    body: "Contratos ejecutados al 100% con Chevron, Petroboscán y PDVSA desde 2012. Capacidad de recuperación demostrada de 1,500 Bbl/día en Campo Boscán.",
+    body: "Contratos ejecutados al 100% con Chevron, Petroboscán y PDVSA. Capacidad de recuperación demostrada de 1,500 Bbl/día en Campo Boscán.",
     stat: "100%",
     statLabel: "Cumplimiento",
     accent: "#ff9f0a",
@@ -159,7 +159,7 @@ export default function FortalezasSection() {
             </h2>
           </div>
           <p className="text-[15px] text-white/40 max-w-sm leading-relaxed lg:text-right flex-shrink-0">
-            No somos intermediarios. Flota propia, personal propio y más de una década operando en el sector petrolero venezolano.
+            No somos intermediarios. Flota propia, personal propio y amplia trayectoria operando en el sector petrolero venezolano.
           </p>
         </div>
 

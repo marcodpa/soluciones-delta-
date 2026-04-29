@@ -579,7 +579,7 @@ export const SERVICES: ServiceData[] = [
           "Petroboscán (2017–2019): Campo Boscán, Contrato 3M-043-004-D-16-S-102 — 1,500 Bbl/día, ejecución 100% en 4 extensiones consecutivas",
           "Chevron (2016): Campo Boscán, Contrato CW1402520 — ejecución 100%",
           "Chevron (2015): Campo Boscán, Contrato CW1299675 — ejecución 100%",
-          "PDVSA GIV (2012): Estación Bolívar 54, Contrato 4640002882 — suministro, operación y mantenimiento de generadores portátiles, ejecución 100%",
+          "PDVSA GIV: Estación Bolívar 54, Contrato 4640002882 — suministro, operación y mantenimiento de generadores portátiles, ejecución 100%",
         ],
       },
       {
@@ -619,7 +619,7 @@ export const SERVICES: ServiceData[] = [
     benefits: [
       {
         title: "Trayectoria en Campo Boscán",
-        desc: "Contratos ejecutados al 100% con Chevron, Petroboscán y PDVSA desde 2012, con recuperación de 1,500 Bbl/día demostrados.",
+        desc: "Contratos ejecutados al 100% con Chevron, Petroboscán y PDVSA, con recuperación de 1,500 Bbl/día demostrados.",
         icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806",
       },
       {
@@ -641,7 +641,7 @@ export const SERVICES: ServiceData[] = [
     faq: [
       {
         q: "¿En qué campos petroleros han trabajado?",
-        a: "Hemos ejecutado contratos en Campo Boscán (Chevron/Petroboscán, 2015–2019), Estación Bolívar 54 de Tía Juana (PDVSA GIV, 2012) y otros campos del Estado Zulia. En todos los casos logramos ejecución del 100% con capacidades de recuperación de hasta 1,500 barriles diarios.",
+        a: "Hemos ejecutado contratos en Campo Boscán (Chevron/Petroboscán), Estación Bolívar 54 de Tía Juana (PDVSA GIV) y otros campos del Estado Zulia. En todos los casos logramos ejecución del 100% con capacidades de recuperación de hasta 1,500 barriles diarios.",
       },
       {
         q: "¿Cómo funciona la recuperación de crudo en fosas petrolizadas?",

@@ -9,7 +9,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const highlights = [
-  { stat: "2012", label: "Primer contrato PDVSA" },
   { stat: "100%", label: "Cumplimiento en todos los contratos" },
   { stat: "1,500", label: "Bbl/día demostrados en Campo Boscán" },
   { stat: "24/7", label: "Operación continua" },
@@ -67,9 +66,9 @@ export default function AboutSection() {
         <div ref={headerRef} className="mb-16">
           <div className="section-label mb-4" style={{ color: "#30d158" }}>Quiénes Somos</div>
           <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight text-white leading-tight max-w-2xl">
-            Más de una década<br />
+            Expertos en el{" "}
             <span style={{ background: "linear-gradient(135deg,#30d158 0%,#1a8c3c 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-              al servicio del campo.
+              sector petrolero venezolano.
             </span>
           </h2>
         </div>
@@ -83,7 +82,7 @@ export default function AboutSection() {
               <strong className="text-white">Soluciones Delta, C.A.</strong> es una empresa venezolana especializada en servicios técnicos para la industria petrolera, con sede en San Francisco, Estado Zulia.
             </p>
             <p className="text-[15px] leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>
-              Desde 2012 hemos ejecutado contratos con Chevron, Petroboscán y PDVSA al 100% de cumplimiento. Contamos con flota propia de última generación — sin subcontratos — y personal técnico certificado operando las 24 horas.
+              Hemos ejecutado contratos con Chevron, Petroboscán y PDVSA al 100% de cumplimiento. Contamos con flota propia de última generación — sin subcontratos — y personal técnico certificado operando las 24 horas.
             </p>
             <p className="text-[15px] leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>
               Nuestra filosofía: llegar al campo con soluciones, no con excusas. Bombeo, vacuum, almacenamiento, manejo de residuos e inyección de vapor — un solo proveedor para toda la cadena.
