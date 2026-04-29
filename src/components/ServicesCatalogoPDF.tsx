@@ -89,7 +89,7 @@ const S = StyleSheet.create({
   coverYearText:  { fontSize: 8, fontFamily: "Helvetica-Bold", color: GREEN_LIGHT, letterSpacing: 1.5 },
 
   // Service cover (single PDF)
-  svcCover:         { flex: 1, backgroundColor: DARK, position: "relative" },
+  svcCover:         { flex: 1, backgroundColor: DARK, position: "relative", marginBottom: 36 },
   svcCoverImg:      { width: "100%", height: "55%", objectFit: "cover" },
   svcCoverOverlay:  { position: "absolute", top: 0, left: 0, right: 0, height: "55%", backgroundColor: "rgba(0,0,0,0.45)" },
   svcCoverBody:     { flex: 1, padding: "32px 52px", flexDirection: "column", justifyContent: "flex-start" },
@@ -379,30 +379,43 @@ function ServicioPDF({ service, origin }: { service: ServiceData; origin: string
       title={`${service.title} — Soluciones Delta, C.A.`}
       author="Soluciones Delta, C.A."
     >
-      {/* ── Single page: cover top + content below + footer ── */}
+      {/* ── Pág. 1: Portada — imagen + título + breve descripción + footer ── */}
       <Page size="A4" style={[S.pageNoPad, { paddingBottom: 40 }]}>
-        {/* Cover section (top ~45% of page) */}
-        <View style={{ height: 280, backgroundColor: DARK, position: "relative" }}>
-          <PDFImage src={mainImg} style={{ width: "100%", height: 280, objectFit: "cover" }} />
-          <View style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, backgroundColor: "rgba(0,0,0,0.52)" }} />
-          {/* Cover text overlay */}
-          <View style={{ position: "absolute", bottom: 0, left: 0, right: 0, padding: "0 40px 18px 40px" }}>
-            <PDFImage src={logoUrl} style={{ width: 70, height: 28, objectFit: "contain", marginBottom: 10 }} />
-            <Text style={{ fontSize: 7.5, fontFamily: "Helvetica-Bold", color: GREEN_LIGHT, letterSpacing: 2, textTransform: "uppercase", marginBottom: 4 }}>
-              0{idx + 1} / 05 · {service.tag}
-            </Text>
-            <Text style={{ fontSize: 22, fontFamily: "Helvetica-Bold", color: WHITE, lineHeight: 1.1, marginBottom: 3 }}>{service.title}</Text>
-            <Text style={{ fontSize: 9.5, color: GREEN_LIGHT, fontFamily: "Helvetica-Bold", marginBottom: 6 }}>{service.subtitle}</Text>
-            <Text style={{ fontSize: 8.5, color: "rgba(255,255,255,0.55)", lineHeight: 1.55, maxWidth: 380 }}>{service.summary}</Text>
+        <View style={S.svcCover}>
+          <PDFImage src={mainImg} style={S.svcCoverImg} />
+          <View style={S.svcCoverOverlay} />
+          <View style={S.svcCoverBody}>
+            <PDFImage src={logoUrl} style={S.svcCoverLogo} />
+            <Text style={S.svcCoverNum}>0{idx + 1} / 05</Text>
+            <Text style={S.svcCoverTag}>{service.tag}</Text>
+            <Text style={S.svcCoverTitle}>{service.title}</Text>
+            <Text style={S.svcCoverSubtitle}>{service.subtitle}</Text>
+            <Text style={S.svcCoverSummary}>{service.summary}</Text>
           </View>
-          {/* RIF strip */}
-          <View style={{ position: "absolute", top: 14, right: 40 }}>
+          <View style={S.svcCoverBottom}>
+            <Text style={S.svcCoverRIF}>Soluciones Delta, C.A. · RIF J-50735393-1 · San Francisco, Edo. Zulia</Text>
             <View style={S.coverYear}><Text style={S.coverYearText}>2026</Text></View>
           </View>
         </View>
+        <View style={S.footer}>
+          <Text style={S.footerText}>Soluciones Delta, C.A. · solucionesdeltaca@gmail.com · 0424-6472446</Text>
+          <View style={S.footerLine} />
+          <Text style={S.footerText}>Pág. 1</Text>
+        </View>
+      </Page>
 
-        {/* Content section */}
-        <View style={[S.body, { paddingTop: 12, paddingBottom: 10 }]}>
+      {/* ── Pág. 2: Ficha técnica completa — header + contenido + imágenes + footer ── */}
+      <Page size="A4" style={S.page}>
+        <View style={S.headerBar}>
+          <PDFImage src={logoUrl} style={S.headerLogo} />
+          <Text style={S.headerRight}>{service.tag.toUpperCase()} · FICHA TÉCNICA</Text>
+        </View>
+
+        <View style={[S.body, { paddingTop: 14, paddingBottom: 50 }]}>
+          {/* Overview */}
+          <Text style={[S.secBody, { marginBottom: 10, fontSize: 9.5, lineHeight: 1.6 }]}>{service.overview || service.summary}</Text>
+          <View style={S.divider} />
+
           <View style={S.twoCol}>
             {/* Left — sections + gallery */}
             <View style={S.col}>
@@ -410,22 +423,22 @@ function ServicioPDF({ service, origin }: { service: ServiceData; origin: string
               {service.sections.slice(0, 2).map((sec, i) => (
                 <View key={i}>
                   <Text style={S.secHeading}>{sec.heading}</Text>
-                  <Text style={[S.secBody, { fontSize: 8 }]}>{sec.body}</Text>
-                  {sec.list?.slice(0, 3).map((item, j) => (
+                  <Text style={S.secBody}>{sec.body}</Text>
+                  {sec.list?.slice(0, 4).map((item, j) => (
                     <View key={j} style={S.bulletRow}>
                       <View style={S.bulletDot} />
-                      <Text style={[S.bulletText, { fontSize: 7.5 }]}>{item}</Text>
+                      <Text style={S.bulletText}>{item}</Text>
                     </View>
                   ))}
                 </View>
               ))}
 
-              <Text style={[S.secLabel, { marginTop: 8 }]}>Equipos y Operaciones</Text>
+              <Text style={[S.secLabel, { marginTop: 10 }]}>Equipos y Operaciones</Text>
               <View style={S.galleryGrid}>
                 {gallery.slice(0, 2).map((g, i) => (
                   <View key={i} style={S.galleryImgWrap}>
-                    <PDFImage src={g.src} style={[S.galleryImg, { height: 80 }]} />
-                    <Text style={[S.galleryCaption, { fontSize: 7 }]}>{g.caption}</Text>
+                    <PDFImage src={g.src} style={[S.galleryImg, { height: 100 }]} />
+                    <Text style={S.galleryCaption}>{g.caption}</Text>
                   </View>
                 ))}
               </View>
@@ -436,35 +449,34 @@ function ServicioPDF({ service, origin }: { service: ServiceData; origin: string
               {service.specs && (
                 <>
                   <Text style={S.secLabel}>Especificaciones Técnicas</Text>
-                  <SpecsTable specs={service.specs.slice(0, 6)} />
+                  <SpecsTable specs={service.specs.slice(0, 8)} />
                 </>
               )}
-              <Text style={[S.secLabel, { marginTop: 8 }]}>Ventajas del Servicio</Text>
+              <Text style={[S.secLabel, { marginTop: 12 }]}>Ventajas del Servicio</Text>
               <View style={S.benefitGrid}>
                 {service.benefits.slice(0, 4).map((b, i) => (
-                  <View key={i} style={[S.benefitCard, { padding: "5px 7px" }]}>
-                    <Text style={[S.benefitTitle, { fontSize: 7.5 }]}>{b.title}</Text>
-                    <Text style={[S.benefitDesc, { fontSize: 7 }]}>{b.desc}</Text>
+                  <View key={i} style={S.benefitCard}>
+                    <Text style={S.benefitTitle}>{b.title}</Text>
+                    <Text style={S.benefitDesc}>{b.desc}</Text>
                   </View>
                 ))}
               </View>
 
               {/* Contact info inline */}
-              <View style={{ marginTop: 8, padding: "7px 9px", backgroundColor: "#0d1f14", borderRadius: 5 }}>
-                <Text style={[S.secLabel, { color: "#30d158", marginBottom: 4 }]}>Contacto</Text>
+              <View style={{ marginTop: 12, padding: "8px 10px", backgroundColor: "#0d1f14", borderRadius: 5 }}>
+                <Text style={[S.secLabel, { color: "#30d158", marginBottom: 6 }]}>Contacto</Text>
                 <Text style={{ fontSize: 8.5, color: "#ffffff", fontFamily: "Helvetica-Bold", marginBottom: 2 }}>0424-6472446</Text>
-                <Text style={{ fontSize: 7.5, color: "rgba(255,255,255,0.5)", marginBottom: 3 }}>solucionesdeltaca@gmail.com</Text>
+                <Text style={{ fontSize: 7.5, color: "rgba(255,255,255,0.5)", marginBottom: 4 }}>solucionesdeltaca@gmail.com</Text>
                 <Text style={{ fontSize: 7, color: "rgba(255,255,255,0.35)" }}>San Francisco, Estado Zulia · 24/7</Text>
               </View>
             </View>
           </View>
         </View>
 
-        {/* Footer — now on this single page */}
         <View style={S.footer} fixed>
           <Text style={S.footerText}>Soluciones Delta, C.A. · solucionesdeltaca@gmail.com · 0424-6472446</Text>
           <View style={S.footerLine} />
-          <Text style={S.footerText}>Pág. 1</Text>
+          <Text style={S.footerText}>Pág. 2</Text>
         </View>
       </Page>
     </Document>
