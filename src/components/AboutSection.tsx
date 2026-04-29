@@ -131,14 +131,14 @@ export default function AboutSection() {
             <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 145 }}>
               <Image
                 src="/vapor/caldera-otsg-semirremolque.jpg"
-                alt="Caldera OTSG"
+                alt="Generador de Vapor OTSG"
                 fill
                 className="object-cover"
                 sizes="25vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               <div className="absolute bottom-2.5 left-3">
-                <span className="text-[10px] font-semibold text-white/80">Caldera OTSG</span>
+                <span className="text-[10px] font-semibold text-white/80">Generador de Vapor</span>
               </div>
             </div>
           </div>

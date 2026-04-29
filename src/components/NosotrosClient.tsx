@@ -220,7 +220,7 @@ export default function NosotrosClient() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     <div className="absolute bottom-3 left-3 right-3">
-                      <span className="text-[11px] font-semibold text-white/80">Caldera OTSG — vapor</span>
+                      <span className="text-[11px] font-semibold text-white/80">Generador de Vapor OTSG</span>
                     </div>
                   </div>
                 </div>

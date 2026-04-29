@@ -573,8 +573,8 @@ export const SERVICES: ServiceData[] = [
         ],
       },
       {
-        heading: "Tratamiento de agua para calderas",
-        body: "El agua de alimentación es el factor más crítico para la vida útil y eficiencia de las calderas. Incluimos tratamiento completo:",
+        heading: "Tratamiento de agua para el generador de vapor",
+        body: "El agua de alimentación es el factor más crítico para la vida útil y eficiencia del generador de vapor. Incluimos tratamiento completo:",
         list: [
           "Suavización por intercambio iónico: eliminación de calcio y magnesio",
           "Desmineralización: reducción de sólidos disueltos totales (TDS)",
@@ -634,7 +634,7 @@ export const SERVICES: ServiceData[] = [
         a: "Sí. Movilizamos unidades de generación de vapor al muelle o terminal para mantener la temperatura de los sellos mecánicos de las bombas de carga y las líneas de descarga, previniendo solidificaciones del crudo extrapesado durante toda la operación de carga del buque.",
       },
       {
-        q: "¿Qué incluye el servicio además de la caldera?",
+        q: "¿Qué incluye el servicio además del generador de vapor?",
         a: "El servicio incluye: equipo generador de vapor, tratamiento de agua de alimentación (suavización y desgasificación), personal técnico operador, personal de mantenimiento, y toda la documentación operativa. Para fosas de pasivos ambientales, también incluimos los reportes para expedientes ante el MPPEA.",
       },
     ],

@@ -15,7 +15,7 @@ const serviceOptions = [
   "Transporte de Fluidos con Vacuum (160 Bbl)",
   "Suministro de Frac Tanks 500 Bbl",
   "Manejo de Desechos Industriales",
-  "Alquiler de Calderas / Inyección de Vapor",
+  "Generador de Vapor / Inyección de Vapor",
   "Otro / Consulta General",
 ];
 
@@ -220,7 +220,7 @@ export default function ContactoClient() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     <div className="absolute bottom-2.5 left-3">
-                      <span className="text-[11px] font-semibold text-white/80">Caldera OTSG</span>
+                      <span className="text-[11px] font-semibold text-white/80">Generador de Vapor OTSG</span>
                     </div>
                   </div>
                 </div>

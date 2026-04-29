@@ -69,7 +69,7 @@ const services = [
     slug: "alquiler-calderas-inyeccion-vapor",
     tag: "Inyección de Vapor",
     num: "05",
-    title: "Alquiler de Calderas",
+    title: "Generador de Vapor",
     subtitle: "OTSG · Estimulación Térmica de Pozos",
     summary:
       "Generadores OTSG para Huff & Puff, Steam Flooding y SAGD. 100% automatizados. Alta capacidad para recuperación de crudo en fosas y pozos petroleros.",

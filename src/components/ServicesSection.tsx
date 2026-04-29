@@ -71,7 +71,7 @@ const services = [
     num: "05",
     tag: "Vapor",
     title: "Inyección de Vapor",
-    tagline: "Calderas OTSG. Huff & Puff, SAGD, Steam Flooding.",
+    tagline: "Generador de Vapor OTSG. Huff & Puff, SAGD, Steam Flooding.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 28 28" fill="none">
         <path d="M14 4C10 4 7 7 7 11c0 2.8 1.3 5.2 3.3 6.7V20h7.4v-2.3c2-1.5 3.3-3.9 3.3-6.7 0-4-3-7-7-7z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/>

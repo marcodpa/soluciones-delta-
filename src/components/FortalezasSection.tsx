@@ -86,7 +86,7 @@ const fortalezas = [
   {
     num: "06",
     title: "Personal Técnico Especializado",
-    body: "Equipo multidisciplinario con certificaciones vigentes en operación de vacuum, calderas y gestión ambiental. Formación continua y protocolos HSE estrictos.",
+    body: "Equipo multidisciplinario con certificaciones vigentes en operación de vacuum, generadores de vapor y gestión ambiental. Formación continua y protocolos HSE estrictos.",
     stat: "HSE",
     statLabel: "Protocolo integrado",
     accent: "#ff375f",
