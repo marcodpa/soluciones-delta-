@@ -50,7 +50,7 @@ const services = [
     summary:
       "Tanques de 500 Bbl en 4 configuraciones: V-Bottom, Flat Bottom, Insulated y Gas Tight. Alta movilidad, batería hasta 20 unidades.",
     highlights: ["500 Bbl / unidad", "V-Bottom · Flat · Insulated · Gas Tight", "Movilización con lowboy", "Batería hasta 20 tanques"],
-    img: "/frac-tanks/frac-tank-nuevo.png",
+    img: "/frac-tanks/bateria-frac-tanks.jpg",
     color: "#fff8ee",
   },
   {
