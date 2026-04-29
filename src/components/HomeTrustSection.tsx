@@ -11,7 +11,7 @@ const pillars = [
   {
     number: "01",
     title: "Equipamiento propio",
-    body: "Flota de unidades vacuum fabricadas en 2026 con acero A36. Sin subcontratos — el equipo que llega es el nuestro.",
+    body: "Flota de unidades vacuum fabricadas en 2026 con acero A36. El equipo que llega es el nuestro.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
         <rect x="2" y="7" width="18" height="9" rx="2" stroke="#1a8c3c" strokeWidth="1.5"/>

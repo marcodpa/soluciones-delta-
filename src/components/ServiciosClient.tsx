@@ -72,8 +72,8 @@ const services = [
     title: "Alquiler de Calderas",
     subtitle: "OTSG · Estimulación Térmica de Pozos",
     summary:
-      "Calderas OTSG para Huff & Puff, Steam Flooding y SAGD. Trayectoria comprobada en Campo Boscán (Chevron/Petroboscán) con 1,500 Bbl/día demostrados.",
-    highlights: ["Huff & Puff · Steam Flooding · SAGD", "100% automatizado", "Pasivos ambientales", "Campo Boscán"],
+      "Generadores OTSG para Huff & Puff, Steam Flooding y SAGD. 100% automatizados. Alta capacidad para recuperación de crudo en fosas y pozos petroleros.",
+    highlights: ["Huff & Puff · Steam Flooding · SAGD", "100% automatizado", "Pasivos ambientales", "Estado Zulia"],
     img: "/vapor/caldera-otsg-semirremolque.jpg",
     color: "#fef4ee",
   },
@@ -165,7 +165,7 @@ export default function ServiciosClient() {
                   <div className="relative rounded-2xl overflow-hidden col-span-2 row-span-2" style={{ minHeight: 280 }}>
                     <Image
                       src="/vapor/campo-pozos.jpg"
-                      alt="Locación de pozos — Campo Boscán, Estado Zulia"
+                      alt="Locación de pozos — Estado Zulia"
                       fill
                       className="object-cover"
                       sizes="(max-width: 1024px) 66vw, 33vw"
@@ -175,7 +175,7 @@ export default function ServiciosClient() {
                     <div className="absolute bottom-4 left-4 right-4">
                       <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-semibold text-white" style={{ background: "rgba(26,140,60,0.8)", backdropFilter: "blur(8px)" }}>
                         <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                        Campo Boscán — Edo. Zulia
+                        Edo. Zulia
                       </div>
                     </div>
                   </div>

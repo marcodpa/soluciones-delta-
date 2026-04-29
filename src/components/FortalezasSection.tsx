@@ -10,7 +10,7 @@ const fortalezas = [
   {
     num: "01",
     title: "Flota Propia 2026",
-    body: "Unidades vacuum fabricadas en 2026 con acero A36 de 8 mm. Sin subcontratos — el equipo que llega es el nuestro, con mantenimiento al día y certificaciones vigentes.",
+    body: "Unidades vacuum fabricadas en 2026 con acero A36 de 8 mm. El equipo que llega es el nuestro, con mantenimiento al día y certificaciones vigentes.",
     stat: "160 Bbl",
     statLabel: "Capacidad vacuum",
     accent: "#30d158",
@@ -42,7 +42,7 @@ const fortalezas = [
   {
     num: "03",
     title: "Trayectoria Comprobada",
-    body: "Contratos ejecutados al 100% con Chevron, Petroboscán y PDVSA. Capacidad de recuperación demostrada de 1,500 Bbl/día en Campo Boscán.",
+    body: "Contratos ejecutados al 100% de cumplimiento. Capacidad de recuperación demostrada de 1,500 Bbl/día.",
     stat: "100%",
     statLabel: "Cumplimiento",
     accent: "#ff9f0a",

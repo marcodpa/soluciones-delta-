@@ -42,7 +42,7 @@ const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
     { src: "/desechos/cargador-fosa.jpg",        caption: "Cargador frontal CAT — saneamiento de fosa" },
   ],
   "alquiler-calderas-inyeccion-vapor": [
-    { src: "/vapor/generador-vapor-otsg.jpg",   caption: "Generador de Vapor OTSG — Campo Boscán" },
+    { src: "/vapor/generador-vapor-otsg.jpg",   caption: "Generador de Vapor OTSG — Estado Zulia" },
   ],
 };
 

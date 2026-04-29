@@ -83,10 +83,10 @@ const timeline = [
   },
   {
     year: "",
-    title: "Contratos con Chevron, Petroboscán y PDVSA",
-    body: "Ejecutamos contratos de inyección de vapor en Campo Boscán (Chevron / Petroboscán) y en Estación Bolívar 54 (PDVSA GIV), logrando recuperación de 1,500 Bbl/día con ejecución del 100% en cada extensión.",
+    title: "Contratos ejecutados al 100%",
+    body: "Hemos ejecutado contratos de inyección de vapor en campos del occidente venezolano, logrando recuperación de 1,500 Bbl/día con ejecución del 100% en cada extensión.",
     img: "/vapor/campo-pozos.jpg",
-    imgAlt: "Locación de pozos — Campo Boscán, Estado Zulia",
+    imgAlt: "Locación de pozos — Estado Zulia",
   },
   {
     year: "2026",
@@ -207,7 +207,7 @@ export default function NosotrosClient() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                     <div className="absolute bottom-3 left-3 right-3">
-                      <span className="text-[11px] font-semibold text-white/80">Campo Boscán — Edo. Zulia</span>
+                      <span className="text-[11px] font-semibold text-white/80">Edo. Zulia</span>
                     </div>
                   </div>
                   <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 155 }}>

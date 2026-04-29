@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const highlights = [
   { stat: "100%", label: "Cumplimiento en todos los contratos" },
-  { stat: "1,500", label: "Bbl/día demostrados en Campo Boscán" },
+  { stat: "1,500", label: "Bbl/día de capacidad demostrada" },
   { stat: "24/7", label: "Operación continua" },
 ];
 

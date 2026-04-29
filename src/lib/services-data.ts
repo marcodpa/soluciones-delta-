@@ -541,11 +541,11 @@ export const SERVICES: ServiceData[] = [
     title: "Generador De Vapor",
     subtitle: "Generación e Inyección de Vapor para Pozos y Fosas",
     summary:
-      "Servicio especializado de generación e inyección de vapor con generadores de alta capacidad para recuperación de crudo en fosas y pozos petroleros. 100% automatizados. Trayectoria comprobada en Campo Boscán (Chevron/Petroboscán) y Tía Juana (PDVSA).",
+      "Servicio especializado de generación e inyección de vapor con generadores de alta capacidad para recuperación de crudo en fosas y pozos petroleros. 100% automatizados.",
     heroColor: "#fef4ee",
     icon: "M12 2a10 10 0 100 20A10 10 0 0012 2z",
     overview:
-      "Contamos con generadores de vapor de alta capacidad en producción, temperatura y presión, diseñados para operación continua en campo petrolero. Nuestros equipos disponen de un 100% de automatización en los procesos de producción de vapor, garantizando mayor seguridad, confiabilidad y un lugar de trabajo más seguro para el personal. Hemos ejecutado contratos de inyección de vapor en Campo Boscán con Chevron y Petroboscán, y en Estación Bolívar 54 con PDVSA GIV, logrando en todos los casos una ejecución del 100% con capacidades de recuperación de 1,500 barriles diarios.",
+      "Contamos con generadores de vapor de alta capacidad en producción, temperatura y presión, diseñados para operación continua en campo petrolero. Nuestros equipos disponen de un 100% de automatización en los procesos de producción de vapor, garantizando mayor seguridad, confiabilidad y un lugar de trabajo más seguro para el personal.",
     sections: [
       {
         heading: "Aplicaciones del servicio",
@@ -567,19 +567,9 @@ export const SERVICES: ServiceData[] = [
           "Fluidización del crudo solidificado mediante reducción térmica de viscosidad",
           "Separación de emulsiones crudo-agua-arena por efecto del calor",
           "Extracción posterior con bombas de desplazamiento positivo o unidad vacuum",
-          "Capacidad de recuperación demostrada: 1,500 Bbl/día en Campo Boscán",
+          "Capacidad de recuperación demostrada: 1,500 Bbl/día",
           "Documentación completa del proceso para expedientes ambientales (MPPEA)",
           "Remediación progresiva hasta el saneamiento total de la fosa",
-        ],
-      },
-      {
-        heading: "Trayectoria y contratos ejecutados",
-        body: "Nuestro servicio de inyección de vapor cuenta con una trayectoria comprobada en los principales campos petroleros del occidente venezolano:",
-        list: [
-          "Petroboscán: Campo Boscán, Contrato 3M-043-004-D-16-S-102 — 1,500 Bbl/día, ejecución 100% en 4 extensiones consecutivas",
-          "Chevron: Campo Boscán, Contrato CW1402520 — ejecución 100%",
-          "Chevron: Campo Boscán, Contrato CW1299675 — ejecución 100%",
-          "PDVSA GIV: Estación Bolívar 54, Contrato 4640002882 — suministro, operación y mantenimiento de generadores portátiles, ejecución 100%",
         ],
       },
       {
@@ -612,14 +602,14 @@ export const SERVICES: ServiceData[] = [
       { label: "Capacidad demostrada", value: "1,500 Bbl/día" },
       { label: "Modalidades", value: "Huff&Puff · Flooding · SAGD" },
       { label: "Aplicaciones", value: "Pozos · Fosas · Tanques · Buques" },
-      { label: "Campos ejecutados", value: "Boscán · Tía Juana · Bolívar 54" },
+      { label: "Campos ejecutados", value: "Estado Zulia" },
       { label: "Tratamiento agua", value: "Suavización + Desgasif." },
       { label: "Disponibilidad", value: "24 horas / 7 días" },
     ],
     benefits: [
       {
-        title: "Trayectoria en Campo Boscán",
-        desc: "Contratos ejecutados al 100% con Chevron, Petroboscán y PDVSA, con recuperación de 1,500 Bbl/día demostrados.",
+        title: "Trayectoria Comprobada",
+        desc: "Contratos ejecutados al 100% de cumplimiento con capacidades de recuperación de hasta 1,500 Bbl/día demostrados.",
         icon: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806",
       },
       {
@@ -641,7 +631,7 @@ export const SERVICES: ServiceData[] = [
     faq: [
       {
         q: "¿En qué campos petroleros han trabajado?",
-        a: "Hemos ejecutado contratos en Campo Boscán (Chevron/Petroboscán), Estación Bolívar 54 de Tía Juana (PDVSA GIV) y otros campos del Estado Zulia. En todos los casos logramos ejecución del 100% con capacidades de recuperación de hasta 1,500 barriles diarios.",
+        a: "Hemos ejecutado contratos en diversos campos del Estado Zulia, logrando en todos los casos ejecución del 100% con capacidades de recuperación de hasta 1,500 barriles diarios.",
       },
       {
         q: "¿Cómo funciona la recuperación de crudo en fosas petrolizadas?",
