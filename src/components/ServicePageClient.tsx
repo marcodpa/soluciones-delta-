@@ -97,65 +97,71 @@ export default function ServicePageClient({ service }: { service: ServiceData })
         </div>
 
         {/* ── HERO ── */}
-        <section className="pt-28 pb-20 relative overflow-hidden min-h-[88vh] flex items-center">
-          {/* Full-bleed background image */}
-          <div className="absolute inset-0">
-            <Image
-              src={SERVICE_IMAGES[service.slug] || "/vacuum-truck.jpg"}
-              alt=""
-              fill
-              className="object-cover"
-              priority
-              sizes="100vw"
-            />
-            {/* heavy dark overlay */}
-            <div className="absolute inset-0" style={{ background: "linear-gradient(105deg, rgba(3,9,5,0.97) 0%, rgba(5,14,8,0.95) 40%, rgba(5,14,8,0.78) 70%, rgba(5,14,8,0.60) 100%)" }} />
-            {/* green radial glow */}
-            <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 50% 65% at 0% 55%, rgba(26,140,60,0.18) 0%, transparent 60%)" }} />
-          </div>
+        <section
+          className="pt-28 pb-16 relative overflow-hidden"
+          style={{ background: "linear-gradient(135deg, #0d1f14 0%, #0f2918 55%, #112b1a 100%)" }}
+        >
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 55% 60% at 5% 50%, rgba(26,140,60,0.22) 0%, transparent 65%)" }} />
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 40% 40% at 95% 80%, rgba(48,209,88,0.08) 0%, transparent 60%)" }} />
+          <div className="absolute inset-0 pointer-events-none opacity-[0.04]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
 
-          <div className="site-container relative z-10 w-full">
+          <div className="site-container">
             <div ref={heroRef}>
               {/* Breadcrumb */}
-              <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-white/35 mb-10">
+              <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-white/40 mb-8">
                 <Link href="/" className="hover:text-[#30d158] transition-colors">Inicio</Link>
                 <span>/</span>
                 <Link href="/servicios" className="hover:text-[#30d158] transition-colors">Servicios</Link>
                 <span>/</span>
-                <span className="text-white/60 font-medium">{service.title}</span>
+                <span className="text-white/70 font-medium">{service.title}</span>
               </nav>
 
-              <div className="max-w-2xl">
-                <div className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full" style={{ background: "rgba(26,140,60,0.18)", border: "1px solid rgba(48,209,88,0.25)" }}>
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#30d158] animate-pulse" />
-                  <span className="text-[11px] font-bold text-[#30d158] tracking-widest uppercase">{service.tag}</span>
+              <div className="grid lg:grid-cols-2 gap-12 items-center">
+                {/* Left */}
+                <div>
+                  <div className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full" style={{ background: "rgba(26,140,60,0.18)", border: "1px solid rgba(48,209,88,0.25)" }}>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#30d158] animate-pulse" />
+                    <span className="text-[11px] font-bold text-[#30d158] tracking-widest uppercase">{service.tag}</span>
+                  </div>
+                  <h1 className="text-[clamp(36px,5vw,64px)] font-bold tracking-tight leading-[1.06] text-white mb-4">
+                    {service.title}
+                  </h1>
+                  <p className="text-[18px] text-[#30d158] font-semibold mb-4">{service.subtitle}</p>
+                  <p className="text-[17px] text-white/55 leading-relaxed mb-8 max-w-lg">{service.summary}</p>
+                  <div className="flex flex-wrap gap-4">
+                    <a href="#contacto-servicio" className="btn-primary">
+                      Solicitar este servicio
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </a>
+                    <DescargarServicioPDF service={service} />
+                    <Link href="/servicios" className="btn-secondary-dark">
+                      ← Todos los servicios
+                    </Link>
+                  </div>
                 </div>
-                <h1 className="text-[clamp(38px,5.5vw,72px)] font-bold tracking-tight leading-[1.04] text-white mb-4">
-                  {service.title}
-                </h1>
-                <p className="text-[19px] text-[#30d158] font-semibold mb-4">{service.subtitle}</p>
-                <p className="text-[17px] text-white/50 leading-relaxed mb-10 max-w-xl">{service.summary}</p>
-                <div className="flex flex-wrap gap-4">
-                  <a href="#contacto-servicio" className="btn-primary">
-                    Solicitar este servicio
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </a>
-                  <DescargarServicioPDF service={service} />
-                  <Link href="/servicios" className="btn-secondary-dark">
-                    ← Todos los servicios
-                  </Link>
-                </div>
-              </div>
 
-              <div className="absolute bottom-0 right-0 hidden lg:block">
-                <div
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-semibold text-white"
-                  style={{ background: "rgba(26,140,60,0.80)", backdropFilter: "blur(8px)" }}
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                  Soluciones Delta, C.A. — RIF J-50735393-1
+                {/* Right — image */}
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video lg:aspect-[4/3]" style={{ boxShadow: "0 0 0 1px rgba(48,209,88,0.15), 0 32px 80px rgba(0,0,0,0.5)" }}>
+                  <Image
+                    src={SERVICE_IMAGES[service.slug] || "/vacuum-truck.jpg"}
+                    alt={`${service.title} — Soluciones Delta C.A.`}
+                    fill
+                    className="object-cover"
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-semibold text-white"
+                      style={{ background: "rgba(26,140,60,0.85)", backdropFilter: "blur(8px)" }}
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                      Soluciones Delta, C.A. — RIF J-50735393-1
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
