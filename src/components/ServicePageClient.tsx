@@ -99,32 +99,37 @@ export default function ServicePageClient({ service }: { service: ServiceData })
         {/* ── HERO ── */}
         <section
           className="pt-28 pb-16 relative overflow-hidden"
-          style={{ background: `linear-gradient(160deg, ${service.heroColor} 0%, #ffffff 100%)` }}
+          style={{ background: "linear-gradient(135deg, #0d1f14 0%, #0f2918 55%, #112b1a 100%)" }}
         >
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 40% at 80% 50%, rgba(26,140,60,0.06) 0%, transparent 70%)" }} />
+          {/* green glow radials */}
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 55% 60% at 5% 50%, rgba(26,140,60,0.22) 0%, transparent 65%)" }} />
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 40% 40% at 95% 80%, rgba(48,209,88,0.08) 0%, transparent 60%)" }} />
+          {/* subtle grid texture */}
+          <div className="absolute inset-0 pointer-events-none opacity-[0.04]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+
           <div className="site-container">
             <div ref={heroRef}>
               {/* Breadcrumb */}
-              <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-[#6e6e73] mb-8">
-                <Link href="/" className="hover:text-[#1a8c3c] transition-colors">Inicio</Link>
+              <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-white/40 mb-8">
+                <Link href="/" className="hover:text-[#30d158] transition-colors">Inicio</Link>
                 <span>/</span>
-                <Link href="/servicios" className="hover:text-[#1a8c3c] transition-colors">Servicios</Link>
+                <Link href="/servicios" className="hover:text-[#30d158] transition-colors">Servicios</Link>
                 <span>/</span>
-                <span className="text-[#1d1d1f] font-medium">{service.title}</span>
+                <span className="text-white/70 font-medium">{service.title}</span>
               </nav>
 
               <div className="grid lg:grid-cols-2 gap-12 items-center">
                 {/* Left */}
                 <div>
-                  <div className="inline-flex items-center gap-2 mb-5">
-                    <span className="w-2 h-2 rounded-full bg-[#1a8c3c] animate-pulse" />
-                    <span className="section-label">{service.tag}</span>
+                  <div className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full" style={{ background: "rgba(26,140,60,0.18)", border: "1px solid rgba(48,209,88,0.25)" }}>
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#30d158] animate-pulse" />
+                    <span className="text-[11px] font-bold text-[#30d158] tracking-widest uppercase">{service.tag}</span>
                   </div>
-                  <h1 className="text-[clamp(36px,5vw,64px)] font-bold tracking-tight leading-[1.06] text-[#1d1d1f] mb-4">
+                  <h1 className="text-[clamp(36px,5vw,64px)] font-bold tracking-tight leading-[1.06] text-white mb-4">
                     {service.title}
                   </h1>
-                  <p className="text-[18px] text-[#1a8c3c] font-semibold mb-4">{service.subtitle}</p>
-                  <p className="text-[17px] text-[#6e6e73] leading-relaxed mb-8 max-w-lg">{service.summary}</p>
+                  <p className="text-[18px] text-[#30d158] font-semibold mb-4">{service.subtitle}</p>
+                  <p className="text-[17px] text-white/55 leading-relaxed mb-8 max-w-lg">{service.summary}</p>
                   <div className="flex flex-wrap gap-4">
                     <a href="#contacto-servicio" className="btn-primary">
                       Solicitar este servicio
@@ -133,14 +138,14 @@ export default function ServicePageClient({ service }: { service: ServiceData })
                       </svg>
                     </a>
                     <DescargarServicioPDF service={service} />
-                    <Link href="/servicios" className="btn-secondary">
+                    <Link href="/servicios" className="btn-secondary-dark">
                       ← Todos los servicios
                     </Link>
                   </div>
                 </div>
 
                 {/* Right — image */}
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video lg:aspect-[4/3]">
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video lg:aspect-[4/3]" style={{ boxShadow: "0 0 0 1px rgba(48,209,88,0.15), 0 32px 80px rgba(0,0,0,0.5)" }}>
                   <Image
                     src={SERVICE_IMAGES[service.slug] || "/vacuum-truck.jpg"}
                     alt={`${service.title} — Soluciones Delta C.A.`}
@@ -149,7 +154,7 @@ export default function ServicePageClient({ service }: { service: ServiceData })
                     priority
                     sizes="(max-width: 1024px) 100vw, 50vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   <div className="absolute bottom-4 left-4 right-4">
                     <div
                       className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-semibold text-white"
