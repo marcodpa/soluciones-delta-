@@ -292,40 +292,40 @@ function CatalogoPDF({ origin }: { origin: string }) {
             </View>
 
             {/* Hero image */}
-            <PDFImage src={mainImg} style={{ width: "100%", height: 155, objectFit: "cover" }} />
+            <PDFImage src={mainImg} style={{ width: "100%", height: 120, objectFit: "cover" }} />
 
-            <View style={S.body}>
+            <View style={[S.body, { paddingTop: 10, paddingBottom: 50 }]}>
               {/* Title block */}
-              <Text style={[S.secLabel, { color: GRAY, marginBottom: 4 }]}>0{idx + 1} / 05 · {s.tag}</Text>
-              <Text style={S.svcTitle}>{s.title}</Text>
-              <Text style={S.svcSubtitle}>{s.subtitle}</Text>
-              <Text style={S.svcSummary}>{s.summary}</Text>
-              <View style={S.divider} />
+              <Text style={[S.secLabel, { color: GRAY, marginBottom: 2 }]}>0{idx + 1} / 05 · {s.tag}</Text>
+              <Text style={[S.svcTitle, { fontSize: 18, marginBottom: 2 }]}>{s.title}</Text>
+              <Text style={[S.svcSubtitle, { marginBottom: 4 }]}>{s.subtitle}</Text>
+              <Text style={[S.svcSummary, { marginBottom: 8, fontSize: 8.5 }]}>{s.summary}</Text>
+              <View style={[S.divider, { marginBottom: 8 }]} />
 
               <View style={S.twoCol}>
-                {/* Left — first 2 sections */}
+                {/* Left — first 2 sections + gallery */}
                 <View style={S.col}>
                   <Text style={S.secLabel}>Descripción</Text>
                   {s.sections.slice(0, 2).map((sec, i) => (
                     <View key={i}>
-                      <Text style={S.secHeading}>{sec.heading}</Text>
-                      <Text style={S.secBody}>{sec.body}</Text>
-                      {sec.list?.slice(0, 4).map((item, j) => (
+                      <Text style={[S.secHeading, { marginTop: 6 }]}>{sec.heading}</Text>
+                      <Text style={[S.secBody, { fontSize: 7.5 }]}>{sec.body}</Text>
+                      {sec.list?.slice(0, 3).map((item, j) => (
                         <View key={j} style={S.bulletRow}>
                           <View style={S.bulletDot} />
-                          <Text style={S.bulletText}>{item}</Text>
+                          <Text style={[S.bulletText, { fontSize: 7.5 }]}>{item}</Text>
                         </View>
                       ))}
                     </View>
                   ))}
 
                   {/* Gallery strip */}
-                  <Text style={[S.secLabel, { marginTop: 12 }]}>Equipos y Operaciones</Text>
+                  <Text style={[S.secLabel, { marginTop: 8 }]}>Equipos y Operaciones</Text>
                   <View style={S.galleryGrid}>
-                    {galleryImgs.map((g, i) => (
+                    {galleryImgs.slice(0, 2).map((g, i) => (
                       <View key={i} style={S.galleryImgWrap}>
-                        <PDFImage src={g.src} style={S.galleryImg} />
-                        <Text style={S.galleryCaption}>{g.caption}</Text>
+                        <PDFImage src={g.src} style={[S.galleryImg, { height: 90 }]} />
+                        <Text style={[S.galleryCaption, { fontSize: 7 }]}>{g.caption}</Text>
                       </View>
                     ))}
                   </View>
@@ -339,12 +339,12 @@ function CatalogoPDF({ origin }: { origin: string }) {
                       <SpecsTable specs={s.specs.slice(0, 8)} />
                     </>
                   )}
-                  <Text style={[S.secLabel, { marginTop: 14 }]}>Ventajas del Servicio</Text>
+                  <Text style={[S.secLabel, { marginTop: 10 }]}>Ventajas del Servicio</Text>
                   <View style={S.benefitGrid}>
-                    {s.benefits.map((b, i) => (
-                      <View key={i} style={S.benefitCard}>
-                        <Text style={S.benefitTitle}>{b.title}</Text>
-                        <Text style={S.benefitDesc}>{b.desc}</Text>
+                    {s.benefits.slice(0, 4).map((b, i) => (
+                      <View key={i} style={[S.benefitCard, { padding: "6px 7px" }]}>
+                        <Text style={[S.benefitTitle, { fontSize: 7.5 }]}>{b.title}</Text>
+                        <Text style={[S.benefitDesc, { fontSize: 7 }]}>{b.desc}</Text>
                       </View>
                     ))}
                   </View>
@@ -399,26 +399,27 @@ function ServicioPDF({ service, origin }: { service: ServiceData; origin: string
         </View>
       </Page>
 
-      {/* ── Content page ── */}
+      {/* ── Content page (specs + benefits + gallery all in one) ── */}
       <Page size="A4" style={S.page}>
         <View style={S.headerBar}>
           <PDFImage src={logoUrl} style={S.headerLogo} />
           <Text style={S.headerRight}>{service.tag.toUpperCase()} · FICHA TÉCNICA</Text>
         </View>
 
-        <View style={S.body}>
-          <Text style={S.secLabel}>Descripción General</Text>
-          <Text style={[S.secBody, { marginBottom: 14, fontSize: 10, lineHeight: 1.7 }]}>{service.overview || service.summary}</Text>
+        <View style={[S.body, { paddingTop: 14, paddingBottom: 50 }]}>
+          {/* Overview */}
+          <Text style={[S.secBody, { marginBottom: 10, fontSize: 9.5, lineHeight: 1.6 }]}>{service.overview || service.summary}</Text>
           <View style={S.divider} />
 
           <View style={S.twoCol}>
+            {/* Left — sections + gallery */}
             <View style={S.col}>
-              <Text style={S.secLabel}>Secciones Técnicas</Text>
-              {service.sections.slice(0, 4).map((sec, i) => (
+              <Text style={S.secLabel}>Descripción</Text>
+              {service.sections.slice(0, 2).map((sec, i) => (
                 <View key={i}>
                   <Text style={S.secHeading}>{sec.heading}</Text>
                   <Text style={S.secBody}>{sec.body}</Text>
-                  {sec.list?.slice(0, 6).map((item, j) => (
+                  {sec.list?.slice(0, 4).map((item, j) => (
                     <View key={j} style={S.bulletRow}>
                       <View style={S.bulletDot} />
                       <Text style={S.bulletText}>{item}</Text>
@@ -426,32 +427,42 @@ function ServicioPDF({ service, origin }: { service: ServiceData; origin: string
                   ))}
                 </View>
               ))}
+
+              <Text style={[S.secLabel, { marginTop: 10 }]}>Equipos y Operaciones</Text>
+              <View style={S.galleryGrid}>
+                {gallery.slice(0, 2).map((g, i) => (
+                  <View key={i} style={S.galleryImgWrap}>
+                    <PDFImage src={g.src} style={[S.galleryImg, { height: 100 }]} />
+                    <Text style={S.galleryCaption}>{g.caption}</Text>
+                  </View>
+                ))}
+              </View>
             </View>
 
+            {/* Right — specs + benefits */}
             <View style={S.col}>
               {service.specs && (
                 <>
                   <Text style={S.secLabel}>Especificaciones Técnicas</Text>
-                  <SpecsTable specs={service.specs} />
+                  <SpecsTable specs={service.specs.slice(0, 8)} />
                 </>
               )}
-              <Text style={[S.secLabel, { marginTop: 16 }]}>Ventajas del Servicio</Text>
+              <Text style={[S.secLabel, { marginTop: 12 }]}>Ventajas del Servicio</Text>
               <View style={S.benefitGrid}>
-                {service.benefits.map((b, i) => (
+                {service.benefits.slice(0, 4).map((b, i) => (
                   <View key={i} style={S.benefitCard}>
                     <Text style={S.benefitTitle}>{b.title}</Text>
                     <Text style={S.benefitDesc}>{b.desc}</Text>
                   </View>
                 ))}
               </View>
-              <Text style={[S.secLabel, { marginTop: 16 }]}>Preguntas Frecuentes</Text>
-              <View style={S.faqWrap}>
-                {service.faq.slice(0, 3).map((item, i) => (
-                  <View key={i} style={S.faqItem}>
-                    <Text style={S.faqQ}>{item.q}</Text>
-                    <Text style={S.faqA}>{item.a}</Text>
-                  </View>
-                ))}
+
+              {/* Contact info inline */}
+              <View style={{ marginTop: 12, padding: "8px 10px", backgroundColor: "#0d1f14", borderRadius: 5 }}>
+                <Text style={[S.secLabel, { color: "#30d158", marginBottom: 6 }]}>Contacto</Text>
+                <Text style={{ fontSize: 8.5, color: "#ffffff", fontFamily: "Helvetica-Bold", marginBottom: 2 }}>0424-6472446</Text>
+                <Text style={{ fontSize: 7.5, color: "rgba(255,255,255,0.5)", marginBottom: 4 }}>solucionesdeltaca@gmail.com</Text>
+                <Text style={{ fontSize: 7, color: "rgba(255,255,255,0.35)" }}>San Francisco, Estado Zulia · 24/7</Text>
               </View>
             </View>
           </View>
@@ -463,57 +474,6 @@ function ServicioPDF({ service, origin }: { service: ServiceData; origin: string
           <Text style={S.footerText}>Pág. 2</Text>
         </View>
       </Page>
-
-      {/* ── Gallery page ── */}
-      <Page size="A4" style={S.page}>
-        <View style={S.headerBar}>
-          <PDFImage src={logoUrl} style={S.headerLogo} />
-          <Text style={S.headerRight}>GALERÍA DE EQUIPOS Y OPERACIONES</Text>
-        </View>
-
-        <View style={S.body}>
-          <Text style={S.secLabel}>Galería de Equipos y Operaciones</Text>
-
-          {/* First image — large */}
-          <PDFImage
-            src={mainImg}
-            style={{ width: "100%", height: 200, objectFit: "cover", borderRadius: 6, marginBottom: 8 }}
-          />
-          <Text style={[S.galleryCaption, { marginBottom: 14 }]}>{service.title} — Soluciones Delta, C.A.</Text>
-
-          {/* Gallery grid */}
-          <View style={S.galleryGrid}>
-            {gallery.map((g, i) => (
-              <View key={i} style={S.galleryImgWrap}>
-                <PDFImage src={g.src} style={[S.galleryImg, { height: 150 }]} />
-                <Text style={S.galleryCaption}>{g.caption}</Text>
-              </View>
-            ))}
-          </View>
-
-          {/* Remaining sections if any */}
-          {service.sections.slice(4).map((sec, i) => (
-            <View key={i} style={{ marginTop: 14 }}>
-              <Text style={S.secHeading}>{sec.heading}</Text>
-              <Text style={S.secBody}>{sec.body}</Text>
-              {sec.list?.slice(0, 5).map((item, j) => (
-                <View key={j} style={S.bulletRow}>
-                  <View style={S.bulletDot} />
-                  <Text style={S.bulletText}>{item}</Text>
-                </View>
-              ))}
-            </View>
-          ))}
-        </View>
-
-        <View style={S.footer} fixed>
-          <Text style={S.footerText}>Soluciones Delta, C.A. · solucionesdeltaca@gmail.com · 0424-6472446</Text>
-          <View style={S.footerLine} />
-          <Text style={S.footerText}>Pág. 3</Text>
-        </View>
-      </Page>
-
-      <ContactPage logoUrl={logoUrl} pageNum={4} />
     </Document>
   );
 }
