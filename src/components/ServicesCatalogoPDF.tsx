@@ -292,15 +292,15 @@ function CatalogoPDF({ origin }: { origin: string }) {
             </View>
 
             {/* Hero image */}
-            <PDFImage src={mainImg} style={{ width: "100%", height: 205, objectFit: "cover" }} />
+            <PDFImage src={mainImg} style={{ width: "100%", height: 160, objectFit: "cover" }} />
 
-            <View style={[S.body, { paddingTop: 10, paddingBottom: 50 }]}>
+            <View style={[S.body, { paddingTop: 8, paddingBottom: 44 }]} wrap={false}>
               {/* Title block */}
               <Text style={[S.secLabel, { color: GRAY, marginBottom: 2 }]}>0{idx + 1} / 05 · {s.tag}</Text>
-              <Text style={[S.svcTitle, { fontSize: 18, marginBottom: 2 }]}>{s.title}</Text>
-              <Text style={[S.svcSubtitle, { marginBottom: 4 }]}>{s.subtitle}</Text>
-              <Text style={[S.svcSummary, { marginBottom: 8, fontSize: 8.5 }]}>{s.summary}</Text>
-              <View style={[S.divider, { marginBottom: 8 }]} />
+              <Text style={[S.svcTitle, { fontSize: 17, marginBottom: 2 }]}>{s.title}</Text>
+              <Text style={[S.svcSubtitle, { marginBottom: 3 }]}>{s.subtitle}</Text>
+              <Text style={[S.svcSummary, { marginBottom: 6, fontSize: 8 }]}>{s.summary}</Text>
+              <View style={[S.divider, { marginBottom: 6 }]} />
 
               <View style={S.twoCol}>
                 {/* Left — first 2 sections + gallery */}
@@ -308,24 +308,24 @@ function CatalogoPDF({ origin }: { origin: string }) {
                   <Text style={S.secLabel}>Descripción</Text>
                   {s.sections.slice(0, 2).map((sec, i) => (
                     <View key={i}>
-                      <Text style={[S.secHeading, { marginTop: 6 }]}>{sec.heading}</Text>
-                      <Text style={[S.secBody, { fontSize: 7.5 }]}>{sec.body}</Text>
-                      {sec.list?.slice(0, 3).map((item, j) => (
+                      <Text style={[S.secHeading, { marginTop: 4 }]}>{sec.heading}</Text>
+                      <Text style={[S.secBody, { fontSize: 7 }]}>{sec.body}</Text>
+                      {sec.list?.slice(0, 2).map((item, j) => (
                         <View key={j} style={S.bulletRow}>
                           <View style={S.bulletDot} />
-                          <Text style={[S.bulletText, { fontSize: 7.5 }]}>{item}</Text>
+                          <Text style={[S.bulletText, { fontSize: 7 }]}>{item}</Text>
                         </View>
                       ))}
                     </View>
                   ))}
 
                   {/* Gallery strip */}
-                  <Text style={[S.secLabel, { marginTop: 8 }]}>Equipos y Operaciones</Text>
+                  <Text style={[S.secLabel, { marginTop: 6 }]}>Equipos y Operaciones</Text>
                   <View style={S.galleryGrid}>
                     {galleryImgs.slice(0, 2).map((g, i) => (
                       <View key={i} style={S.galleryImgWrap}>
-                        <PDFImage src={g.src} style={[S.galleryImg, { height: 90 }]} />
-                        <Text style={[S.galleryCaption, { fontSize: 7 }]}>{g.caption}</Text>
+                        <PDFImage src={g.src} style={[S.galleryImg, { height: 72 }]} />
+                        <Text style={[S.galleryCaption, { fontSize: 6.5 }]}>{g.caption}</Text>
                       </View>
                     ))}
                   </View>
@@ -336,15 +336,15 @@ function CatalogoPDF({ origin }: { origin: string }) {
                   {s.specs && (
                     <>
                       <Text style={S.secLabel}>Especificaciones Técnicas</Text>
-                      <SpecsTable specs={s.specs.slice(0, 8)} />
+                      <SpecsTable specs={s.specs.slice(0, 6)} />
                     </>
                   )}
-                  <Text style={[S.secLabel, { marginTop: 10 }]}>Ventajas del Servicio</Text>
+                  <Text style={[S.secLabel, { marginTop: 8 }]}>Ventajas del Servicio</Text>
                   <View style={S.benefitGrid}>
                     {s.benefits.slice(0, 4).map((b, i) => (
-                      <View key={i} style={[S.benefitCard, { padding: "6px 7px" }]}>
-                        <Text style={[S.benefitTitle, { fontSize: 7.5 }]}>{b.title}</Text>
-                        <Text style={[S.benefitDesc, { fontSize: 7 }]}>{b.desc}</Text>
+                      <View key={i} style={[S.benefitCard, { padding: "5px 6px" }]}>
+                        <Text style={[S.benefitTitle, { fontSize: 7 }]}>{b.title}</Text>
+                        <Text style={[S.benefitDesc, { fontSize: 6.5 }]}>{b.desc}</Text>
                       </View>
                     ))}
                   </View>
