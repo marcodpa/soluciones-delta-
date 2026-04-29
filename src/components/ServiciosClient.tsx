@@ -161,46 +161,29 @@ export default function ServiciosClient() {
                 </div>
 
                 {/* Right — photo strip */}
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="relative rounded-2xl overflow-hidden col-span-2 row-span-2" style={{ minHeight: 280 }}>
-                    <Image
-                      src="/vapor/campo-pozos.jpg"
-                      alt="Locación de pozos — Estado Zulia"
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 66vw, 33vw"
-                      priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
-                      <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[11px] font-semibold text-white" style={{ background: "rgba(26,140,60,0.8)", backdropFilter: "blur(8px)" }}>
-                        <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                        Edo. Zulia
-                      </div>
-                    </div>
-                  </div>
-                  <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 135 }}>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 280 }}>
                     <Image
                       src="/vacuum/vacuum-semirremolque.jpg"
                       alt="Vacuum 160 Bbl"
                       fill
                       className="object-cover"
-                      sizes="15vw"
+                      sizes="25vw"
                       priority
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <div className="absolute bottom-2.5 left-3"><span className="text-[10px] font-semibold text-white/80">Vacuum 160 Bbl</span></div>
+                    <div className="absolute bottom-3 left-3"><span className="text-[10px] font-semibold text-white/80">Vacuum 160 Bbl</span></div>
                   </div>
-                  <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 135 }}>
+                  <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 280 }}>
                     <Image
                       src="/frac-tanks/frac-tank-nuevo.png"
                       alt="Frac Tank 500 Bbl"
                       fill
                       className="object-cover"
-                      sizes="15vw"
+                      sizes="25vw"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <div className="absolute bottom-2.5 left-3"><span className="text-[10px] font-semibold text-white/80">Frac Tanks 500 Bbl</span></div>
+                    <div className="absolute bottom-3 left-3"><span className="text-[10px] font-semibold text-white/80">Frac Tanks 500 Bbl</span></div>
                   </div>
                 </div>
               </div>
