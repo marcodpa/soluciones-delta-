@@ -41,9 +41,7 @@ const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
     { src: "/desechos/retroexcavadora-fosa.jpg", caption: "Retroexcavadora CAT en fosa petrolera" },
     { src: "/desechos/cargador-fosa.jpg",        caption: "Cargador frontal CAT — saneamiento de fosa" },
   ],
-  "alquiler-calderas-inyeccion-vapor": [
-    { src: "/vapor/generador-vapor-otsg.jpg",   caption: "Generador de Vapor OTSG — Estado Zulia" },
-  ],
+  "alquiler-calderas-inyeccion-vapor": [],
 };
 
 export default function ServicePageClient({ service }: { service: ServiceData }) {
@@ -179,7 +177,7 @@ export default function ServicePageClient({ service }: { service: ServiceData })
           </div>
 
           {/* ── PHOTO GALLERY ── */}
-          {SERVICE_GALLERY[service.slug] && (
+          {SERVICE_GALLERY[service.slug]?.length > 0 && (
             <div className="animate-in">
               <div className="section-label mb-6">Galería de Equipos y Operaciones</div>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">

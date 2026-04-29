@@ -52,7 +52,6 @@ const SERVICE_PHOTOS: Record<string, { main: string; gallery: { src: string; cap
   "alquiler-calderas-inyeccion-vapor": {
     main: "/vapor/caldera-otsg-semirremolque.jpg",
     gallery: [
-      { src: "/vapor/generador-vapor-otsg.jpg",    caption: "Generador de Vapor OTSG — Estado Zulia" },
       { src: "/vapor/fosa-campo-boscan.jpg",        caption: "Extracción de crudo en fosa" },
       { src: "/vapor/campo-pozos.jpg",              caption: "Locación de pozos — Estado Zulia" },
     ],
