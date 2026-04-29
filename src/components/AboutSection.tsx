@@ -82,9 +82,6 @@ export default function AboutSection() {
               <strong className="text-white">Soluciones Delta, C.A.</strong> es una empresa venezolana especializada en servicios técnicos para la industria petrolera, con sede en San Francisco, Estado Zulia.
             </p>
             <p className="text-[15px] leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>
-              Hemos ejecutado contratos con Chevron, Petroboscán y PDVSA al 100% de cumplimiento. Contamos con flota propia de última generación — sin subcontratos — y personal técnico certificado operando las 24 horas.
-            </p>
-            <p className="text-[15px] leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>
               Nuestra filosofía: llegar al campo con soluciones, no con excusas. Bombeo, vacuum, almacenamiento, manejo de residuos e inyección de vapor — un solo proveedor para toda la cadena.
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
@@ -120,15 +117,15 @@ export default function AboutSection() {
             </div>
             <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 145 }}>
               <Image
-                src="/vapor/campo-pozos.jpg"
-                alt="Locación de pozos — Campo Boscán"
+                src="/frac-tanks/frac-tank-nuevo.png"
+                alt="Frac Tank — Soluciones Delta"
                 fill
                 className="object-cover"
                 sizes="25vw"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
               <div className="absolute bottom-2.5 left-3">
-                <span className="text-[10px] font-semibold text-white/80">Campo Boscán</span>
+                <span className="text-[10px] font-semibold text-white/80">Frac Tank</span>
               </div>
             </div>
             <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 145 }}>

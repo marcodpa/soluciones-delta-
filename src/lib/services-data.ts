@@ -538,7 +538,7 @@ export const SERVICES: ServiceData[] = [
   {
     slug: "alquiler-calderas-inyeccion-vapor",
     tag: "Inyección de Vapor",
-    title: "Alquiler de Calderas",
+    title: "Generador De Vapor",
     subtitle: "Generación e Inyección de Vapor para Pozos y Fosas",
     summary:
       "Servicio especializado de generación e inyección de vapor con generadores de alta capacidad para recuperación de crudo en fosas y pozos petroleros. 100% automatizados. Trayectoria comprobada en Campo Boscán (Chevron/Petroboscán) y Tía Juana (PDVSA).",
