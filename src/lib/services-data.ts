@@ -322,7 +322,7 @@ export const SERVICES: ServiceData[] = [
         list: [
           "Limpieza de tanques de refinería: funcionan como almacenamiento temporal mientras se limpian tanques fijos de gran tamaño",
           "Tratamiento de suelos contaminados: recolección de lodos y líquidos extraídos durante procesos de remediación",
-          "Sistemas de decantación: fondo en "V" para que los sólidos se asienten y separar el agua limpia por la parte superior",
+          "Sistemas de decantación: fondo en 'V' para que los sólidos se asienten y separar el agua limpia por la parte superior",
         ],
       },
       {
