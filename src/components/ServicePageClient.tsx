@@ -43,10 +43,6 @@ const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
   ],
   "alquiler-calderas-inyeccion-vapor": [
     { src: "/vapor/generador-vapor-otsg.jpg",   caption: "Generador de Vapor OTSG — Campo Boscán" },
-    { src: "/vapor/fosa-campo-boscan.jpg",       caption: "Extracción de crudo en fosa — Campo Boscán" },
-    { src: "/vapor/fosa-pasivo-ambiental.jpg",   caption: "Fosa petrolizada — inicio de operación" },
-    { src: "/vapor/fosa-extraccion.jpg",         caption: "Fosa — vista panorámica" },
-    { src: "/vapor/campo-pozos.jpg",             caption: "Locación de pozos — Estado Zulia" },
   ],
 };
 
