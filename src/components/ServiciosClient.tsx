@@ -50,7 +50,7 @@ const services = [
     summary:
       "Tanques de 500 Bbl en 4 configuraciones: V-Bottom, Flat Bottom, Insulated y Gas Tight. Alta movilidad, batería hasta 20 unidades.",
     highlights: ["500 Bbl / unidad", "V-Bottom · Flat · Insulated · Gas Tight", "Movilización con lowboy", "Batería hasta 20 tanques"],
-    img: "/frac-tanks/bateria-frac-tanks.jpg",
+    img: "/frac-tanks/frac-tank-nuevo.png",
     color: "#fff8ee",
   },
   {
@@ -193,8 +193,8 @@ export default function ServiciosClient() {
                   </div>
                   <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 135 }}>
                     <Image
-                      src="/frac-tanks/bateria-frac-tanks.jpg"
-                      alt="Frac Tanks en locación"
+                      src="/frac-tanks/frac-tank-nuevo.png"
+                      alt="Frac Tank 500 Bbl"
                       fill
                       className="object-cover"
                       sizes="15vw"
