@@ -576,9 +576,9 @@ export const SERVICES: ServiceData[] = [
         heading: "Trayectoria y contratos ejecutados",
         body: "Nuestro servicio de inyección de vapor cuenta con una trayectoria comprobada en los principales campos petroleros del occidente venezolano:",
         list: [
-          "Petroboscán (2017–2019): Campo Boscán, Contrato 3M-043-004-D-16-S-102 — 1,500 Bbl/día, ejecución 100% en 4 extensiones consecutivas",
-          "Chevron (2016): Campo Boscán, Contrato CW1402520 — ejecución 100%",
-          "Chevron (2015): Campo Boscán, Contrato CW1299675 — ejecución 100%",
+          "Petroboscán: Campo Boscán, Contrato 3M-043-004-D-16-S-102 — 1,500 Bbl/día, ejecución 100% en 4 extensiones consecutivas",
+          "Chevron: Campo Boscán, Contrato CW1402520 — ejecución 100%",
+          "Chevron: Campo Boscán, Contrato CW1299675 — ejecución 100%",
           "PDVSA GIV: Estación Bolívar 54, Contrato 4640002882 — suministro, operación y mantenimiento de generadores portátiles, ejecución 100%",
         ],
       },
