@@ -22,7 +22,7 @@ const SERVICE_IMAGES: Record<string, string> = {
   "bombeo-de-crudo": "/bombeo/equipo-principal.png",
   "trasegado-vacuum": "/vacuum/vacuum-semirremolque.jpg",
   "frac-tanks": "/frac-tanks/frac-tank-nuevo.png",
-  "manejo-de-desechos": "/vacuum-truck.jpg",
+  "manejo-de-desechos": "/vacuum/vacuum-truck-howo-pdvsa.jpg",
   "alquiler-calderas-inyeccion-vapor": "/vapor/caldera-otsg-semirremolque.jpg",
 };
 
