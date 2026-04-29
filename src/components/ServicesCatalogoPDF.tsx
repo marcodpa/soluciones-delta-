@@ -361,7 +361,6 @@ function CatalogoPDF({ origin }: { origin: string }) {
         );
       })}
 
-      <ContactPage logoUrl={logoUrl} pageNum={SERVICES.length + 2} />
     </Document>
   );
 }
