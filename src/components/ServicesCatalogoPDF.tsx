@@ -292,7 +292,7 @@ function CatalogoPDF({ origin }: { origin: string }) {
             </View>
 
             {/* Hero image */}
-            <PDFImage src={mainImg} style={{ width: "100%", height: 175, objectFit: "cover" }} />
+            <PDFImage src={mainImg} style={{ width: "100%", height: 205, objectFit: "cover" }} />
 
             <View style={[S.body, { paddingTop: 10, paddingBottom: 50 }]}>
               {/* Title block */}
