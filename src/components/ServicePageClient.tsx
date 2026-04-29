@@ -325,11 +325,11 @@ export default function ServicePageClient({ service }: { service: ServiceData })
                 </svg>
                 Enviar solicitud por email
               </a>
-              <a href="tel:04246472446" className="btn-secondary">
+              <a href="https://wa.me/584246472446" className="btn-secondary">
                 <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                   <path d="M4 2h3l1.5 4-2 1.5a10 10 0 004 4L12 9.5l4 1.5v3a2 2 0 01-2 2C6 16 2 10 2 4a2 2 0 012-2z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
                 </svg>
-                0424-6472446
+                +58 424-6472446
               </a>
             </div>
           </div>

@@ -147,14 +147,14 @@ export default function ServiciosClient() {
                       </svg>
                     </Link>
                     <a
-                      href="tel:04246472446"
+                      href="https://wa.me/584246472446"
                       className="flex items-center gap-2 px-6 py-3.5 rounded-full text-[15px] font-semibold text-white"
                       style={{ background: "rgba(255,255,255,0.07)", border: "1.5px solid rgba(255,255,255,0.14)" }}
                     >
                       <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
                         <path d="M3 2h2.5l1 3-1.5 1a7.5 7.5 0 003.5 3.5L10 8l3 1v2.5A1.5 1.5 0 0111.5 13C5.1 13 2 9 2 3.5A1.5 1.5 0 013 2z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
                       </svg>
-                      0424-6472446
+                      +58 424-6472446
                     </a>
                     <DescargarCatalogoBtnn />
                   </div>
@@ -348,11 +348,11 @@ export default function ServiciosClient() {
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 flex-shrink-0">
-                <a href="tel:04246472446" className="btn-secondary flex items-center gap-2">
+                <a href="https://wa.me/584246472446" className="btn-secondary flex items-center gap-2">
                   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                     <path d="M3 2h2.5l1 3-1.5 1A7.5 7.5 0 009.5 9.5L11 8l3 1v2.5A1.5 1.5 0 0112.5 13C6 13 2.5 9 2.5 3.5A1.5 1.5 0 013 2z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
                   </svg>
-                  0424-6472446
+                  +58 424-6472446
                 </a>
                 <Link href="/contacto" className="btn-primary">
                   Solicitar cotización

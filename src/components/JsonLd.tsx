@@ -210,7 +210,7 @@ export default function JsonLd() {
         name: "¿Tienen servicio de emergencias fuera del horario laboral?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Sí. Contamos con disponibilidad operativa 24/7 para emergencias en campo. Puede contactarnos al 0424-6472446 en cualquier momento.",
+          text: "Sí. Contamos con disponibilidad operativa 24/7 para emergencias en campo. Puede contactarnos al +58 424-6472446 en cualquier momento.",
         },
       },
     ],

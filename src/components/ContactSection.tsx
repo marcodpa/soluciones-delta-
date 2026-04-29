@@ -189,7 +189,7 @@ export default function ContactSection() {
                 <h3 className="text-xl font-semibold text-[#1d1d1f] mb-3">¡Solicitud enviada!</h3>
                 <p className="text-[15px] text-[#6e6e73]">
                   Su cliente de correo debería haberse abierto. Si no, contáctenos directamente al{" "}
-                  <a href="tel:04246472446" className="text-[#1a8c3c] hover:underline font-medium">0424-6472446</a>.
+                  <a href="https://wa.me/584246472446" className="text-[#1a8c3c] hover:underline font-medium">+58 424-6472446</a>.
                 </p>
                 <button onClick={() => setSubmitted(false)} className="btn-secondary mt-6 text-sm">
                   Enviar otra consulta
@@ -219,8 +219,8 @@ export default function ContactSection() {
                   </svg>
                 ),
                 title: "Teléfono / WhatsApp",
-                value: "0424-6472446",
-                href: "tel:04246472446",
+                value: "+58 424-6472446",
+                href: "https://wa.me/584246472446",
               },
               {
                 icon: (

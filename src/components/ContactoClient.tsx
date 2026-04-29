@@ -27,8 +27,8 @@ const contactCards = [
       </svg>
     ),
     label: "Teléfono / WhatsApp",
-    value: "0424-6472446",
-    href: "tel:04246472446",
+    value: "+58 424-6472446",
+    href: "https://wa.me/584246472446",
     sub: "Emergencias: disponible 24/7",
   },
   {
@@ -154,14 +154,14 @@ export default function ContactoClient() {
                   {/* Quick contact buttons */}
                   <div className="flex flex-wrap gap-3">
                     <a
-                      href="tel:04246472446"
+                      href="https://wa.me/584246472446"
                       className="flex items-center gap-2.5 px-5 py-3 rounded-full text-[14px] font-semibold text-white transition-all duration-200"
                       style={{ background: "rgba(26,140,60,0.2)", border: "1.5px solid rgba(48,209,88,0.3)" }}
                     >
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                         <path d="M3 2h2.5l1 3-1.5 1a7.5 7.5 0 003.5 3.5L10 8l3 1v2.5A1.5 1.5 0 0111.5 13C5.1 13 2 9 2 3.5A1.5 1.5 0 013 2z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
                       </svg>
-                      0424-6472446
+                      +58 424-6472446
                     </a>
                     <a
                       href="mailto:solucionesdeltaca@gmail.com"
@@ -385,7 +385,7 @@ export default function ContactoClient() {
                       Su cliente de correo debería haberse abierto. Si no, llámenos directamente.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-                      <a href="tel:04246472446" className="btn-primary">Llamar ahora</a>
+                      <a href="https://wa.me/584246472446" className="btn-primary">Llamar ahora</a>
                       <button onClick={() => setSubmitted(false)} className="btn-secondary">Nueva solicitud</button>
                     </div>
                   </div>

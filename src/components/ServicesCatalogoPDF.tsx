@@ -206,7 +206,7 @@ function ContactPage({ logoUrl, pageNum }: { logoUrl: string; pageNum: number })
         </Text>
         <View style={S.contactItem}>
           <Text style={S.contactItemLabel}>Teléfono / WhatsApp</Text>
-          <Text style={S.contactItemValue}>0424-6472446</Text>
+          <Text style={S.contactItemValue}>+58 424-6472446</Text>
           <Text style={S.contactItemSub}>Emergencias: disponible 24/7</Text>
         </View>
         <View style={S.contactItem}>
@@ -228,7 +228,7 @@ function ContactPage({ logoUrl, pageNum }: { logoUrl: string; pageNum: number })
         </View>
       </View>
       <View style={S.footer} fixed>
-        <Text style={S.footerText}>Soluciones Delta, C.A. · solucionesdeltaca@gmail.com · 0424-6472446</Text>
+        <Text style={S.footerText}>Soluciones Delta, C.A. · solucionesdeltaca@gmail.com · +58 424-6472446</Text>
         <View style={S.footerLine} />
         <Text style={S.footerText}>Pág. {pageNum}</Text>
       </View>
@@ -353,7 +353,7 @@ function CatalogoPDF({ origin }: { origin: string }) {
             </View>
 
             <View style={S.footer} fixed>
-              <Text style={S.footerText}>Soluciones Delta, C.A. · solucionesdeltaca@gmail.com · 0424-6472446</Text>
+              <Text style={S.footerText}>Soluciones Delta, C.A. · solucionesdeltaca@gmail.com · +58 424-6472446</Text>
               <View style={S.footerLine} />
               <Text style={S.footerText}>Pág. {idx + 2}</Text>
             </View>
@@ -397,7 +397,7 @@ function ServicioPDF({ service, origin }: { service: ServiceData; origin: string
           </View>
         </View>
         <View style={S.footer}>
-          <Text style={S.footerText}>Soluciones Delta, C.A. · solucionesdeltaca@gmail.com · 0424-6472446</Text>
+          <Text style={S.footerText}>Soluciones Delta, C.A. · solucionesdeltaca@gmail.com · +58 424-6472446</Text>
           <View style={S.footerLine} />
           <Text style={S.footerText}>Pág. 1</Text>
         </View>
@@ -464,7 +464,7 @@ function ServicioPDF({ service, origin }: { service: ServiceData; origin: string
               {/* Contact info inline */}
               <View style={{ marginTop: 12, padding: "8px 10px", backgroundColor: "#0d1f14", borderRadius: 5 }}>
                 <Text style={[S.secLabel, { color: "#30d158", marginBottom: 6 }]}>Contacto</Text>
-                <Text style={{ fontSize: 8.5, color: "#ffffff", fontFamily: "Helvetica-Bold", marginBottom: 2 }}>0424-6472446</Text>
+                <Text style={{ fontSize: 8.5, color: "#ffffff", fontFamily: "Helvetica-Bold", marginBottom: 2 }}>+58 424-6472446</Text>
                 <Text style={{ fontSize: 7.5, color: "rgba(255,255,255,0.5)", marginBottom: 4 }}>solucionesdeltaca@gmail.com</Text>
                 <Text style={{ fontSize: 7, color: "rgba(255,255,255,0.35)" }}>San Francisco, Estado Zulia · 24/7</Text>
               </View>
@@ -473,7 +473,7 @@ function ServicioPDF({ service, origin }: { service: ServiceData; origin: string
         </View>
 
         <View style={S.footer} fixed>
-          <Text style={S.footerText}>Soluciones Delta, C.A. · solucionesdeltaca@gmail.com · 0424-6472446</Text>
+          <Text style={S.footerText}>Soluciones Delta, C.A. · solucionesdeltaca@gmail.com · +58 424-6472446</Text>
           <View style={S.footerLine} />
           <Text style={S.footerText}>Pág. 2</Text>
         </View>

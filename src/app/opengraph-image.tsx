@@ -77,7 +77,7 @@ export default async function Image() {
         {/* Footer info */}
         <div style={{ display: "flex", alignItems: "center", gap: "32px" }}>
           <div style={{ color: "rgba(255,255,255,0.5)", fontSize: "16px" }}>📍 San Francisco, Estado Zulia — Venezuela</div>
-          <div style={{ color: "rgba(255,255,255,0.5)", fontSize: "16px" }}>📞 0424-6472446</div>
+          <div style={{ color: "rgba(255,255,255,0.5)", fontSize: "16px" }}>📞 +58 424-6472446</div>
         </div>
       </div>
     ),

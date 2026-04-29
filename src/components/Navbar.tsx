@@ -86,7 +86,7 @@ export default function Navbar() {
             {/* CTA */}
             <div className="hidden lg:flex items-center gap-3">
               <a
-                href="tel:04246472446"
+                href="https://wa.me/584246472446"
                 className={`flex items-center gap-2 text-[13px] font-semibold transition-colors ${
                   isTransparent ? "text-white/70 hover:text-white" : "text-[#6e6e73] hover:text-[#1d1d1f]"
                 }`}
@@ -94,7 +94,7 @@ export default function Navbar() {
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                   <path d="M3 2h2.5l1 3-1.5 1a7 7 0 003 3l1-1.5 3 1V11a1.5 1.5 0 01-1.5 1.5C5.5 12.5 1.5 8.5 1.5 3.5A1.5 1.5 0 013 2z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
                 </svg>
-                0424-6472446
+                +58 424-6472446
               </a>
               <Link
                 href="/contacto"
@@ -144,10 +144,10 @@ export default function Navbar() {
             Solicitar Servicio
           </Link>
           <a
-            href="tel:04246472446"
+            href="https://wa.me/584246472446"
             className="mt-4 text-center text-[15px] font-medium text-[#6e6e73]"
           >
-            0424-6472446
+            +58 424-6472446
           </a>
         </div>
       </div>

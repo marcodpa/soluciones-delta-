@@ -114,7 +114,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Soluciones Delta C.A. | Servicios Petroleros Zulia",
     description:
-      "Bombeo de crudo pesado, trasegado vacuum, Frac Tanks 500 Bbl y manejo de desechos industriales. Zulia, Venezuela. Tel: 0424-6472446",
+      "Bombeo de crudo pesado, trasegado vacuum, Frac Tanks 500 Bbl y manejo de desechos industriales. Zulia, Venezuela. Tel: +58 424-6472446",
     images: ["/og-image.png"],
     creator: "@SolucionesDelta",
   },

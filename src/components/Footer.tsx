@@ -52,11 +52,11 @@ export default function Footer() {
                 </svg>
                 solucionesdeltaca@gmail.com
               </a>
-              <a href="tel:04246472446" className="flex items-center gap-2 text-[13px] text-[#6e6e73] hover:text-white transition-colors w-fit">
+              <a href="https://wa.me/584246472446" className="flex items-center gap-2 text-[13px] text-[#6e6e73] hover:text-white transition-colors w-fit">
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                   <path d="M3 2h2l1 3-1.5 1a6 6 0 003.5 3.5L9 8l3 1v2a1 1 0 01-1 1C4.5 12 1.5 8 1.5 3.5A1.5 1.5 0 013 2z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
                 </svg>
-                0424-6472446
+                +58 424-6472446
               </a>
             </div>
           </div>

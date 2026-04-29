@@ -60,7 +60,7 @@ const companyData = [
   { label: "RIF",           value: "J-50735393-1" },
   { label: "Sector",        value: "Servicios Técnicos Industriales — Petróleo y Gas" },
   { label: "Sede",          value: "Calle 13 con Av 5, Local 26A-162, Of. 2, Sector Manzanillo, San Francisco, Edo. Zulia" },
-  { label: "Teléfono",      value: "0424-6472446" },
+  { label: "Teléfono",      value: "+58 424-6472446" },
   { label: "Correo",        value: "solucionesdeltaca@gmail.com" },
   { label: "Flota",         value: "Unidades vacuum fabricación 2026, Frac Tanks 500 Bbl" },
   { label: "Operación",     value: "24 horas / 7 días — Zulia y regiones adyacentes" },
@@ -485,14 +485,14 @@ export default function NosotrosClient() {
                       <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </Link>
-                  <a href="tel:04246472446"
+                  <a href="https://wa.me/584246472446"
                     className="flex items-center gap-2 px-7 py-3.5 rounded-full text-[15px] font-semibold text-white"
                     style={{ background: "rgba(255,255,255,0.08)", border: "1.5px solid rgba(255,255,255,0.18)" }}
                   >
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                       <path d="M3 2h2.5l1 3-1.5 1a7.5 7.5 0 003.5 3.5L10 8l3 1v2.5A1.5 1.5 0 0111.5 13C5.1 13 2 9 2 3.5A1.5 1.5 0 013 2z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
                     </svg>
-                    0424-6472446
+                    +58 424-6472446
                   </a>
                 </div>
               </div>
