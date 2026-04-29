@@ -99,10 +99,10 @@ export default function ServicePageClient({ service }: { service: ServiceData })
         {/* ── HERO ── */}
         <section
           className="pt-28 pb-16 relative overflow-hidden"
-          style={{ background: "linear-gradient(135deg, #0d1f14 0%, #0f2918 55%, #112b1a 100%)" }}
+          style={{ background: "linear-gradient(135deg, #020804 0%, #050e06 55%, #061008 100%)" }}
         >
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 55% 60% at 5% 50%, rgba(26,140,60,0.22) 0%, transparent 65%)" }} />
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 40% 40% at 95% 80%, rgba(48,209,88,0.08) 0%, transparent 60%)" }} />
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 55% 65% at 0% 55%, rgba(26,140,60,0.38) 0%, transparent 60%)" }} />
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 40% 40% at 95% 80%, rgba(48,209,88,0.10) 0%, transparent 60%)" }} />
           <div className="absolute inset-0 pointer-events-none opacity-[0.04]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
 
           <div className="site-container">
