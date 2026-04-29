@@ -4,11 +4,17 @@ import { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { ServiceData } from "@/lib/services-data";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+const DescargarServicioPDF = dynamic(
+  () => import("@/components/ServicesCatalogoPDF").then(m => m.DescargarServicioPDF),
+  { ssr: false }
+);
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -126,6 +132,7 @@ export default function ServicePageClient({ service }: { service: ServiceData })
                         <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </a>
+                    <DescargarServicioPDF service={service} />
                     <Link href="/servicios" className="btn-secondary">
                       ← Todos los servicios
                     </Link>
