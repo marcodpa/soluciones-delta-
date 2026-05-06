@@ -46,19 +46,18 @@ export default function AboutSection() {
       id="nosotros"
       ref={sectionRef}
       className="py-32 relative overflow-hidden"
-      style={{ background: "#0d0d0f" }}
+      style={{ background: "#111113" }}
     >
-      {/* Ambient glows */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 55% 60% at 100% 40%, rgba(26,140,60,0.09) 0%, transparent 65%)" }} />
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 40% 40% at 0% 80%, rgba(48,209,88,0.04) 0%, transparent 60%)" }} />
-      {/* Subtle grid */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.025]"
+      {/* Noise texture */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
         style={{
-          backgroundImage: "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
-          backgroundSize: "80px 80px",
+          backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
         }} />
+      {/* Soft green glow */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse 55% 45% at 0% 50%, rgba(26,140,60,0.1) 0%, transparent 65%)" }} />
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: "radial-gradient(ellipse 40% 35% at 100% 80%, rgba(48,209,88,0.06) 0%, transparent 60%)" }} />
 
       <div className="site-container relative">
 
