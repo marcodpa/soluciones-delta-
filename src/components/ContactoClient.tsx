@@ -7,6 +7,12 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import dynamic from "next/dynamic";
+
+const DescargarPlanillaBtn = dynamic(
+  () => import("@/components/PlanillaCotizacionPDF"),
+  { ssr: false }
+);
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -480,6 +486,9 @@ export default function ContactoClient() {
                     <div className="text-[14px] font-bold text-[#1d1d1f]">RIF J-50735393-1</div>
                   </div>
                 </div>
+
+                {/* Planilla descargable — discreta */}
+                <DescargarPlanillaBtn />
               </div>
 
             </div>
