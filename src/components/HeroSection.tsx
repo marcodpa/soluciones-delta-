@@ -25,6 +25,7 @@ export default function HeroSection() {
   const loaderRef   = useRef<HTMLDivElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const pctRef      = useRef<HTMLSpanElement>(null);
+  const staticImgRef = useRef<HTMLImageElement>(null);
 
   const [loaderVisible, setLoaderVisible] = useState(true);
 
@@ -125,10 +126,14 @@ export default function HeroSection() {
       if (progressRef.current) progressRef.current.style.width  = `${p}%`;
       if (pctRef.current)      pctRef.current.textContent        = `${p}%`;
 
-      // Frame 0 ready → hide loader + play intro immediately
+      // Frame 0 ready → hide loader + hide static img + play intro
       if (!introStarted && bitmaps[0]) {
         introStarted = true;
         drawFrame(0);
+        // Fade out static LCP image so canvas takes over seamlessly
+        if (staticImgRef.current) {
+          gsap.to(staticImgRef.current, { opacity: 0, duration: 0.4, ease: "power2.out" });
+        }
         gsap.to(loaderRef.current, {
           opacity: 0, duration: 0.5, ease: "power2.out",
           onComplete: () => setLoaderVisible(false),
@@ -233,8 +238,9 @@ export default function HeroSection() {
       <div ref={wrapperRef} style={{ height: "380vh" }}>
         <div className="sticky top-0 w-full overflow-hidden" style={{ height: "100vh" }}>
 
-          {/* Static LCP image — real <img> so Google measures it instantly */}
+          {/* Static LCP image — real <img> so Google measures it instantly; fades out once canvas is ready */}
           <img
+            ref={staticImgRef}
             src="/frames/frame_0000.webp"
             alt="Servicios industriales para la industria petrolera venezolana"
             fetchPriority="high"
