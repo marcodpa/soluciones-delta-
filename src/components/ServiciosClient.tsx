@@ -26,7 +26,7 @@ const services = [
     summary:
       "Bomba de tornillo operada por unidad hidráulica a 15,000 PSI. Sin emulsificación, plato desnatador incorporado, 1,500 Bbl/día de capacidad.",
     highlights: ["1,500 Bbl / día", "Presión 15,000 PSI", "Sin emulsificación", "24/7"],
-    img: "/bombeo/equipo-principal.png",
+    img: "/bombeo/equipo-principal.webp",
     color: "#eef7f1",
   },
   {
@@ -38,7 +38,7 @@ const services = [
     summary:
       "Succión y transporte de fluidos de alta densidad con unidad propia de 160 Bbl. Acero A36 · compresor NVE Challenger 607 · motor Isuzu 4BD1.",
     highlights: ["160 Bbl · A36 8mm", "NVE Challenger 607", "Espacios confinados", "Fabricación 2026"],
-    img: "/vacuum/vacuum-semirremolque.jpg",
+    img: "/vacuum/vacuum-semirremolque.webp",
     color: "#eef4ff",
   },
   {
@@ -50,7 +50,7 @@ const services = [
     summary:
       "Tanques de 500 Bbl en 4 configuraciones: V-Bottom, Flat Bottom, Insulated y Gas Tight. Alta movilidad, batería hasta 20 unidades.",
     highlights: ["500 Bbl / unidad", "V-Bottom · Flat · Insulated · Gas Tight", "Movilización con lowboy", "Batería hasta 20 tanques"],
-    img: "/frac-tanks/frac-tank-nuevo.png",
+    img: "/frac-tanks/frac-tank-nuevo.webp",
     color: "#fff8ee",
   },
   {
@@ -62,7 +62,7 @@ const services = [
     summary:
       "Gestión integral: lodos de perforación, aguas de producción, borras asfálticas y suelos contaminados. Manifiesto y certificado de disposición en cada operación.",
     highlights: ["Decreto 2635 VE", "Lodos WBM & OBM", "Borras asfálticas", "Certificado disposición"],
-    img: "/vacuum/vacuum-truck-howo-pdvsa.jpg",
+    img: "/vacuum/vacuum-truck-howo-pdvsa.webp",
     color: "#f3f8ee",
   },
   {
@@ -74,7 +74,7 @@ const services = [
     summary:
       "Generadores OTSG para Huff & Puff, Steam Flooding y SAGD. 100% automatizados. Alta capacidad para recuperación de crudo en fosas y pozos petroleros.",
     highlights: ["Huff & Puff · Steam Flooding · SAGD", "100% automatizado", "Pasivos ambientales", "Estado Zulia"],
-    img: "/vapor/caldera-otsg-semirremolque.jpg",
+    img: "/vapor/caldera-otsg-semirremolque.webp",
     color: "#fef4ee",
   },
 ];
@@ -164,7 +164,7 @@ export default function ServiciosClient() {
                 <div className="grid grid-cols-2 gap-3">
                   <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 280 }}>
                     <Image
-                      src="/vacuum/vacuum-semirremolque.jpg"
+                      src="/vacuum/vacuum-semirremolque.webp"
                       alt="Vacuum 160 Bbl"
                       fill
                       className="object-cover"
@@ -176,7 +176,7 @@ export default function ServiciosClient() {
                   </div>
                   <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 280 }}>
                     <Image
-                      src="/frac-tanks/frac-tank-nuevo.png"
+                      src="/frac-tanks/frac-tank-nuevo.webp"
                       alt="Frac Tank 500 Bbl"
                       fill
                       className="object-cover"

@@ -187,7 +187,7 @@ export default function ContactoClient() {
                 <div className="grid grid-cols-2 gap-3">
                   <div className="relative rounded-2xl overflow-hidden col-span-2" style={{ height: 200 }}>
                     <Image
-                      src="/vacuum/vacuum-truck-howo-pdvsa.jpg"
+                      src="/vacuum/vacuum-truck-howo-pdvsa.webp"
                       alt="Unidad Vacuum en operación — Locación PDVSA"
                       fill
                       className="object-cover"
@@ -205,7 +205,7 @@ export default function ContactoClient() {
                   </div>
                   <div className="relative rounded-2xl overflow-hidden" style={{ height: 130 }}>
                     <Image
-                      src="/frac-tanks/bateria-frac-tanks.jpg"
+                      src="/frac-tanks/bateria-frac-tanks.webp"
                       alt="Frac Tanks en locación"
                       fill
                       className="object-cover"
@@ -218,7 +218,7 @@ export default function ContactoClient() {
                   </div>
                   <div className="relative rounded-2xl overflow-hidden" style={{ height: 130 }}>
                     <Image
-                      src="/vapor/generador-vapor-otsg.jpg"
+                      src="/vapor/generador-vapor-otsg.webp"
                       alt="Generador de vapor OTSG"
                       fill
                       className="object-cover"
@@ -452,7 +452,7 @@ export default function ContactoClient() {
                 {/* Field photo */}
                 <div className="relative rounded-2xl overflow-hidden" style={{ height: 160 }}>
                   <Image
-                    src="/vacuum/vacuum-semirremolque.jpg"
+                    src="/vacuum/vacuum-semirremolque.webp"
                     alt="Semirremolque Vacuum 160 Bbl — Soluciones Delta"
                     fill
                     className="object-cover"

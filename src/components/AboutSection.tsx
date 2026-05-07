@@ -103,7 +103,7 @@ export default function AboutSection() {
           <div className="grid grid-cols-2 gap-3">
             <div className="relative rounded-2xl overflow-hidden row-span-2" style={{ minHeight: 300 }}>
               <Image
-                src="/vacuum/vacuum-truck-howo-pdvsa.jpg"
+                src="/vacuum/vacuum-truck-howo-pdvsa.webp"
                 alt="Vacuum truck en operación — Locación PDVSA"
                 fill
                 className="object-cover"
@@ -116,7 +116,7 @@ export default function AboutSection() {
             </div>
             <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 145 }}>
               <Image
-                src="/frac-tanks/frac-tank-nuevo.png"
+                src="/frac-tanks/frac-tank-nuevo.webp"
                 alt="Frac Tank — Soluciones Delta"
                 fill
                 className="object-cover"
@@ -129,7 +129,7 @@ export default function AboutSection() {
             </div>
             <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 145 }}>
               <Image
-                src="/vapor/caldera-otsg-semirremolque.jpg"
+                src="/vapor/caldera-otsg-semirremolque.webp"
                 alt="Generador de Vapor OTSG"
                 fill
                 className="object-cover"

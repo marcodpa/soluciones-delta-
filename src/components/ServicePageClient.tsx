@@ -19,27 +19,27 @@ const DescargarServicioPDF = dynamic(
 gsap.registerPlugin(ScrollTrigger);
 
 const SERVICE_IMAGES: Record<string, string> = {
-  "bombeo-de-crudo": "/bombeo/equipo-principal.png",
-  "trasegado-vacuum": "/vacuum/vacuum-semirremolque.jpg",
-  "frac-tanks": "/frac-tanks/frac-tank-nuevo.png",
-  "manejo-de-desechos": "/vacuum/vacuum-truck-howo-pdvsa.jpg",
-  "alquiler-calderas-inyeccion-vapor": "/vapor/caldera-otsg-semirremolque.jpg",
+  "bombeo-de-crudo": "/bombeo/equipo-principal.webp",
+  "trasegado-vacuum": "/vacuum/vacuum-semirremolque.webp",
+  "frac-tanks": "/frac-tanks/frac-tank-nuevo.webp",
+  "manejo-de-desechos": "/vacuum/vacuum-truck-howo-pdvsa.webp",
+  "alquiler-calderas-inyeccion-vapor": "/vapor/caldera-otsg-semirremolque.webp",
 };
 
 const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
   "bombeo-de-crudo": [
-    { src: "/bombeo/bomba-hidraulica-roja.jpg", caption: "Bomba Hidráulica — Motor y acople 6\"" },
+    { src: "/bombeo/bomba-hidraulica-roja.webp", caption: "Bomba Hidráulica — Motor y acople 6\"" },
   ],
   "trasegado-vacuum": [
-    { src: "/vacuum/vacuum-truck-howo-pdvsa.jpg", caption: "Unidad Vacuum en operación — Locación PDVSA" },
-    { src: "/vacuum/vacuum-semirremolque.jpg",    caption: "Semirremolque Vacuum 160 Bbl — Soluciones Delta" },
+    { src: "/vacuum/vacuum-truck-howo-pdvsa.webp", caption: "Unidad Vacuum en operación — Locación PDVSA" },
+    { src: "/vacuum/vacuum-semirremolque.webp",    caption: "Semirremolque Vacuum 160 Bbl — Soluciones Delta" },
   ],
   "frac-tanks": [
-    { src: "/frac-tanks/bateria-frac-tanks-2.jpg", caption: "Batería de Frac Tanks en locación — Estado Zulia" },
+    { src: "/frac-tanks/bateria-frac-tanks-2.webp", caption: "Batería de Frac Tanks en locación — Estado Zulia" },
   ],
   "manejo-de-desechos": [
-    { src: "/desechos/retroexcavadora-fosa.jpg", caption: "Retroexcavadora CAT en fosa petrolera" },
-    { src: "/desechos/cargador-fosa.jpg",        caption: "Cargador frontal CAT — saneamiento de fosa" },
+    { src: "/desechos/retroexcavadora-fosa.webp", caption: "Retroexcavadora CAT en fosa petrolera" },
+    { src: "/desechos/cargador-fosa.webp",        caption: "Cargador frontal CAT — saneamiento de fosa" },
   ],
   "alquiler-calderas-inyeccion-vapor": [],
 };
@@ -143,7 +143,7 @@ export default function ServicePageClient({ service }: { service: ServiceData })
                 {/* Right — image */}
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video lg:aspect-[4/3]" style={{ boxShadow: "0 0 0 1px rgba(48,209,88,0.15), 0 32px 80px rgba(0,0,0,0.5)" }}>
                   <Image
-                    src={SERVICE_IMAGES[service.slug] || "/vacuum-truck.jpg"}
+                    src={SERVICE_IMAGES[service.slug] || "/vacuum-truck.webp"}
                     alt={`${service.title} — Soluciones Delta C.A.`}
                     fill
                     className="object-cover"

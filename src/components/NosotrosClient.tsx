@@ -71,28 +71,28 @@ const timeline = [
     year: "Fundación",
     title: "Nacimiento en el corazón petrolero",
     body: "Soluciones Delta, C.A. nace en San Francisco, Estado Zulia, con el objetivo de ofrecer servicios técnicos especializados a la industria petrolera venezolana, comenzando con bombeo de crudo y trasegado con vacuum.",
-    img: "/bombeo/bomba-hidraulica-roja.jpg",
+    img: "/bombeo/bomba-hidraulica-roja.webp",
     imgAlt: "Bomba hidráulica roja — inicio de operaciones",
   },
   {
     year: "Crecimiento",
     title: "Expansión de la flota y los servicios",
     body: "Incorporamos Frac Tanks de 500 Bbl en 4 configuraciones y ampliamos nuestra capacidad de manejo de desechos industriales bajo el Decreto 2635, atendiendo operaciones en locaciones remotas del Estado Zulia.",
-    img: "/frac-tanks/bateria-frac-tanks.jpg",
+    img: "/frac-tanks/bateria-frac-tanks.webp",
     imgAlt: "Batería de Frac Tanks en locación — Estado Zulia",
   },
   {
     year: "",
     title: "Contratos ejecutados al 100%",
     body: "Hemos ejecutado contratos de inyección de vapor en campos del occidente venezolano, logrando recuperación de 1,500 Bbl/día con ejecución del 100% en cada extensión.",
-    img: "/vapor/campo-pozos.jpg",
+    img: "/vapor/campo-pozos.webp",
     imgAlt: "Locación de pozos — Estado Zulia",
   },
   {
     year: "2026",
     title: "Nueva generación de equipos",
     body: "Incorporamos unidades vacuum semirremolque de última generación, fabricadas en 2026 con acero A36 de 8 mm, compresor NVE Challenger 607 y motor Isuzu 4BD1. Equipamiento 100% propio y certificado.",
-    img: "/vacuum/vacuum-semirremolque.jpg",
+    img: "/vacuum/vacuum-semirremolque.webp",
     imgAlt: "Semirremolque Vacuum 160 Bbl — Soluciones Delta 2026",
   },
 ];
@@ -184,7 +184,7 @@ export default function NosotrosClient() {
                 <div className="grid grid-cols-2 gap-3 pb-0">
                   <div className="relative rounded-2xl overflow-hidden row-span-2" style={{ minHeight: 320 }}>
                     <Image
-                      src="/vacuum/vacuum-truck-howo-pdvsa.jpg"
+                      src="/vacuum/vacuum-truck-howo-pdvsa.webp"
                       alt="Unidad Vacuum en operación — Locación PDVSA"
                       fill
                       className="object-cover"
@@ -198,7 +198,7 @@ export default function NosotrosClient() {
                   </div>
                   <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 155 }}>
                     <Image
-                      src="/vapor/campo-pozos.jpg"
+                      src="/vapor/campo-pozos.webp"
                       alt="Locación de pozos — Estado Zulia"
                       fill
                       className="object-cover"
@@ -212,7 +212,7 @@ export default function NosotrosClient() {
                   </div>
                   <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 155 }}>
                     <Image
-                      src="/vapor/caldera-otsg-semirremolque.jpg"
+                      src="/vapor/caldera-otsg-semirremolque.webp"
                       alt="Generador de Vapor OTSG"
                       fill
                       className="object-cover"
@@ -430,7 +430,7 @@ export default function NosotrosClient() {
             <div className="mt-12 grid grid-cols-3 gap-3 rounded-2xl overflow-hidden">
               <div className="relative col-span-2" style={{ height: 220 }}>
                 <Image
-                  src="/frac-tanks/bateria-frac-tanks.jpg"
+                  src="/frac-tanks/bateria-frac-tanks.webp"
                   alt="Batería de Frac Tanks en locación — Estado Zulia"
                   fill
                   className="object-cover"
@@ -443,7 +443,7 @@ export default function NosotrosClient() {
               </div>
               <div className="relative" style={{ height: 220 }}>
                 <Image
-                  src="/bombeo/bomba-hidraulica-roja.jpg"
+                  src="/bombeo/bomba-hidraulica-roja.webp"
                   alt="Bomba Hidráulica — Operación de campo"
                   fill
                   className="object-cover"

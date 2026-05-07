@@ -19,41 +19,41 @@ const NEAR_BLACK  = "#1d1d1f";
 // Per-service: main photo + gallery photos
 const SERVICE_PHOTOS: Record<string, { main: string; gallery: { src: string; caption: string }[] }> = {
   "bombeo-de-crudo": {
-    main: "/bombeo/equipo-principal.png",
+    main: "/bombeo/equipo-principal.webp",
     gallery: [
-      { src: "/bombeo/bomba-hidraulica-roja.jpg", caption: "Bomba Hidráulica — Motor y acople 6\"" },
-      { src: "/bombeo/bomba-en-fosa.jpg",         caption: "Bomba en operación de extracción" },
-      { src: "/bombeo/motor-hidraulico.png",       caption: "Unidad de potencia hidráulica" },
+      { src: "/bombeo/bomba-hidraulica-roja.webp", caption: "Bomba Hidráulica — Motor y acople 6\"" },
+      { src: "/bombeo/bomba-en-fosa.webp",         caption: "Bomba en operación de extracción" },
+      { src: "/bombeo/motor-hidraulico.webp",       caption: "Unidad de potencia hidráulica" },
     ],
   },
   "trasegado-vacuum": {
-    main: "/vacuum/vacuum-semirremolque.jpg",
+    main: "/vacuum/vacuum-semirremolque.webp",
     gallery: [
-      { src: "/vacuum/vacuum-truck-howo-pdvsa.jpg", caption: "Unidad Vacuum en operación — Locación PDVSA" },
-      { src: "/vacuum/nve-607-challenger.jpg",       caption: "Compresor NVE Challenger 607 PRO" },
-      { src: "/vacuum/nve-607-pump-stand.jpg",       caption: "NVE 607 — montaje en estación" },
+      { src: "/vacuum/vacuum-truck-howo-pdvsa.webp", caption: "Unidad Vacuum en operación — Locación PDVSA" },
+      { src: "/vacuum/nve-607-challenger.webp",       caption: "Compresor NVE Challenger 607 PRO" },
+      { src: "/vacuum/nve-607-pump-stand.webp",       caption: "NVE 607 — montaje en estación" },
     ],
   },
   "frac-tanks": {
-    main: "/frac-tanks/frac-tank-nuevo.png",
+    main: "/frac-tanks/frac-tank-nuevo.webp",
     gallery: [
-      { src: "/frac-tanks/bateria-frac-tanks-2.jpg", caption: "Batería de Frac Tanks en locación" },
-      { src: "/frac-tanks/bateria-frac-tanks.jpg",   caption: "Frac Tanks — Estado Zulia" },
-      { src: "/frac-tanks/frac-tank-ficha.jpg",      caption: "Ficha técnica del equipo" },
+      { src: "/frac-tanks/bateria-frac-tanks-2.webp", caption: "Batería de Frac Tanks en locación" },
+      { src: "/frac-tanks/bateria-frac-tanks.webp",   caption: "Frac Tanks — Estado Zulia" },
+      { src: "/frac-tanks/frac-tank-ficha.webp",      caption: "Ficha técnica del equipo" },
     ],
   },
   "manejo-de-desechos": {
-    main: "/vacuum/vacuum-truck-howo-pdvsa.jpg",
+    main: "/vacuum/vacuum-truck-howo-pdvsa.webp",
     gallery: [
-      { src: "/desechos/retroexcavadora-fosa.jpg", caption: "Retroexcavadora CAT en fosa petrolera" },
-      { src: "/desechos/cargador-fosa.jpg",        caption: "Cargador frontal CAT — saneamiento de fosa" },
+      { src: "/desechos/retroexcavadora-fosa.webp", caption: "Retroexcavadora CAT en fosa petrolera" },
+      { src: "/desechos/cargador-fosa.webp",        caption: "Cargador frontal CAT — saneamiento de fosa" },
     ],
   },
   "alquiler-calderas-inyeccion-vapor": {
-    main: "/vapor/caldera-otsg-semirremolque.jpg",
+    main: "/vapor/caldera-otsg-semirremolque.webp",
     gallery: [
-      { src: "/vapor/fosa-campo-boscan.jpg",        caption: "Extracción de crudo en fosa" },
-      { src: "/vapor/campo-pozos.jpg",              caption: "Locación de pozos — Estado Zulia" },
+      { src: "/vapor/fosa-campo-boscan.webp",        caption: "Extracción de crudo en fosa" },
+      { src: "/vapor/campo-pozos.webp",              caption: "Locación de pozos — Estado Zulia" },
     ],
   },
 };
@@ -248,7 +248,7 @@ function CatalogoPDF({ origin }: { origin: string }) {
       <Page size="A4" style={S.pageNoPad}>
         <View style={S.cover}>
           <View style={S.coverImageWrap}>
-            <PDFImage src={`${origin}/vapor/campo-pozos.jpg`} style={S.coverImage} />
+            <PDFImage src={`${origin}/vapor/campo-pozos.webp`} style={S.coverImage} />
             <View style={S.coverOverlay} />
           </View>
           <View style={S.coverContent}>

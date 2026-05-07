@@ -8,7 +8,7 @@ import Script from "next/script";
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
+  weight: ["600", "700", "800"],
   display: "swap",
   preload: true,
 });
@@ -16,7 +16,7 @@ const montserrat = Montserrat({
 const dmSans = DM_Sans({
   variable: "--font-dm-sans",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   display: "swap",
   preload: true,
 });
@@ -152,6 +152,10 @@ export default function RootLayout({
         <meta name="contact" content="solucionesdeltaca@gmail.com" />
         <meta name="reply-to" content="solucionesdeltaca@gmail.com" />
         <link rel="alternate" hrefLang="x-default" href={BASE_URL} />
+        {/* Preload hero frames — first frame shown immediately */}
+        <link rel="preload" as="image" href="/frames/frame_0000.webp" type="image/webp" />
+        {/* Sitemap */}
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
       </head>
       <body className={`${montserrat.variable} ${dmSans.variable} antialiased`}>
         <ErrorReporter />
