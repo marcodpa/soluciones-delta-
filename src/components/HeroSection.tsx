@@ -233,11 +233,23 @@ export default function HeroSection() {
       <div ref={wrapperRef} style={{ height: "380vh" }}>
         <div className="sticky top-0 w-full overflow-hidden" style={{ height: "100vh" }}>
 
+          {/* Static LCP image — real <img> so Google measures it instantly */}
+          <img
+            src="/frames/frame_0000.webp"
+            alt="Servicios industriales para la industria petrolera venezolana"
+            fetchPriority="high"
+            decoding="async"
+            width="1920"
+            height="1080"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ zIndex: 0 }}
+          />
+
           {/* Scene (scaled for zoom effect) */}
           <div
             ref={sceneRef}
             className="absolute inset-0"
-            style={{ transformOrigin: "center center", willChange: "transform", opacity: 0 }}
+            style={{ transformOrigin: "center center", willChange: "transform", opacity: 0, zIndex: 1 }}
           >
             <canvas
               ref={canvasRef}
