@@ -244,12 +244,24 @@ export default function HeroSection() {
             className="absolute inset-0 w-full h-full object-cover"
             style={{ zIndex: 0 }}
           />
+          {/* Permanent dark overlay on the static image (visible before GSAP runs) */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              zIndex: 1,
+              background: "linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.50) 50%, rgba(0,0,0,0.15) 100%)",
+            }}
+          />
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ zIndex: 1, background: "linear-gradient(to top, rgba(0,0,0,0.70) 0%, transparent 50%)" }}
+          />
 
           {/* Scene (scaled for zoom effect) */}
           <div
             ref={sceneRef}
             className="absolute inset-0"
-            style={{ transformOrigin: "center center", willChange: "transform", opacity: 0, zIndex: 1 }}
+            style={{ transformOrigin: "center center", willChange: "transform", opacity: 0, zIndex: 2 }}
           >
             <canvas
               ref={canvasRef}
@@ -258,23 +270,20 @@ export default function HeroSection() {
             />
           </div>
 
-          {/* Gradient overlay */}
+          {/* Gradient overlay (GSAP-animated, on top of canvas) */}
           <div
             ref={overlayRef}
             className="absolute inset-0 pointer-events-none"
             style={{
               opacity: 0,
+              zIndex: 3,
               background:
                 "linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.50) 50%, rgba(0,0,0,0.15) 100%)",
             }}
           />
           {/* Bottom vignette */}
-          <div className="absolute inset-0 pointer-events-none"
-            style={{ background: "linear-gradient(to top, rgba(0,0,0,0.70) 0%, transparent 50%)" }}
-          />
-
           {/* ── TEXT PANELS ── */}
-          <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24">
+          <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-24" style={{ zIndex: 10 }}>
 
             <div ref={panel1Ref} className="absolute max-w-2xl" style={{ opacity: 0 }}>
               <Eyebrow>Sector Petrolero · Zulia, Venezuela</Eyebrow>
@@ -332,7 +341,7 @@ export default function HeroSection() {
           </div>
 
           {/* ── STATS ── */}
-          <div ref={statsRef} className="absolute bottom-12 left-0 right-0 px-8 md:px-16 lg:px-24" style={{ opacity: 0 }}>
+          <div ref={statsRef} className="absolute bottom-12 left-0 right-0 px-8 md:px-16 lg:px-24" style={{ opacity: 0, zIndex: 10 }}>
             <div
               className="flex items-end gap-10 md:gap-16 pb-6 pt-6"
               style={{ borderTop: "1px solid rgba(255,255,255,0.12)" }}
@@ -358,7 +367,7 @@ export default function HeroSection() {
           </div>
 
           {/* ── DOTS ── */}
-          <div className="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col gap-3">
+          <div className="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col gap-3" style={{ zIndex: 10 }}>
             <div ref={dot1Ref} style={{ width: 22, height: 6, borderRadius: 9999, background: "#30d158" }} />
             <div ref={dot2Ref} style={{ width:  6, height: 6, borderRadius: 9999, background: "rgba(255,255,255,0.28)" }} />
             <div ref={dot3Ref} style={{ width:  6, height: 6, borderRadius: 9999, background: "rgba(255,255,255,0.28)" }} />
