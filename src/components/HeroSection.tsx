@@ -107,10 +107,11 @@ export default function HeroSection() {
       tl.to(panel2Ref.current,   { opacity: 0, y: -55, duration: 0.09 }, 0.63);
       tl.to(panel3Ref.current,   { opacity: 1, y: 0,   duration: 0.11 }, 0.71);
 
-      tl.to(dot1Ref.current, { width: 6,  background: "rgba(255,255,255,0.28)", duration: 0.08 }, 0.30);
-      tl.to(dot2Ref.current, { width: 22, background: "#30d158",               duration: 0.08 }, 0.30);
-      tl.to(dot2Ref.current, { width: 6,  background: "rgba(255,255,255,0.28)", duration: 0.08 }, 0.63);
-      tl.to(dot3Ref.current, { width: 22, background: "#30d158",               duration: 0.08 }, 0.63);
+      // Use scaleX instead of width to avoid forced reflow (layout thrashing)
+      tl.to(dot1Ref.current, { scaleX: 6/22, background: "rgba(255,255,255,0.28)", duration: 0.08, transformOrigin: "left center" }, 0.30);
+      tl.to(dot2Ref.current, { scaleX: 1,    background: "#30d158",               duration: 0.08, transformOrigin: "left center" }, 0.30);
+      tl.to(dot2Ref.current, { scaleX: 6/22, background: "rgba(255,255,255,0.28)", duration: 0.08, transformOrigin: "left center" }, 0.63);
+      tl.to(dot3Ref.current, { scaleX: 1,    background: "#30d158",               duration: 0.08, transformOrigin: "left center" }, 0.63);
     };
 
     // ── Load + decode all frames ───────────────────────────────────
@@ -374,9 +375,9 @@ export default function HeroSection() {
 
           {/* ── DOTS ── */}
           <div className="absolute right-6 top-1/2 -translate-y-1/2 flex flex-col gap-3" style={{ zIndex: 10 }}>
-            <div ref={dot1Ref} style={{ width: 22, height: 6, borderRadius: 9999, background: "#30d158" }} />
-            <div ref={dot2Ref} style={{ width:  6, height: 6, borderRadius: 9999, background: "rgba(255,255,255,0.28)" }} />
-            <div ref={dot3Ref} style={{ width:  6, height: 6, borderRadius: 9999, background: "rgba(255,255,255,0.28)" }} />
+            <div ref={dot1Ref} style={{ width: 22, height: 6, borderRadius: 9999, background: "#30d158", willChange: "transform, background", transformOrigin: "left center" }} />
+            <div ref={dot2Ref} style={{ width: 22, height: 6, borderRadius: 9999, background: "rgba(255,255,255,0.28)", willChange: "transform, background", transformOrigin: "left center", transform: "scaleX(0.273)" }} />
+            <div ref={dot3Ref} style={{ width: 22, height: 6, borderRadius: 9999, background: "rgba(255,255,255,0.28)", willChange: "transform, background", transformOrigin: "left center", transform: "scaleX(0.273)" }} />
           </div>
 
         </div>
