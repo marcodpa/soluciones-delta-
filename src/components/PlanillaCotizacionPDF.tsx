@@ -3,6 +3,17 @@
 import { useState } from "react";
 import { pdf, Document, Page, Text, View, StyleSheet, Image as PDFImage } from "@react-pdf/renderer";
 
+async function toDataURL(url: string): Promise<string> {
+  const res = await fetch(url);
+  const blob = await res.blob();
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result as string);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
 const GREEN       = "#1a8c3c";
 const GREEN_LIGHT = "#30d158";
 const DARK        = "#0d1f14";
@@ -41,13 +52,13 @@ const S = StyleSheet.create({
   footerAddr:  { fontSize: 6.5, color: "rgba(255,255,255,0.28)", marginTop: 2 },
 });
 
-function PlanillaPDF({ origin }: { origin: string }) {
+function PlanillaPDF({ logoData }: { logoData: string }) {
   return (
     <Document title="Planilla — Soluciones Delta, C.A." author="Soluciones Delta, C.A.">
       <Page size="A4" style={S.page}>
 
         <View style={S.header}>
-          <PDFImage src={`${origin}/logo.png`} style={S.headerLogo} />
+          <PDFImage src={logoData} style={S.headerLogo} />
           <View style={S.headerRight}>
             <Text style={S.headerTitle}>Soluciones Delta, C.A.</Text>
             <Text style={S.headerSub}>solucionesdeltaca@gmail.com · +58 424-6472446</Text>
@@ -78,7 +89,8 @@ export default function DescargarPlanillaBtn() {
     setLoading(true);
     try {
       const origin = window.location.origin;
-      const blob   = await pdf(<PlanillaPDF origin={origin} />).toBlob();
+      const logoData = await toDataURL(`${origin}/logo.png`);
+      const blob   = await pdf(<PlanillaPDF logoData={logoData} />).toBlob();
       const url    = URL.createObjectURL(blob);
       const a      = document.createElement("a");
       a.href       = url;

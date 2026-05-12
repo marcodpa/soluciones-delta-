@@ -6,6 +6,31 @@ import {
 } from "@react-pdf/renderer";
 import { SERVICES, type ServiceData } from "@/lib/services-data";
 
+async function toDataURL(url: string): Promise<string> {
+  const res = await fetch(url);
+  const blob = await res.blob();
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => resolve(reader.result as string);
+    reader.onerror = reject;
+    reader.readAsDataURL(blob);
+  });
+}
+
+async function preloadImages(origin: string, paths: string[]): Promise<Record<string, string>> {
+  const entries = await Promise.all(
+    paths.map(async (p) => {
+      try {
+        const data = await toDataURL(`${origin}${p}`);
+        return [p, data] as [string, string];
+      } catch {
+        return [p, ""] as [string, string];
+      }
+    })
+  );
+  return Object.fromEntries(entries);
+}
+
 // ── Constants ─────────────────────────────────────────────────────────────────
 const GREEN       = "#1a8c3c";
 const GREEN_LIGHT = "#30d158";
@@ -193,11 +218,11 @@ function SpecsTable({ specs }: { specs: { label: string; value: string }[] }) {
 }
 
 // ── Contact page (shared) ─────────────────────────────────────────────────────
-function ContactPage({ logoUrl, pageNum }: { logoUrl: string; pageNum: number }) {
+function ContactPage({ logoUrl, pageNum }: { logoUrl: string; pageNum: number; }) {
   return (
     <Page size="A4" style={S.pageNoPad}>
       <View style={S.contactPage}>
-        <PDFImage src={logoUrl} style={S.contactLogo} />
+        {logoUrl && <PDFImage src={logoUrl} style={S.contactLogo} />}
         <Text style={S.contactEyebrow}>Contáctenos · Disponibles 24/7</Text>
         <Text style={S.contactTitle}>{"¿Tiene una\noperación en campo?"}</Text>
         <Text style={S.contactSub}>
@@ -236,8 +261,8 @@ function ContactPage({ logoUrl, pageNum }: { logoUrl: string; pageNum: number })
 }
 
 // ── FULL CATALOG PDF ──────────────────────────────────────────────────────────
-function CatalogoPDF({ origin }: { origin: string }) {
-  const logoUrl = `${origin}/logo.png`;
+function CatalogoPDF({ imgs }: { imgs: Record<string, string> }) {
+  const logoUrl = imgs["/logo.png"] || "";
 
   return (
     <Document
@@ -248,11 +273,11 @@ function CatalogoPDF({ origin }: { origin: string }) {
       <Page size="A4" style={S.pageNoPad}>
         <View style={S.cover}>
           <View style={S.coverImageWrap}>
-            <PDFImage src={`${origin}/vapor/campo-pozos.webp`} style={S.coverImage} />
+            {imgs["/vapor/campo-pozos.webp"] && <PDFImage src={imgs["/vapor/campo-pozos.webp"]} style={S.coverImage} />}
             <View style={S.coverOverlay} />
           </View>
           <View style={S.coverContent}>
-            <PDFImage src={logoUrl} style={S.coverLogo} />
+            {logoUrl && <PDFImage src={logoUrl} style={S.coverLogo} />}
             <Text style={S.coverEyebrow}>Catálogo de Servicios · 2026</Text>
             <Text style={S.coverTitle}>
               {"Soluciones técnicas\npara la industria\n"}
@@ -279,19 +304,19 @@ function CatalogoPDF({ origin }: { origin: string }) {
       {/* One page per service */}
       {SERVICES.map((s, idx) => {
         const photos = SERVICE_PHOTOS[s.slug];
-        const mainImg = `${origin}${photos.main}`;
-        const galleryImgs = photos.gallery.slice(0, 3).map(g => ({ ...g, src: `${origin}${g.src}` }));
+        const mainImg = imgs[photos.main] || "";
+        const galleryImgs = photos.gallery.slice(0, 3).map(g => ({ ...g, src: imgs[g.src] || "" }));
 
         return (
           <Page key={s.slug} size="A4" style={S.page}>
             {/* Header */}
             <View style={S.headerBar}>
-              <PDFImage src={logoUrl} style={S.headerLogo} />
+              {logoUrl && <PDFImage src={logoUrl} style={S.headerLogo} />}
               <Text style={S.headerRight}>CATÁLOGO DE SERVICIOS · 2026</Text>
             </View>
 
             {/* Hero image */}
-            <PDFImage src={mainImg} style={{ width: "100%", height: 160, objectFit: "cover" }} />
+            {mainImg && <PDFImage src={mainImg} style={{ width: "100%", height: 160, objectFit: "cover" }} />}
 
             <View style={[S.body, { paddingTop: 8, paddingBottom: 44 }]} wrap={false}>
               {/* Title block */}
@@ -321,7 +346,7 @@ function CatalogoPDF({ origin }: { origin: string }) {
                   {/* Gallery strip */}
                   <Text style={[S.secLabel, { marginTop: 6 }]}>Equipos y Operaciones</Text>
                   <View style={S.galleryGrid}>
-                    {galleryImgs.slice(0, 2).map((g, i) => (
+                    {galleryImgs.slice(0, 2).filter(g => g.src).map((g, i) => (
                       <View key={i} style={S.galleryImgWrap}>
                         <PDFImage src={g.src} style={[S.galleryImg, { height: 72 }]} />
                         <Text style={[S.galleryCaption, { fontSize: 6.5 }]}>{g.caption}</Text>
@@ -365,11 +390,11 @@ function CatalogoPDF({ origin }: { origin: string }) {
 }
 
 // ── SINGLE SERVICE PDF ────────────────────────────────────────────────────────
-function ServicioPDF({ service, origin }: { service: ServiceData; origin: string }) {
-  const logoUrl = `${origin}/logo.png`;
+function ServicioPDF({ service, imgs }: { service: ServiceData; imgs: Record<string, string> }) {
+  const logoUrl = imgs["/logo.png"] || "";
   const photos  = SERVICE_PHOTOS[service.slug];
-  const mainImg = `${origin}${photos.main}`;
-  const gallery = photos.gallery.map(g => ({ ...g, src: `${origin}${g.src}` }));
+  const mainImg = imgs[photos.main] || "";
+  const gallery = photos.gallery.map(g => ({ ...g, src: imgs[g.src] || "" }));
   const idx     = SERVICES.findIndex(s => s.slug === service.slug);
 
   return (
@@ -380,10 +405,10 @@ function ServicioPDF({ service, origin }: { service: ServiceData; origin: string
       {/* ── Pág. 1: Portada — imagen + título + breve descripción + footer ── */}
       <Page size="A4" style={[S.pageNoPad, { paddingBottom: 40 }]}>
         <View style={S.svcCover}>
-          <PDFImage src={mainImg} style={S.svcCoverImg} />
+          {mainImg && <PDFImage src={mainImg} style={S.svcCoverImg} />}
           <View style={S.svcCoverOverlay} />
           <View style={S.svcCoverBody}>
-            <PDFImage src={logoUrl} style={S.svcCoverLogo} />
+            {logoUrl && <PDFImage src={logoUrl} style={S.svcCoverLogo} />}
             <Text style={S.svcCoverNum}>0{idx + 1} / 05</Text>
             <Text style={S.svcCoverTag}>{service.tag}</Text>
             <Text style={S.svcCoverTitle}>{service.title}</Text>
@@ -405,7 +430,7 @@ function ServicioPDF({ service, origin }: { service: ServiceData; origin: string
       {/* ── Pág. 2: Ficha técnica completa — header + contenido + imágenes + footer ── */}
       <Page size="A4" style={S.page}>
         <View style={S.headerBar}>
-          <PDFImage src={logoUrl} style={S.headerLogo} />
+          {logoUrl && <PDFImage src={logoUrl} style={S.headerLogo} />}
           <Text style={S.headerRight}>{service.tag.toUpperCase()} · FICHA TÉCNICA</Text>
         </View>
 
@@ -433,7 +458,7 @@ function ServicioPDF({ service, origin }: { service: ServiceData; origin: string
 
               <Text style={[S.secLabel, { marginTop: 10 }]}>Equipos y Operaciones</Text>
               <View style={S.galleryGrid}>
-                {gallery.slice(0, 2).map((g, i) => (
+                {gallery.slice(0, 2).filter(g => g.src).map((g, i) => (
                   <View key={i} style={S.galleryImgWrap}>
                     <PDFImage src={g.src} style={[S.galleryImg, { height: 100 }]} />
                     <Text style={S.galleryCaption}>{g.caption}</Text>
@@ -490,7 +515,13 @@ export default function DescargarCatalogoBtnn() {
     setLoading(true);
     try {
       const origin = window.location.origin;
-      const blob   = await pdf(<CatalogoPDF origin={origin} />).toBlob();
+      const allPaths = [
+        "/logo.png",
+        "/vapor/campo-pozos.webp",
+        ...Object.values(SERVICE_PHOTOS).flatMap(p => [p.main, ...p.gallery.map(g => g.src)]),
+      ];
+      const imgs = await preloadImages(origin, [...new Set(allPaths)]);
+      const blob = await pdf(<CatalogoPDF imgs={imgs} />).toBlob();
       const url    = URL.createObjectURL(blob);
       const a      = document.createElement("a");
       a.href       = url;
@@ -513,7 +544,10 @@ export function DescargarServicioPDF({ service }: { service: ServiceData }) {
     setLoading(true);
     try {
       const origin = window.location.origin;
-      const blob   = await pdf(<ServicioPDF service={service} origin={origin} />).toBlob();
+      const photos = SERVICE_PHOTOS[service.slug];
+      const paths = ["/logo.png", photos.main, ...photos.gallery.map(g => g.src)];
+      const imgs  = await preloadImages(origin, paths);
+      const blob  = await pdf(<ServicioPDF service={service} imgs={imgs} />).toBlob();
       const url    = URL.createObjectURL(blob);
       const a      = document.createElement("a");
       a.href       = url;
