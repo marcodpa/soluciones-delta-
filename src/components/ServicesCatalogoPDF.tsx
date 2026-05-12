@@ -6,24 +6,28 @@ import {
 } from "@react-pdf/renderer";
 import { SERVICES, type ServiceData } from "@/lib/services-data";
 
-async function toDataURL(url: string): Promise<string> {
-  const res = await fetch(url);
-  const blob = await res.blob();
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader();
-    reader.onloadend = () => resolve(reader.result as string);
-    reader.onerror = reject;
-    reader.readAsDataURL(blob);
-  });
+async function fetchImageAsBase64(url: string): Promise<string> {
+  const res = await fetch(url, { cache: "no-store" });
+  if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+  const buf = await res.arrayBuffer();
+  const bytes = new Uint8Array(buf);
+  let binary = "";
+  for (let i = 0; i < bytes.byteLength; i++) binary += String.fromCharCode(bytes[i]);
+  const base64 = btoa(binary);
+  // Determine MIME from extension
+  const ext = url.split(".").pop()?.toLowerCase();
+  const mime = ext === "png" ? "image/png" : "image/jpeg";
+  return `data:${mime};base64,${base64}`;
 }
 
 async function preloadImages(origin: string, paths: string[]): Promise<Record<string, string>> {
   const entries = await Promise.all(
     paths.map(async (p) => {
       try {
-        const data = await toDataURL(`${origin}${p}`);
+        const data = await fetchImageAsBase64(`${origin}${p}`);
         return [p, data] as [string, string];
-      } catch {
+      } catch (e) {
+        console.warn("PDF image load failed:", p, e);
         return [p, ""] as [string, string];
       }
     })
