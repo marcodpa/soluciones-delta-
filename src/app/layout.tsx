@@ -125,11 +125,12 @@ export const metadata: Metadata = {
 
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
-      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon.png", type: "image/png", sizes: "any" },
     ],
-    apple: "/logo.png",
-    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-icon.png", type: "image/png" },
+    ],
+    shortcut: "/icon.png",
   },
 
   manifest: "/manifest.json",
