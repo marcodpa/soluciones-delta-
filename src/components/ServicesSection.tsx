@@ -143,55 +143,104 @@ export default function ServicesSection() {
           </p>
         </div>
 
-        {/* ── SERVICE ROWS ── */}
-        <div ref={listRef} className="flex flex-col gap-1 mb-10">
-          {services.map((s) => (
-            <ServiceRow key={s.slug} s={s} />
-          ))}
-        </div>
+        {/* ── TWO COLUMNS: list + image ── */}
+        <div className="flex flex-col lg:flex-row gap-8 items-stretch mb-10">
 
-        {/* ── BIG CTA ── */}
-        <div ref={ctaRef}>
-          <Link
-            href="/servicios"
-            className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 px-7 py-6 rounded-2xl overflow-hidden transition-all duration-300"
-            style={{
-              background: "rgba(26,140,60,0.04)",
-              border: "1.5px solid rgba(26,140,60,0.14)",
-              textDecoration: "none",
-            }}
-            onMouseEnter={e => {
-              const el = e.currentTarget;
-              el.style.background = "rgba(26,140,60,0.08)";
-              el.style.borderColor = "rgba(26,140,60,0.28)";
-            }}
-            onMouseLeave={e => {
-              const el = e.currentTarget;
-              el.style.background = "rgba(26,140,60,0.04)";
-              el.style.borderColor = "rgba(26,140,60,0.14)";
-            }}
-          >
-            <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ background: "rgba(26,140,60,0.1)", border: "1px solid rgba(26,140,60,0.18)" }}>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-                  <path d="M4 6h16M4 10h16M4 14h10" stroke="#1a8c3c" strokeWidth="1.8" strokeLinecap="round"/>
-                  <circle cx="19" cy="17" r="3.5" stroke="#1a8c3c" strokeWidth="1.8"/>
-                  <path d="M17.5 17l1 1 2-2" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </div>
-              <div>
-                <div className="text-[#1d1d1f] font-semibold text-[15px]">Ver catálogo completo de servicios</div>
-                <div className="text-[#6e6e73] text-[12px] mt-0.5">Fichas técnicas, especificaciones y casos de uso</div>
+          {/* Left: service rows + CTA */}
+          <div className="flex-1 flex flex-col">
+            <div ref={listRef} className="flex flex-col gap-1 mb-6">
+              {services.map((s) => (
+                <ServiceRow key={s.slug} s={s} />
+              ))}
+            </div>
+
+            {/* ── BIG CTA ── */}
+            <div ref={ctaRef}>
+              <Link
+                href="/servicios"
+                className="group relative flex flex-col sm:flex-row items-center justify-between gap-5 px-7 py-6 rounded-2xl overflow-hidden transition-all duration-300"
+                style={{
+                  background: "rgba(26,140,60,0.04)",
+                  border: "1.5px solid rgba(26,140,60,0.14)",
+                  textDecoration: "none",
+                }}
+                onMouseEnter={e => {
+                  const el = e.currentTarget;
+                  el.style.background = "rgba(26,140,60,0.08)";
+                  el.style.borderColor = "rgba(26,140,60,0.28)";
+                }}
+                onMouseLeave={e => {
+                  const el = e.currentTarget;
+                  el.style.background = "rgba(26,140,60,0.04)";
+                  el.style.borderColor = "rgba(26,140,60,0.14)";
+                }}
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                    style={{ background: "rgba(26,140,60,0.1)", border: "1px solid rgba(26,140,60,0.18)" }}>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                      <path d="M4 6h16M4 10h16M4 14h10" stroke="#1a8c3c" strokeWidth="1.8" strokeLinecap="round"/>
+                      <circle cx="19" cy="17" r="3.5" stroke="#1a8c3c" strokeWidth="1.8"/>
+                      <path d="M17.5 17l1 1 2-2" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <div className="text-[#1d1d1f] font-semibold text-[15px]">Ver catálogo completo de servicios</div>
+                    <div className="text-[#6e6e73] text-[12px] mt-0.5">Fichas técnicas, especificaciones y casos de uso</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2 text-[13px] font-semibold text-[#1a8c3c] group-hover:gap-3 transition-all duration-200 flex-shrink-0">
+                  Explorar
+                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+              </Link>
+            </div>
+          </div>
+
+          {/* Right: vertical image with gradient */}
+          <div className="hidden lg:block w-[300px] xl:w-[340px] flex-shrink-0">
+            <div className="relative h-full min-h-[520px] rounded-2xl overflow-hidden">
+              {/* Photo */}
+              <img
+                src="/vapor/caldera-otsg-semirremolque.jpg"
+                alt="Operación de campo — Soluciones Delta"
+                className="absolute inset-0 w-full h-full object-cover"
+              />
+              {/* Dark overlay with green tint at bottom */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: "linear-gradient(180deg, rgba(13,31,20,0.18) 0%, rgba(13,31,20,0.55) 55%, rgba(13,31,20,0.92) 100%)",
+                }}
+              />
+              {/* Subtle green glow on left edge */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: "linear-gradient(90deg, rgba(26,140,60,0.18) 0%, transparent 40%)",
+                }}
+              />
+              {/* Bottom text */}
+              <div className="absolute bottom-0 left-0 right-0 p-7">
+                <div className="text-[10px] font-bold tracking-[2px] uppercase mb-2"
+                  style={{ color: "rgba(48,209,88,0.8)" }}>
+                  Operación continua 24/7
+                </div>
+                <p className="text-white font-semibold text-[16px] leading-snug mb-3">
+                  Flota propia en el<br />Estado Zulia
+                </p>
+                <div className="flex items-center gap-1.5">
+                  <div className="w-5 h-px" style={{ background: "rgba(48,209,88,0.6)" }} />
+                  <span className="text-[11px]" style={{ color: "rgba(255,255,255,0.45)" }}>
+                    Soluciones Delta, C.A.
+                  </span>
+                </div>
               </div>
             </div>
-            <div className="flex items-center gap-2 text-[13px] font-semibold text-[#1a8c3c] group-hover:gap-3 transition-all duration-200 flex-shrink-0">
-              Explorar
-              <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-          </Link>
+          </div>
+
         </div>
 
       </div>
