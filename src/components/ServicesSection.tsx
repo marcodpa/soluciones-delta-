@@ -200,41 +200,55 @@ export default function ServicesSection() {
           </div>
 
           {/* Right: vertical image with gradient */}
-          <div className="hidden lg:block w-[300px] xl:w-[340px] flex-shrink-0">
-            <div className="relative h-full min-h-[520px] rounded-2xl overflow-hidden">
+          <div className="hidden lg:block w-[300px] xl:w-[360px] flex-shrink-0">
+            <div className="relative h-full min-h-[540px] rounded-2xl overflow-hidden">
               {/* Photo */}
               <img
-                src="/vapor/caldera-otsg-semirremolque.jpg"
-                alt="Operación de campo — Soluciones Delta"
-                className="absolute inset-0 w-full h-full object-cover"
+                src="/campo-nocturno.jpg"
+                alt="Ingeniero en campo petrolero nocturno — Soluciones Delta"
+                className="absolute inset-0 w-full h-full object-cover object-center"
               />
-              {/* Dark overlay with green tint at bottom */}
+              {/* Top fade */}
               <div
                 className="absolute inset-0"
                 style={{
-                  background: "linear-gradient(180deg, rgba(13,31,20,0.18) 0%, rgba(13,31,20,0.55) 55%, rgba(13,31,20,0.92) 100%)",
+                  background: "linear-gradient(180deg, rgba(13,31,20,0.35) 0%, transparent 30%, transparent 50%, rgba(13,31,20,0.75) 75%, rgba(13,31,20,0.97) 100%)",
                 }}
               />
-              {/* Subtle green glow on left edge */}
+              {/* Green side accent */}
               <div
                 className="absolute inset-0"
                 style={{
-                  background: "linear-gradient(90deg, rgba(26,140,60,0.18) 0%, transparent 40%)",
+                  background: "linear-gradient(90deg, rgba(26,140,60,0.22) 0%, transparent 45%)",
                 }}
               />
-              {/* Bottom text */}
-              <div className="absolute bottom-0 left-0 right-0 p-7">
-                <div className="text-[10px] font-bold tracking-[2px] uppercase mb-2"
-                  style={{ color: "rgba(48,209,88,0.8)" }}>
-                  Operación continua 24/7
+              {/* Top badge */}
+              <div className="absolute top-5 left-5">
+                <div className="flex items-center gap-2 px-3 py-1.5 rounded-full"
+                  style={{ background: "rgba(13,31,20,0.65)", border: "1px solid rgba(48,209,88,0.3)", backdropFilter: "blur(8px)" }}>
+                  <div className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: "#30d158" }} />
+                  <span className="text-[10px] font-bold tracking-widest uppercase" style={{ color: "#30d158" }}>
+                    Operativo 24/7
+                  </span>
                 </div>
-                <p className="text-white font-semibold text-[16px] leading-snug mb-3">
-                  Flota propia en el<br />Estado Zulia
+              </div>
+              {/* Bottom text */}
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <div className="text-[9px] font-bold tracking-[2.5px] uppercase mb-2"
+                  style={{ color: "rgba(48,209,88,0.75)" }}>
+                  Campo · Estado Zulia
+                </div>
+                <p className="text-white font-bold text-[18px] leading-snug mb-4" style={{ textShadow: "0 2px 12px rgba(0,0,0,0.5)" }}>
+                  Personal certificado<br />en cada operación
                 </p>
-                <div className="flex items-center gap-1.5">
-                  <div className="w-5 h-px" style={{ background: "rgba(48,209,88,0.6)" }} />
-                  <span className="text-[11px]" style={{ color: "rgba(255,255,255,0.45)" }}>
+                <div className="h-px w-full mb-4" style={{ background: "linear-gradient(90deg, rgba(48,209,88,0.5), transparent)" }} />
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px]" style={{ color: "rgba(255,255,255,0.4)" }}>
                     Soluciones Delta, C.A.
+                  </span>
+                  <span className="text-[10px] font-semibold px-2 py-0.5 rounded"
+                    style={{ background: "rgba(26,140,60,0.25)", color: "rgba(48,209,88,0.85)", border: "1px solid rgba(48,209,88,0.2)" }}>
+                    RIF J-50735393-1
                   </span>
                 </div>
               </div>
