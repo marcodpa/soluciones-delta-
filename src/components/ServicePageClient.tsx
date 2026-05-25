@@ -123,6 +123,9 @@ export default function ServicePageClient({ service }: { service: ServiceData })
                   </div>
                   <h1 className="text-[clamp(36px,5vw,64px)] font-bold tracking-tight leading-[1.06] text-white mb-4">
                     {service.title}
+                    <span className="block text-[clamp(16px,2vw,22px)] font-semibold text-white/40 mt-1">
+                      en Maracaibo y Estado Zulia
+                    </span>
                   </h1>
                   <p className="text-[18px] text-[#30d158] font-semibold mb-4">{service.subtitle}</p>
                   <p className="text-[17px] text-white/55 leading-relaxed mb-8 max-w-lg">{service.summary}</p>
@@ -171,7 +174,7 @@ export default function ServicePageClient({ service }: { service: ServiceData })
           {/* ── OVERVIEW ── */}
           <div className="animate-in">
             <div className="max-w-3xl">
-              <div className="section-label mb-3">Descripción General</div>
+              <h2 className="section-label mb-3">Descripción General</h2>
               <p className="text-[18px] text-[#3a3a3c] leading-relaxed">{service.overview}</p>
             </div>
           </div>
@@ -179,7 +182,7 @@ export default function ServicePageClient({ service }: { service: ServiceData })
           {/* ── PHOTO GALLERY ── */}
           {SERVICE_GALLERY[service.slug]?.length > 0 && (
             <div className="animate-in">
-              <div className="section-label mb-6">Galería de Equipos y Operaciones</div>
+              <h2 className="section-label mb-6">Galería de Equipos y Operaciones</h2>
               <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
                 {SERVICE_GALLERY[service.slug].map((img, i) => (
                   <div
@@ -242,7 +245,7 @@ export default function ServicePageClient({ service }: { service: ServiceData })
           {/* ── SPECS TABLE ── */}
           {service.specs && (
             <div className="animate-in">
-              <div className="section-label mb-6">Especificaciones Técnicas</div>
+              <h2 className="section-label mb-6">Especificaciones Técnicas</h2>
               <div className="rounded-2xl overflow-hidden" style={{ border: "1.5px solid #e5e5ea", boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}>
                 <div className="grid grid-cols-2 sm:grid-cols-4">
                   {service.specs.map((sp, i) => (
@@ -266,7 +269,7 @@ export default function ServicePageClient({ service }: { service: ServiceData })
 
           {/* ── BENEFITS ── */}
           <div className="animate-in">
-            <div className="section-label mb-6">Ventajas del Servicio</div>
+            <h2 className="section-label mb-6">Ventajas del Servicio</h2>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {service.benefits.map((b, i) => (
                 <div
@@ -290,7 +293,7 @@ export default function ServicePageClient({ service }: { service: ServiceData })
 
           {/* ── FAQ ── */}
           <div className="animate-in">
-            <div className="section-label mb-6">Preguntas Frecuentes</div>
+            <h2 className="section-label mb-6">Preguntas Frecuentes</h2>
             <div className="space-y-4 max-w-3xl">
               {service.faq.map((item, i) => (
                 <FaqItem key={i} q={item.q} a={item.a} />
