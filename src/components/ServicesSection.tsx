@@ -204,8 +204,8 @@ export default function ServicesSection() {
             <div className="relative h-full min-h-[540px] rounded-2xl overflow-hidden">
               {/* Photo */}
               <img
-                src="/campo-nocturno.jpg"
-                alt="Ingeniero en campo petrolero nocturno — Soluciones Delta"
+                src="/servicios-campo.png"
+                alt="Maquinaria pesada CAT en operación de campo — Soluciones Delta"
                 className="absolute inset-0 w-full h-full object-cover object-center"
               />
               {/* Top fade */}
