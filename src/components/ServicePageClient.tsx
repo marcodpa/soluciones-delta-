@@ -123,9 +123,6 @@ export default function ServicePageClient({ service }: { service: ServiceData })
                   </div>
                   <h1 className="text-[clamp(36px,5vw,64px)] font-bold tracking-tight leading-[1.06] text-white mb-4">
                     {service.title}
-                    <span className="block text-[clamp(16px,2vw,22px)] font-semibold text-white/40 mt-1">
-                      en Maracaibo y Estado Zulia
-                    </span>
                   </h1>
                   <p className="text-[18px] text-[#30d158] font-semibold mb-4">{service.subtitle}</p>
                   <p className="text-[17px] text-white/55 leading-relaxed mb-8 max-w-lg">{service.summary}</p>
