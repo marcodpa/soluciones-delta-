@@ -125,12 +125,13 @@ export const metadata: Metadata = {
 
   icons: {
     icon: [
-      { url: "/icon.png", type: "image/png", sizes: "any" },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
     ],
     apple: [
-      { url: "/apple-icon.png", type: "image/png" },
+      { url: "/apple-icon.png", type: "image/png", sizes: "512x512" },
     ],
-    shortcut: "/icon.png",
+    shortcut: "/favicon.ico",
   },
 
   manifest: "/manifest.json",
