@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const BASE_URL = "https://solucionesdeltaca.com";
+const BASE_URL = "https://soluciones-delta.com";
 
 const SERVICE_SLUGS = [
   "bombeo-de-crudo",

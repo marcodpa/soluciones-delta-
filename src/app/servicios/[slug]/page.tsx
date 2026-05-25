@@ -3,7 +3,7 @@ import { getServiceBySlug, SERVICES } from "@/lib/services-data";
 import ServicePageClient from "@/components/ServicePageClient";
 import type { Metadata } from "next";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://solucionesdeltaca.com";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://soluciones-delta.com";
 
 // SEO-optimised titles & descriptions per service
 const SEO_META: Record<string, { title: string; description: string; keywords: string[] }> = {

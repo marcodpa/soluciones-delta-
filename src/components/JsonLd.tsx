@@ -1,5 +1,5 @@
 export default function JsonLd() {
-  const BASE_URL = "https://solucionesdeltaca.com";
+  const BASE_URL = "https://soluciones-delta.com";
 
   const localBusiness = {
     "@context": "https://schema.org",
