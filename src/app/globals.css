@@ -68,6 +68,8 @@
   }
   html {
     scroll-behavior: smooth;
+    /* Extend background to safe-area edges */
+    background-color: transparent;
   }
   body {
     background-color: var(--delta-bg);
@@ -76,6 +78,9 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    /* iPhone home indicator transparent: body fills only content area */
+    padding-bottom: env(safe-area-inset-bottom);
+    background-clip: padding-box;
   }
 
   h1, h2, h3, h4, h5, h6 {
