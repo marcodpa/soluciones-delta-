@@ -47,7 +47,7 @@ export default function Navbar() {
         }`}
       >
         <div className="site-container">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+          <div className="flex items-center justify-between h-20 lg:h-20">
 
             {/* Logo */}
             <Link href="/" className="flex items-center">
@@ -56,7 +56,7 @@ export default function Navbar() {
                 alt="Soluciones Delta C.A."
                 width={120}
                 height={120}
-                className="h-14 w-14 object-contain"
+                className="h-16 w-16 lg:h-14 lg:w-14 object-contain"
                 priority
               />
             </Link>
@@ -106,13 +106,13 @@ export default function Navbar() {
 
             {/* Mobile toggle */}
             <button
-              className="lg:hidden p-2"
+              className="lg:hidden p-3"
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
-              <div className={`w-6 h-0.5 transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[7px] bg-[#1d1d1f]" : isTransparent ? "bg-white" : "bg-[#1d1d1f]"}`} />
-              <div className={`w-6 h-0.5 mt-1.5 transition-all duration-300 ${mobileOpen ? "opacity-0" : ""} ${isTransparent && !mobileOpen ? "bg-white" : "bg-[#1d1d1f]"}`} />
-              <div className={`w-6 h-0.5 mt-1.5 transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[7px] bg-[#1d1d1f]" : isTransparent ? "bg-white" : "bg-[#1d1d1f]"}`} />
+              <div className={`w-7 h-[2px] transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[9px] bg-[#1d1d1f]" : isTransparent ? "bg-white" : "bg-[#1d1d1f]"}`} />
+              <div className={`w-7 h-[2px] mt-[6px] transition-all duration-300 ${mobileOpen ? "opacity-0" : ""} ${isTransparent && !mobileOpen ? "bg-white" : "bg-[#1d1d1f]"}`} />
+              <div className={`w-7 h-[2px] mt-[6px] transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[9px] bg-[#1d1d1f]" : isTransparent ? "bg-white" : "bg-[#1d1d1f]"}`} />
             </button>
           </div>
         </div>
