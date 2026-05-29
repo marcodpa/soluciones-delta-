@@ -68,7 +68,8 @@
   }
   html {
     scroll-behavior: smooth;
-    background-color: transparent;
+    /* Matches footer so overscroll at bottom has no gap */
+    background-color: #111111;
   }
   body {
     background-color: var(--delta-bg);
