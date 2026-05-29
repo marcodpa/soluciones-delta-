@@ -15,36 +15,21 @@ const navLinks = [
 
 export default function Navbar() {
   const navRef      = useRef<HTMLElement>(null);
-  const [scrolled, setScrolled]     = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
-  const isHome = pathname === "/";
 
   useEffect(() => {
-    if (isHome) {
-      gsap.set(navRef.current, { opacity: 0, y: -20 });
-      gsap.to(navRef.current, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 1.6 });
-    } else {
-      gsap.set(navRef.current, { opacity: 1, y: 0 });
-    }
+    gsap.set(navRef.current, { opacity: 0, y: -20 });
+    gsap.to(navRef.current, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", delay: 0.3 });
+  }, []);
 
-    const handleScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isHome]);
-
-  const isTransparent = isHome && !scrolled && !mobileOpen;
+  const isTransparent = false;
 
   return (
     <>
       <nav
         ref={navRef}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isTransparent
-            ? "bg-transparent"
-            : "bg-white/95 backdrop-blur-xl border-b border-black/[0.06] shadow-sm"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl border-b border-black/[0.06] shadow-sm"
       >
         <div className="site-container">
           <div className="flex items-center justify-between h-20 lg:h-20">
@@ -70,9 +55,7 @@ export default function Navbar() {
                     key={link.href}
                     href={link.href}
                     className={`px-4 py-2 rounded-lg text-[14px] font-medium transition-all duration-200 ${
-                      isTransparent
-                        ? "text-white/80 hover:text-white hover:bg-white/10"
-                        : active
+                      active
                         ? "text-[#1a8c3c] bg-[rgba(26,140,60,0.08)]"
                         : "text-[#6e6e73] hover:text-[#1d1d1f] hover:bg-[#f5f5f7]"
                     }`}
@@ -87,9 +70,7 @@ export default function Navbar() {
             <div className="hidden lg:flex items-center gap-3">
               <a
                 href="https://wa.me/584246472446"
-                className={`flex items-center gap-2 text-[13px] font-semibold transition-colors ${
-                  isTransparent ? "text-white/70 hover:text-white" : "text-[#6e6e73] hover:text-[#1d1d1f]"
-                }`}
+                className="flex items-center gap-2 text-[13px] font-semibold transition-colors text-[#6e6e73] hover:text-[#1d1d1f]"
               >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                   <path d="M3 2h2.5l1 3-1.5 1a7 7 0 003 3l1-1.5 3 1V11a1.5 1.5 0 01-1.5 1.5C5.5 12.5 1.5 8.5 1.5 3.5A1.5 1.5 0 013 2z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
@@ -110,9 +91,9 @@ export default function Navbar() {
               onClick={() => setMobileOpen(!mobileOpen)}
               aria-label="Toggle menu"
             >
-              <div className={`w-7 h-[2px] transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[9px] bg-[#1d1d1f]" : isTransparent ? "bg-white" : "bg-[#1d1d1f]"}`} />
-              <div className={`w-7 h-[2px] mt-[6px] transition-all duration-300 ${mobileOpen ? "opacity-0" : ""} ${isTransparent && !mobileOpen ? "bg-white" : "bg-[#1d1d1f]"}`} />
-              <div className={`w-7 h-[2px] mt-[6px] transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[9px] bg-[#1d1d1f]" : isTransparent ? "bg-white" : "bg-[#1d1d1f]"}`} />
+              <div className={`w-7 h-[2px] bg-[#1d1d1f] transition-all duration-300 ${mobileOpen ? "rotate-45 translate-y-[9px]" : ""}`} />
+              <div className={`w-7 h-[2px] bg-[#1d1d1f] mt-[6px] transition-all duration-300 ${mobileOpen ? "opacity-0" : ""}`} />
+              <div className={`w-7 h-[2px] bg-[#1d1d1f] mt-[6px] transition-all duration-300 ${mobileOpen ? "-rotate-45 -translate-y-[9px]" : ""}`} />
             </button>
           </div>
         </div>
