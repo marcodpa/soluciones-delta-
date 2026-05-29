@@ -68,7 +68,7 @@
   }
   html {
     scroll-behavior: smooth;
-    background-color: #ffffff;
+    background-color: transparent;
   }
   body {
     background-color: var(--delta-bg);
@@ -77,7 +77,6 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
-    padding-bottom: env(safe-area-inset-bottom);
   }
 
   h1, h2, h3, h4, h5, h6 {

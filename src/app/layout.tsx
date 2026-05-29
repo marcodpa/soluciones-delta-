@@ -24,7 +24,7 @@ const dmSans = DM_Sans({
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://soluciones-delta.com";
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: "transparent",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
