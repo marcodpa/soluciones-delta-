@@ -24,13 +24,9 @@ const dmSans = DM_Sans({
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://soluciones-delta.com";
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#111111" },
-  ],
+  themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
-  viewportFit: "cover",
 };
 
 export const metadata: Metadata = {
@@ -152,7 +148,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 <meta name="geo.region" content="VE-V" />
         <meta name="geo.placename" content="San Francisco, Estado Zulia, Venezuela" />
         <meta name="geo.position" content="10.6544;-71.6469" />
