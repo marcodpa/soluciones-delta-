@@ -133,11 +133,11 @@ export default function ServicesSection() {
         />
         {/* Gradient overlay: fades photo into dark bg on the left */}
         <div className="absolute inset-0" style={{
-          background: "linear-gradient(90deg, #080f09 0%, #080f09 8%, rgba(8,15,9,0.82) 35%, rgba(8,15,9,0.35) 65%, rgba(8,15,9,0.15) 100%)"
+          background: "linear-gradient(90deg, #080f09 0%, #080f09 18%, rgba(8,15,9,0.95) 42%, rgba(8,15,9,0.65) 65%, rgba(8,15,9,0.25) 100%)"
         }} />
         {/* Bottom fade */}
         <div className="absolute inset-0" style={{
-          background: "linear-gradient(180deg, rgba(8,15,9,0.5) 0%, transparent 20%, transparent 75%, #080f09 100%)"
+          background: "linear-gradient(180deg, rgba(8,15,9,0.6) 0%, transparent 18%, transparent 72%, #080f09 100%)"
         }} />
       </div>
 
