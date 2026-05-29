@@ -46,25 +46,18 @@ export default function AboutSection() {
       id="nosotros"
       ref={sectionRef}
       className="py-32 relative overflow-hidden"
-      style={{ background: "#111113" }}
+      style={{ background: "#ffffff" }}
     >
-      {/* Noise texture */}
-      <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
-        style={{
-          backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
-        }} />
-      {/* Soft green glow */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 55% 45% at 0% 50%, rgba(26,140,60,0.1) 0%, transparent 65%)" }} />
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 40% 35% at 100% 80%, rgba(48,209,88,0.06) 0%, transparent 60%)" }} />
+      {/* Subtle top green line */}
+      <div className="absolute top-0 inset-x-0 h-px pointer-events-none"
+        style={{ background: "linear-gradient(90deg,transparent,rgba(26,140,60,0.15),transparent)" }} />
 
       <div className="site-container relative">
 
         {/* Header */}
         <div ref={headerRef} className="mb-16">
-          <div className="section-label mb-4" style={{ color: "#30d158" }}>Quiénes Somos</div>
-          <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight text-white leading-tight max-w-2xl">
+          <div className="section-label mb-4">Quiénes Somos</div>
+          <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight text-[#1d1d1f] leading-tight max-w-2xl">
             Expertos en el{" "}
             <span style={{ background: "linear-gradient(135deg,#30d158 0%,#1a8c3c 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               sector petrolero venezolano.
@@ -77,10 +70,10 @@ export default function AboutSection() {
 
           {/* Left — text */}
           <div className="space-y-5">
-            <p className="text-[17px] leading-relaxed" style={{ color: "rgba(255,255,255,0.82)" }}>
-              <strong className="text-white">Soluciones Delta, C.A.</strong> es una empresa venezolana especializada en servicios técnicos para la industria petrolera, con sede en San Francisco, Estado Zulia.
+            <p className="text-[17px] leading-relaxed text-[#3a3a3c]">
+              <strong className="text-[#1d1d1f]">Soluciones Delta, C.A.</strong> es una empresa venezolana especializada en servicios técnicos para la industria petrolera, con sede en San Francisco, Estado Zulia.
             </p>
-            <p className="text-[15px] leading-relaxed" style={{ color: "rgba(255,255,255,0.45)" }}>
+            <p className="text-[15px] leading-relaxed" style={{ color: "#6e6e73" }}>
               Nuestra filosofía: llegar al campo con soluciones, no con excusas. Bombeo, vacuum, almacenamiento, manejo de residuos e inyección de vapor — un solo proveedor para toda la cadena.
             </p>
             <div className="flex flex-wrap gap-3 pt-2">
@@ -91,8 +84,8 @@ export default function AboutSection() {
                 </svg>
               </Link>
               <Link href="/contacto"
-                className="flex items-center gap-2 px-6 py-3.5 rounded-full text-[15px] font-semibold text-white"
-                style={{ background: "rgba(255,255,255,0.07)", border: "1.5px solid rgba(255,255,255,0.14)" }}
+                className="flex items-center gap-2 px-6 py-3.5 rounded-full text-[15px] font-semibold text-[#1d1d1f]"
+                style={{ background: "rgba(0,0,0,0.04)", border: "1.5px solid rgba(0,0,0,0.10)" }}
               >
                 Contacto
               </Link>
@@ -147,19 +140,19 @@ export default function AboutSection() {
         <div
           ref={statsRef}
           className="grid grid-cols-3 rounded-2xl overflow-hidden"
-          style={{ border: "1px solid rgba(255,255,255,0.07)" }}
+          style={{ border: "1px solid #e5e5ea" }}
         >
           {highlights.map((h, i) => (
             <div
               key={i}
               className="px-7 py-6 flex flex-col gap-1"
               style={{
-                background: "rgba(255,255,255,0.03)",
-                borderRight: i < highlights.length - 1 ? "1px solid rgba(255,255,255,0.07)" : "none",
+                background: i % 2 === 0 ? "#ffffff" : "#fafafa",
+                borderRight: i < highlights.length - 1 ? "1px solid #e5e5ea" : "none",
               }}
             >
-              <div className="text-[26px] font-bold text-white leading-none tracking-tight">{h.stat}</div>
-              <div className="text-[11px] font-medium" style={{ color: "rgba(255,255,255,0.35)" }}>{h.label}</div>
+              <div className="text-[26px] font-bold text-[#1d1d1f] leading-none tracking-tight">{h.stat}</div>
+              <div className="text-[11px] font-medium text-[#6e6e73]">{h.label}</div>
             </div>
           ))}
         </div>
