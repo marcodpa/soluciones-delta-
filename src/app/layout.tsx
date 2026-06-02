@@ -27,7 +27,6 @@ export const viewport: Viewport = {
   themeColor: "#ffffff",
   width: "device-width",
   initialScale: 1,
-  viewportFit: "cover",
 };
 
 export const metadata: Metadata = {
@@ -148,9 +147,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<meta name="geo.region" content="VE-V" />
+        <meta name="geo.region" content="VE-V" />
         <meta name="geo.placename" content="San Francisco, Estado Zulia, Venezuela" />
         <meta name="geo.position" content="10.6544;-71.6469" />
         <meta name="ICBM" content="10.6544, -71.6469" />
