@@ -22,6 +22,7 @@ const serviceOptions = [
   "Suministro de Frac Tanks 500 Bbl",
   "Manejo de Desechos Industriales",
   "Generador de Vapor / Inyección de Vapor",
+  "Limpieza Industrial Hydrojet (20.000 / 40.000 PSI)",
   "Otro / Consulta General",
 ];
 

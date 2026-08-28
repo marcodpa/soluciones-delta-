@@ -71,7 +71,7 @@ const fortalezas = [
   {
     num: "05",
     title: "Solución Integral",
-    body: "Bombeo, vacuum, Frac Tanks, inyección de vapor y gestión de desechos. Un solo proveedor para toda la cadena, desde la extracción hasta la disposición final.",
+    body: "Bombeo, vacuum, Frac Tanks, inyección de vapor, limpieza hydrojet y gestión de desechos. Un solo proveedor para toda la cadena, desde la extracción hasta la disposición final.",
     stat: "5+",
     statLabel: "Servicios integrados",
     accent: "#bf5af2",

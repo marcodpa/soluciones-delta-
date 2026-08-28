@@ -57,7 +57,7 @@ const pillars = [
 ];
 
 const stats = [
-  { value: "5+",   suffix: "",    label: "Servicios especializados" },
+  { value: "6+",   suffix: "",    label: "Servicios especializados" },
   { value: "160",  suffix: "Bbl", label: "Capacidad vacuum" },
   { value: "500",  suffix: "Bbl", label: "Frac Tanks disponibles" },
   { value: "24/7", suffix: "",    label: "Operación continua" },

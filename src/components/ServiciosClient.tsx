@@ -77,6 +77,18 @@ const services = [
     img: "/vapor/caldera-otsg-semirremolque.webp",
     color: "#fef4ee",
   },
+  {
+    slug: "limpieza-industrial-hidrojet",
+    tag: "Hydrojet UHP",
+    num: "06",
+    title: "Limpieza Industrial Hydrojet",
+    subtitle: "Agua a Ultra Alta Presión · 20.000 y 40.000 PSI",
+    summary:
+      "Hydroblasting con unidades de 20.000 y 40.000 PSI: intercambiadores, destape de líneas, preparación de superficies y espacios confinados. Trabajo en frío sin chispas ni abrasivos.",
+    highlights: ["40.000 PSI (2.800 bar)", "Trabajo en frío · sin chispas", "Sin abrasivos", "Cuadrilla HSE"],
+    img: "/hidrojet/unidad-hidrojet-campo.png",
+    color: "#eef5f8",
+  },
 ];
 
 export default function ServiciosClient() {
@@ -107,112 +119,69 @@ export default function ServiciosClient() {
       <Navbar />
       <main>
 
-        {/* ── HERO (dark) ── */}
-        <section
-          className="pt-36 pb-0 relative overflow-hidden"
-          style={{ background: "linear-gradient(160deg, #0d1f14 0%, #111113 100%)" }}
-        >
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 55% 50% at 0% 60%, rgba(26,140,60,0.18) 0%, transparent 65%)" }} />
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 35% 35% at 100% 20%, rgba(48,209,88,0.07) 0%, transparent 60%)" }} />
+        {/* ── HERO (photo background, centered) ── */}
+        <section className="pt-40 pb-52 relative overflow-hidden">
+          {/* Background photo */}
+          <div className="absolute inset-0">
+            <Image
+              src="/servicios-campo.png"
+              alt=""
+              aria-hidden="true"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(5,12,7,0.9) 0%, rgba(5,12,7,0.55) 45%, rgba(5,12,7,0.7) 100%)" }} />
+            <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 55% at 50% 45%, rgba(26,140,60,0.14) 0%, transparent 70%)" }} />
+          </div>
 
           <div className="site-container relative">
-            <div ref={heroRef}>
-              <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-white/40 mb-10">
+            <div ref={heroRef} className="text-center max-w-3xl mx-auto">
+              <nav aria-label="Breadcrumb" className="flex items-center justify-center gap-2 text-[13px] text-white/40 mb-8">
                 <Link href="/" className="hover:text-[#30d158] transition-colors">Inicio</Link>
                 <span>/</span>
                 <span className="text-white/70 font-medium">Servicios</span>
               </nav>
-
-              <div className="grid lg:grid-cols-2 gap-14 items-end pb-20">
-                {/* Left */}
-                <div>
-                  <div className="inline-flex items-center gap-2 mb-5">
-                    <span className="w-2 h-2 rounded-full bg-[#30d158] animate-pulse" />
-                    <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#30d158]">Catálogo de Servicios</span>
-                  </div>
-                  <h1 className="text-[clamp(36px,5vw,66px)] font-bold tracking-tight leading-[1.05] text-white mb-6">
-                    Todo lo que su<br />
-                    <span style={{ background: "linear-gradient(135deg,#30d158 0%,#1a8c3c 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                      operación necesita.
-                    </span>
-                  </h1>
-                  <p className="text-[17px] leading-relaxed mb-8 max-w-lg" style={{ color: "rgba(255,255,255,0.55)" }}>
-                    Cinco líneas de servicio especializadas para la industria petrolera venezolana, respaldadas por equipamiento propio y operación continua 24/7.
-                  </p>
-                  <div className="flex flex-wrap gap-3">
-                    <Link href="/contacto" className="btn-primary">
-                      Solicitar cotización
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </Link>
-                    <a
-                      href="https://wa.me/584246472446"
-                      className="flex items-center gap-2 px-6 py-3.5 rounded-full text-[15px] font-semibold text-white"
-                      style={{ background: "rgba(255,255,255,0.07)", border: "1.5px solid rgba(255,255,255,0.14)" }}
-                    >
-                      <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
-                        <path d="M3 2h2.5l1 3-1.5 1a7.5 7.5 0 003.5 3.5L10 8l3 1v2.5A1.5 1.5 0 0111.5 13C5.1 13 2 9 2 3.5A1.5 1.5 0 013 2z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
-                      </svg>
-                      +58 424-6472446
-                    </a>
-                    <DescargarCatalogoBtnn />
-                  </div>
-                </div>
-
-                {/* Right — photo strip */}
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 280 }}>
-                    <Image
-                      src="/vacuum/vacuum-semirremolque.webp"
-                      alt="Vacuum 160 Bbl"
-                      fill
-                      className="object-cover"
-                      sizes="25vw"
-                      priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <div className="absolute bottom-3 left-3"><span className="text-[10px] font-semibold text-white/80">Vacuum 160 Bbl</span></div>
-                  </div>
-                  <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 280 }}>
-                    <Image
-                      src="/frac-tanks/frac-tank-nuevo.webp"
-                      alt="Frac Tank 500 Bbl"
-                      fill
-                      className="object-cover"
-                      sizes="25vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                    <div className="absolute bottom-3 left-3"><span className="text-[10px] font-semibold text-white/80">Frac Tanks 500 Bbl</span></div>
-                  </div>
-                </div>
+              <div className="inline-flex items-center gap-2 mb-5">
+                <span className="w-2 h-2 rounded-full bg-[#30d158] animate-pulse" />
+                <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#30d158]">Catálogo de Servicios</span>
               </div>
-
-              {/* Stats bar */}
-              <div
-                className="grid grid-cols-2 sm:grid-cols-4"
-                style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
-              >
-                {[
-                  { v: "5", l: "Servicios especializados" },
-                  { v: "160 Bbl", l: "Capacidad vacuum" },
-                  { v: "500 Bbl", l: "Frac Tanks" },
-                  { v: "24/7", l: "Operación continua" },
-                ].map((s, i) => (
-                  <div key={i} className="px-6 py-5" style={{ borderRight: i < 3 ? "1px solid rgba(255,255,255,0.07)" : "none" }}>
-                    <div className="text-[24px] font-bold text-white leading-none tracking-tight">{s.v}</div>
-                    <div className="text-[11px] font-medium mt-1" style={{ color: "rgba(255,255,255,0.35)" }}>{s.l}</div>
-                  </div>
-                ))}
+              <h1 className="text-[clamp(36px,5vw,64px)] font-bold tracking-tight leading-[1.06] text-white mb-6">
+                Todo lo que su{" "}
+                <span style={{ background: "linear-gradient(135deg,#30d158 0%,#1a8c3c 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                  operación necesita.
+                </span>
+              </h1>
+              <p className="text-[17px] leading-relaxed mb-9 mx-auto max-w-xl" style={{ color: "rgba(255,255,255,0.65)" }}>
+                Seis líneas de servicio especializadas para la industria petrolera venezolana, respaldadas por equipamiento propio y operación continua 24/7.
+              </p>
+              <div className="flex flex-wrap gap-3 justify-center">
+                <Link href="/contacto" className="btn-primary">
+                  Solicitar cotización
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </Link>
+                <a
+                  href="https://wa.me/584246472446"
+                  className="flex items-center gap-2 px-6 py-3.5 rounded-full text-[15px] font-semibold text-white"
+                  style={{ background: "rgba(255,255,255,0.1)", border: "1.5px solid rgba(255,255,255,0.35)", backdropFilter: "blur(6px)" }}
+                >
+                  <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 2h2.5l1 3-1.5 1a7.5 7.5 0 003.5 3.5L10 8l3 1v2.5A1.5 1.5 0 0111.5 13C5.1 13 2 9 2 3.5A1.5 1.5 0 013 2z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
+                  </svg>
+                  +58 424-6472446
+                </a>
+                <DescargarCatalogoBtnn />
               </div>
             </div>
           </div>
         </section>
 
-        {/* ── SERVICES GRID (light) ── */}
-        <section className="py-20" style={{ background: "#ffffff" }}>
+        {/* ── SERVICES GRID (overlapping cards) ── */}
+        <section className="pb-20" style={{ background: "#ffffff" }}>
           <div className="site-container">
-            <div ref={cardsRef} className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div ref={cardsRef} className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 -mt-36 relative z-10">
               {services.map((s) => (
                 <Link
                   key={s.slug}
@@ -220,17 +189,17 @@ export default function ServiciosClient() {
                   className="group flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1"
                   style={{
                     background: "#fff",
-                    border: "1.5px solid #ebebef",
-                    boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
+                    border: "1.5px solid rgba(26,140,60,0.3)",
+                    boxShadow: "0 6px 24px rgba(0,0,0,0.10)",
                     textDecoration: "none",
                   }}
                   onMouseEnter={e => {
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(26,140,60,0.3)";
-                    (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 12px 40px rgba(26,140,60,0.10)";
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(26,140,60,0.6)";
+                    (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 12px 40px rgba(26,140,60,0.16)";
                   }}
                   onMouseLeave={e => {
-                    (e.currentTarget as HTMLAnchorElement).style.borderColor = "#ebebef";
-                    (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 2px 12px rgba(0,0,0,0.04)";
+                    (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(26,140,60,0.3)";
+                    (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 6px 24px rgba(0,0,0,0.10)";
                   }}
                 >
                   {/* Photo header */}
@@ -291,75 +260,50 @@ export default function ServiciosClient() {
                 </Link>
               ))}
 
-              {/* Contact card */}
-              <Link
-                href="/contacto"
-                className="group flex flex-col items-center justify-center rounded-2xl p-10 text-center transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
-                style={{
-                  background: "linear-gradient(135deg, #0d1f14 0%, #0a1a10 100%)",
-                  border: "1.5px solid rgba(48,209,88,0.15)",
-                  boxShadow: "0 2px 12px rgba(0,0,0,0.08)",
-                  textDecoration: "none",
-                  minHeight: 280,
-                }}
-                onMouseEnter={e => {
-                  (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(48,209,88,0.35)";
-                  (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 12px 40px rgba(26,140,60,0.15)";
-                }}
-                onMouseLeave={e => {
-                  (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(48,209,88,0.15)";
-                  (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 2px 12px rgba(0,0,0,0.08)";
-                }}
-              >
-                <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 110%, rgba(48,209,88,0.18) 0%, transparent 65%)" }} />
-                <div className="relative">
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 mx-auto" style={{ background: "rgba(48,209,88,0.1)", border: "1px solid rgba(48,209,88,0.2)" }}>
-                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                      <path d="M5 4h4.5l2 5.5-2.5 2a12 12 0 006.5 6.5l2-2.5 5.5 2V22a2 2 0 01-2 2C9 24 3 17 3 8a3 3 0 012-4z" stroke="#30d158" strokeWidth="1.8" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <div className="text-[11px] font-bold tracking-widest uppercase mb-3" style={{ color: "#30d158" }}>Contacto Directo</div>
-                  <h3 className="text-[19px] font-bold text-white mb-3 leading-snug">¿Necesita un servicio personalizado?</h3>
-                  <p className="text-[13px] leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.45)" }}>
-                    Contáctenos y diseñamos una solución a la medida de su operación.
-                  </p>
-                  <span className="inline-flex items-center gap-2 text-[13px] font-semibold group-hover:gap-3 transition-all duration-200" style={{ color: "#30d158" }}>
-                    Solicitar cotización
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </span>
-                </div>
-              </Link>
             </div>
           </div>
         </section>
 
-        {/* ── BOTTOM CTA STRIP ── */}
+        {/* ── BOTTOM CTA CARD ── */}
         <section className="py-16" style={{ background: "#f5f5f7", borderTop: "1px solid #ebebef" }}>
           <div className="site-container">
-            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-              <div>
-                <h2 className="text-[clamp(20px,3vw,30px)] font-bold text-[#1d1d1f] mb-2">
-                  Operamos 24/7 en el Estado Zulia
-                </h2>
-                <p className="text-[15px] text-[#6e6e73]">
-                  Movilización en menos de 4 horas para emergencias. RIF J-50735393-1.
-                </p>
-              </div>
-              <div className="flex flex-wrap gap-3 flex-shrink-0">
-                <a href="https://wa.me/584246472446" className="btn-secondary flex items-center gap-2">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 2h2.5l1 3-1.5 1A7.5 7.5 0 009.5 9.5L11 8l3 1v2.5A1.5 1.5 0 0112.5 13C6 13 2.5 9 2.5 3.5A1.5 1.5 0 013 2z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
-                  </svg>
-                  +58 424-6472446
-                </a>
-                <Link href="/contacto" className="btn-primary">
-                  Solicitar cotización
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </Link>
+            <div
+              className="rounded-3xl px-10 py-12 relative overflow-hidden"
+              style={{ background: "linear-gradient(135deg, #0d1f14 0%, #0a1a10 100%)" }}
+            >
+              <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 110%, rgba(26,140,60,0.25) 0%, transparent 65%)" }} />
+              <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(48,209,88,0.35), transparent)" }} />
+              <div className="relative flex flex-col md:flex-row items-center justify-between gap-8">
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="w-2 h-2 rounded-full bg-[#30d158] animate-pulse" />
+                    <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-[#30d158]">Disponibles ahora · 24/7</span>
+                  </div>
+                  <h2 className="text-[clamp(20px,3vw,30px)] font-bold text-white mb-2">
+                    Operamos 24/7 en el Estado Zulia
+                  </h2>
+                  <p className="text-[15px]" style={{ color: "rgba(255,255,255,0.5)" }}>
+                    Movilización en menos de 4 horas para emergencias. RIF J-50735393-1.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-3 flex-shrink-0">
+                  <a
+                    href="https://wa.me/584246472446"
+                    className="flex items-center gap-2 px-7 py-3.5 rounded-full text-[15px] font-semibold text-white"
+                    style={{ background: "rgba(255,255,255,0.08)", border: "1.5px solid rgba(255,255,255,0.18)" }}
+                  >
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M3 2h2.5l1 3-1.5 1A7.5 7.5 0 009.5 9.5L11 8l3 1v2.5A1.5 1.5 0 0112.5 13C6 13 2.5 9 2.5 3.5A1.5 1.5 0 013 2z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
+                    </svg>
+                    +58 424-6472446
+                  </a>
+                  <Link href="/contacto" className="btn-primary">
+                    Solicitar cotización
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

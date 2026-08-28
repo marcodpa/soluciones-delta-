@@ -44,6 +44,12 @@
   </url>
 
   <url>
+    <loc>https://soluciones-delta.com/servicios/limpieza-industrial-hidrojet</loc>
+    <priority>0.85</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
     <loc>https://soluciones-delta.com/nosotros</loc>
     <priority>0.75</priority>
     <changefreq>monthly</changefreq>

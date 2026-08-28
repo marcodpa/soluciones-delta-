@@ -85,6 +85,13 @@ const SERVICE_PHOTOS: Record<string, { main: string; gallery: { src: string; cap
       { src: "/vapor/campo-pozos.jpg",              caption: "Locación de pozos — Estado Zulia" },
     ],
   },
+  "limpieza-industrial-hidrojet": {
+    main: "/hidrojet/unidad-hidrojet-campo.png",
+    gallery: [
+      { src: "/hidrojet/unidad-hidrojet-equipo.png", caption: "Unidad Hydrojet — Alta y Ultra Alta Presión" },
+      { src: "/hidrojet/unidad-hidrojet-campo.png",  caption: "Unidad Hydrojet en locación de campo" },
+    ],
+  },
 };
 
 // ── Styles ────────────────────────────────────────────────────────────────────
@@ -288,7 +295,7 @@ function CatalogoPDF({ imgs }: { imgs: Record<string, string> }) {
               <Text style={S.coverGreen}>petrolera.</Text>
             </Text>
             <Text style={S.coverSub}>
-              Cinco servicios especializados para operaciones de petróleo y gas en Venezuela. Flota propia, personal certificado y operación continua 24/7.
+              Seis servicios especializados para operaciones de petróleo y gas en Venezuela. Flota propia, personal certificado y operación continua 24/7.
             </Text>
             <View style={S.coverServices}>
               {SERVICES.map(s => (
@@ -324,7 +331,7 @@ function CatalogoPDF({ imgs }: { imgs: Record<string, string> }) {
 
             <View style={[S.body, { paddingTop: 8, paddingBottom: 44 }]} wrap={false}>
               {/* Title block */}
-              <Text style={[S.secLabel, { color: GRAY, marginBottom: 2 }]}>0{idx + 1} / 05 · {s.tag}</Text>
+              <Text style={[S.secLabel, { color: GRAY, marginBottom: 2 }]}>0{idx + 1} / 0{SERVICES.length} · {s.tag}</Text>
               <Text style={[S.svcTitle, { fontSize: 17, marginBottom: 2 }]}>{s.title}</Text>
               <Text style={[S.svcSubtitle, { marginBottom: 3 }]}>{s.subtitle}</Text>
               <Text style={[S.svcSummary, { marginBottom: 6, fontSize: 8 }]}>{s.summary}</Text>
@@ -413,7 +420,7 @@ function ServicioPDF({ service, imgs }: { service: ServiceData; imgs: Record<str
           <View style={S.svcCoverOverlay} />
           <View style={S.svcCoverBody}>
             {logoUrl && <PDFImage src={logoUrl} style={S.svcCoverLogo} />}
-            <Text style={S.svcCoverNum}>0{idx + 1} / 05</Text>
+            <Text style={S.svcCoverNum}>0{idx + 1} / 0{SERVICES.length}</Text>
             <Text style={S.svcCoverTag}>{service.tag}</Text>
             <Text style={S.svcCoverTitle}>{service.title}</Text>
             <Text style={S.svcCoverSubtitle}>{service.subtitle}</Text>

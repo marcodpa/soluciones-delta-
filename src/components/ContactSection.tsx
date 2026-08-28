@@ -11,6 +11,7 @@ const serviceOptions = [
   "Transporte de Fluidos con Vacuum (160 Bbl)",
   "Suministro de Frac Tanks",
   "Manejo de Desechos Industriales",
+  "Limpieza Industrial Hydrojet (20.000 / 40.000 PSI)",
   "Otro / Consulta General",
 ];
 

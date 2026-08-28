@@ -24,6 +24,7 @@ const SERVICE_IMAGES: Record<string, string> = {
   "frac-tanks": "/frac-tanks/frac-tank-nuevo.webp",
   "manejo-de-desechos": "/vacuum/vacuum-truck-howo-pdvsa.webp",
   "alquiler-calderas-inyeccion-vapor": "/vapor/caldera-otsg-semirremolque.webp",
+  "limpieza-industrial-hidrojet": "/hidrojet/unidad-hidrojet-campo.png",
 };
 
 const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
@@ -42,6 +43,9 @@ const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
     { src: "/desechos/cargador-fosa.webp",        caption: "Cargador frontal CAT — saneamiento de fosa" },
   ],
   "alquiler-calderas-inyeccion-vapor": [],
+  "limpieza-industrial-hidrojet": [
+    { src: "/hidrojet/unidad-hidrojet-equipo.png", caption: "Unidad Hydrojet — Alta y Ultra Alta Presión" },
+  ],
 };
 
 export default function ServicePageClient({ service }: { service: ServiceData }) {
@@ -301,34 +305,42 @@ export default function ServicePageClient({ service }: { service: ServiceData })
           {/* ── CTA ── */}
           <div
             id="contacto-servicio"
-            className="animate-in rounded-3xl p-10 text-center"
-            style={{ background: "linear-gradient(135deg, rgba(26,140,60,0.06) 0%, rgba(48,209,88,0.04) 100%)", border: "1.5px solid rgba(26,140,60,0.15)" }}
+            className="animate-in rounded-3xl p-10 text-center relative overflow-hidden"
+            style={{ background: "linear-gradient(135deg, #0d1f14 0%, #0a1a10 100%)" }}
           >
-            <div className="inline-flex items-center gap-2 mb-4">
-              <span className="w-2 h-2 rounded-full bg-[#1a8c3c] animate-pulse" />
-              <span className="section-label">¿Listo para comenzar?</span>
-            </div>
-            <h2 className="text-[clamp(24px,3.5vw,40px)] font-bold text-[#1d1d1f] mb-4">
-              Solicite una cotización para<br />
-              <span className="text-gradient">{service.title}</span>
-            </h2>
-            <p className="text-[16px] text-[#6e6e73] mb-8 max-w-lg mx-auto">
-              Nuestro equipo técnico responde en menos de 2 horas hábiles. Disponibles 24/7 para emergencias.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="mailto:solucionesdeltaca@gmail.com" className="btn-primary">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <rect x="2" y="4" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="1.5"/>
-                  <path d="M2 7l7 4 7-4" stroke="currentColor" strokeWidth="1.5"/>
-                </svg>
-                Enviar solicitud por email
-              </a>
-              <a href="https://wa.me/584246472446" className="btn-secondary">
-                <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path d="M4 2h3l1.5 4-2 1.5a10 10 0 004 4L12 9.5l4 1.5v3a2 2 0 01-2 2C6 16 2 10 2 4a2 2 0 012-2z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
-                </svg>
-                +58 424-6472446
-              </a>
+            <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 110%, rgba(26,140,60,0.25) 0%, transparent 65%)" }} />
+            <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(48,209,88,0.35), transparent)" }} />
+            <div className="relative">
+              <div className="inline-flex items-center gap-2 mb-4">
+                <span className="w-2 h-2 rounded-full bg-[#30d158] animate-pulse" />
+                <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-[#30d158]">¿Listo para comenzar?</span>
+              </div>
+              <h2 className="text-[clamp(24px,3.5vw,40px)] font-bold text-white mb-4">
+                Solicite una cotización para<br />
+                <span style={{ background: "linear-gradient(135deg,#30d158 0%,#1a8c3c 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{service.title}</span>
+              </h2>
+              <p className="text-[16px] mb-8 max-w-lg mx-auto" style={{ color: "rgba(255,255,255,0.5)" }}>
+                Nuestro equipo técnico responde en menos de 2 horas hábiles. Disponibles 24/7 para emergencias.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="mailto:solucionesdeltaca@gmail.com" className="btn-primary">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <rect x="2" y="4" width="14" height="10" rx="2" stroke="currentColor" strokeWidth="1.5"/>
+                    <path d="M2 7l7 4 7-4" stroke="currentColor" strokeWidth="1.5"/>
+                  </svg>
+                  Enviar solicitud por email
+                </a>
+                <a
+                  href="https://wa.me/584246472446"
+                  className="flex items-center gap-2 px-7 py-3.5 rounded-full text-[15px] font-semibold text-white justify-center"
+                  style={{ background: "rgba(255,255,255,0.08)", border: "1.5px solid rgba(255,255,255,0.18)" }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path d="M4 2h3l1.5 4-2 1.5a10 10 0 004 4L12 9.5l4 1.5v3a2 2 0 01-2 2C6 16 2 10 2 4a2 2 0 012-2z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round"/>
+                  </svg>
+                  +58 424-6472446
+                </a>
+              </div>
             </div>
           </div>
 

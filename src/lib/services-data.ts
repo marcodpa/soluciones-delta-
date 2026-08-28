@@ -639,6 +639,158 @@ export const SERVICES: ServiceData[] = [
       },
     ],
   },
+  {
+    slug: "limpieza-industrial-hidrojet",
+    tag: "Hydrojet UHP",
+    title: "Limpieza Industrial Hydrojet",
+    subtitle: "Agua a Ultra Alta Presión — 20.000 y 40.000 PSI",
+    summary:
+      "Soluciones avanzadas de limpieza industrial y preparación de superficies mediante sistemas de agua a ultra alta presión (hydroblasting) de 20.000 y 40.000 PSI. Remoción de incrustaciones severas, coque, polímeros, resinas y óxido sin comprometer la integridad de la infraestructura.",
+    heroColor: "#eef5f8",
+    icon: "M12 2v8M8 6l4 4 4-4M5 14h14M7 18h10",
+    overview:
+      "El servicio de limpieza industrial con equipos de hydrojet de 20.000 y 40.000 PSI es una operación técnica rigurosa que exige maquinaria de vanguardia, protocolos de seguridad estrictos y un liderazgo estructurado en campo. Su ejecución abarca desde el mantenimiento preventivo de facilidades hasta la preparación de superficies en áreas clasificadas: limpieza de áreas impactadas de crudo, limpieza química y descontaminación de equipos de proceso, todo sin abrasivos y sin generar chispas.",
+    sections: [
+      {
+        heading: "Alcance integral del servicio",
+        body: "Cubrimos toda la gama de aplicaciones de limpieza con agua a ultra alta presión en instalaciones petroleras e industriales:",
+        list: [
+          "Mantenimiento de intercambiadores: limpieza profunda del haz de tubos, condensadores y calderas para restaurar la eficiencia térmica de las plantas",
+          "Destape de líneas y flujo: remoción absoluta de coque, asfaltenos, polímeros, resinas y sedimentos endurecidos en tuberías de proceso",
+          "Preparación de superficies (trabajo en frío): remoción de pintura, óxido y escoria metálica mediante corte con agua, sin generar chispas — el estándar exigido en refinerías y locaciones de perforación activa",
+          "Limpieza de espacios confinados: remoción de lodos de fondo en tanques de almacenamiento de crudo",
+          "Sinergia operativa: trabajo en conjunto con nuestras unidades vacuum de 160 barriles para la succión inmediata de residuos y el cumplimiento de las normativas RACDA",
+        ],
+      },
+      {
+        heading: "Unidad UHP 40.000 PSI — Ficha técnica",
+        body: "Equipo industrial de grado crítico diseñado para hidrodemolición de concreto, remoción de revestimientos epóxicos pesados y decapado sin abrasivos (blasteo puro):",
+        list: [
+          "Motor diésel John Deere 6068H: 6 cilindros en línea, turboalimentado y post-enfriado, 6.8 L",
+          "Potencia nominal: ~250 HP a 2.200 RPM con inyección electrónica de alta presión (HPCR)",
+          "Bomba Triplex Plunger para Ultra Alta Presión (UHP)",
+          "Presión máxima de trabajo: 40.000 PSI (2.800 bar)",
+          "Caudal promedio: 3.0 a 6.0 GPM (11.4 a 22.7 LPM)",
+          "Transmisión: embrague de servicio pesado Twin Disc SP211HP5, acoplamiento SAE 5",
+          "Cabezal (fluid end) macizo mecanizado en aleaciones especiales de acero inoxidable o titanio",
+          "Seguridad: válvula de disco de ruptura y válvula bypass reguladora neumática",
+          "Chasis tipo skid reforzado de acero al carbono sobre vigas en H",
+        ],
+      },
+      {
+        heading: "Unidad HP PARTEK 20.000 PSI — Ficha técnica",
+        body: "Equipo de alta presión enfocado en el lavado industrial, remoción de óxido severo y limpieza interna de intercambiadores de calor y tuberías mediante alto volumen de agua combinado con fuerza de impacto:",
+        list: [
+          "Motor diésel John Deere 4039D: 4 cilindros en línea, aspiración natural, 3.9 L",
+          "Potencia nominal: ~70 HP a 2.150 RPM con inyección mecánica directa",
+          "Bomba PARTEK de alta presión",
+          "Presión máxima de trabajo: 20.000 PSI (1.400 bar)",
+          "Caudal promedio: 10.0 a 13.0 GPM (38 a 50 LPM)",
+          "Cabezal de acero inoxidable de grado aeronáutico con émbolos cerámicos enfriados por agua",
+          "Seguridad: válvula de alivio mecánica graduable y apagado automático por baja presión de aceite",
+          "Chasis tipo skid con tanque de combustible integrado para alta autonomía de trabajo",
+        ],
+      },
+      {
+        heading: "Accesorios y tecnología de trabajo",
+        body: "El kit de trabajo de 20.000 y 40.000 PSI incluye componentes certificados para operación segura y eficiente:",
+        list: [
+          "Mangueras termoplásticas multicapa (4–6 capas de acero espiralado) para 40.000 PSI de operación y hasta 60.000 PSI de ruptura",
+          "Conexiones tipo autoclave cono y rosca (Cone & Thread) de acero inoxidable de alta seguridad",
+          "Guayas de seguridad (whipchecks) que evitan el chicoteo de mangueras ante falla de un acople",
+          "Pistola de descarga neumática (dump gun): al soltar el gatillo el agua se desvía a cero presión",
+          "Válvula de pie (foot control) para limpieza interna de tuberías con manos libres",
+          "Boquillas rotativas auto-giratorias con insertos de zafiro o diamante industrial",
+          "Boquillas auto-propulsadas (self-propelled) para limpieza interior de tuberías",
+          "Posicionadores mecánicos y crawlers que evitan la exposición directa del operador",
+          "Sistema de filtración crítico de doble etapa: 10 micras + 5 micras en la alimentación de la bomba",
+        ],
+      },
+      {
+        heading: "Cuadrilla operativa y liderazgo en campo",
+        body: "Cada operación cuenta con una estructura de mando definida y personal certificado:",
+        list: [
+          "Líder de cuadrilla (Supervisor HSE): evalúa riesgos, tramita permisos de trabajo, demarca la zona de exclusión y coordina la logística con la unidad vacuum",
+          "Operadores certificados: técnicos entrenados en biocinemática para soportar el retroceso de la lanza",
+          "Técnico especialista de equipos: calibra válvulas de alivio, purga líneas y garantiza la operatividad continua de las bombas por turno",
+          "EPP blindado obligatorio: traje completo UHP de Kevlar/Dyneema (UHMWPE) certificado contra impacto directo del chorro",
+          "Botas con protección metatarsal de acero o titanio y guantes blindados",
+          "Casco con careta de impacto total contra partículas proyectadas a gran velocidad",
+        ],
+      },
+      {
+        heading: "Protocolo operativo de seguridad",
+        body: "A 40.000 PSI un chorro de agua corta metal — cada trabajo sigue un procedimiento estricto y documentado:",
+        list: [
+          "1. Análisis de riesgo en el trabajo (ART) y permisos en sitio",
+          "2. Demarcación de la zona de exclusión y señalización",
+          "3. Verificación de mangueras, whipchecks y discos de ruptura",
+          "4. Prueba de presión progresiva del sistema antes de operar",
+          "5. Operación con supervisor HSE permanente en locación",
+          "6. Succión inmediata de residuos con unidad vacuum de 160 Bbl",
+          "7. Desconexión segura, despresurización y cierre del permiso de trabajo",
+        ],
+      },
+    ],
+    specs: [
+      { label: "Presión máx. UHP", value: "40.000 PSI (2.800 bar)" },
+      { label: "Presión máx. HP", value: "20.000 PSI (1.400 bar)" },
+      { label: "Caudal UHP", value: "3.0 – 6.0 GPM" },
+      { label: "Caudal HP", value: "10.0 – 13.0 GPM" },
+      { label: "Motor UHP", value: "John Deere 6068H · 250 HP" },
+      { label: "Motor HP", value: "John Deere 4039D · 70 HP" },
+      { label: "Bomba UHP", value: "Triplex Plunger" },
+      { label: "Manguera UHP", value: "60.000 PSI ruptura" },
+      { label: "Boquillas", value: "Zafiro / diamante industrial" },
+      { label: "Filtración", value: "Doble: 10 + 5 micras" },
+      { label: "Montaje", value: "Skid remolcable" },
+      { label: "Disponibilidad", value: "24 horas / 7 días" },
+    ],
+    benefits: [
+      {
+        title: "Trabajo en frío, sin chispas",
+        desc: "El corte con agua no genera chispas ni calor: es el estándar exigido para refinerías, áreas clasificadas y locaciones de perforación activa.",
+        icon: "M13 2L3 14h9l-1 8 10-12h-9l1-8z",
+      },
+      {
+        title: "40.000 PSI sostenidos",
+        desc: "Unidades de bombeo UHP accionadas por motores diésel de trabajo pesado, capaces de sostener la presión máxima sin caídas durante toda la jornada.",
+        icon: "M22 12h-4l-3 9L9 3l-3 9H2",
+      },
+      {
+        title: "Sin abrasivos ni químicos",
+        desc: "La limpieza con agua pura no daña el sustrato metálico ni genera residuos abrasivos secundarios, reduciendo el impacto ambiental de cada operación.",
+        icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
+      },
+      {
+        title: "Cuadrilla certificada HSE",
+        desc: "Supervisor HSE, operadores entrenados en biocinemática y técnico especialista de equipos en cada locación, con EPP blindado certificado UHP.",
+        icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0",
+      },
+    ],
+    faq: [
+      {
+        q: "¿Cuándo se usa la unidad de 20.000 PSI y cuándo la de 40.000 PSI?",
+        a: "La unidad PARTEK de 20.000 PSI trabaja con mayor caudal (10–13 GPM) y es ideal para lavado industrial, remoción de óxido severo y limpieza interna de intercambiadores y tuberías, donde el volumen de agua y la fuerza de impacto hacen el trabajo. La unidad UHP de 40.000 PSI concentra la energía en menor caudal (3–6 GPM) para hidrodemolición de concreto, remoción de revestimientos epóxicos pesados y decapado sin abrasivos donde se requiere poder de corte puro.",
+      },
+      {
+        q: "¿Por qué el hydroblasting es más seguro que el sandblasting en refinerías?",
+        a: "Porque es un trabajo en frío: el corte con agua no genera chispas ni fuentes de ignición, lo que permite operar en áreas clasificadas con presencia de hidrocarburos. Además no produce nubes de polvo de sílice ni residuos abrasivos contaminados, y no desgasta el metal base del equipo limpiado.",
+      },
+      {
+        q: "¿Qué medidas de seguridad protegen al personal?",
+        a: "El operador viste traje completo de protección UHP en fibras de Kevlar/Dyneema certificado contra impacto directo del chorro, botas con protección metatarsal de acero o titanio, casco con careta de impacto total y guantes blindados. El sistema usa pistolas de descarga neumática que llevan el agua a cero presión al soltar el gatillo, guayas anti-látigo en cada acople y discos de ruptura calibrados. Un supervisor HSE lidera cada operación con permisos de trabajo y zona de exclusión demarcada.",
+      },
+      {
+        q: "¿Qué pasa con los residuos que genera la limpieza?",
+        a: "Trabajamos en sincronía con nuestras unidades vacuum de 160 barriles para la succión inmediata de los lodos, aguas y residuos generados durante el lavado, garantizando áreas de trabajo limpias y el cumplimiento de las normativas RACDA. Si el residuo es peligroso, se gestiona con nuestro servicio de manejo de desechos bajo el Decreto 2635.",
+      },
+      {
+        q: "¿Pueden limpiar tuberías internamente sin desarmarlas?",
+        a: "Sí. Usamos boquillas auto-propulsadas con chorros traseros en ángulo que empujan la manguera flexible hacia adentro del tubo, y mangueras multicapa calibradas según el diámetro de la tubería y el tipo de incrustación. Para el haz de tubos de intercambiadores usamos lanzas rígidas y posicionadores semi-automatizados que evitan la exposición del operador.",
+      },
+    ],
+  },
 ];
 
 export function getServiceBySlug(slug: string): ServiceData | undefined {

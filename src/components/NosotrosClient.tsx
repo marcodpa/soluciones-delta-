@@ -101,7 +101,7 @@ const stats = [
   { value: "1,500", unit: "Bbl/día", label: "Capacidad de recuperación demostrada" },
   { value: "100%", unit: "", label: "Cumplimiento en todos los contratos" },
   { value: "24/7", unit: "", label: "Disponibilidad operativa" },
-  { value: "5+", unit: "", label: "Líneas de servicio especializadas" },
+  { value: "6+", unit: "", label: "Líneas de servicio especializadas" },
 ];
 
 export default function NosotrosClient() {

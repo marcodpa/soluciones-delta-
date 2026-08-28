@@ -80,6 +80,20 @@ const services = [
       </svg>
     ),
   },
+  {
+    slug: "limpieza-industrial-hidrojet",
+    num: "06",
+    tag: "Hydrojet",
+    title: "Limpieza Industrial Hydrojet",
+    tagline: "20.000 y 40.000 PSI. Trabajo en frío, sin chispas ni abrasivos.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
+        <path d="M6 8h10a4 4 0 010 8H6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+        <path d="M6 5v6M3 8h6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+        <path d="M22 10l3 2-3 2M22 14l3 4M22 10l3-2" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" opacity="0.6"/>
+      </svg>
+    ),
+  },
 ];
 
 export default function ServicesSection() {

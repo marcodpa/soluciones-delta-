@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { gsap } from "gsap";
@@ -14,11 +14,66 @@ const highlights = [
   { stat: "24/7", label: "Operación continua" },
 ];
 
+const slides = [
+  {
+    src: "/vacuum/vacuum-truck-howo-pdvsa.webp",
+    caption: "Unidad Vacuum 160 Bbl en operación — Locación PDVSA",
+  },
+  {
+    src: "/frac-tanks/bateria-frac-tanks.webp",
+    caption: "Frac Tank — Almacenamiento de fluidos en campo para operaciones de fracturamiento hidráulico y manejo de residuos",
+  },
+  {
+    src: "/vapor/caldera-otsg-semirremolque.webp",
+    caption: "Generador de Vapor OTSG — Estimulación térmica de pozos y recuperación de crudo",
+  },
+  {
+    src: "/hidrojet/unidad-hidrojet-campo.png",
+    caption: "Unidad Hydrojet 20.000 / 40.000 PSI — Limpieza industrial y preparación de superficies",
+  },
+  {
+    src: "/bombeo/equipo-principal.webp",
+    caption: "Sistema de bombeo hidráulico — Extracción de crudo pesado hasta 1,500 Bbl/día",
+  },
+];
+
+const GAP_PCT = 1; // margin at each side of a slide, in % of container width
+
 export default function AboutSection() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const headerRef  = useRef<HTMLDivElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const statsRef   = useRef<HTMLDivElement>(null);
+  const sectionRef  = useRef<HTMLElement>(null);
+  const headerRef   = useRef<HTMLDivElement>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const statsRef    = useRef<HTMLDivElement>(null);
+
+  const [index, setIndex] = useState(1);
+  const [containerW, setContainerW] = useState(0);
+  const [slidePct, setSlidePct] = useState(58);
+
+  const measure = useCallback(() => {
+    const w = carouselRef.current?.offsetWidth ?? 0;
+    setContainerW(w);
+    setSlidePct(w > 0 && w < 768 ? 86 : 58);
+  }, []);
+
+  useEffect(() => {
+    measure();
+    window.addEventListener("resize", measure);
+    const ro = new ResizeObserver(measure);
+    if (carouselRef.current) ro.observe(carouselRef.current);
+    return () => {
+      window.removeEventListener("resize", measure);
+      ro.disconnect();
+    };
+  }, [measure]);
+
+  const prev = useCallback(() => setIndex(i => (i - 1 + slides.length) % slides.length), []);
+  const next = useCallback(() => setIndex(i => (i + 1) % slides.length), []);
+
+  // Auto-advance
+  useEffect(() => {
+    const t = setTimeout(next, 7000);
+    return () => clearTimeout(t);
+  }, [index, next]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -28,12 +83,12 @@ export default function AboutSection() {
           { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.1 }),
       });
       ScrollTrigger.create({
-        trigger: contentRef.current, start: "top 90%", once: true,
-        onEnter: () => gsap.fromTo(contentRef.current?.children as unknown as Element[],
-          { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.12 }),
+        trigger: carouselRef.current, start: "top 90%", once: true,
+        onEnter: () => gsap.fromTo(carouselRef.current,
+          { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }),
       });
       ScrollTrigger.create({
-        trigger: statsRef.current, start: "top 90%", once: true,
+        trigger: statsRef.current, start: "top 92%", once: true,
         onEnter: () => gsap.fromTo(statsRef.current?.children as unknown as Element[],
           { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.08 }),
       });
@@ -41,105 +96,138 @@ export default function AboutSection() {
     return () => ctx.revert();
   }, []);
 
+  const step = slidePct + GAP_PCT * 2;                       // outer width of one slide, % of container
+  const offsetPx = containerW * ((100 - step) / 2 - index * step) / 100;
+
   return (
     <section
       id="nosotros"
       ref={sectionRef}
-      className="py-32 relative overflow-hidden"
-      style={{ background: "#ffffff" }}
+      className="pt-28 pb-24 relative overflow-hidden"
+      style={{ background: "linear-gradient(180deg, #eef1f0 0%, #ffffff 42%)" }}
     >
       {/* Subtle top green line */}
       <div className="absolute top-0 inset-x-0 h-px pointer-events-none"
         style={{ background: "linear-gradient(90deg,transparent,rgba(26,140,60,0.15),transparent)" }} />
 
+      {/* ── HEADER (centered) ── */}
       <div className="site-container relative">
-
-        {/* Header */}
-        <div ref={headerRef} className="mb-16">
+        <div ref={headerRef} className="text-center max-w-3xl mx-auto mb-14">
           <div className="section-label mb-4">Quiénes Somos</div>
-          <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight text-[#1d1d1f] leading-tight max-w-2xl">
+          <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight text-[#1d1d1f] leading-[1.08] mb-6">
             Expertos en el{" "}
             <span style={{ background: "linear-gradient(135deg,#30d158 0%,#1a8c3c 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-              sector petrolero venezolano.
-            </span>
+              sector petrolero
+            </span>{" "}
+            venezolano.
           </h2>
+          <p className="text-[16px] leading-relaxed mx-auto" style={{ color: "#6e6e73" }}>
+            <strong className="text-[#1d1d1f]">Soluciones Delta, C.A.</strong> es una empresa venezolana especializada en
+            servicios técnicos para la industria petrolera, con sede en San Francisco, Estado Zulia.
+            Nuestra filosofía: llegar al campo con soluciones, no con excusas. Bombeo, vacuum, almacenamiento,
+            manejo de residuos, inyección de vapor y limpieza hydrojet — un solo proveedor para toda la cadena.
+          </p>
         </div>
+      </div>
 
-        {/* Main 2-col layout */}
-        <div ref={contentRef} className="grid lg:grid-cols-2 gap-14 items-center mb-16">
-
-          {/* Left — text */}
-          <div className="space-y-5">
-            <p className="text-[17px] leading-relaxed text-[#3a3a3c]">
-              <strong className="text-[#1d1d1f]">Soluciones Delta, C.A.</strong> es una empresa venezolana especializada en servicios técnicos para la industria petrolera, con sede en San Francisco, Estado Zulia.
-            </p>
-            <p className="text-[15px] leading-relaxed" style={{ color: "#6e6e73" }}>
-              Nuestra filosofía: llegar al campo con soluciones, no con excusas. Bombeo, vacuum, almacenamiento, manejo de residuos e inyección de vapor — un solo proveedor para toda la cadena.
-            </p>
-            <div className="flex flex-wrap gap-3 pt-2">
-              <Link href="/nosotros" className="btn-primary">
-                Conocer más
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </Link>
-              <Link href="/contacto"
-                className="flex items-center gap-2 px-6 py-3.5 rounded-full text-[15px] font-semibold text-[#1d1d1f]"
-                style={{ background: "rgba(0,0,0,0.04)", border: "1.5px solid rgba(0,0,0,0.10)" }}
+      {/* ── CAROUSEL (full-bleed) ── */}
+      <div ref={carouselRef} className="relative w-full overflow-hidden mb-6">
+        <div
+          className="flex items-center"
+          style={{
+            transform: `translateX(${offsetPx}px)`,
+            transition: "transform 650ms cubic-bezier(0.32, 0.72, 0.28, 1)",
+          }}
+        >
+          {slides.map((s, i) => {
+            const active = i === index;
+            return (
+              <div
+                key={i}
+                className="relative flex-shrink-0 rounded-3xl overflow-hidden"
+                style={{
+                  width: `${slidePct}%`,
+                  margin: `0 ${GAP_PCT}%`,
+                  aspectRatio: "16 / 9.5",
+                  transform: active ? "scale(1)" : "scale(0.92)",
+                  opacity: active ? 1 : 0.55,
+                  transition: "transform 650ms cubic-bezier(0.32,0.72,0.28,1), opacity 650ms ease",
+                  boxShadow: active ? "0 24px 60px rgba(0,0,0,0.18)" : "0 8px 24px rgba(0,0,0,0.08)",
+                }}
               >
-                Contacto
-              </Link>
-            </div>
-          </div>
+                <Image
+                  src={s.src}
+                  alt={s.caption}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 86vw, 58vw"
+                  priority={i === index}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
-          {/* Right — photo collage */}
-          <div className="grid grid-cols-2 gap-3">
-            <div className="relative rounded-2xl overflow-hidden row-span-2" style={{ minHeight: 300 }}>
-              <Image
-                src="/vacuum/vacuum-truck-howo-pdvsa.webp"
-                alt="Vacuum truck en operación — Locación PDVSA"
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 50vw, 25vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-              <div className="absolute bottom-3 left-3 right-3">
-                <span className="text-[11px] font-semibold text-white/80">Vacuum — Locación PDVSA</span>
+                {/* Caption */}
+                <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-7">
+                  <p
+                    className="text-[13px] sm:text-[16px] font-bold text-white leading-snug max-w-2xl"
+                    style={{ opacity: active ? 1 : 0, transition: "opacity 400ms ease 250ms", textShadow: "0 2px 12px rgba(0,0,0,0.5)" }}
+                  >
+                    {s.caption}
+                  </p>
+                </div>
+
+                {/* Arrows — only on active slide */}
+                {active && (
+                  <>
+                    <button
+                      onClick={prev}
+                      aria-label="Anterior"
+                      className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition-transform duration-200 hover:scale-110 active:scale-95"
+                      style={{ background: "#1a8c3c", boxShadow: "0 4px 16px rgba(0,0,0,0.3)" }}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M10 3L5 8l5 5" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </button>
+                    <button
+                      onClick={next}
+                      aria-label="Siguiente"
+                      className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition-transform duration-200 hover:scale-110 active:scale-95"
+                      style={{ background: "#1a8c3c", boxShadow: "0 4px 16px rgba(0,0,0,0.3)" }}
+                    >
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M6 3l5 5-5 5" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </button>
+                  </>
+                )}
               </div>
-            </div>
-            <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 145 }}>
-              <Image
-                src="/frac-tanks/frac-tank-nuevo.webp"
-                alt="Frac Tank — Soluciones Delta"
-                fill
-                className="object-cover"
-                sizes="25vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-              <div className="absolute bottom-2.5 left-3">
-                <span className="text-[10px] font-semibold text-white/80">Frac Tank</span>
-              </div>
-            </div>
-            <div className="relative rounded-2xl overflow-hidden" style={{ minHeight: 145 }}>
-              <Image
-                src="/vapor/caldera-otsg-semirremolque.webp"
-                alt="Generador de Vapor OTSG"
-                fill
-                className="object-cover"
-                sizes="25vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-              <div className="absolute bottom-2.5 left-3">
-                <span className="text-[10px] font-semibold text-white/80">Generador de Vapor</span>
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
 
-        {/* Stats bar */}
+        {/* Dots */}
+        <div className="flex items-center justify-center gap-2 mt-6">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              aria-label={`Ir a la imagen ${i + 1}`}
+              className="rounded-full transition-all duration-300"
+              style={{
+                width: i === index ? 22 : 8,
+                height: 8,
+                background: i === index ? "#1a8c3c" : "#d3d8d4",
+              }}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* ── STATS + CTA ── */}
+      <div className="site-container relative">
         <div
           ref={statsRef}
-          className="grid grid-cols-3 rounded-2xl overflow-hidden"
+          className="grid grid-cols-3 rounded-2xl overflow-hidden mt-10"
           style={{ border: "1px solid #e5e5ea" }}
         >
           {highlights.map((h, i) => (
@@ -157,6 +245,14 @@ export default function AboutSection() {
           ))}
         </div>
 
+        <div className="flex justify-center mt-10">
+          <Link href="/nosotros" className="btn-primary">
+            Conocer más sobre nosotros
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </Link>
+        </div>
       </div>
     </section>
   );

@@ -8,6 +8,7 @@ const SERVICE_SLUGS = [
   "frac-tanks",
   "manejo-de-desechos",
   "alquiler-calderas-inyeccion-vapor",
+  "limpieza-industrial-hidrojet",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

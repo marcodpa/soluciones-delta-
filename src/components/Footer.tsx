@@ -9,6 +9,7 @@ const services = [
   { label: "Frac Tanks 500 Bbl",      slug: "frac-tanks" },
   { label: "Manejo de Desechos",      slug: "manejo-de-desechos" },
   { label: "Inyección de Vapor",      slug: "alquiler-calderas-inyeccion-vapor" },
+  { label: "Limpieza Hydrojet UHP",   slug: "limpieza-industrial-hidrojet" },
 ];
 
 const navLinks = [

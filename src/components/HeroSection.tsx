@@ -298,7 +298,7 @@ export default function HeroSection() {
                 Servicios<br />petroleros.
               </h1>
               <p className="text-[18px] text-white/70 max-w-lg leading-relaxed">
-                Bombeo de crudo, trasegado con vacuum, Frac Tanks 500 Bbl e inyección de vapor para la industria petrolera venezolana.
+                Bombeo de crudo, trasegado con vacuum, Frac Tanks 500 Bbl, inyección de vapor y limpieza hydrojet para la industria petrolera venezolana.
               </p>
             </div>
 

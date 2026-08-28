@@ -58,6 +58,17 @@ const SEO_META: Record<string, { title: string; description: string; keywords: s
       "alquiler caldera inyección vapor Zulia",
     ],
   },
+  "limpieza-industrial-hidrojet": {
+    title: "Limpieza Industrial Hydrojet 40.000 PSI en Zulia | Soluciones Delta",
+    description:
+      "Servicio de limpieza industrial con hydrojet de 20.000 y 40.000 PSI en el Estado Zulia: intercambiadores de calor, destape de líneas, preparación de superficies y espacios confinados. Trabajo en frío sin chispas, cuadrilla HSE certificada, operación 24/7.",
+    keywords: [
+      "limpieza industrial hydrojet Zulia", "hydroblasting Venezuela",
+      "agua ultra alta presión 40000 psi", "limpieza intercambiadores de calor Maracaibo",
+      "hidrojet industrial Venezuela", "preparación superficies sin abrasivos",
+      "destape de líneas coque asfaltenos", "limpieza UHP refinería Zulia",
+    ],
+  },
 };
 
 export async function generateStaticParams() {

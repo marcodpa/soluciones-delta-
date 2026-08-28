@@ -125,11 +125,23 @@ export default function JsonLd() {
             areaServed: "Venezuela",
           },
         },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Limpieza Industrial Hydrojet",
+            description:
+              "Limpieza industrial y preparación de superficies con agua a ultra alta presión (hydroblasting) de 20.000 y 40.000 PSI: intercambiadores de calor, destape de líneas, remoción de coque y asfaltenos, preparación de superficies sin abrasivos y limpieza de espacios confinados.",
+            serviceType: "Limpieza Industrial UHP",
+            provider: { "@id": `${BASE_URL}/#organization` },
+            areaServed: "Venezuela",
+          },
+        },
       ],
     },
     sameAs: [],
     keywords:
-      "bombeo crudo pesado, vacuum truck Venezuela, frac tanks, manejo desechos industriales, trasegado vacuum Zulia",
+      "bombeo crudo pesado, vacuum truck Venezuela, frac tanks, manejo desechos industriales, trasegado vacuum Zulia, limpieza industrial hydrojet, hydroblasting Venezuela",
   };
 
   const breadcrumb = {
