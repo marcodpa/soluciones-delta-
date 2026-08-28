@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
   },
   compress: true,
   poweredByHeader: false,
-  outputFileTracingRoot: path.resolve(__dirname, '../../'),
+  outputFileTracingRoot: path.resolve(__dirname),
   typescript: { ignoreBuildErrors: true },
   eslint: { ignoreDuringBuilds: true },
   turbopack: {
