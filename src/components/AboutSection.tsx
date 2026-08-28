@@ -52,7 +52,7 @@ export default function AboutSection() {
   const measure = useCallback(() => {
     const w = carouselRef.current?.offsetWidth ?? 0;
     setContainerW(w);
-    setSlidePct(w > 0 && w < 768 ? 86 : 58);
+    setSlidePct(w > 0 && w < 768 ? 78 : 44);
   }, []);
 
   useEffect(() => {
@@ -148,7 +148,7 @@ export default function AboutSection() {
                 style={{
                   width: `${slidePct}%`,
                   margin: `0 ${GAP_PCT}%`,
-                  aspectRatio: "16 / 9.5",
+                  aspectRatio: "16 / 9",
                   transform: active ? "scale(1)" : "scale(0.92)",
                   opacity: active ? 1 : 0.55,
                   transition: "transform 650ms cubic-bezier(0.32,0.72,0.28,1), opacity 650ms ease",
