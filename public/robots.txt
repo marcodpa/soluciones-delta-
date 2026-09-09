@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://soluciones-delta.com/sitemap.xml

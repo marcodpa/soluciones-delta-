@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { ServiceData } from "@/lib/services-data";
+import type { RelatedService } from "@/lib/related-services";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -25,6 +26,7 @@ const SERVICE_IMAGES: Record<string, string> = {
   "manejo-de-desechos": "/vacuum/vacuum-truck-howo-pdvsa.webp",
   "alquiler-calderas-inyeccion-vapor": "/vapor/caldera-otsg-semirremolque.webp",
   "limpieza-industrial-hidrojet": "/hidrojet/unidad-hidrojet-campo.png",
+  "recuperacion-de-crudo-en-fosas": "/fosas/fosa-1-despues.jpg",
 };
 
 const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
@@ -46,9 +48,15 @@ const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
   "limpieza-industrial-hidrojet": [
     { src: "/hidrojet/unidad-hidrojet-equipo.png", caption: "Unidad Hydrojet — Alta y Ultra Alta Presión" },
   ],
+  "recuperacion-de-crudo-en-fosas": [
+    { src: "/fosas/fosa-1-antes.jpg",   caption: "ANTES — Fosa petrolizada con crudo solidificado" },
+    { src: "/fosas/fosa-1-despues.jpg", caption: "DESPUÉS — Crudo recuperado y fosa en saneamiento" },
+    { src: "/fosas/fosa-2-antes.jpg",   caption: "ANTES — Laguna de crudo a cielo abierto" },
+    { src: "/fosas/fosa-2-despues.jpg", caption: "DESPUÉS — Fosa vaciada con frac tanks y generador de vapor en sitio" },
+  ],
 };
 
-export default function ServicePageClient({ service }: { service: ServiceData }) {
+export default function ServicePageClient({ service, relatedServices }: { service: ServiceData; relatedServices: RelatedService[] }) {
   const router = useRouter();
   const heroRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
@@ -100,7 +108,7 @@ export default function ServicePageClient({ service }: { service: ServiceData })
 
         {/* ── HERO ── */}
         <section
-          className="pt-28 pb-16 relative overflow-hidden"
+          className="pt-36 lg:pt-28 pb-16 relative overflow-hidden"
           style={{ background: "linear-gradient(135deg, #020804 0%, #050e06 55%, #061008 100%)" }}
         >
           <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 55% 65% at 0% 55%, rgba(26,140,60,0.38) 0%, transparent 60%)" }} />
@@ -110,7 +118,7 @@ export default function ServicePageClient({ service }: { service: ServiceData })
           <div className="site-container">
             <div ref={heroRef}>
               {/* Breadcrumb */}
-              <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-white/40 mb-8">
+              <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-[13px] text-white/60 mb-8">
                 <Link href="/" className="hover:text-[#30d158] transition-colors">Inicio</Link>
                 <span>/</span>
                 <Link href="/servicios" className="hover:text-[#30d158] transition-colors">Servicios</Link>
@@ -126,7 +134,7 @@ export default function ServicePageClient({ service }: { service: ServiceData })
                     <span className="text-[11px] font-bold text-[#30d158] tracking-widest uppercase">{service.tag}</span>
                   </div>
                   <h1 className="text-[clamp(36px,5vw,64px)] font-bold tracking-tight leading-[1.06] text-white mb-4">
-                    {service.title}
+                    {service.heading ?? service.title}
                   </h1>
                   <p className="text-[18px] text-[#30d158] font-semibold mb-4">{service.subtitle}</p>
                   <p className="text-[17px] text-white/55 leading-relaxed mb-8 max-w-lg">{service.summary}</p>
@@ -177,6 +185,11 @@ export default function ServicePageClient({ service }: { service: ServiceData })
             <div className="max-w-3xl">
               <h2 className="section-label mb-3">Descripción General</h2>
               <p className="text-[18px] text-[#3a3a3c] leading-relaxed">{service.overview}</p>
+              <p className="mt-5 text-[16px] text-[#6e6e73] leading-relaxed">
+                Atendemos solicitudes para operaciones en Venezuela desde San Francisco, Estado Zulia.
+                La movilización, disponibilidad y alcance del servicio se coordinan según la ubicación
+                y las condiciones del proyecto. <Link href="/contacto" className="text-[#1a8c3c] underline underline-offset-4">Consulte su operación con nuestro equipo.</Link>
+              </p>
             </div>
           </div>
 
@@ -301,6 +314,23 @@ export default function ServicePageClient({ service }: { service: ServiceData })
               ))}
             </div>
           </div>
+
+          <section id="servicios-complementarios" aria-labelledby="related-services-title">
+            <h2 id="related-services-title" className="text-2xl font-semibold text-[#1d1d1f] mb-4">Servicios que complementan esta operación</h2>
+            <p className="text-base text-[#555e58] leading-relaxed max-w-3xl mb-7">
+              Defina con nuestro equipo qué etapas necesita integrar. Puede consultar también nuestra
+              <Link href="/" className="text-[#167734] underline underline-offset-4"> oferta de servicios petroleros en Venezuela</Link>.
+            </p>
+            <div className="grid md:grid-cols-3 gap-5">
+              {relatedServices.map(related => (
+                <Link key={related.slug} href={`/servicios/${related.slug}`} className="block rounded-2xl border border-[#dce3dd] p-6 hover:border-[#167734] transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#167734]">
+                  <h3 className="text-lg font-semibold text-[#1d1d1f] mb-3">{related.title}</h3>
+                  <p className="text-base text-[#555e58] leading-relaxed">{related.description}</p>
+                  <span className="inline-block text-[#167734] font-medium mt-5" aria-hidden="true">Ver servicio ↗</span>
+                </Link>
+              ))}
+            </div>
+          </section>
 
           {/* ── CTA ── */}
           <div

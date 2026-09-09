@@ -1,179 +1,61 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import Link from "next/link";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowUpRight, Workflow, ScanLine, FileCheck2 } from "lucide-react";
+import styles from "./HomeStrengths.module.css";
 
-gsap.registerPlugin(ScrollTrigger);
-
-const pillars = [
+const benefits = [
   {
     number: "01",
-    title: "Equipamiento propio",
-    body: "Flota de unidades vacuum fabricadas en 2026 con acero A36. El equipo que llega es el nuestro.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
-        <rect x="2" y="7" width="18" height="9" rx="2" stroke="#1a8c3c" strokeWidth="1.5"/>
-        <circle cx="6" cy="18" r="2" stroke="#1a8c3c" strokeWidth="1.5"/>
-        <circle cx="16" cy="18" r="2" stroke="#1a8c3c" strokeWidth="1.5"/>
-        <path d="M6 7V5h10v2" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
+    title: "Menos coordinación.\nMás control.",
+    body: "Centralice los servicios de campo con un solo proveedor. Una coordinación directa para organizar equipos, personal y etapas del trabajo.",
+    detail: "UN SOLO INTERLOCUTOR",
+    icon: Workflow,
   },
   {
     number: "02",
-    title: "Operación 24 / 7",
-    body: "Disponibles en todo momento para emergencias y operaciones continuas. Movilización en menos de 4 horas en el Estado Zulia.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
-        <circle cx="11" cy="11" r="8.5" stroke="#1a8c3c" strokeWidth="1.5"/>
-        <path d="M11 6v5l3 3" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    title: "Criterio técnico\nen cada decisión.",
+    body: "El servicio se define según el fluido, el equipo y las condiciones del sitio. Una respuesta ajustada a lo que su operación necesita.",
+    detail: "SOLUCIONES SEGÚN LA OPERACIÓN",
+    icon: ScanLine,
   },
   {
     number: "03",
-    title: "Cumplimiento normativo",
-    body: "Operamos bajo el Decreto 2635, normas PDVSA-COVENIN y protocolos HSE vigentes. Documentación completa en cada servicio.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
-        <path d="M11 2L3 6v4.5c0 4.9 3.4 9.5 8 10.5 4.6-1 8-5.6 8-10.5V6L11 2z" stroke="#1a8c3c" strokeWidth="1.5" strokeLinejoin="round"/>
-        <path d="M8 11l2 2 4-4" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
+    title: "Visibilidad de\nprincipio a fin.",
+    body: "Registros y documentación para dar seguimiento al servicio. Información que facilita la supervisión del trabajo y su cierre.",
+    detail: "SEGUIMIENTO Y DOCUMENTACIÓN",
+    icon: FileCheck2,
   },
-  {
-    number: "04",
-    title: "Solución integral",
-    body: "Desde la extracción del crudo hasta la disposición final de los residuos. Un solo proveedor para toda la cadena de operaciones.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 22 22" fill="none">
-        <path d="M4 4v5h.5M18 13v5h-.5M4.5 9A7.5 7.5 0 0112 4.5M17.5 13A7.5 7.5 0 0110 17.5" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M4 9h3M18 13h-3" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round"/>
-      </svg>
-    ),
-  },
-];
-
-const stats = [
-  { value: "6+",   suffix: "",    label: "Servicios especializados" },
-  { value: "160",  suffix: "Bbl", label: "Capacidad vacuum" },
-  { value: "500",  suffix: "Bbl", label: "Frac Tanks disponibles" },
-  { value: "24/7", suffix: "",    label: "Operación continua" },
 ];
 
 export default function HomeTrustSection() {
-  const sectionRef  = useRef<HTMLElement>(null);
-  const headerRef   = useRef<HTMLDivElement>(null);
-  const statsRef    = useRef<HTMLDivElement>(null);
-  const pillarsRef  = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: headerRef.current, start: "top 88%", once: true,
-        onEnter: () => gsap.fromTo(headerRef.current?.children as unknown as Element[],
-          { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.1 }),
-      });
-      ScrollTrigger.create({
-        trigger: statsRef.current, start: "top 88%", once: true,
-        onEnter: () => gsap.fromTo(statsRef.current?.children as unknown as Element[],
-          { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.08 }),
-      });
-      ScrollTrigger.create({
-        trigger: pillarsRef.current, start: "top 88%", once: true,
-        onEnter: () => gsap.fromTo(pillarsRef.current?.children as unknown as Element[],
-          { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.1 }),
-      });
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
-
   return (
-    <section ref={sectionRef} className="py-32 relative overflow-hidden" style={{ background: "#f5f5f7" }}>
-
-      {/* Top separator */}
-      <div className="absolute top-0 inset-x-0 h-px"
-        style={{ background: "linear-gradient(90deg,transparent,rgba(0,0,0,0.08),transparent)" }} />
-
-      {/* Subtle mesh */}
-      <div className="absolute inset-0 pointer-events-none"
-        style={{ background: "radial-gradient(ellipse 60% 50% at 100% 0%, rgba(26,140,60,0.05) 0%, transparent 60%)" }} />
-
+    <section id="por-que-elegirnos" aria-labelledby="trust-title" className={styles.trust}>
       <div className="site-container">
-
-        {/* Header */}
-        <div ref={headerRef} className="max-w-3xl mb-16">
-          <div className="section-label mb-4">Por qué elegirnos</div>
-          <h2 className="text-[clamp(32px,4.5vw,56px)] font-bold tracking-tight text-[#1d1d1f] leading-tight mb-5">
-            Empresa propia, equipos propios,{" "}
-            <span className="text-gradient">resultados garantizados.</span>
-          </h2>
-        </div>
-
-        {/* Stats bar */}
-        <div ref={statsRef}
-          className="grid grid-cols-2 lg:grid-cols-4 rounded-2xl overflow-hidden mb-16"
-          style={{ border: "1.5px solid rgba(0,0,0,0.06)", boxShadow: "0 2px 16px rgba(0,0,0,0.04)" }}>
-          {stats.map((s, i) => (
-            <div key={i}
-              className="flex flex-col items-center justify-center py-8 px-6 text-center"
-              style={{
-                borderRight: i < stats.length - 1 ? "1px solid rgba(0,0,0,0.06)" : "none",
-                background: i % 2 === 0 ? "#ffffff" : "#fafafa",
-              }}>
-              <div className="flex items-end gap-1 mb-2">
-                <span className="text-[clamp(28px,4vw,44px)] font-bold text-[#1d1d1f] leading-none">{s.value}</span>
-                {s.suffix && <span className="text-[#1a8c3c] font-bold text-base mb-0.5">{s.suffix}</span>}
+        <header className={styles.trustHeader}>
+          <div>
+            <span className={styles.eyebrow}>EL VALOR PARA SU OPERACIÓN</span>
+            <h2 id="trust-title" className={styles.title}>¿Por qué elegirnos<span>?</span></h2>
+          </div>
+          <p className={styles.intro}>Una relación de trabajo que conecta la capacidad técnica con las prioridades de su operación.</p>
+        </header>
+        <div className={styles.benefitGrid}>
+          {benefits.map(({ number, title, body, detail, icon: Icon }) => (
+            <article key={number} className={styles.benefit}>
+              <div className={styles.benefitTop}>
+                <span className={styles.number} aria-hidden="true">{number}</span>
+                <Icon size={29} strokeWidth={1.35} aria-hidden="true" />
               </div>
-              <div className="text-[11px] text-[#6e6e73] font-medium tracking-wide uppercase">{s.label}</div>
-            </div>
+              <h3>{title}</h3>
+              <p>{body}</p>
+              <span className={styles.detail}>{detail}</span>
+            </article>
           ))}
         </div>
-
-        {/* Pillars grid */}
-        <div ref={pillarsRef} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-14">
-          {pillars.map((p, i) => (
-            <div key={i}
-              className="group p-6 rounded-2xl flex flex-col gap-4 transition-all duration-300"
-              style={{ background: "#ffffff", border: "1.5px solid #e8e8ed", boxShadow: "0 1px 8px rgba(0,0,0,0.03)" }}
-              onMouseEnter={e => {
-                const el = e.currentTarget as HTMLDivElement;
-                el.style.borderColor = "rgba(26,140,60,0.3)";
-                el.style.boxShadow = "0 8px 28px rgba(26,140,60,0.09)";
-                el.style.transform = "translateY(-2px)";
-              }}
-              onMouseLeave={e => {
-                const el = e.currentTarget as HTMLDivElement;
-                el.style.borderColor = "#e8e8ed";
-                el.style.boxShadow = "0 1px 8px rgba(0,0,0,0.03)";
-                el.style.transform = "translateY(0)";
-              }}>
-              <div className="flex items-start justify-between">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: "rgba(26,140,60,0.07)", border: "1px solid rgba(26,140,60,0.13)" }}>
-                  {p.icon}
-                </div>
-                <span className="text-[11px] font-bold text-[#d4d4d8] tracking-widest">{p.number}</span>
-              </div>
-              <h3 className="text-[14px] font-bold text-[#1d1d1f] leading-snug">{p.title}</h3>
-              <p className="text-[12.5px] text-[#6e6e73] leading-relaxed flex-1">{p.body}</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Bottom CTA link */}
-        <div className="text-center">
-          <Link href="/nosotros"
-            className="inline-flex items-center gap-2 text-[13px] font-semibold text-[#1a8c3c] hover:gap-3 transition-all duration-200">
-            Conocer más sobre la empresa
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
+        <div className={styles.trustFooter}>
+          <p>Soluciones Delta, C.A. <span>Respaldo técnico en campo.</span></p>
+          <Link className={styles.aboutLink} href="/nosotros">
+            Conozca cómo trabajamos <ArrowUpRight size={19} aria-hidden="true" />
           </Link>
         </div>
-
       </div>
     </section>
   );

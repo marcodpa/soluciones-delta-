@@ -69,11 +69,11 @@ const services = [
     slug: "alquiler-calderas-inyeccion-vapor",
     tag: "Inyección de Vapor",
     num: "05",
-    title: "Generador de Vapor",
-    subtitle: "OTSG · Estimulación Térmica de Pozos",
+    title: "Inyección de Vapor para Tanques",
+    subtitle: "OTSG · Tanques y Patio de Tanques",
     summary:
-      "Generadores OTSG para Huff & Puff, Steam Flooding y SAGD. 100% automatizados. Alta capacidad para recuperación de crudo en fosas y pozos petroleros.",
-    highlights: ["Huff & Puff · Steam Flooding · SAGD", "100% automatizado", "Pasivos ambientales", "Estado Zulia"],
+      "Generadores OTSG 100% automatizados para calentar tanques de almacenamiento y patios de tanques: menor viscosidad, bombeo y despacho de crudo pesado sin interrupciones.",
+    highlights: ["Tanques · Patio de tanques", "100% automatizado", "Sellos de bomba · Buques", "Estado Zulia"],
     img: "/vapor/caldera-otsg-semirremolque.webp",
     color: "#fef4ee",
   },
@@ -81,13 +81,25 @@ const services = [
     slug: "limpieza-industrial-hidrojet",
     tag: "Hydrojet UHP",
     num: "06",
-    title: "Limpieza Industrial Hydrojet",
+    title: "Limpieza Industrial con Hidrojet",
     subtitle: "Agua a Ultra Alta Presión · 20.000 y 40.000 PSI",
     summary:
       "Hydroblasting con unidades de 20.000 y 40.000 PSI: intercambiadores, destape de líneas, preparación de superficies y espacios confinados. Trabajo en frío sin chispas ni abrasivos.",
     highlights: ["40.000 PSI (2.800 bar)", "Trabajo en frío · sin chispas", "Sin abrasivos", "Cuadrilla HSE"],
     img: "/hidrojet/unidad-hidrojet-campo.png",
     color: "#eef5f8",
+  },
+  {
+    slug: "recuperacion-de-crudo-en-fosas",
+    tag: "Recuperación Térmica",
+    num: "07",
+    title: "Recuperación de Crudo en Fosas",
+    subtitle: "Fosas · Canales · Tanques",
+    summary:
+      "Transferencia controlada de calor a crudos solidificados y lodos petrolizados para reducir su viscosidad, extraerlos, bombearlos y reincorporarlos a la cadena productiva.",
+    highlights: ["1,500 Bbl / día", "Fosas a cielo abierto", "Pasivos ambientales", "Expedientes MPPEA"],
+    img: "/fosas/fosa-1-antes.jpg",
+    color: "#fdf3ee",
   },
 ];
 
@@ -147,13 +159,13 @@ export default function ServiciosClient() {
                 <span className="text-[11px] font-bold tracking-[0.2em] uppercase text-[#30d158]">Catálogo de Servicios</span>
               </div>
               <h1 className="text-[clamp(36px,5vw,64px)] font-bold tracking-tight leading-[1.06] text-white mb-6">
-                Todo lo que su{" "}
+                Servicios para la{" "}
                 <span style={{ background: "linear-gradient(135deg,#30d158 0%,#1a8c3c 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
-                  operación necesita.
+                  industria petrolera.
                 </span>
               </h1>
               <p className="text-[17px] leading-relaxed mb-9 mx-auto max-w-xl" style={{ color: "rgba(255,255,255,0.65)" }}>
-                Seis líneas de servicio especializadas para la industria petrolera venezolana, respaldadas por equipamiento propio y operación continua 24/7.
+                Siete líneas de servicio especializadas para la industria petrolera venezolana, respaldadas por equipamiento propio y operación continua 24/7.
               </p>
               <div className="flex flex-wrap gap-3 justify-center">
                 <Link href="/contacto" className="btn-primary">

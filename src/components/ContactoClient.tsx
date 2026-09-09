@@ -21,8 +21,9 @@ const serviceOptions = [
   "Transporte de Fluidos con Vacuum (160 Bbl)",
   "Suministro de Frac Tanks 500 Bbl",
   "Manejo de Desechos Industriales",
-  "Generador de Vapor / Inyección de Vapor",
+  "Inyección de Vapor para Tanques / Patio de Tanques",
   "Limpieza Industrial Hydrojet (20.000 / 40.000 PSI)",
+  "Recuperación de Crudo en Fosas, Canales o Tanques",
   "Otro / Consulta General",
 ];
 

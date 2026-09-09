@@ -1,5 +1,7 @@
 "use client";
 
+import typography from "./HomeTypography.module.css";
+
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
@@ -51,10 +53,10 @@ export default function HomeCtaSection() {
           <div className="relative">
             <div className="cta-animate flex items-center justify-center gap-2 mb-6">
               <span className="w-2 h-2 rounded-full bg-[#30d158] animate-pulse" />
-              <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-[#30d158]">Disponibles ahora · 24/7</span>
+              <span className={`${typography.eyebrow} text-[#30d158]`}>Disponibles ahora · 24/7</span>
             </div>
 
-            <h2 className="cta-animate text-[clamp(32px,5vw,64px)] font-bold text-white tracking-tight leading-[1.06] mb-5">
+            <h2 className={`${typography.sectionTitle} cta-animate text-white mb-5`}>
               ¿Tiene una operación{" "}
               <span style={{
                 background: "linear-gradient(135deg,#30d158 0%,#1a8c3c 100%)",

@@ -1,11 +1,9 @@
-import type { Metadata } from "next";
 import NosotrosClient from "@/components/NosotrosClient";
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Nosotros — Soluciones Delta, C.A.",
-  description: "Empresa venezolana especializada en servicios técnicos para la industria petrolera. Conoce nuestra historia, valores, equipo y compromisos. RIF J-50735393-1. San Francisco, Estado Zulia.",
-};
+export const metadata = pageMetadata("Empresa de servicios petroleros en Venezuela", "Conozca a Soluciones Delta, empresa de servicios petroleros con sede en San Francisco, Zulia. Equipos, personal técnico y soluciones para operaciones en Venezuela.", "/nosotros");
 
-export default function NosotrosPage() {
-  return <NosotrosClient />;
+export default function Page() {
+  return <><JsonLd breadcrumbs={[{ name: "Inicio", path: "/" }, { name: "Nosotros", path: "/nosotros" }]} /><NosotrosClient /></>;
 }

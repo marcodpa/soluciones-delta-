@@ -1,5 +1,7 @@
 "use client";
 
+import typography from "./HomeTypography.module.css";
+
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
@@ -25,7 +27,11 @@ const slides = [
   },
   {
     src: "/vapor/caldera-otsg-semirremolque.webp",
-    caption: "Generador de Vapor OTSG — Estimulación térmica de pozos y recuperación de crudo",
+    caption: "Generador de Vapor OTSG — Inyección de vapor para tanques y patio de tanques",
+  },
+  {
+    src: "/fosas/fosa-1-despues.jpg",
+    caption: "Recuperación de crudo en fosas — Pasivo ambiental saneado con recuperación térmica",
   },
   {
     src: "/hidrojet/unidad-hidrojet-campo.png",
@@ -113,8 +119,8 @@ export default function AboutSection() {
       {/* ── HEADER (centered) ── */}
       <div className="site-container relative">
         <div ref={headerRef} className="text-center max-w-3xl mx-auto mb-14">
-          <div className="section-label mb-4">Quiénes Somos</div>
-          <h2 className="text-[clamp(32px,4.5vw,58px)] font-bold tracking-tight text-[#1d1d1f] leading-[1.08] mb-6">
+          <div className={`${typography.eyebrow} text-[#1a8c3c] mb-4`}>Quiénes Somos</div>
+          <h2 className={`${typography.sectionTitle} text-[#1d1d1f] mb-6`}>
             Expertos en el{" "}
             <span style={{ background: "linear-gradient(135deg,#30d158 0%,#1a8c3c 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               sector petrolero
@@ -123,9 +129,10 @@ export default function AboutSection() {
           </h2>
           <p className="text-[16px] leading-relaxed mx-auto" style={{ color: "#6e6e73" }}>
             <strong className="text-[#1d1d1f]">Soluciones Delta, C.A.</strong> es una empresa venezolana especializada en
-            servicios técnicos para la industria petrolera, con sede en San Francisco, Estado Zulia.
-            Nuestra filosofía: llegar al campo con soluciones, no con excusas. Bombeo, vacuum, almacenamiento,
-            manejo de residuos, inyección de vapor y limpieza hydrojet — un solo proveedor para toda la cadena.
+            servicios petroleros e industriales, con sede en San Francisco, Estado Zulia.
+            Atendemos solicitudes de proyectos en Venezuela: bombeo de crudo, transporte con vacuum,
+            almacenamiento en Frac Tanks, manejo de desechos, inyección de vapor y limpieza con hydrojet.
+            Coordinamos los equipos y el personal según el alcance y la ubicación de cada operación.
           </p>
         </div>
       </div>

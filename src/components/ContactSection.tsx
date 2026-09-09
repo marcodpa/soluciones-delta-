@@ -12,6 +12,7 @@ const serviceOptions = [
   "Suministro de Frac Tanks",
   "Manejo de Desechos Industriales",
   "Limpieza Industrial Hydrojet (20.000 / 40.000 PSI)",
+  "Recuperación de Crudo en Fosas, Canales o Tanques",
   "Otro / Consulta General",
 ];
 

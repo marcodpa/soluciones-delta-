@@ -1,5 +1,7 @@
 "use client";
 
+import typography from "./HomeTypography.module.css";
+
 import { useEffect, useRef } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
@@ -70,8 +72,8 @@ const services = [
     slug: "alquiler-calderas-inyeccion-vapor",
     num: "05",
     tag: "Vapor",
-    title: "Inyección de Vapor",
-    tagline: "Generador OTSG. Huff & Puff, SAGD, Steam Flooding.",
+    title: "Inyección de Vapor para Tanques",
+    tagline: "Generador OTSG. Calentamiento de tanques y patio de tanques.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
         <path d="M14 4C10 4 7 7 7 11c0 2.8 1.3 5.2 3.3 6.7V20h7.4v-2.3c2-1.5 3.3-3.9 3.3-6.7 0-4-3-7-7-7z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/>
@@ -84,13 +86,26 @@ const services = [
     slug: "limpieza-industrial-hidrojet",
     num: "06",
     tag: "Hydrojet",
-    title: "Limpieza Industrial Hydrojet",
+    title: "Limpieza Industrial con Hidrojet",
     tagline: "20.000 y 40.000 PSI. Trabajo en frío, sin chispas ni abrasivos.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
         <path d="M6 8h10a4 4 0 010 8H6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
         <path d="M6 5v6M3 8h6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
         <path d="M22 10l3 2-3 2M22 14l3 4M22 10l3-2" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" opacity="0.6"/>
+      </svg>
+    ),
+  },
+  {
+    slug: "recuperacion-de-crudo-en-fosas",
+    num: "07",
+    tag: "Recuperación",
+    title: "Recuperación de Crudo en Fosas",
+    tagline: "Recuperación térmica en fosas, canales y tanques. 1,500 Bbl/día.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
+        <path d="M4 11h20M6 11v7a8 8 0 0016 0v-7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M10 4c0 2-2 2-2 4M14 4c0 2-2 2-2 4M18 4c0 2-2 2-2 4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" opacity="0.6"/>
       </svg>
     ),
   },
@@ -165,13 +180,13 @@ export default function ServicesSection() {
         <div ref={headerRef} className="mb-14 max-w-lg">
           <div className="flex items-center gap-2 mb-5">
             <div className="w-6 h-px" style={{ background: "#1a8c3c" }} />
-            <span className="text-[10px] font-bold tracking-[3px] uppercase" style={{ color: "#30d158" }}>
+            <span className={typography.eyebrow} style={{ color: "#30d158" }}>
               Lo que hacemos
             </span>
           </div>
           <h2
             id="servicios-heading"
-            className="text-[clamp(36px,5vw,62px)] font-bold tracking-tight leading-[1.05] text-white"
+            className={`${typography.sectionTitle} text-white`}
           >
             Nuestros<br />
             <span style={{ color: "#30d158" }}>Servicios.</span>
@@ -258,7 +273,7 @@ function ServiceRow({ s }: { s: typeof services[number] }) {
       {/* Text */}
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-3 mb-1">
-          <h3 className="text-[15px] font-bold text-white group-hover:text-[#30d158] transition-colors duration-200 leading-snug">
+          <h3 className="text-[17px] font-semibold text-white group-hover:text-[#30d158] transition-colors duration-200 leading-snug">
             {s.title}
           </h3>
           <span
@@ -268,7 +283,7 @@ function ServiceRow({ s }: { s: typeof services[number] }) {
             {s.tag}
           </span>
         </div>
-        <p className="text-[12.5px] leading-relaxed" style={{ color: "rgba(255,255,255,0.42)" }}>
+        <p className="text-[14px] leading-relaxed" style={{ color: "rgba(255,255,255,0.42)" }}>
           {s.tagline}
         </p>
       </div>

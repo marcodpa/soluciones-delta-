@@ -39,7 +39,7 @@ export default async function Image() {
             <polygon points="20,2 38,34 2,34" fill="none" stroke="#30d158" strokeWidth="2.5" strokeLinejoin="round"/>
             <polygon points="20,10 32,30 8,30" fill="rgba(48,209,88,0.2)"/>
           </svg>
-          <div style={{ marginLeft: "16px" }}>
+          <div style={{ display: "flex", flexDirection: "column", marginLeft: "16px" }}>
             <div style={{ color: "#ffffff", fontSize: "28px", fontWeight: 700, letterSpacing: "-0.5px" }}>
               Soluciones Delta, C.A.
             </div>

@@ -1,0 +1,15 @@
+.git
+.next
+node_modules
+.claude
+.codex
+.env*
+*.pem
+*.tsbuildinfo
+coverage
+out
+build
+*-debug.log*
+
+.next-seo
+output/seo

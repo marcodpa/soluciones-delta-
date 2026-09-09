@@ -2,6 +2,7 @@ export interface ServiceData {
   slug: string;
   tag: string;
   title: string;
+  heading?: string;
   subtitle: string;
   summary: string;
   heroColor: string;
@@ -526,38 +527,50 @@ export const SERVICES: ServiceData[] = [
   {
     slug: "alquiler-calderas-inyeccion-vapor",
     tag: "Inyección de Vapor",
-    title: "Generador De Vapor",
-    subtitle: "Generación e Inyección de Vapor para Pozos y Fosas",
+    title: "Inyección de Vapor para Tanques",
+    heading: "Inyección de vapor para tanques y patio de tanques en Venezuela",
+    subtitle: "Generadores OTSG para calentamiento de tanques y patio de tanques",
     summary:
-      "Servicio especializado de generación e inyección de vapor con generadores de alta capacidad para recuperación de crudo en fosas y pozos petroleros. 100% automatizados.",
+      "Generación e inyección de vapor para el calentamiento de tanques de almacenamiento y patios de tanques, con generadores OTSG 100% automatizados. Reducimos la viscosidad del crudo almacenado para facilitar su bombeo, transferencia y despacho. Coordinamos equipo, operación y movilización desde nuestra sede en Zulia.",
     heroColor: "#fef4ee",
     icon: "M12 2a10 10 0 100 20A10 10 0 0012 2z",
     overview:
-      "Contamos con generadores de vapor de alta capacidad en producción, temperatura y presión, diseñados para operación continua en campo petrolero. Nuestros equipos disponen de un 100% de automatización en los procesos de producción de vapor, garantizando mayor seguridad, confiabilidad y un lugar de trabajo más seguro para el personal.",
+      "Soluciones Delta ofrece generación e inyección de vapor con equipos OTSG para tanques y patios de tanques de la industria petrolera. El servicio se configura según la instalación: calentamiento de tanques de almacenamiento, serpentines y líneas de patio, sellos de bombas de carga, e inyección en pozos cuando el proyecto lo requiere. Antes de seleccionar el generador se revisan los requerimientos de producción de vapor, temperatura, presión y condiciones de la locación.",
     sections: [
       {
-        heading: "Aplicaciones del servicio",
-        body: "Nuestros generadores de vapor cubren todas las necesidades de inyección en operaciones petroleras:",
+        heading: "Alcance de la generación e inyección de vapor",
+        body: "La propuesta reúne los recursos necesarios para el trabajo previsto. El alcance se acuerda con el cliente antes de movilizar el equipo:",
         list: [
-          "Inyección de vapor en pozos petroleros para estimulación y recuperación de crudo pesado",
-          "Recuperación de crudo en fosas petrolizadas de pasivos ambientales",
-          "Calentamiento de patio de tanques para reducir viscosidad del crudo almacenado",
-          "Calentamiento de sellos de bomba en operaciones de carga de buques",
-          "Estimulación Huff & Puff (Inyección Cíclica Alterna de Vapor)",
-          "Inyección Continua de Vapor (Steam Flooding)",
-          "SAGD – Drenaje por Gravedad Asistido con Vapor",
+          "Selección del generador según las necesidades del pozo, fosa o instalación",
+          "Definición del tratamiento y suministro de agua de alimentación",
+          "Coordinación del personal de operación y mantenimiento",
+          "Planificación de turnos, duración y logística de movilización",
+          "Integración con bombeo, vacuum o almacenamiento cuando el proyecto lo requiere",
         ],
       },
       {
-        heading: "Recuperación de crudo en fosas — Pasivos ambientales",
-        body: "Las fosas petrolizadas heredadas de operaciones anteriores contienen crudo extrapesado solidificado que no puede movilizarse por métodos convencionales. La inyección de vapor resuelve este problema de forma efectiva y documentada:",
+        heading: "Aplicaciones del servicio",
+        body: "Evaluamos la aplicación del servicio en las siguientes operaciones, según las condiciones técnicas de cada proyecto:",
         list: [
-          "Fluidización del crudo solidificado mediante reducción térmica de viscosidad",
-          "Separación de emulsiones crudo-agua-arena por efecto del calor",
-          "Extracción posterior con bombas de desplazamiento positivo o unidad vacuum",
-          "Capacidad de recuperación demostrada: 1,500 Bbl/día",
-          "Documentación completa del proceso para expedientes ambientales (MPPEA)",
-          "Remediación progresiva hasta el saneamiento total de la fosa",
+          "Calentamiento de tanques de almacenamiento y patio de tanques para reducir la viscosidad del crudo",
+          "Calentamiento de sellos de bomba y líneas de descarga en operaciones de carga de buques",
+          "Inyección de vapor en pozos petroleros para estimulación y recuperación de crudo pesado",
+          "Estimulación Huff & Puff (Inyección Cíclica Alterna de Vapor)",
+          "Inyección Continua de Vapor (Steam Flooding)",
+          "SAGD – Drenaje por Gravedad Asistido con Vapor",
+          "Recuperación térmica de crudo en fosas y canales (ver servicio dedicado)",
+        ],
+      },
+      {
+        heading: "Calentamiento de tanques y patio de tanques",
+        body: "El crudo pesado y extrapesado almacenado pierde fluidez con el tiempo, dificultando el bombeo, la transferencia y el despacho. La inyección de vapor devuelve al producto una viscosidad manejable de forma controlada y documentada:",
+        list: [
+          "Calentamiento de crudo pesado y extrapesado en tanques de almacenamiento",
+          "Mantenimiento de temperatura en patios de tanques, serpentines y líneas de proceso",
+          "Reducción de viscosidad para bombeo, transferencia entre tanques y carga de cisternas",
+          "Prevención de solidificación y formación de borras en el fondo del tanque",
+          "Calentamiento de sellos mecánicos de bombas de carga en muelles y terminales",
+          "Monitoreo de temperatura, presión y consumo de vapor durante toda la operación",
         ],
       },
       {
@@ -589,7 +602,7 @@ export const SERVICES: ServiceData[] = [
       { label: "Automatización", value: "100% automatizado" },
       { label: "Capacidad demostrada", value: "1,500 Bbl/día" },
       { label: "Modalidades", value: "Huff&Puff · Flooding · SAGD" },
-      { label: "Aplicaciones", value: "Pozos · Fosas · Tanques · Buques" },
+      { label: "Aplicaciones", value: "Tanques · Patio · Pozos · Buques" },
       { label: "Campos ejecutados", value: "Estado Zulia" },
       { label: "Tratamiento agua", value: "Suavización + Desgasif." },
       { label: "Disponibilidad", value: "24 horas / 7 días" },
@@ -606,8 +619,8 @@ export const SERVICES: ServiceData[] = [
         icon: "M13 10V3L4 14h7v7l9-11h-7z",
       },
       {
-        title: "Recuperación de pasivos",
-        desc: "Tecnología probada para fluidizar y extraer crudo solidificado de fosas petrolizadas históricas, con documentación ambiental completa.",
+        title: "Crudo listo para despacho",
+        desc: "Calentamiento controlado de tanques y patio de tanques que devuelve al crudo pesado la fluidez necesaria para bombearlo, transferirlo y despacharlo sin interrupciones.",
         icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064",
       },
       {
@@ -618,12 +631,20 @@ export const SERVICES: ServiceData[] = [
     ],
     faq: [
       {
+        q: "¿Cómo cotizar la inyección de vapor o el alquiler de una caldera?",
+        a: "Indique dónde se realizará el trabajo, si se trata de un pozo, fosa o tanque, la aplicación prevista y la duración estimada. Si dispone de requerimientos de caudal de vapor, presión y temperatura, compártalos junto con la disponibilidad de agua y combustible. Con esos datos podemos revisar el equipo y el alcance de la propuesta.",
+      },
+      {
+        q: "¿Atienden solicitudes de inyección de vapor fuera de Zulia?",
+        a: "Sí, recibimos solicitudes de proyectos en Venezuela desde nuestra sede en San Francisco, Zulia. La atención en cada locación depende de la evaluación técnica, los accesos, la disponibilidad del generador y la logística de traslado; estos puntos se confirman en la cotización.",
+      },
+      {
         q: "¿En qué campos petroleros han trabajado?",
         a: "Hemos ejecutado contratos en diversos campos del Estado Zulia, logrando en todos los casos ejecución del 100% con capacidades de recuperación de hasta 1,500 barriles diarios.",
       },
       {
-        q: "¿Cómo funciona la recuperación de crudo en fosas petrolizadas?",
-        a: "Se inyecta vapor directamente en la masa de crudo solidificado mediante lanzas perforadas. El calor reduce la viscosidad, separa el crudo de sólidos y lo hace bombeable. El crudo fluidizado se extrae con bomba de desplazamiento positivo o vacuum. El proceso se documenta con mediciones antes/después para expedientes ambientales.",
+        q: "¿Cómo se calienta un tanque de crudo con vapor?",
+        a: "El vapor generado por la unidad OTSG se inyecta a través de los serpentines del tanque o mediante lanzas de inyección directa, según la instalación. El calor transferido reduce la viscosidad del crudo pesado almacenado hasta hacerlo bombeable, y se mantiene la temperatura objetivo durante el tiempo que dure la transferencia o el despacho. Todo el proceso se monitorea con registros de temperatura, presión y consumo de vapor.",
       },
       {
         q: "¿Qué significa que sus equipos son 100% automatizados?",
@@ -635,22 +656,33 @@ export const SERVICES: ServiceData[] = [
       },
       {
         q: "¿Qué incluye el servicio además del generador de vapor?",
-        a: "El servicio incluye: equipo generador de vapor, tratamiento de agua de alimentación (suavización y desgasificación), personal técnico operador, personal de mantenimiento, y toda la documentación operativa. Para fosas de pasivos ambientales, también incluimos los reportes para expedientes ante el MPPEA.",
+        a: "El servicio incluye: equipo generador de vapor, tratamiento de agua de alimentación (suavización y desgasificación), personal técnico operador, personal de mantenimiento, y toda la documentación operativa. Si el trabajo es la recuperación de crudo solidificado en fosas o canales, lo atendemos con nuestro servicio dedicado de recuperación térmica.",
       },
     ],
   },
   {
     slug: "limpieza-industrial-hidrojet",
     tag: "Hydrojet UHP",
-    title: "Limpieza Industrial Hydrojet",
+    title: "Limpieza Industrial con Hidrojet",
+    heading: "Limpieza industrial con hidrojet en Venezuela",
     subtitle: "Agua a Ultra Alta Presión — 20.000 y 40.000 PSI",
     summary:
-      "Soluciones avanzadas de limpieza industrial y preparación de superficies mediante sistemas de agua a ultra alta presión (hydroblasting) de 20.000 y 40.000 PSI. Remoción de incrustaciones severas, coque, polímeros, resinas y óxido sin comprometer la integridad de la infraestructura.",
+      "Servicio de limpieza con hidrojet (hydrojet) de 20.000 y 40.000 PSI para tuberías, intercambiadores, tanques y superficies industriales. Atención a proyectos en Venezuela, con selección del equipo y coordinación operativa desde Zulia.",
     heroColor: "#eef5f8",
     icon: "M12 2v8M8 6l4 4 4-4M5 14h14M7 18h10",
     overview:
-      "El servicio de limpieza industrial con equipos de hydrojet de 20.000 y 40.000 PSI es una operación técnica rigurosa que exige maquinaria de vanguardia, protocolos de seguridad estrictos y un liderazgo estructurado en campo. Su ejecución abarca desde el mantenimiento preventivo de facilidades hasta la preparación de superficies en áreas clasificadas: limpieza de áreas impactadas de crudo, limpieza química y descontaminación de equipos de proceso, todo sin abrasivos y sin generar chispas.",
+      "La limpieza industrial con hidrojet utiliza agua a presión para remover depósitos y preparar superficies. En Soluciones Delta evaluamos el material del equipo, el tipo de incrustación y los accesos para definir la unidad y los accesorios de trabajo. El servicio puede integrarse con la recolección de fluidos mediante vacuum y el manejo de los residuos generados, según el alcance contratado.",
     sections: [
+      {
+        heading: "Limpieza de tuberías, tanques e intercambiadores",
+        body: "El trabajo se organiza alrededor del equipo que necesita recuperar su condición de servicio. Estas son las aplicaciones que revisamos con el cliente:",
+        list: [
+          "Tuberías de proceso: limpieza interna y remoción de depósitos, según diámetro y acceso",
+          "Intercambiadores de calor: limpieza del haz de tubos durante mantenimiento",
+          "Tanques: remoción de depósitos y coordinación de la recolección de fluidos",
+          "Superficies industriales: preparación y retiro de recubrimientos según el material",
+        ],
+      },
       {
         heading: "Alcance integral del servicio",
         body: "Cubrimos toda la gama de aplicaciones de limpieza con agua a ultra alta presión en instalaciones petroleras e industriales:",
@@ -770,6 +802,14 @@ export const SERVICES: ServiceData[] = [
     ],
     faq: [
       {
+        q: "¿Qué información necesitan para cotizar una limpieza con hidrojet?",
+        a: "Comparta la ubicación, el equipo o superficie a limpiar, sus dimensiones, el material y el tipo de depósito. Incluya fotografías si dispone de ellas, las fechas de trabajo, las condiciones de acceso y la disponibilidad de agua. Indique también si necesita recolección con vacuum y manejo de los residuos.",
+      },
+      {
+        q: "¿El servicio de hidrojet está disponible fuera de Zulia?",
+        a: "Atendemos solicitudes para instalaciones petroleras e industriales en Venezuela. Nuestro equipo revisa la ubicación, el alcance y la disponibilidad de las unidades antes de confirmar la movilización desde Zulia y las condiciones de la cotización.",
+      },
+      {
         q: "¿Cuándo se usa la unidad de 20.000 PSI y cuándo la de 40.000 PSI?",
         a: "La unidad PARTEK de 20.000 PSI trabaja con mayor caudal (10–13 GPM) y es ideal para lavado industrial, remoción de óxido severo y limpieza interna de intercambiadores y tuberías, donde el volumen de agua y la fuerza de impacto hacen el trabajo. La unidad UHP de 40.000 PSI concentra la energía en menor caudal (3–6 GPM) para hidrodemolición de concreto, remoción de revestimientos epóxicos pesados y decapado sin abrasivos donde se requiere poder de corte puro.",
       },
@@ -788,6 +828,134 @@ export const SERVICES: ServiceData[] = [
       {
         q: "¿Pueden limpiar tuberías internamente sin desarmarlas?",
         a: "Sí. Usamos boquillas auto-propulsadas con chorros traseros en ángulo que empujan la manguera flexible hacia adentro del tubo, y mangueras multicapa calibradas según el diámetro de la tubería y el tipo de incrustación. Para el haz de tubos de intercambiadores usamos lanzas rígidas y posicionadores semi-automatizados que evitan la exposición del operador.",
+      },
+    ],
+  },
+  {
+    slug: "recuperacion-de-crudo-en-fosas",
+    tag: "Recuperación Térmica",
+    title: "Recuperación de Crudo en Fosas",
+    heading: "Recuperación de crudo en fosas, canales y tanques en Venezuela",
+    subtitle: "Recuperación térmica en fosas, canales y tanques",
+    summary:
+      "Recuperación térmica de crudos solidificados y lodos petrolizados en fosas a cielo abierto, canales y tanques. Mediante la inyección controlada de calor reducimos la viscosidad del material hasta hacerlo bombeable, lo extraemos y lo reincorporamos a la cadena productiva.",
+    heroColor: "#fdf3ee",
+    icon: "M4 6h16M6 6v10a6 6 0 0012 0V6M9 3v2M15 3v2",
+    overview:
+      "Nuestro servicio de recuperación térmica consiste en la transferencia controlada de calor a crudos solidificados y lodos petrolizados ubicados en tanques o fosas a cielo abierto. Mediante la inyección de energía térmica, logramos reducir drásticamente la viscosidad del material, transformándolo en un fluido manejable. Esto permite su eficiente extracción, bombeo y reincorporación a la cadena productiva, garantizando la recuperación de hidrocarburos de alto valor.",
+    sections: [
+      {
+        heading: "¿En qué consiste la recuperación térmica?",
+        body: "El crudo que ha permanecido años en una fosa, canal o fondo de tanque se solidifica y forma emulsiones con agua y sedimentos que no pueden movilizarse por medios convencionales. La energía térmica revierte ese estado:",
+        list: [
+          "Transferencia controlada de calor mediante inyección de vapor directa en la masa de crudo",
+          "Reducción drástica de la viscosidad: el material solidificado pasa a fluido manejable",
+          "Separación de emulsiones crudo-agua-arena por efecto del calor",
+          "Extracción del crudo fluidizado con bombas de desplazamiento positivo o unidad vacuum",
+          "Reincorporación del hidrocarburo recuperado a la cadena productiva",
+          "Capacidad de recuperación demostrada: 1,500 Bbl/día",
+        ],
+      },
+      {
+        heading: "Dónde aplicamos el servicio",
+        body: "La recuperación térmica se adapta a cualquier acumulación de crudo solidificado o lodo petrolizado:",
+        list: [
+          "Fosas petrolizadas a cielo abierto heredadas de operaciones anteriores (pasivos ambientales)",
+          "Canales, drenajes y cunetas con acumulación de crudo y lodos",
+          "Tanques de almacenamiento con fondos solidificados y borras asfálticas",
+          "Patios de tanques, separadores y equipos de proceso con crudo estancado",
+          "Áreas impactadas por derrames de crudo pesado y extrapesado",
+        ],
+      },
+      {
+        heading: "Proceso operativo",
+        body: "Cada recuperación sigue un procedimiento controlado y documentado, desde la evaluación inicial hasta la entrega del crudo recuperado:",
+        list: [
+          "1. Caracterización de la fosa o tanque: volumen, viscosidad, contenido de agua y sedimentos",
+          "2. Instalación del generador de vapor y del sistema de lanzas de inyección",
+          "3. Inyección térmica progresiva con monitoreo de temperatura y fluidez del material",
+          "4. Extracción del crudo fluidizado con bomba de tornillo o unidad vacuum de 160 Bbl",
+          "5. Almacenamiento temporal en frac tanks de 500 Bbl y separación de agua libre",
+          "6. Medición de volúmenes recuperados y reporte al cliente",
+          "7. Remediación progresiva hasta el saneamiento total del área",
+        ],
+      },
+      {
+        heading: "Equipos que integramos en la operación",
+        body: "La recuperación de crudo en fosas combina varias de nuestras líneas de servicio en una sola operación coordinada:",
+        list: [
+          "Generador de vapor OTSG 100% automatizado como fuente de energía térmica",
+          "Lanzas perforadas de inyección de vapor para fosas y fondos de tanque",
+          "Bomba hidráulica de tornillo con plato desnatador para extracción de crudo (natilla)",
+          "Unidad vacuum de 160 Bbl para succión de lodos y fluidos de alta viscosidad",
+          "Frac tanks de 500 Bbl para almacenamiento y decantación del crudo recuperado",
+          "Generador eléctrico de soporte y tráiler operacional en sitio",
+        ],
+      },
+      {
+        heading: "Beneficio ambiental y documentación",
+        body: "Recuperar el crudo de una fosa no solo devuelve producto de alto valor: elimina un pasivo ambiental. Documentamos todo el proceso:",
+        list: [
+          "Registro de volúmenes recuperados y balance de masa antes y después",
+          "Reportes para expedientes ambientales ante el MPPEA",
+          "Manejo de los residuos no recuperables bajo el Decreto 2635",
+          "Certificados de disposición final de lodos y sedimentos",
+          "Saneamiento progresivo y verificable de la fosa, canal o tanque",
+        ],
+      },
+    ],
+    specs: [
+      { label: "Método", value: "Transferencia controlada de calor" },
+      { label: "Fuente térmica", value: "Vapor OTSG 100% automatizado" },
+      { label: "Capacidad demostrada", value: "1,500 Bbl/día" },
+      { label: "Aplicación", value: "Fosas · Canales · Tanques" },
+      { label: "Extracción", value: "Bomba de tornillo · Vacuum 160 Bbl" },
+      { label: "Almacenamiento", value: "Frac Tanks 500 Bbl" },
+      { label: "Documentación", value: "Expedientes MPPEA · Decreto 2635" },
+      { label: "Disponibilidad", value: "24 horas / 7 días" },
+    ],
+    benefits: [
+      {
+        title: "Hidrocarburo recuperado",
+        desc: "Crudo que estaba perdido en fosas y tanques vuelve a la cadena productiva como producto de alto valor.",
+        icon: "M13 2L3 14h9l-1 8 10-12h-9l1-8z",
+      },
+      {
+        title: "1,500 Bbl / día",
+        desc: "Capacidad de recuperación demostrada en contratos ejecutados al 100% de cumplimiento en el Estado Zulia.",
+        icon: "M22 12h-4l-3 9L9 3l-3 9H2",
+      },
+      {
+        title: "Pasivo ambiental resuelto",
+        desc: "La fosa o el tanque quedan saneados de forma progresiva y verificable, con reportes para expedientes ambientales.",
+        icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064",
+      },
+      {
+        title: "Operación integrada",
+        desc: "Vapor, bombeo, vacuum y almacenamiento de un solo proveedor: una sola cuadrilla y un solo responsable en campo.",
+        icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0",
+      },
+    ],
+    faq: [
+      {
+        q: "¿Qué tipo de material pueden recuperar?",
+        a: "Crudos pesados y extrapesados solidificados, natilla, lodos petrolizados, borras asfálticas y emulsiones crudo-agua-arena acumuladas en fosas a cielo abierto, canales, drenajes y fondos de tanques. Cuanto mayor es la viscosidad del material, mayor es la ventaja de la recuperación térmica frente a la extracción mecánica.",
+      },
+      {
+        q: "¿Cuánto crudo se puede recuperar por día?",
+        a: "Nuestra capacidad demostrada es de 1,500 barriles por día, alcanzada en contratos ejecutados en campos del Estado Zulia. El rendimiento real depende del volumen, la viscosidad y el contenido de agua y sedimentos de la fosa, que evaluamos en la caracterización inicial.",
+      },
+      {
+        q: "¿Qué pasa con el agua y los sedimentos que quedan?",
+        a: "El agua libre se separa en los frac tanks por decantación y se dispone en pozos de inyección autorizados o plantas de tratamiento. Los lodos y sedimentos no recuperables se manejan con nuestro servicio de manejo de desechos bajo el Decreto 2635, con manifiesto y certificado de disposición final.",
+      },
+      {
+        q: "¿El servicio incluye la documentación ambiental?",
+        a: "Sí. Entregamos el registro de volúmenes recuperados, el balance antes y después de la intervención y los reportes necesarios para los expedientes ante el MPPEA, de modo que el cliente pueda demostrar el saneamiento del pasivo ambiental.",
+      },
+      {
+        q: "¿En qué se diferencia de la inyección de vapor para tanques?",
+        a: "La inyección de vapor para tanques mantiene fluido el crudo almacenado en operación normal para facilitar su bombeo y despacho. La recuperación térmica en fosas ataca crudo que ya está solidificado o perdido en pasivos ambientales, e incluye la extracción, el almacenamiento, la separación y la documentación del hidrocarburo recuperado.",
       },
     ],
   },

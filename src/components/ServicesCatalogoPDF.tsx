@@ -92,6 +92,13 @@ const SERVICE_PHOTOS: Record<string, { main: string; gallery: { src: string; cap
       { src: "/hidrojet/unidad-hidrojet-campo.png",  caption: "Unidad Hydrojet en locación de campo" },
     ],
   },
+  "recuperacion-de-crudo-en-fosas": {
+    main: "/fosas/fosa-1-despues.jpg",
+    gallery: [
+      { src: "/fosas/fosa-1-antes.jpg",   caption: "ANTES — Fosa petrolizada con crudo solidificado" },
+      { src: "/fosas/fosa-2-despues.jpg", caption: "DESPUÉS — Fosa vaciada tras la recuperación térmica" },
+    ],
+  },
 };
 
 // ── Styles ────────────────────────────────────────────────────────────────────
@@ -295,7 +302,7 @@ function CatalogoPDF({ imgs }: { imgs: Record<string, string> }) {
               <Text style={S.coverGreen}>petrolera.</Text>
             </Text>
             <Text style={S.coverSub}>
-              Seis servicios especializados para operaciones de petróleo y gas en Venezuela. Flota propia, personal certificado y operación continua 24/7.
+              Siete servicios especializados para operaciones de petróleo y gas en Venezuela. Flota propia, personal certificado y operación continua 24/7.
             </Text>
             <View style={S.coverServices}>
               {SERVICES.map(s => (
