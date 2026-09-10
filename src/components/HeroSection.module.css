@@ -39,7 +39,7 @@
   max-width: 445px;
   margin: 28px 0 0;
   color: #d4dcd6;
-  font-size: clamp(15px, 1.35vw, 18px);
+  font-size: var(--home-body-size, 16px);
   line-height: 1.75;
   text-wrap: pretty;
 }

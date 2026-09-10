@@ -2,6 +2,8 @@
   --home-title-size: clamp(32px, 4.4vw, 58px);
   --home-title-tracking: -.035em;
   --home-body-size: 16px;
+  --home-body-small: 15px;
+  --home-card-title: 18px;
   --home-label-size: 11px;
   --home-label-tracking: .14em;
   font-family: var(--font-dm-sans), "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -24,5 +26,5 @@
   text-transform: uppercase;
 }
 @media (max-width: 760px) {
-  .main { --home-body-size: 15px; --home-label-size: 10px; }
+  .main { --home-body-size: 15px; --home-body-small: 14px; --home-card-title: 17px; --home-label-size: 10px; }
 }

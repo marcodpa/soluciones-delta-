@@ -273,17 +273,17 @@ function ServiceRow({ s }: { s: typeof services[number] }) {
       {/* Text */}
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-3 mb-1">
-          <h3 className="text-[17px] font-semibold text-white group-hover:text-[#30d158] transition-colors duration-200 leading-snug">
+          <h3 className="text-[18px] font-semibold text-white group-hover:text-[#30d158] transition-colors duration-200 leading-snug">
             {s.title}
           </h3>
           <span
-            className="text-[9px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full flex-shrink-0 hidden sm:inline-block"
+            className="text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full flex-shrink-0 hidden sm:inline-block"
             style={{ background: "rgba(26,140,60,0.15)", color: "#30d158", border: "1px solid rgba(48,209,88,0.2)" }}
           >
             {s.tag}
           </span>
         </div>
-        <p className="text-[14px] leading-relaxed" style={{ color: "rgba(255,255,255,0.42)" }}>
+        <p className="text-[15px] leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
           {s.tagline}
         </p>
       </div>
