@@ -72,7 +72,7 @@ export default function ServicePageClient({ service, relatedServices }: { servic
         </div>
 
         {/* ── HERO: foto a pantalla completa (partida antes/después cuando hay evidencia) ── */}
-        <section className="relative overflow-hidden bg-black" style={{ minHeight: "clamp(520px, 72vh, 760px)" }}>
+        <section className="relative overflow-hidden bg-black flex flex-col justify-end" style={{ minHeight: "clamp(560px, 78vh, 800px)" }}>
           {hero.kind === "split" ? (
             <div className="absolute inset-0 grid grid-cols-2">
               <div className="relative overflow-hidden">
@@ -87,10 +87,10 @@ export default function ServicePageClient({ service, relatedServices }: { servic
           ) : (
             <Image src={hero.src} alt={`${service.title} — Soluciones Delta C.A.`} fill priority className="object-cover" sizes="100vw" />
           )}
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, rgba(2,8,4,0.55) 0%, rgba(2,8,4,0.05) 35%, rgba(2,8,4,0.92) 100%)" }} />
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, rgba(2,8,4,0.45) 0%, rgba(2,8,4,0.08) 30%, rgba(2,8,4,0.55) 62%, rgba(2,8,4,0.95) 100%)" }} />
 
-          <div className="site-container relative h-full">
-            <div ref={heroRef} className="absolute left-0 right-0 bottom-0 px-6 lg:px-0 pb-12 lg:pb-14 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+          <div className="site-container relative w-full">
+            <div ref={heroRef} className="pt-40 pb-12 lg:pb-16 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
               <div className="flex flex-col gap-4 max-w-3xl">
                 <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-white/50">
                   <Link href="/" className="hover:text-[#30d158] transition-colors">Inicio</Link>
