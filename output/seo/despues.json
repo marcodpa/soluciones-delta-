@@ -1,0 +1,255 @@
+{
+  "pages": [
+    {
+      "path": "/",
+      "status": 200,
+      "title": "Servicios petroleros en Venezuela | Soluciones Delta",
+      "h1": "Servicios petroleros en Venezuela.",
+      "internal_links": [
+        "/",
+        "/contacto",
+        "/nosotros",
+        "/servicios",
+        "/servicios/alquiler-calderas-inyeccion-vapor",
+        "/servicios/bombeo-de-crudo",
+        "/servicios/frac-tanks",
+        "/servicios/limpieza-industrial-hidrojet",
+        "/servicios/manejo-de-desechos",
+        "/servicios/trasegado-vacuum"
+      ],
+      "canonical": [
+        "https://soluciones-delta.com"
+      ],
+      "description": "Servicios petroleros en Venezuela: bombeo de crudo, vacuum, Frac Tanks, manejo de desechos, vapor e hydrojet. Sede en Zulia. Solicite una cotización.",
+      "og_image": "https://soluciones-delta.com/opengraph-image",
+      "twitter_image": "https://soluciones-delta.com/opengraph-image",
+      "issues": []
+    },
+    {
+      "path": "/servicios",
+      "status": 200,
+      "title": "Servicios petroleros e industriales en Venezuela | Soluciones Delta",
+      "h1": "Servicios para la industria petrolera.",
+      "internal_links": [
+        "/",
+        "/contacto",
+        "/nosotros",
+        "/servicios",
+        "/servicios/alquiler-calderas-inyeccion-vapor",
+        "/servicios/bombeo-de-crudo",
+        "/servicios/frac-tanks",
+        "/servicios/limpieza-industrial-hidrojet",
+        "/servicios/manejo-de-desechos",
+        "/servicios/trasegado-vacuum"
+      ],
+      "canonical": [
+        "https://soluciones-delta.com/servicios"
+      ],
+      "description": "Bombeo de crudo, vacuum, Frac Tanks, desechos, vapor e hydrojet en Venezuela. Compare los servicios de Soluciones Delta y solicite una cotización.",
+      "og_image": "https://soluciones-delta.com/opengraph-image",
+      "twitter_image": "https://soluciones-delta.com/opengraph-image",
+      "issues": []
+    },
+    {
+      "path": "/nosotros",
+      "status": 200,
+      "title": "Empresa de servicios petroleros en Venezuela | Soluciones Delta",
+      "h1": "Construidos sobre la confianzadel campo.",
+      "internal_links": [
+        "/",
+        "/contacto",
+        "/nosotros",
+        "/servicios",
+        "/servicios/alquiler-calderas-inyeccion-vapor",
+        "/servicios/bombeo-de-crudo",
+        "/servicios/frac-tanks",
+        "/servicios/limpieza-industrial-hidrojet",
+        "/servicios/manejo-de-desechos",
+        "/servicios/trasegado-vacuum"
+      ],
+      "canonical": [
+        "https://soluciones-delta.com/nosotros"
+      ],
+      "description": "Conozca a Soluciones Delta, empresa de servicios petroleros con sede en San Francisco, Zulia. Equipos, personal técnico y soluciones para operaciones en Venezuela.",
+      "og_image": "https://soluciones-delta.com/opengraph-image",
+      "twitter_image": "https://soluciones-delta.com/opengraph-image",
+      "issues": []
+    },
+    {
+      "path": "/contacto",
+      "status": 200,
+      "title": "Contacto y cotizaciones de servicios petroleros | Soluciones Delta",
+      "h1": "Hablemos de supróxima operación.",
+      "internal_links": [
+        "/",
+        "/contacto",
+        "/nosotros",
+        "/servicios",
+        "/servicios/alquiler-calderas-inyeccion-vapor",
+        "/servicios/bombeo-de-crudo",
+        "/servicios/frac-tanks",
+        "/servicios/limpieza-industrial-hidrojet",
+        "/servicios/manejo-de-desechos",
+        "/servicios/trasegado-vacuum"
+      ],
+      "canonical": [
+        "https://soluciones-delta.com/contacto"
+      ],
+      "description": "Solicite cotización de servicios petroleros en Venezuela. Contacte a Soluciones Delta por WhatsApp, teléfono o correo. Sede en San Francisco, Zulia.",
+      "og_image": "https://soluciones-delta.com/opengraph-image",
+      "twitter_image": "https://soluciones-delta.com/opengraph-image",
+      "issues": []
+    },
+    {
+      "path": "/servicios/bombeo-de-crudo",
+      "status": 200,
+      "title": "Bombeo de crudo pesado en Venezuela | Soluciones Delta",
+      "h1": "Bombeo de Crudo",
+      "internal_links": [
+        "/",
+        "/contacto",
+        "/nosotros",
+        "/servicios",
+        "/servicios/alquiler-calderas-inyeccion-vapor",
+        "/servicios/bombeo-de-crudo",
+        "/servicios/frac-tanks",
+        "/servicios/limpieza-industrial-hidrojet",
+        "/servicios/manejo-de-desechos",
+        "/servicios/trasegado-vacuum"
+      ],
+      "canonical": [
+        "https://soluciones-delta.com/servicios/bombeo-de-crudo"
+      ],
+      "description": "Bombeo, extracción y transferencia de crudo pesado en Venezuela. Equipos hidráulicos para fosas y tanques. Soluciones Delta, con sede en Zulia.",
+      "og_image": "https://soluciones-delta.com/opengraph-image",
+      "twitter_image": "https://soluciones-delta.com/opengraph-image",
+      "issues": []
+    },
+    {
+      "path": "/servicios/trasegado-vacuum",
+      "status": 200,
+      "title": "Servicio de camión vacuum en Venezuela | Soluciones Delta",
+      "h1": "Transporte de Fluidos",
+      "internal_links": [
+        "/",
+        "/contacto",
+        "/nosotros",
+        "/servicios",
+        "/servicios/alquiler-calderas-inyeccion-vapor",
+        "/servicios/bombeo-de-crudo",
+        "/servicios/frac-tanks",
+        "/servicios/limpieza-industrial-hidrojet",
+        "/servicios/manejo-de-desechos",
+        "/servicios/trasegado-vacuum"
+      ],
+      "canonical": [
+        "https://soluciones-delta.com/servicios/trasegado-vacuum"
+      ],
+      "description": "Camión vacuum de 160 barriles para succión, traslado y descarga de fluidos, lodos y borras en Venezuela. Consulte disponibilidad desde nuestra sede en Zulia.",
+      "og_image": "https://soluciones-delta.com/opengraph-image",
+      "twitter_image": "https://soluciones-delta.com/opengraph-image",
+      "issues": []
+    },
+    {
+      "path": "/servicios/frac-tanks",
+      "status": 200,
+      "title": "Alquiler de Frac Tanks en Venezuela | Soluciones Delta",
+      "h1": "Frac Tanks",
+      "internal_links": [
+        "/",
+        "/contacto",
+        "/nosotros",
+        "/servicios",
+        "/servicios/alquiler-calderas-inyeccion-vapor",
+        "/servicios/bombeo-de-crudo",
+        "/servicios/frac-tanks",
+        "/servicios/limpieza-industrial-hidrojet",
+        "/servicios/manejo-de-desechos",
+        "/servicios/trasegado-vacuum"
+      ],
+      "canonical": [
+        "https://soluciones-delta.com/servicios/frac-tanks"
+      ],
+      "description": "Alquiler de Frac Tanks de 500 barriles para crudo, agua y fluidos industriales en Venezuela. Consulte configuraciones y movilización con Soluciones Delta.",
+      "og_image": "https://soluciones-delta.com/opengraph-image",
+      "twitter_image": "https://soluciones-delta.com/opengraph-image",
+      "issues": []
+    },
+    {
+      "path": "/servicios/manejo-de-desechos",
+      "status": 200,
+      "title": "Manejo de desechos petroleros en Venezuela | Soluciones Delta",
+      "h1": "Manejo de Desechos",
+      "internal_links": [
+        "/",
+        "/contacto",
+        "/nosotros",
+        "/servicios",
+        "/servicios/alquiler-calderas-inyeccion-vapor",
+        "/servicios/bombeo-de-crudo",
+        "/servicios/frac-tanks",
+        "/servicios/limpieza-industrial-hidrojet",
+        "/servicios/manejo-de-desechos",
+        "/servicios/trasegado-vacuum"
+      ],
+      "canonical": [
+        "https://soluciones-delta.com/servicios/manejo-de-desechos"
+      ],
+      "description": "Manejo de desechos industriales y petroleros en Venezuela: lodos, borras, aguas y suelos contaminados. Consulte el alcance de su operación con Soluciones Delta.",
+      "og_image": "https://soluciones-delta.com/opengraph-image",
+      "twitter_image": "https://soluciones-delta.com/opengraph-image",
+      "issues": []
+    },
+    {
+      "path": "/servicios/alquiler-calderas-inyeccion-vapor",
+      "status": 200,
+      "title": "Inyección de vapor y calderas en Venezuela | Soluciones Delta",
+      "h1": "Inyección de vapor en Venezuela",
+      "internal_links": [
+        "/",
+        "/contacto",
+        "/nosotros",
+        "/servicios",
+        "/servicios/alquiler-calderas-inyeccion-vapor",
+        "/servicios/bombeo-de-crudo",
+        "/servicios/frac-tanks",
+        "/servicios/limpieza-industrial-hidrojet",
+        "/servicios/manejo-de-desechos",
+        "/servicios/trasegado-vacuum"
+      ],
+      "canonical": [
+        "https://soluciones-delta.com/servicios/alquiler-calderas-inyeccion-vapor"
+      ],
+      "description": "Inyección de vapor para pozos petroleros, fosas y tanques en Venezuela. Generadores OTSG y alquiler de calderas. Consulte alcance y movilización desde Zulia.",
+      "og_image": "https://soluciones-delta.com/opengraph-image",
+      "twitter_image": "https://soluciones-delta.com/opengraph-image",
+      "issues": []
+    },
+    {
+      "path": "/servicios/limpieza-industrial-hidrojet",
+      "status": 200,
+      "title": "Limpieza industrial con hidrojet en Venezuela | Soluciones Delta",
+      "h1": "Limpieza industrial con hidrojet en Venezuela",
+      "internal_links": [
+        "/",
+        "/contacto",
+        "/nosotros",
+        "/servicios",
+        "/servicios/alquiler-calderas-inyeccion-vapor",
+        "/servicios/bombeo-de-crudo",
+        "/servicios/frac-tanks",
+        "/servicios/limpieza-industrial-hidrojet",
+        "/servicios/manejo-de-desechos",
+        "/servicios/trasegado-vacuum"
+      ],
+      "canonical": [
+        "https://soluciones-delta.com/servicios/limpieza-industrial-hidrojet"
+      ],
+      "description": "Servicio de hidrojet industrial (hydrojet) de 20.000 y 40.000 PSI para tuberías, tanques e intercambiadores en Venezuela. Consulte su proyecto con Soluciones Delta.",
+      "og_image": "https://soluciones-delta.com/opengraph-image",
+      "twitter_image": "https://soluciones-delta.com/opengraph-image",
+      "issues": []
+    }
+  ],
+  "failures": []
+}

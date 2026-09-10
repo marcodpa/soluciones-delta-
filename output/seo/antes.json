@@ -1,0 +1,112 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "title": "Soluciones Delta C.A. | Servicios Petroleros Zulia",
+    "description": "Servicios petroleros en Zulia: bombeo de crudo, vacuum, Frac Tanks 500 Bbl e inyección de vapor. Operación 24/7. RIF J-50735393-1.",
+    "robots": "index, follow",
+    "canonical": "https://soluciones-delta.com",
+    "og:url": "https://soluciones-delta.com",
+    "og:image": "https://soluciones-delta.com/opengraph-image?43c25e91e2e26f67",
+    "twitter:image": "https://soluciones-delta.com/og-image.png"
+  },
+  {
+    "path": "/servicios",
+    "status": 200,
+    "title": "Servicios — Soluciones Delta, C.A. | Soluciones Delta C.A.",
+    "description": "Catálogo completo de servicios técnicos: bombeo de crudo, trasegado vacuum, Frac Tanks 500 Bbl, manejo de desechos, inyección de vapor y limpieza industrial hydrojet. Industria petrolera, Estado Zulia. RIF J-50735393-1.",
+    "robots": "index, follow",
+    "canonical": "https://soluciones-delta.com",
+    "og:url": "https://soluciones-delta.com",
+    "og:image": "https://soluciones-delta.com/opengraph-image?43c25e91e2e26f67",
+    "twitter:image": "https://soluciones-delta.com/og-image.png"
+  },
+  {
+    "path": "/nosotros",
+    "status": 200,
+    "title": "Nosotros — Soluciones Delta, C.A. | Soluciones Delta C.A.",
+    "description": "Empresa venezolana especializada en servicios técnicos para la industria petrolera. Conoce nuestra historia, valores, equipo y compromisos. RIF J-50735393-1. San Francisco, Estado Zulia.",
+    "robots": "index, follow",
+    "canonical": "https://soluciones-delta.com",
+    "og:url": "https://soluciones-delta.com",
+    "og:image": "https://soluciones-delta.com/opengraph-image?43c25e91e2e26f67",
+    "twitter:image": "https://soluciones-delta.com/og-image.png"
+  },
+  {
+    "path": "/contacto",
+    "status": 200,
+    "title": "Contacto — Soluciones Delta, C.A. | Soluciones Delta C.A.",
+    "description": "Contáctenos para solicitar cotización de nuestros servicios técnicos petroleros: bombeo de crudo, vacuum, Frac Tanks, manejo de desechos, inyección de vapor y limpieza hydrojet. Tel: +58 424-6472446. San Francisco, Zulia.",
+    "robots": "index, follow",
+    "canonical": "https://soluciones-delta.com",
+    "og:url": "https://soluciones-delta.com",
+    "og:image": "https://soluciones-delta.com/opengraph-image?43c25e91e2e26f67",
+    "twitter:image": "https://soluciones-delta.com/og-image.png"
+  },
+  {
+    "path": "/servicios/bombeo-de-crudo",
+    "status": 200,
+    "title": "Bombeo de Crudo Pesado en Maracaibo y Zulia | Soluciones Delta | Soluciones Delta C.A.",
+    "description": "Servicio de bombeo y extracción de crudo pesado con bomba hidráulica de tornillo, 1.500 Bbl/día. Motor y bomba separados para fosas de difícil acceso en el Estado Zulia. Operación 24/7.",
+    "robots": "index, follow",
+    "canonical": "https://soluciones-delta.com/servicios/bombeo-de-crudo",
+    "og:url": "https://soluciones-delta.com/servicios/bombeo-de-crudo",
+    "og:image": "https://soluciones-delta.com/og-image.png",
+    "twitter:image": "https://soluciones-delta.com/og-image.png"
+  },
+  {
+    "path": "/servicios/trasegado-vacuum",
+    "status": 200,
+    "title": "Camión Vacuum en Zulia — Transporte de Fluidos | Soluciones Delta | Soluciones Delta C.A.",
+    "description": "Servicio de camión vacuum 160 Bbl para transporte de lodos, borras, efluentes y limpieza de espacios confinados. Flota propia disponible 24/7 en el Estado Zulia y costa oriental.",
+    "robots": "index, follow",
+    "canonical": "https://soluciones-delta.com/servicios/trasegado-vacuum",
+    "og:url": "https://soluciones-delta.com/servicios/trasegado-vacuum",
+    "og:image": "https://soluciones-delta.com/og-image.png",
+    "twitter:image": "https://soluciones-delta.com/og-image.png"
+  },
+  {
+    "path": "/servicios/frac-tanks",
+    "status": 200,
+    "title": "Alquiler de Frac Tanks 500 Bbl en Zulia | Soluciones Delta | Soluciones Delta C.A.",
+    "description": "Alquiler de Frac Tanks 500 Bbl V-Bottom, Flat, Insulated y Gas Tight en el Estado Zulia. Alta movilidad y disponibilidad inmediata para operaciones petroleras y almacenamiento temporal de fluidos.",
+    "robots": "index, follow",
+    "canonical": "https://soluciones-delta.com/servicios/frac-tanks",
+    "og:url": "https://soluciones-delta.com/servicios/frac-tanks",
+    "og:image": "https://soluciones-delta.com/og-image.png",
+    "twitter:image": "https://soluciones-delta.com/og-image.png"
+  },
+  {
+    "path": "/servicios/manejo-de-desechos",
+    "status": 200,
+    "title": "Manejo de Desechos Industriales Petroleros Zulia | Soluciones Delta | Soluciones Delta C.A.",
+    "description": "Gestión integral de desechos industriales y peligrosos bajo el Decreto 2635 en el Estado Zulia. Trazabilidad completa, certificados de disposición final y personal certificado.",
+    "robots": "index, follow",
+    "canonical": "https://soluciones-delta.com/servicios/manejo-de-desechos",
+    "og:url": "https://soluciones-delta.com/servicios/manejo-de-desechos",
+    "og:image": "https://soluciones-delta.com/og-image.png",
+    "twitter:image": "https://soluciones-delta.com/og-image.png"
+  },
+  {
+    "path": "/servicios/alquiler-calderas-inyeccion-vapor",
+    "status": 200,
+    "title": "Alquiler de Calderas e Inyección de Vapor en Maracaibo | Soluciones Delta | Soluciones Delta C.A.",
+    "description": "Alquiler de generadores de vapor OTSG para inyección de vapor (Huff & Puff, SAGD, Steam Flooding) en el Estado Zulia. Alta presión, operación continua 24/7 para recuperación mejorada de petróleo.",
+    "robots": "index, follow",
+    "canonical": "https://soluciones-delta.com/servicios/alquiler-calderas-inyeccion-vapor",
+    "og:url": "https://soluciones-delta.com/servicios/alquiler-calderas-inyeccion-vapor",
+    "og:image": "https://soluciones-delta.com/og-image.png",
+    "twitter:image": "https://soluciones-delta.com/og-image.png"
+  },
+  {
+    "path": "/servicios/limpieza-industrial-hidrojet",
+    "status": 200,
+    "title": "Limpieza Industrial Hydrojet 40.000 PSI en Zulia | Soluciones Delta | Soluciones Delta C.A.",
+    "description": "Servicio de limpieza industrial con hydrojet de 20.000 y 40.000 PSI en el Estado Zulia: intercambiadores de calor, destape de líneas, preparación de superficies y espacios confinados. Trabajo en frío sin chispas, cuadrilla HSE certificada, operación 24/7.",
+    "robots": "index, follow",
+    "canonical": "https://soluciones-delta.com/servicios/limpieza-industrial-hidrojet",
+    "og:url": "https://soluciones-delta.com/servicios/limpieza-industrial-hidrojet",
+    "og:image": "https://soluciones-delta.com/og-image.png",
+    "twitter:image": "https://soluciones-delta.com/og-image.png"
+  }
+]
