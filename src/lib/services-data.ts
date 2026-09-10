@@ -527,9 +527,9 @@ export const SERVICES: ServiceData[] = [
   {
     slug: "alquiler-calderas-inyeccion-vapor",
     tag: "Inyección de Vapor",
-    title: "Inyección de Vapor para Tanques",
-    heading: "Inyección de vapor para tanques y patio de tanques en Venezuela",
-    subtitle: "Generadores OTSG para calentamiento de tanques y patio de tanques",
+    title: "Alquiler de Calderas e Inyección de Vapor",
+    heading: "Alquiler de calderas e inyección de vapor a pozos y patio de tanques en Venezuela",
+    subtitle: "Generadores OTSG para pozos, tanques y patio de tanques",
     summary:
       "Generación e inyección de vapor para el calentamiento de tanques de almacenamiento y patios de tanques, con generadores OTSG 100% automatizados. Reducimos la viscosidad del crudo almacenado para facilitar su bombeo, transferencia y despacho. Coordinamos equipo, operación y movilización desde nuestra sede en Zulia.",
     heroColor: "#fef4ee",

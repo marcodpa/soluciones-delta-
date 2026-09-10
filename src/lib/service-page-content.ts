@@ -95,8 +95,8 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
     closing: { src: "/desechos/cargador-fosa.webp", label: "Qué manejamos", heading: "Lodos, aguas, suelos y borras", text: "Base agua y base aceite, aguas de formación, ripios de perforación y borras asfálticas de fondo de tanque." },
   },
   "alquiler-calderas-inyeccion-vapor": {
-    eyebrow: "Inyección de vapor · Tanques y patio de tanques",
-    headline: "Crudo caliente, bombeable y listo para despacho.",
+    eyebrow: "Alquiler de calderas · Inyección de vapor a pozos y patio de tanques",
+    headline: "Vapor donde su operación lo necesita: pozos, tanques y patio de tanques.",
     hero: { kind: "single", src: "/vapor/caldera-otsg-semirremolque.webp" },
     subtitle: "Generadores OTSG 100% automatizados",
     stepsIntro: "Calentamiento de tanques de almacenamiento, patios de tanques y sellos de bomba en carga de buques.",

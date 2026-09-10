@@ -8,7 +8,7 @@ const services = [
   { label: "Transporte de Fluidos",   slug: "trasegado-vacuum" },
   { label: "Frac Tanks 500 Bbl",      slug: "frac-tanks" },
   { label: "Manejo de Desechos",      slug: "manejo-de-desechos" },
-  { label: "Vapor para Tanques",      slug: "alquiler-calderas-inyeccion-vapor" },
+  { label: "Calderas e Inyección de Vapor", slug: "alquiler-calderas-inyeccion-vapor" },
   { label: "Limpieza Hydrojet UHP",   slug: "limpieza-industrial-hidrojet" },
   { label: "Recuperación de Crudo en Fosas", slug: "recuperacion-de-crudo-en-fosas" },
 ];
@@ -18,6 +18,7 @@ const navLinks = [
   { label: "Servicios", href: "/servicios" },
   { label: "Nosotros",  href: "/nosotros" },
   { label: "Contacto",  href: "/contacto" },
+  { label: "Artículos", href: "/articulos" },
 ];
 
 export default function Footer() {
