@@ -9,6 +9,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import type { ServiceData } from "@/lib/services-data";
 import type { RelatedService } from "@/lib/related-services";
+import { getServicePageContent } from "@/lib/service-page-content";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -19,56 +20,21 @@ const DescargarServicioPDF = dynamic(
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SERVICE_IMAGES: Record<string, string> = {
-  "bombeo-de-crudo": "/bombeo/equipo-principal.webp",
-  "trasegado-vacuum": "/vacuum/vacuum-semirremolque.webp",
-  "frac-tanks": "/frac-tanks/frac-tank-nuevo.webp",
-  "manejo-de-desechos": "/vacuum/vacuum-truck-howo-pdvsa.webp",
-  "alquiler-calderas-inyeccion-vapor": "/vapor/caldera-otsg-semirremolque.webp",
-  "limpieza-industrial-hidrojet": "/hidrojet/unidad-hidrojet-campo.png",
-  "recuperacion-de-crudo-en-fosas": "/fosas/fosa-1-despues.jpg",
-};
-
-const SERVICE_GALLERY: Record<string, { src: string; caption: string }[]> = {
-  "bombeo-de-crudo": [
-    { src: "/bombeo/bomba-hidraulica-roja.webp", caption: "Bomba Hidráulica — Motor y acople 6\"" },
-  ],
-  "trasegado-vacuum": [
-    { src: "/vacuum/vacuum-truck-howo-pdvsa.webp", caption: "Unidad Vacuum en operación — Locación PDVSA" },
-    { src: "/vacuum/vacuum-semirremolque.webp",    caption: "Semirremolque Vacuum 160 Bbl — Soluciones Delta" },
-  ],
-  "frac-tanks": [
-    { src: "/frac-tanks/bateria-frac-tanks-2.webp", caption: "Batería de Frac Tanks en locación — Estado Zulia" },
-  ],
-  "manejo-de-desechos": [
-    { src: "/desechos/retroexcavadora-fosa.webp", caption: "Retroexcavadora CAT en fosa petrolera" },
-    { src: "/desechos/cargador-fosa.webp",        caption: "Cargador frontal CAT — saneamiento de fosa" },
-  ],
-  "alquiler-calderas-inyeccion-vapor": [],
-  "limpieza-industrial-hidrojet": [
-    { src: "/hidrojet/unidad-hidrojet-equipo.png", caption: "Unidad Hydrojet — Alta y Ultra Alta Presión" },
-  ],
-  "recuperacion-de-crudo-en-fosas": [
-    { src: "/fosas/fosa-1-antes.jpg",   caption: "ANTES — Fosa petrolizada con crudo solidificado" },
-    { src: "/fosas/fosa-1-despues.jpg", caption: "DESPUÉS — Crudo recuperado y fosa en saneamiento" },
-    { src: "/fosas/fosa-2-antes.jpg",   caption: "ANTES — Laguna de crudo a cielo abierto" },
-    { src: "/fosas/fosa-2-despues.jpg", caption: "DESPUÉS — Fosa vaciada con frac tanks y generador de vapor en sitio" },
-  ],
-};
+const FALLBACK_HERO = "/vacuum-truck.webp";
 
 export default function ServicePageClient({ service, relatedServices }: { service: ServiceData; relatedServices: RelatedService[] }) {
   const router = useRouter();
   const heroRef = useRef<HTMLDivElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
+  const content = getServicePageContent(service.slug);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         heroRef.current?.children as unknown as Element[],
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.12, delay: 0.3 }
+        { opacity: 0, y: 30 },
+        { opacity: 1, y: 0, duration: 0.9, ease: "power3.out", stagger: 0.12, delay: 0.2 }
       );
-
       const sections = contentRef.current?.querySelectorAll(".animate-in");
       sections?.forEach((el) => {
         ScrollTrigger.create({
@@ -83,6 +49,10 @@ export default function ServicePageClient({ service, relatedServices }: { servic
     return () => ctx.revert();
   }, []);
 
+  const hero = content?.hero ?? { kind: "single" as const, src: FALLBACK_HERO };
+  const eyebrow = content?.eyebrow ?? service.tag;
+  const headline = content?.headline ?? service.heading ?? service.title;
+
   return (
     <>
       <Navbar />
@@ -92,12 +62,7 @@ export default function ServicePageClient({ service, relatedServices }: { servic
           <button
             onClick={() => window.history.length > 1 ? router.back() : router.push("/servicios")}
             className="flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-semibold text-[#1d1d1f] transition-all duration-200 active:scale-95"
-            style={{
-              background: "rgba(255,255,255,0.92)",
-              backdropFilter: "blur(12px)",
-              border: "1.5px solid rgba(0,0,0,0.1)",
-              boxShadow: "0 2px 12px rgba(0,0,0,0.10)",
-            }}
+            style={{ background: "rgba(255,255,255,0.92)", backdropFilter: "blur(12px)", border: "1.5px solid rgba(0,0,0,0.1)", boxShadow: "0 2px 12px rgba(0,0,0,0.10)" }}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M13 8H3M7 4l-4 4 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
@@ -106,236 +71,156 @@ export default function ServicePageClient({ service, relatedServices }: { servic
           </button>
         </div>
 
-        {/* ── HERO ── */}
-        <section
-          className="pt-36 lg:pt-28 pb-16 relative overflow-hidden"
-          style={{ background: "linear-gradient(135deg, #020804 0%, #050e06 55%, #061008 100%)" }}
-        >
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 55% 65% at 0% 55%, rgba(26,140,60,0.38) 0%, transparent 60%)" }} />
-          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 40% 40% at 95% 80%, rgba(48,209,88,0.10) 0%, transparent 60%)" }} />
-          <div className="absolute inset-0 pointer-events-none opacity-[0.04]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+        {/* ── HERO: foto a pantalla completa (partida antes/después cuando hay evidencia) ── */}
+        <section className="relative overflow-hidden bg-black" style={{ minHeight: "clamp(520px, 72vh, 760px)" }}>
+          {hero.kind === "split" ? (
+            <div className="absolute inset-0 grid grid-cols-2">
+              <div className="relative overflow-hidden">
+                <Image src={hero.antes} alt={`${service.title} — antes`} fill priority className="object-cover" sizes="50vw" />
+                <span className="absolute left-4 top-24 sm:left-8 sm:top-28 px-4 py-2 rounded-full text-[11px] sm:text-[12px] font-bold tracking-[0.18em] text-white" style={{ background: "rgba(0,0,0,0.6)" }}>ANTES</span>
+              </div>
+              <div className="relative overflow-hidden" style={{ borderLeft: "3px solid #30d158" }}>
+                <Image src={hero.despues} alt={`${service.title} — después`} fill priority className="object-cover" sizes="50vw" />
+                <span className="absolute right-4 top-24 sm:right-8 sm:top-28 px-4 py-2 rounded-full text-[11px] sm:text-[12px] font-bold tracking-[0.18em] text-white" style={{ background: "#1a8c3c" }}>DESPUÉS</span>
+              </div>
+            </div>
+          ) : (
+            <Image src={hero.src} alt={`${service.title} — Soluciones Delta C.A.`} fill priority className="object-cover" sizes="100vw" />
+          )}
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(180deg, rgba(2,8,4,0.55) 0%, rgba(2,8,4,0.05) 35%, rgba(2,8,4,0.92) 100%)" }} />
 
-          <div className="site-container">
-            <div ref={heroRef}>
-              {/* Breadcrumb */}
-              <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-[13px] text-white/60 mb-8">
-                <Link href="/" className="hover:text-[#30d158] transition-colors">Inicio</Link>
-                <span>/</span>
-                <Link href="/servicios" className="hover:text-[#30d158] transition-colors">Servicios</Link>
-                <span>/</span>
-                <span className="text-white/70 font-medium">{service.title}</span>
-              </nav>
-
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                {/* Left */}
-                <div>
-                  <div className="inline-flex items-center gap-2 mb-5 px-3 py-1.5 rounded-full" style={{ background: "rgba(26,140,60,0.18)", border: "1px solid rgba(48,209,88,0.25)" }}>
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#30d158] animate-pulse" />
-                    <span className="text-[11px] font-bold text-[#30d158] tracking-widest uppercase">{service.tag}</span>
-                  </div>
-                  <h1 className="text-[clamp(36px,5vw,64px)] font-bold tracking-tight leading-[1.06] text-white mb-4">
-                    {service.heading ?? service.title}
-                  </h1>
-                  <p className="text-[18px] text-[#30d158] font-semibold mb-4">{service.subtitle}</p>
-                  <p className="text-[17px] text-white/55 leading-relaxed mb-8 max-w-lg">{service.summary}</p>
-                  <div className="flex flex-wrap gap-4">
-                    <a href="#contacto-servicio" className="btn-primary">
-                      Solicitar este servicio
-                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                        <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                    </a>
-                    <DescargarServicioPDF service={service} />
-                    <Link href="/servicios" className="btn-secondary-dark">
-                      ← Todos los servicios
-                    </Link>
-                  </div>
-                </div>
-
-                {/* Right — image */}
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl aspect-video lg:aspect-[4/3]" style={{ boxShadow: "0 0 0 1px rgba(48,209,88,0.15), 0 32px 80px rgba(0,0,0,0.5)" }}>
-                  <Image
-                    src={SERVICE_IMAGES[service.slug] || "/vacuum-truck.webp"}
-                    alt={`${service.title} — Soluciones Delta C.A.`}
-                    fill
-                    className="object-cover"
-                    priority
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-[13px] font-semibold text-white"
-                      style={{ background: "rgba(26,140,60,0.85)", backdropFilter: "blur(8px)" }}
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                      Soluciones Delta, C.A. — RIF J-50735393-1
-                    </div>
-                  </div>
-                </div>
+          <div className="site-container relative h-full">
+            <div ref={heroRef} className="absolute left-0 right-0 bottom-0 px-6 lg:px-0 pb-12 lg:pb-14 flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+              <div className="flex flex-col gap-4 max-w-3xl">
+                <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-white/50">
+                  <Link href="/" className="hover:text-[#30d158] transition-colors">Inicio</Link>
+                  <span>/</span>
+                  <Link href="/servicios" className="hover:text-[#30d158] transition-colors">Servicios</Link>
+                </nav>
+                <span className="text-[11px] font-bold tracking-[0.22em] uppercase text-[#30d158]">{eyebrow}</span>
+                <h1 className="text-[clamp(34px,4.6vw,60px)] font-bold tracking-tight leading-[1.04] text-white" style={{ textWrap: "balance" }}>
+                  {headline}
+                </h1>
+              </div>
+              <div className="flex flex-wrap gap-3 lg:justify-end">
+                <a href="#contacto-servicio" className="btn-primary">
+                  Solicitar este servicio
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </a>
+                <DescargarServicioPDF service={service} />
               </div>
             </div>
           </div>
         </section>
 
-        <div ref={contentRef} className="site-container py-16 space-y-20">
+        <div ref={contentRef} className="site-container py-4">
 
-          {/* ── OVERVIEW ── */}
-          <div className="animate-in">
-            <div className="max-w-3xl">
-              <h2 className="section-label mb-3">Descripción General</h2>
-              <p className="text-[18px] text-[#3a3a3c] leading-relaxed">{service.overview}</p>
-              <p className="mt-5 text-[16px] text-[#6e6e73] leading-relaxed">
+          {/* ── DESCRIPCIÓN GENERAL ── */}
+          <section className="animate-in grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-16 py-16 lg:py-20 border-b" style={{ borderColor: "#e5e5ea" }}>
+            <div className="flex flex-col gap-3">
+              <h2 className="section-label">Descripción General</h2>
+              <p className="text-[clamp(24px,2.4vw,30px)] font-bold tracking-tight leading-[1.15] text-[#1d1d1f]" style={{ textWrap: "balance" }}>
+                {content?.subtitle ?? service.subtitle}
+              </p>
+            </div>
+            <div className="flex flex-col gap-5 max-w-3xl">
+              <p className="text-[18px] text-[#3a3a3c] leading-[1.7]">{service.overview}</p>
+              <p className="text-[15px] text-[#6e6e73] leading-relaxed">
                 Atendemos solicitudes para operaciones en Venezuela desde San Francisco, Estado Zulia.
                 La movilización, disponibilidad y alcance del servicio se coordinan según la ubicación
                 y las condiciones del proyecto. <Link href="/contacto" className="text-[#1a8c3c] underline underline-offset-4">Consulte su operación con nuestro equipo.</Link>
               </p>
             </div>
-          </div>
+          </section>
 
-          {/* ── PHOTO GALLERY ── */}
-          {SERVICE_GALLERY[service.slug]?.length > 0 && (
-            <div className="animate-in">
-              <h2 className="section-label mb-6">Galería de Equipos y Operaciones</h2>
-              <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
-                {SERVICE_GALLERY[service.slug].map((img, i) => (
-                  <div
-                    key={i}
-                    className={`relative rounded-2xl overflow-hidden ${i === 0 ? "col-span-2 lg:col-span-1 row-span-2" : ""}`}
-                    style={{ aspectRatio: i === 0 ? "4/3" : "4/3", minHeight: 180 }}
-                  >
-                    <Image
-                      src={img.src}
-                      alt={img.caption}
-                      fill
-                      className="object-cover hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 50vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300" />
-                    <div className="absolute bottom-0 left-0 right-0 p-3 translate-y-full hover:translate-y-0 transition-transform duration-300">
-                      <span className="text-[12px] font-semibold text-white">{img.caption}</span>
+          {/* ── CÓMO TRABAJAMOS: 3 pasos con foto ── */}
+          {content && (
+            <section className="animate-in py-16 lg:py-20 flex flex-col gap-9">
+              <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+                <h2 className="text-[clamp(28px,3.2vw,38px)] font-bold tracking-tight leading-[1.1] text-[#1d1d1f] max-w-md" style={{ textWrap: "balance" }}>Cómo trabajamos</h2>
+                <p className="text-[16px] text-[#6e6e73] leading-relaxed max-w-md">{content.stepsIntro}</p>
+              </div>
+              <div className="grid sm:grid-cols-3 gap-6">
+                {content.steps.map((step, i) => (
+                  <article key={i} className="flex flex-col gap-3.5">
+                    <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: "4 / 3" }}>
+                      <Image src={step.src} alt={step.title} fill className="object-cover transition-transform duration-500 hover:scale-105" sizes="(max-width: 640px) 100vw, 33vw" />
                     </div>
-                  </div>
+                    <div className="flex items-center gap-3">
+                      <span className="w-8 h-8 rounded-[10px] flex items-center justify-center text-[14px] font-extrabold text-white flex-shrink-0" style={{ background: "#1a8c3c" }}>{i + 1}</span>
+                      <h3 className="text-[19px] font-bold text-[#1d1d1f] leading-tight">{step.title}</h3>
+                    </div>
+                    <p className="text-[15px] text-[#6e6e73] leading-relaxed">{step.text}</p>
+                  </article>
                 ))}
               </div>
-            </div>
+            </section>
           )}
 
-          {/* ── CONTENT SECTIONS ── */}
-          <div className="space-y-12">
-            {service.sections.map((sec, i) => (
-              <div key={i} className="animate-in grid lg:grid-cols-5 gap-8 items-start">
-                <div className="lg:col-span-2">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div
-                      className="w-8 h-8 rounded-xl flex items-center justify-center text-[13px] font-bold text-white flex-shrink-0"
-                      style={{ background: "#1a8c3c" }}
-                    >
-                      {i + 1}
-                    </div>
-                    <h2 className="text-[18px] font-bold text-[#1d1d1f] leading-tight">{sec.heading}</h2>
-                  </div>
-                </div>
-                <div className="lg:col-span-3">
-                  <p className="text-[15px] text-[#6e6e73] leading-relaxed mb-4">{sec.body}</p>
-                  {sec.list && (
-                    <ul className="space-y-2.5">
-                      {sec.list.map((item, j) => (
-                        <li key={j} className="flex items-start gap-3 text-[14px] text-[#3a3a3c]">
-                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="flex-shrink-0 mt-0.5">
-                            <circle cx="8" cy="8" r="7" stroke="rgba(26,140,60,0.3)" strokeWidth="1"/>
-                            <path d="M5 8l2 2 4-4" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                          </svg>
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* ── SPECS TABLE ── */}
-          {service.specs && (
-            <div className="animate-in">
-              <h2 className="section-label mb-6">Especificaciones Técnicas</h2>
-              <div className="rounded-2xl overflow-hidden" style={{ border: "1.5px solid #e5e5ea", boxShadow: "0 4px 20px rgba(0,0,0,0.06)" }}>
-                <div className="grid grid-cols-2 sm:grid-cols-4">
-                  {service.specs.map((sp, i) => (
-                    <div
-                      key={i}
-                      className="p-5"
-                      style={{
-                        borderRight: (i + 1) % 4 !== 0 ? "1px solid #e5e5ea" : "none",
-                        borderBottom: i < service.specs!.length - 4 ? "1px solid #e5e5ea" : "none",
-                        background: i % 2 === 0 ? "#ffffff" : "#fafafa",
-                      }}
-                    >
-                      <div className="text-[11px] text-[#6e6e73] mb-1 font-medium uppercase tracking-wide">{sp.label}</div>
-                      <div className="text-[14px] font-bold text-[#1d1d1f]">{sp.value}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-
-          {/* ── BENEFITS ── */}
-          <div className="animate-in">
-            <h2 className="section-label mb-6">Ventajas del Servicio</h2>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-              {service.benefits.map((b, i) => (
-                <div
-                  key={i}
-                  className="p-6 rounded-2xl glass-card"
-                >
-                  <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center mb-4"
-                    style={{ background: "rgba(26,140,60,0.08)", border: "1px solid rgba(26,140,60,0.15)" }}
-                  >
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                      <path d={b.icon} stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </div>
-                  <h3 className="text-[15px] font-bold text-[#1d1d1f] mb-2">{b.title}</h3>
-                  <p className="text-[13px] text-[#6e6e73] leading-relaxed">{b.desc}</p>
+          {/* ── CIFRAS ── */}
+          {content && (
+            <section className="animate-in rounded-3xl px-8 py-10 lg:px-16 lg:py-11 grid grid-cols-2 lg:grid-cols-4 gap-8" style={{ background: "#0d1f14" }}>
+              {content.stats.map((stat, i) => (
+                <div key={i} className="flex flex-col gap-1">
+                  <span className="text-[clamp(30px,3.2vw,40px)] font-extrabold tracking-tight leading-none" style={{ color: stat.highlight ? "#30d158" : "#ffffff", fontVariantNumeric: "tabular-nums" }}>{stat.value}</span>
+                  <span className="text-[12px] font-semibold tracking-[0.12em] uppercase" style={{ color: "rgba(255,255,255,0.55)" }}>{stat.label}</span>
                 </div>
               ))}
-            </div>
-          </div>
+            </section>
+          )}
 
-          {/* ── FAQ ── */}
-          <div className="animate-in">
-            <h2 className="section-label mb-6">Preguntas Frecuentes</h2>
-            <div className="space-y-4 max-w-3xl">
+          {/* ── CIERRE ── */}
+          {content && (
+            <section className="animate-in grid lg:grid-cols-2 gap-10 lg:gap-16 items-center py-16 lg:py-24">
+              <div className="relative rounded-2xl overflow-hidden" style={{ aspectRatio: "16 / 10" }}>
+                <Image src={content.closing.src} alt={content.closing.heading} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+              </div>
+              <div className="flex flex-col gap-4">
+                <h2 className="section-label">{content.closing.label}</h2>
+                <p className="text-[clamp(28px,3vw,36px)] font-bold tracking-tight leading-[1.12] text-[#1d1d1f]" style={{ textWrap: "balance" }}>{content.closing.heading}</p>
+                <p className="text-[17px] text-[#6e6e73] leading-relaxed max-w-lg">{content.closing.text}</p>
+                <div className="flex flex-wrap gap-3 mt-2">
+                  <a href="#contacto-servicio" className="btn-primary">Solicitar cotización</a>
+                  <a href="https://wa.me/584246472446" className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-[15px] font-semibold text-[#1d1d1f]" style={{ border: "1.5px solid #e5e5ea" }}>
+                    +58 424-6472446
+                  </a>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* ── PREGUNTAS FRECUENTES (plegadas) ── */}
+          <section className="animate-in py-4 pb-16 flex flex-col gap-5">
+            <h2 className="section-label">Preguntas Frecuentes</h2>
+            <div className="flex flex-col gap-3 max-w-3xl">
               {service.faq.map((item, i) => (
                 <FaqItem key={i} q={item.q} a={item.a} />
               ))}
             </div>
-          </div>
-
-          <section id="servicios-complementarios" aria-labelledby="related-services-title">
-            <h2 id="related-services-title" className="text-2xl font-semibold text-[#1d1d1f] mb-4">Servicios que complementan esta operación</h2>
-            <p className="text-base text-[#555e58] leading-relaxed max-w-3xl mb-7">
-              Defina con nuestro equipo qué etapas necesita integrar. Puede consultar también nuestra
-              <Link href="/" className="text-[#167734] underline underline-offset-4"> oferta de servicios petroleros en Venezuela</Link>.
-            </p>
-            <div className="grid md:grid-cols-3 gap-5">
-              {relatedServices.map(related => (
-                <Link key={related.slug} href={`/servicios/${related.slug}`} className="block rounded-2xl border border-[#dce3dd] p-6 hover:border-[#167734] transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#167734]">
-                  <h3 className="text-lg font-semibold text-[#1d1d1f] mb-3">{related.title}</h3>
-                  <p className="text-base text-[#555e58] leading-relaxed">{related.description}</p>
-                  <span className="inline-block text-[#167734] font-medium mt-5" aria-hidden="true">Ver servicio ↗</span>
-                </Link>
-              ))}
-            </div>
           </section>
+
+          {/* ── SERVICIOS COMPLEMENTARIOS ── */}
+          {relatedServices.length > 0 && (
+            <section id="servicios-complementarios" aria-labelledby="related-services-title" className="animate-in pb-16">
+              <h2 id="related-services-title" className="section-label mb-5">Servicios que complementan esta operación</h2>
+              <div className="grid md:grid-cols-3 gap-4">
+                {relatedServices.map(related => (
+                  <Link key={related.slug} href={`/servicios/${related.slug}`} className="block rounded-2xl p-6 transition-colors hover:border-[#1a8c3c] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1a8c3c]" style={{ border: "1.5px solid #e5e5ea" }}>
+                    <h3 className="text-[17px] font-bold text-[#1d1d1f] mb-2">{related.title}</h3>
+                    <p className="text-[14px] text-[#6e6e73] leading-relaxed">{related.description}</p>
+                    <span className="inline-block text-[#1a8c3c] font-semibold text-[14px] mt-4" aria-hidden="true">Ver servicio →</span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* ── CTA ── */}
           <div
             id="contacto-servicio"
-            className="animate-in rounded-3xl p-10 text-center relative overflow-hidden"
+            className="animate-in rounded-3xl p-10 text-center relative overflow-hidden mb-16"
             style={{ background: "linear-gradient(135deg, #0d1f14 0%, #0a1a10 100%)" }}
           >
             <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 110%, rgba(26,140,60,0.25) 0%, transparent 65%)" }} />
@@ -382,29 +267,16 @@ export default function ServicePageClient({ service, relatedServices }: { servic
 }
 
 function FaqItem({ q, a }: { q: string; a: string }) {
-  const detailsRef = useRef<HTMLDetailsElement>(null);
-
   return (
-    <details
-      ref={detailsRef}
-      className="group glass-card rounded-2xl overflow-hidden"
-    >
-      <summary className="flex items-center justify-between gap-4 p-6 cursor-pointer list-none select-none">
+    <details className="group rounded-2xl overflow-hidden bg-white" style={{ border: "1.5px solid #e5e5ea" }}>
+      <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none select-none">
         <span className="text-[15px] font-semibold text-[#1d1d1f] pr-4">{q}</span>
-        <div
-          className="faq-icon w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors group-open:bg-[#1a8c3c]"
-          style={{ background: "rgba(26,140,60,0.1)", border: "1px solid rgba(26,140,60,0.2)" }}
-        >
-          <svg
-            width="14" height="14" viewBox="0 0 14 14" fill="none"
-            className="transition-transform duration-300 group-open:rotate-45"
-          >
-            <path d="M7 2v10M2 7h10" strokeWidth="1.5" strokeLinecap="round" className="faq-path"/>
-          </svg>
-        </div>
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="flex-shrink-0 transition-transform duration-300 group-open:rotate-180">
+          <path d="M4 7l5 5 5-5" stroke="#1a8c3c" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
       </summary>
       <div className="px-6 pb-6 -mt-1">
-        <p className="text-[14px] text-[#6e6e73] leading-relaxed">{a}</p>
+        <p className="text-[14.5px] text-[#6e6e73] leading-relaxed">{a}</p>
       </div>
     </details>
   );
