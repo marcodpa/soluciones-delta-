@@ -22,8 +22,7 @@ export default function JsonLd({ service, breadcrumbs = [] }: { service?: Servic
     },
     areaServed: { "@type": "Country", name: "Venezuela" },
     openingHoursSpecification: [
-      { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "07:00", closes: "18:00" },
-      { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "08:00", closes: "14:00" },
+      { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "00:00", closes: "23:59" },
     ],
     contactPoint: {
       "@type": "ContactPoint", telephone: "+58-424-6472446",
@@ -59,6 +58,14 @@ export default function JsonLd({ service, breadcrumbs = [] }: { service?: Servic
     url: `${SITE_URL}/servicios/${service.slug}`, serviceType: service.tag,
     provider: { "@id": `${SITE_URL}/#organization` },
     areaServed: { "@type": "Country", name: "Venezuela" },
+    hoursAvailable: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "00:00", closes: "23:59" },
+  });
+  if (service && service.faq.length > 0) graph.push({
+    "@type": "FAQPage", "@id": `${SITE_URL}/servicios/${service.slug}#faq`,
+    mainEntity: service.faq.map(item => ({
+      "@type": "Question", name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
   });
   return <script type="application/ld+json" dangerouslySetInnerHTML={{
     __html: JSON.stringify({ "@context": "https://schema.org", "@graph": graph }).replace(/</g, "\\u003c"),
