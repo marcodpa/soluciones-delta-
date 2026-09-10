@@ -27,7 +27,7 @@ const slides = [
   },
   {
     src: "/vapor/caldera-otsg-semirremolque.webp",
-    caption: "Generador de Vapor OTSG — Inyección de vapor para tanques y patio de tanques",
+    caption: "Servicio de inyección de vapor a pozos y patio de tanques",
   },
   {
     src: "/fosas/fosa-1-despues.jpg",
@@ -39,7 +39,7 @@ const slides = [
   },
   {
     src: "/bombeo/equipo-principal.webp",
-    caption: "Sistema de bombeo hidráulico — Extracción de crudo pesado hasta 1,500 Bbl/día",
+    caption: "Servicio de desnatado y recuperación superficial de hidrocarburos",
   },
 ];
 
