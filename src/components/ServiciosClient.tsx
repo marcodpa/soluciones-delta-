@@ -132,7 +132,7 @@ export default function ServiciosClient() {
       <main>
 
         {/* ── HERO (photo background, centered) ── */}
-        <section className="pt-40 pb-52 relative overflow-hidden">
+        <section className="pt-40 pb-24 relative overflow-hidden">
           {/* Background photo */}
           <div className="absolute inset-0">
             <Image
@@ -190,10 +190,44 @@ export default function ServiciosClient() {
           </div>
         </section>
 
+        {/* ── EMPRESA DE SERVICIOS PETROLEROS (texto SEO) ── */}
+        <section className="py-14 lg:py-16" style={{ background: "#ffffff" }}>
+          <div className="site-container grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-16 items-start">
+            <div className="flex flex-col gap-4">
+              <span className="section-label">Servicios petroleros en Zulia</span>
+              <h2 className="text-[clamp(26px,3vw,38px)] font-bold tracking-tight leading-[1.12] text-[#1d1d1f]" style={{ textWrap: "balance" }}>
+                Empresa de servicios petroleros en Zulia y toda Venezuela
+              </h2>
+              <p className="text-[15px] text-[#6e6e73] leading-relaxed">
+                Sede en San Francisco, Estado Zulia. Movilización a campos de la Costa Oriental del Lago, Maracaibo y el resto del país.
+              </p>
+            </div>
+            <div className="flex flex-col gap-5 text-[16px] text-[#3a3a3c] leading-[1.75]">
+              <p>
+                Soluciones Delta, C.A. es una empresa venezolana de servicios petroleros con equipos propios y personal técnico
+                certificado. Atendemos operadoras, contratistas y plantas industriales que necesitan resolver en campo el manejo de
+                crudo pesado y de sus residuos: desde el <Link href="/servicios/bombeo-de-crudo" className="text-[#1a8c3c] underline underline-offset-4">bombeo y desnatado de crudo</Link> y
+                el <Link href="/servicios/trasegado-vacuum" className="text-[#1a8c3c] underline underline-offset-4">transporte con camión vacuum de 160 barriles</Link>, hasta
+                el <Link href="/servicios/frac-tanks" className="text-[#1a8c3c] underline underline-offset-4">alquiler de frac tanks de 500 barriles</Link> y
+                el <Link href="/servicios/manejo-de-desechos" className="text-[#1a8c3c] underline underline-offset-4">manejo de desechos bajo el Decreto 2635</Link>.
+              </p>
+              <p>
+                Completamos la cadena con <Link href="/servicios/alquiler-calderas-inyeccion-vapor" className="text-[#1a8c3c] underline underline-offset-4">alquiler de calderas e inyección de vapor</Link> a
+                pozos y patios de tanques, <Link href="/servicios/limpieza-industrial-hidrojet" className="text-[#1a8c3c] underline underline-offset-4">limpieza industrial con hydrojet de 40.000 PSI</Link> y
+                la <Link href="/servicios/recuperacion-de-crudo-en-fosas" className="text-[#1a8c3c] underline underline-offset-4">recuperación térmica de crudo en fosas, canales y tanques</Link>,
+                con capacidad demostrada de 1,500 barriles por día. Operamos 24 horas, 7 días, con contratos ejecutados al 100% en campos del Estado Zulia.
+              </p>
+              <p className="text-[15px] text-[#6e6e73]">
+                ¿Quiere entender mejor cada servicio antes de cotizar? Lea nuestras <Link href="/articulos" className="text-[#1a8c3c] underline underline-offset-4">guías sobre camiones vacuum, frac tanks y recuperación de crudo</Link>.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* ── SERVICES GRID (overlapping cards) ── */}
-        <section className="pb-20" style={{ background: "#ffffff" }}>
+        <section className="pb-20 pt-2" style={{ background: "#ffffff" }}>
           <div className="site-container">
-            <div ref={cardsRef} className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 -mt-36 relative z-10">
+            <div ref={cardsRef} className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 relative z-10">
               {services.map((s) => (
                 <Link
                   key={s.slug}
@@ -272,40 +306,6 @@ export default function ServiciosClient() {
                 </Link>
               ))}
 
-            </div>
-          </div>
-        </section>
-
-        {/* ── EMPRESA DE SERVICIOS PETROLEROS (texto SEO) ── */}
-        <section className="py-16 lg:py-20" style={{ background: "#ffffff", borderTop: "1px solid #ebebef" }}>
-          <div className="site-container grid lg:grid-cols-[1fr_1.6fr] gap-10 lg:gap-16 items-start">
-            <div className="flex flex-col gap-4">
-              <span className="section-label">Servicios petroleros en Zulia</span>
-              <h2 className="text-[clamp(26px,3vw,38px)] font-bold tracking-tight leading-[1.12] text-[#1d1d1f]" style={{ textWrap: "balance" }}>
-                Empresa de servicios petroleros en Zulia y toda Venezuela
-              </h2>
-              <p className="text-[15px] text-[#6e6e73] leading-relaxed">
-                Sede en San Francisco, Estado Zulia. Movilización a campos de la Costa Oriental del Lago, Maracaibo y el resto del país.
-              </p>
-            </div>
-            <div className="flex flex-col gap-5 text-[16px] text-[#3a3a3c] leading-[1.75]">
-              <p>
-                Soluciones Delta, C.A. es una empresa venezolana de servicios petroleros con equipos propios y personal técnico
-                certificado. Atendemos operadoras, contratistas y plantas industriales que necesitan resolver en campo el manejo de
-                crudo pesado y de sus residuos: desde el <Link href="/servicios/bombeo-de-crudo" className="text-[#1a8c3c] underline underline-offset-4">bombeo y desnatado de crudo</Link> y
-                el <Link href="/servicios/trasegado-vacuum" className="text-[#1a8c3c] underline underline-offset-4">transporte con camión vacuum de 160 barriles</Link>, hasta
-                el <Link href="/servicios/frac-tanks" className="text-[#1a8c3c] underline underline-offset-4">alquiler de frac tanks de 500 barriles</Link> y
-                el <Link href="/servicios/manejo-de-desechos" className="text-[#1a8c3c] underline underline-offset-4">manejo de desechos bajo el Decreto 2635</Link>.
-              </p>
-              <p>
-                Completamos la cadena con <Link href="/servicios/alquiler-calderas-inyeccion-vapor" className="text-[#1a8c3c] underline underline-offset-4">alquiler de calderas e inyección de vapor</Link> a
-                pozos y patios de tanques, <Link href="/servicios/limpieza-industrial-hidrojet" className="text-[#1a8c3c] underline underline-offset-4">limpieza industrial con hydrojet de 40.000 PSI</Link> y
-                la <Link href="/servicios/recuperacion-de-crudo-en-fosas" className="text-[#1a8c3c] underline underline-offset-4">recuperación térmica de crudo en fosas, canales y tanques</Link>,
-                con capacidad demostrada de 1,500 barriles por día. Operamos 24 horas, 7 días, con contratos ejecutados al 100% en campos del Estado Zulia.
-              </p>
-              <p className="text-[15px] text-[#6e6e73]">
-                ¿Quiere entender mejor cada servicio antes de cotizar? Lea nuestras <Link href="/articulos" className="text-[#1a8c3c] underline underline-offset-4">guías sobre camiones vacuum, frac tanks y recuperación de crudo</Link>.
-              </p>
             </div>
           </div>
         </section>
