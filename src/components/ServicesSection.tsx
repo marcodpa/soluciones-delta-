@@ -158,7 +158,7 @@ export default function ServicesSection() {
           src="/servicios-campo.png"
           alt=""
           aria-hidden="true"
-          className="w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover object-center"
         />
         {/* Mobile: uniform translucent veil (same treatment as the /servicios hero) */}
         <div className="absolute inset-0 lg:hidden" style={{
