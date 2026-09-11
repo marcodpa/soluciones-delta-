@@ -165,7 +165,7 @@ export default function HeroSection() {
     <>
       {/* ── HERO ── */}
       <div ref={wrapperRef} style={{ height: "340svh" }}>
-        <div className="sticky top-0 w-full overflow-hidden" style={{ height: "100svh" }}>
+        <div className={`sticky top-0 w-full overflow-hidden ${styles.stage}`}>
 
           {/* Static image stays behind the canvas as a loading fallback. */}
           <img

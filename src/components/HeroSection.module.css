@@ -1,3 +1,9 @@
+/* Safari iOS: 100dvh sigue el alto real cuando la barra inferior se contrae (evita franja negra sin repintar) */
+.stage {
+  height: 100vh;
+  height: 100dvh;
+  background: #000;
+}
 .content {
   position: absolute;
   z-index: 10;
