@@ -13,8 +13,6 @@ import Footer from "@/components/Footer";
 export default function ClientPage() {
   return (
     <>
-      <div className="noise-overlay" aria-hidden="true" />
-
       <Navbar />
 
       <main id="main-content" role="main" className={typography.main}>
