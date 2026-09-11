@@ -160,13 +160,16 @@ export default function ServicesSection() {
           aria-hidden="true"
           className="w-full h-full object-cover object-center"
         />
-        {/* Gradient overlay: fades photo into dark bg on the left */}
-        <div className="absolute inset-0" style={{
+        {/* Mobile: uniform translucent veil (same treatment as the /servicios hero) */}
+        <div className="absolute inset-0 lg:hidden" style={{
+          background: "linear-gradient(180deg, rgba(8,15,9,0.88) 0%, rgba(8,15,9,0.62) 45%, rgba(8,15,9,0.7) 100%)"
+        }} />
+        {/* Desktop: fades photo into dark bg on the left */}
+        <div className="absolute inset-0 hidden lg:block" style={{
           background: "linear-gradient(90deg, #080f09 0%, #080f09 18%, rgba(8,15,9,0.95) 42%, rgba(8,15,9,0.65) 65%, rgba(8,15,9,0.25) 100%)"
         }} />
-        {/* Bottom fade */}
-        <div className="absolute inset-0" style={{
-          background: "linear-gradient(180deg, rgba(8,15,9,0.6) 0%, transparent 18%, transparent 78%, rgba(8,15,9,0.55) 100%)"
+        <div className="absolute inset-0 hidden lg:block" style={{
+          background: "linear-gradient(180deg, rgba(8,15,9,0.6) 0%, transparent 18%, transparent 72%, #080f09 100%)"
         }} />
       </div>
 
