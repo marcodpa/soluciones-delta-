@@ -26,6 +26,29 @@ export default function HeroSection() {
 
 
   useEffect(() => {
+    const phonePanels = [panel1Ref.current!, panel2Ref.current!, panel3Ref.current!];
+    const phoneDots = [dot1Ref.current!, dot2Ref.current!, dot3Ref.current!];
+    // Phones: static hero (first frame + timed text rotation). No sticky stage, no canvas, no 192 frames.
+    // Safari iOS paints its bottom bar black behind sticky full-screen canvases, and the scrub is heavy on mobile.
+    if (window.matchMedia("(max-width: 1023px)").matches) {
+      const phoneScope = gsap.context(() => {
+        gsap.set(phonePanels, { autoAlpha: 0, y: 24 });
+        gsap.set(phonePanels[0], { autoAlpha: 1, y: 0 });
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        const hold = 6;
+        const loop = gsap.timeline({ repeat: -1 });
+        for (let index = 0; index < 3; index++) {
+          const next = (index + 1) % 3;
+          const at = (index + 1) * hold;
+          loop.to(phonePanels[index], { autoAlpha: 0, y: -16, duration: 0.5, ease: "power2.in" }, at - 0.5);
+          loop.fromTo(phonePanels[next], { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: 0.6, ease: "power2.out" }, at);
+          loop.to(phoneDots[index], { scaleX: 6 / 22, background: "rgba(255,255,255,0.28)", duration: 0.3 }, at);
+          loop.to(phoneDots[next], { scaleX: 1, background: "#30d158", duration: 0.3 }, at);
+        }
+      }, wrapperRef);
+      return () => phoneScope.revert();
+    }
+
     const canvas = canvasRef.current!;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
@@ -164,8 +187,8 @@ export default function HeroSection() {
   return (
     <>
       {/* ── HERO ── */}
-      <div ref={wrapperRef} style={{ height: "340svh" }}>
-        <div className={`sticky top-0 w-full overflow-hidden ${styles.stage}`}>
+      <div ref={wrapperRef} className={styles.wrapper}>
+        <div className={styles.stage}>
 
           {/* Static image stays behind the canvas as a loading fallback. */}
           <img

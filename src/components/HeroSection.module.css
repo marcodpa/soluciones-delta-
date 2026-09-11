@@ -1,8 +1,15 @@
-/* Safari iOS: 100dvh sigue el alto real cuando la barra inferior se contrae (evita franja negra sin repintar) */
+/* Telefonos: hero estatico de una pantalla. Escritorio: escenario pegajoso con scroll de 340svh. */
+.wrapper { height: 100svh; }
 .stage {
-  height: 100vh;
-  height: 100dvh;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   background: #000;
+}
+@media (min-width: 1024px) {
+  .wrapper { height: 340svh; }
+  .stage { position: sticky; top: 0; height: 100vh; height: 100dvh; }
 }
 .content {
   position: absolute;
