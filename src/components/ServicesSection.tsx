@@ -166,7 +166,7 @@ export default function ServicesSection() {
         }} />
         {/* Bottom fade */}
         <div className="absolute inset-0" style={{
-          background: "linear-gradient(180deg, rgba(8,15,9,0.6) 0%, transparent 18%, transparent 72%, #080f09 100%)"
+          background: "linear-gradient(180deg, rgba(8,15,9,0.6) 0%, transparent 18%, transparent 78%, rgba(8,15,9,0.55) 100%)"
         }} />
       </div>
 
@@ -174,7 +174,7 @@ export default function ServicesSection() {
       <div className="absolute top-0 inset-x-0 h-px pointer-events-none"
         style={{ background: "linear-gradient(90deg,transparent,rgba(26,140,60,0.4),transparent)" }} />
 
-      <div className="site-container relative py-24 lg:py-32">
+      <div className="site-container relative pt-24 pb-14 lg:py-32">
 
         {/* ── HEADER ── */}
         <div ref={headerRef} className="mb-14 max-w-lg">
