@@ -218,7 +218,7 @@ export default function ServiciosClient() {
                 con capacidad demostrada de 1,500 barriles por día. Operamos 24 horas, 7 días, con contratos ejecutados al 100% en campos del Estado Zulia.
               </p>
               <p className="text-[15px] text-[#6e6e73]">
-                ¿Quiere entender mejor cada servicio antes de cotizar? Lea nuestras <Link href="/articulos" className="text-[#167b34] underline underline-offset-4">guías sobre camiones vacuum, frac tanks y recuperación de crudo</Link>.
+                Atendemos toda la región: vea nuestras páginas de <Link href="/servicios-petroleros/zulia" className="text-[#167b34] underline underline-offset-4">servicios petroleros en Zulia</Link>, <Link href="/servicios-petroleros/maracaibo" className="text-[#167b34] underline underline-offset-4">Maracaibo</Link>, <Link href="/servicios-petroleros/costa-oriental-del-lago" className="text-[#167b34] underline underline-offset-4">Costa Oriental del Lago</Link> y <Link href="/servicios-petroleros/san-francisco" className="text-[#167b34] underline underline-offset-4">San Francisco</Link>. ¿Quiere entender mejor cada servicio antes de cotizar? Lea nuestras <Link href="/articulos" className="text-[#167b34] underline underline-offset-4">guías sobre camiones vacuum, frac tanks y recuperación de crudo</Link>.
               </p>
             </div>
           </div>

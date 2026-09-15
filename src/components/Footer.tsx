@@ -19,6 +19,9 @@ const navLinks = [
   { label: "Nosotros",  href: "/nosotros" },
   { label: "Contacto",  href: "/contacto" },
   { label: "Artículos", href: "/articulos" },
+  { label: "Servicios petroleros en Zulia", href: "/servicios-petroleros/zulia" },
+  { label: "Maracaibo", href: "/servicios-petroleros/maracaibo" },
+  { label: "Costa Oriental del Lago", href: "/servicios-petroleros/costa-oriental-del-lago" },
 ];
 
 export default function Footer() {
