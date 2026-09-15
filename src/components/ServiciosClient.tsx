@@ -136,7 +136,7 @@ export default function ServiciosClient() {
           {/* Background photo */}
           <div className="absolute inset-0">
             <Image
-              src="/servicios-campo.png"
+              src="/servicios-campo.webp"
               alt=""
               aria-hidden="true"
               fill
@@ -160,7 +160,7 @@ export default function ServiciosClient() {
               </div>
               <h1 className="text-[clamp(36px,5vw,64px)] font-bold tracking-tight leading-[1.06] text-white mb-6">
                 Servicios para la{" "}
-                <span style={{ background: "linear-gradient(135deg,#30d158 0%,#1a8c3c 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                <span style={{ background: "linear-gradient(135deg,#30d158 0%,#167b34 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                   industria petrolera.
                 </span>
               </h1>
@@ -206,19 +206,19 @@ export default function ServiciosClient() {
               <p>
                 Soluciones Delta, C.A. es una empresa venezolana de servicios petroleros con equipos propios y personal técnico
                 certificado. Atendemos operadoras, contratistas y plantas industriales que necesitan resolver en campo el manejo de
-                crudo pesado y de sus residuos: desde el <Link href="/servicios/bombeo-de-crudo" className="text-[#1a8c3c] underline underline-offset-4">bombeo y desnatado de crudo</Link> y
-                el <Link href="/servicios/trasegado-vacuum" className="text-[#1a8c3c] underline underline-offset-4">transporte con camión vacuum de 160 barriles</Link>, hasta
-                el <Link href="/servicios/frac-tanks" className="text-[#1a8c3c] underline underline-offset-4">alquiler de frac tanks de 500 barriles</Link> y
-                el <Link href="/servicios/manejo-de-desechos" className="text-[#1a8c3c] underline underline-offset-4">manejo de desechos bajo el Decreto 2635</Link>.
+                crudo pesado y de sus residuos: desde el <Link href="/servicios/bombeo-de-crudo" className="text-[#167b34] underline underline-offset-4">bombeo y desnatado de crudo</Link> y
+                el <Link href="/servicios/trasegado-vacuum" className="text-[#167b34] underline underline-offset-4">transporte con camión vacuum de 160 barriles</Link>, hasta
+                el <Link href="/servicios/frac-tanks" className="text-[#167b34] underline underline-offset-4">alquiler de frac tanks de 500 barriles</Link> y
+                el <Link href="/servicios/manejo-de-desechos" className="text-[#167b34] underline underline-offset-4">manejo de desechos bajo el Decreto 2635</Link>.
               </p>
               <p>
-                Completamos la cadena con <Link href="/servicios/alquiler-calderas-inyeccion-vapor" className="text-[#1a8c3c] underline underline-offset-4">alquiler de calderas e inyección de vapor</Link> a
-                pozos y patios de tanques, <Link href="/servicios/limpieza-industrial-hidrojet" className="text-[#1a8c3c] underline underline-offset-4">limpieza industrial con hydrojet de 40.000 PSI</Link> y
-                la <Link href="/servicios/recuperacion-de-crudo-en-fosas" className="text-[#1a8c3c] underline underline-offset-4">recuperación térmica de crudo en fosas, canales y tanques</Link>,
+                Completamos la cadena con <Link href="/servicios/alquiler-calderas-inyeccion-vapor" className="text-[#167b34] underline underline-offset-4">alquiler de calderas e inyección de vapor</Link> a
+                pozos y patios de tanques, <Link href="/servicios/limpieza-industrial-hidrojet" className="text-[#167b34] underline underline-offset-4">limpieza industrial con hydrojet de 40.000 PSI</Link> y
+                la <Link href="/servicios/recuperacion-de-crudo-en-fosas" className="text-[#167b34] underline underline-offset-4">recuperación térmica de crudo en fosas, canales y tanques</Link>,
                 con capacidad demostrada de 1,500 barriles por día. Operamos 24 horas, 7 días, con contratos ejecutados al 100% en campos del Estado Zulia.
               </p>
               <p className="text-[15px] text-[#6e6e73]">
-                ¿Quiere entender mejor cada servicio antes de cotizar? Lea nuestras <Link href="/articulos" className="text-[#1a8c3c] underline underline-offset-4">guías sobre camiones vacuum, frac tanks y recuperación de crudo</Link>.
+                ¿Quiere entender mejor cada servicio antes de cotizar? Lea nuestras <Link href="/articulos" className="text-[#167b34] underline underline-offset-4">guías sobre camiones vacuum, frac tanks y recuperación de crudo</Link>.
               </p>
             </div>
           </div>
@@ -274,7 +274,7 @@ export default function ServiciosClient() {
                   {/* Body */}
                   <div className="px-6 pt-5 pb-6 flex flex-col flex-1">
                     <h2 className="text-[18px] font-bold text-[#1d1d1f] leading-snug mb-1">{s.title}</h2>
-                    <p className="text-[12px] font-semibold mb-3" style={{ color: "#1a8c3c" }}>{s.subtitle}</p>
+                    <p className="text-[12px] font-semibold mb-3" style={{ color: "#167b34" }}>{s.subtitle}</p>
                     <p className="text-[13px] text-[#6e6e73] leading-relaxed mb-4 flex-1">{s.summary}</p>
 
                     {/* Highlights */}
@@ -292,13 +292,13 @@ export default function ServiciosClient() {
 
                     {/* CTA row */}
                     <div className="flex items-center justify-between pt-4" style={{ borderTop: "1px solid #f0f0f0" }}>
-                      <span className="text-[13px] font-semibold text-[#1a8c3c]">Ver servicio completo</span>
+                      <span className="text-[13px] font-semibold text-[#167b34]">Ver servicio completo</span>
                       <div
-                        className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 group-hover:bg-[#1a8c3c]"
+                        className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 group-hover:bg-[#167b34]"
                         style={{ background: "rgba(26,140,60,0.1)", border: "1px solid rgba(26,140,60,0.2)" }}
                       >
                         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" className="transition-colors duration-200 group-hover:[&_path]:stroke-white">
-                          <path d="M3 8h10M9 4l4 4-4 4" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          <path d="M3 8h10M9 4l4 4-4 4" stroke="#167b34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                         </svg>
                       </div>
                     </div>

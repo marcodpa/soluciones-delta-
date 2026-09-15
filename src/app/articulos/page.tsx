@@ -21,7 +21,7 @@ export default function ArticulosPage() {
         <section className="pt-36 pb-12" style={{ background: "linear-gradient(180deg, #eef1f0 0%, #ffffff 100%)" }}>
           <div className="site-container">
             <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-[13px] text-[#6e6e73] mb-6">
-              <Link href="/" className="hover:text-[#1a8c3c] transition-colors">Inicio</Link>
+              <Link href="/" className="hover:text-[#167b34] transition-colors">Inicio</Link>
               <span>/</span>
               <span className="text-[#1d1d1f] font-medium">Artículos</span>
             </nav>
@@ -45,9 +45,9 @@ export default function ArticulosPage() {
                 </div>
                 <div className="flex flex-col gap-3 p-7">
                   <span className="section-label">{article.eyebrow}</span>
-                  <h2 className="text-[22px] font-bold text-[#1d1d1f] leading-snug group-hover:text-[#1a8c3c] transition-colors">{article.title}</h2>
+                  <h2 className="text-[22px] font-bold text-[#1d1d1f] leading-snug group-hover:text-[#167b34] transition-colors">{article.title}</h2>
                   <p className="text-[15px] text-[#6e6e73] leading-relaxed">{article.description}</p>
-                  <span className="text-[13px] font-semibold text-[#1a8c3c] mt-2">Leer artículo · {article.readingMinutes} min →</span>
+                  <span className="text-[13px] font-semibold text-[#167b34] mt-2">Leer artículo · {article.readingMinutes} min →</span>
                 </div>
               </Link>
             ))}

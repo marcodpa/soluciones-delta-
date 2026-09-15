@@ -16,8 +16,8 @@ const values = [
     body: "Cada operación se ejecuta bajo protocolos HSE rigurosos. ART previo, EPP completo, sistema de aterramiento y kit antiderrame certificado en cada movilización.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z" stroke="#1a8c3c" strokeWidth="1.5" strokeLinejoin="round"/>
-        <path d="M9 12l2 2 4-4" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.35C17.25 22.15 21 17.25 21 12V7L12 2z" stroke="#167b34" strokeWidth="1.5" strokeLinejoin="round"/>
+        <path d="M9 12l2 2 4-4" stroke="#167b34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
   },
@@ -26,7 +26,7 @@ const values = [
     body: "Cumplimos el Decreto 2635 venezolano y las normas COVENIN aplicables. Emitimos manifiestos y certificados de disposición final en cada operación que lo requiera.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" stroke="#167b34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
   },
@@ -35,11 +35,11 @@ const values = [
     body: "No alquilamos equipos de terceros. Nuestra flota — incluyendo las unidades vacuum fabricadas en 2026 — es nuestra, lo que garantiza mantenimiento al día y disponibilidad inmediata.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <rect x="2" y="7" width="20" height="10" rx="3" stroke="#1a8c3c" strokeWidth="1.5"/>
-        <path d="M7 7V5h10v2" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round"/>
-        <path d="M2 12h20" stroke="#1a8c3c" strokeWidth="1" opacity="0.4"/>
-        <circle cx="8" cy="20" r="2" stroke="#1a8c3c" strokeWidth="1.5"/>
-        <circle cx="16" cy="20" r="2" stroke="#1a8c3c" strokeWidth="1.5"/>
+        <rect x="2" y="7" width="20" height="10" rx="3" stroke="#167b34" strokeWidth="1.5"/>
+        <path d="M7 7V5h10v2" stroke="#167b34" strokeWidth="1.5" strokeLinecap="round"/>
+        <path d="M2 12h20" stroke="#167b34" strokeWidth="1" opacity="0.4"/>
+        <circle cx="8" cy="20" r="2" stroke="#167b34" strokeWidth="1.5"/>
+        <circle cx="16" cy="20" r="2" stroke="#167b34" strokeWidth="1.5"/>
       </svg>
     ),
   },
@@ -48,8 +48,8 @@ const values = [
     body: "Operamos 24 horas al día, 7 días a la semana. Para emergencias en campo, garantizamos movilización en menos de 4 horas dentro del Estado Zulia.",
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-        <circle cx="12" cy="12" r="9" stroke="#1a8c3c" strokeWidth="1.5"/>
-        <path d="M12 7v5l3 3" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <circle cx="12" cy="12" r="9" stroke="#167b34" strokeWidth="1.5"/>
+        <path d="M12 7v5l3 3" stroke="#167b34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     ),
   },
@@ -157,7 +157,7 @@ export default function NosotrosClient() {
                   </div>
                   <h1 className="text-[clamp(36px,5vw,66px)] font-bold tracking-tight leading-[1.05] text-white mb-6">
                     Construidos sobre la confianza<br />
-                    <span style={{ background: "linear-gradient(135deg,#30d158 0%,#1a8c3c 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                    <span style={{ background: "linear-gradient(135deg,#30d158 0%,#167b34 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                       del campo.
                     </span>
                   </h1>
@@ -270,7 +270,7 @@ export default function NosotrosClient() {
                 style={{ border: "1.5px solid #e5e5ea", boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}
               >
                 <div className="px-6 py-4" style={{ background: "rgba(26,140,60,0.04)", borderBottom: "1px solid #e5e5ea" }}>
-                  <div className="text-[13px] font-bold text-[#1a8c3c] tracking-widest uppercase">Ficha de la Empresa</div>
+                  <div className="text-[13px] font-bold text-[#167b34] tracking-widest uppercase">Ficha de la Empresa</div>
                 </div>
                 {companyData.map((item, i) => (
                   <div
@@ -294,9 +294,9 @@ export default function NosotrosClient() {
                     title: "Misión",
                     icon: (
                       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                        <circle cx="11" cy="11" r="9" stroke="#1a8c3c" strokeWidth="1.5"/>
-                        <circle cx="11" cy="11" r="3" stroke="#1a8c3c" strokeWidth="1.5"/>
-                        <path d="M11 2v2M11 18v2M2 11h2M18 11h2" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round"/>
+                        <circle cx="11" cy="11" r="9" stroke="#167b34" strokeWidth="1.5"/>
+                        <circle cx="11" cy="11" r="3" stroke="#167b34" strokeWidth="1.5"/>
+                        <path d="M11 2v2M11 18v2M2 11h2M18 11h2" stroke="#167b34" strokeWidth="1.5" strokeLinecap="round"/>
                       </svg>
                     ),
                     body: "Prestar un servicio de calidad para satisfacer los requerimientos de nuestros clientes a través de servicios técnicos especializados para la industria petrolera, con personal competente y comprometido, promoviendo la conciencia ecológica y la mejora continua.",
@@ -305,8 +305,8 @@ export default function NosotrosClient() {
                     title: "Visión",
                     icon: (
                       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                        <path d="M1 11s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z" stroke="#1a8c3c" strokeWidth="1.5" strokeLinejoin="round"/>
-                        <circle cx="11" cy="11" r="3" stroke="#1a8c3c" strokeWidth="1.5"/>
+                        <path d="M1 11s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z" stroke="#167b34" strokeWidth="1.5" strokeLinejoin="round"/>
+                        <circle cx="11" cy="11" r="3" stroke="#167b34" strokeWidth="1.5"/>
                       </svg>
                     ),
                     body: "Proyectarnos como empresa líder en el sector petrolero venezolano, de desarrollo exitoso mediante la cultura de excelencia corporativa, siendo referente nacional por nuestra alta capacidad operacional y excelente calidad de servicio.",
@@ -315,8 +315,8 @@ export default function NosotrosClient() {
                     title: "Política de Calidad",
                     icon: (
                       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                        <path d="M11 2L3 6v5c0 4.5 3.3 8.7 8 9.9 4.7-1.2 8-5.4 8-9.9V6L11 2z" stroke="#1a8c3c" strokeWidth="1.5" strokeLinejoin="round"/>
-                        <path d="M7.5 11l2.5 2.5L15 9" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M11 2L3 6v5c0 4.5 3.3 8.7 8 9.9 4.7-1.2 8-5.4 8-9.9V6L11 2z" stroke="#167b34" strokeWidth="1.5" strokeLinejoin="round"/>
+                        <path d="M7.5 11l2.5 2.5L15 9" stroke="#167b34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     ),
                     body: "Ofrecemos servicios de excelente calidad fundamentados en la mejora continua del sistema de gestión, el cumplimiento de requisitos legales y reglamentarios, y mecanismos de seguridad y salud en todas nuestras operaciones.",

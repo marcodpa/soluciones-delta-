@@ -11,7 +11,7 @@
   padding-inline: clamp(16px, 2.5vw, 48px);
   margin-inline: auto;
 }
-.sectionTop .eyebrow { color: #1a8c3c; }
+.sectionTop .eyebrow { color: #167b34; }
 .sectionTop .location { color: #606d64; }
 .sectionTop {
   display: flex;

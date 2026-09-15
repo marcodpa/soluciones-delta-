@@ -59,7 +59,7 @@ export default function HomeCtaSection() {
             <h2 className={`${typography.sectionTitle} cta-animate text-white mb-5`}>
               ¿Tiene una operación{" "}
               <span style={{
-                background: "linear-gradient(135deg,#30d158 0%,#1a8c3c 100%)",
+                background: "linear-gradient(135deg,#30d158 0%,#167b34 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",

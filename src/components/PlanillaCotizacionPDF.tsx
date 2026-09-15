@@ -16,7 +16,7 @@ async function toDataURL(url: string): Promise<string> {
   return `data:${mime};base64,${base64}`;
 }
 
-const GREEN       = "#1a8c3c";
+const GREEN       = "#167b34";
 const GREEN_LIGHT = "#30d158";
 const DARK        = "#0d1f14";
 const WHITE       = "#ffffff";
@@ -118,7 +118,7 @@ export default function DescargarPlanillaBtn() {
         if (!loading) {
           (e.currentTarget as HTMLButtonElement).style.background = "rgba(26,140,60,0.08)";
           (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(26,140,60,0.4)";
-          (e.currentTarget as HTMLButtonElement).style.color = "#1a8c3c";
+          (e.currentTarget as HTMLButtonElement).style.color = "#167b34";
         }
       }}
       onMouseLeave={e => {

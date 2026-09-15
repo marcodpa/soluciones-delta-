@@ -155,7 +155,9 @@ export default function ServicesSection() {
       {/* Background image — right half */}
       <div className="absolute inset-y-0 right-0 w-full lg:w-[52%] pointer-events-none">
         <img
-          src="/servicios-campo.png"
+          src="/servicios-campo.webp"
+          loading="lazy"
+          decoding="async"
           alt=""
           aria-hidden="true"
           className="absolute inset-0 w-full h-full object-cover object-center"
@@ -182,7 +184,7 @@ export default function ServicesSection() {
         {/* ── HEADER ── */}
         <div ref={headerRef} className="mb-14 max-w-lg">
           <div className="flex items-center gap-2 mb-5">
-            <div className="w-6 h-px" style={{ background: "#1a8c3c" }} />
+            <div className="w-6 h-px" style={{ background: "#167b34" }} />
             <span className={typography.eyebrow} style={{ color: "#30d158" }}>
               Lo que hacemos
             </span>
@@ -209,7 +211,7 @@ export default function ServicesSection() {
             href="/servicios"
             className="group inline-flex items-center gap-3 px-7 py-4 rounded-full font-semibold text-[14px] transition-all duration-200"
             style={{
-              background: "#1a8c3c",
+              background: "#167b34",
               color: "#ffffff",
               textDecoration: "none",
               boxShadow: "0 0 32px rgba(26,140,60,0.35)",
@@ -219,7 +221,7 @@ export default function ServicesSection() {
               (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 40px rgba(26,140,60,0.5)";
             }}
             onMouseLeave={e => {
-              (e.currentTarget as HTMLAnchorElement).style.background = "#1a8c3c";
+              (e.currentTarget as HTMLAnchorElement).style.background = "#167b34";
               (e.currentTarget as HTMLAnchorElement).style.boxShadow = "0 0 32px rgba(26,140,60,0.35)";
             }}
           >
@@ -257,7 +259,7 @@ function ServiceRow({ s }: { s: typeof services[number] }) {
     >
       {/* Number */}
       <span className="text-[11px] font-bold tracking-widest flex-shrink-0 w-7 pt-0.5"
-        style={{ color: "rgba(48,209,88,0.5)" }}>
+        style={{ color: "rgba(48,209,88,0.85)" }}>
         {s.num}
       </span>
 

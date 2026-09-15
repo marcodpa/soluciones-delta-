@@ -81,7 +81,7 @@ export default function ServicePageClient({ service, relatedServices }: { servic
               </div>
               <div className="relative overflow-hidden" style={{ borderLeft: "3px solid #30d158" }}>
                 <Image src={hero.despues} alt={`${service.title} — después`} fill priority className="object-cover" sizes="50vw" />
-                <span className="absolute right-4 top-24 sm:right-8 sm:top-28 px-4 py-2 rounded-full text-[11px] sm:text-[12px] font-bold tracking-[0.18em] text-white" style={{ background: "#1a8c3c" }}>DESPUÉS</span>
+                <span className="absolute right-4 top-24 sm:right-8 sm:top-28 px-4 py-2 rounded-full text-[11px] sm:text-[12px] font-bold tracking-[0.18em] text-white" style={{ background: "#167b34" }}>DESPUÉS</span>
               </div>
             </div>
           ) : (
@@ -130,7 +130,7 @@ export default function ServicePageClient({ service, relatedServices }: { servic
               <p className="text-[15px] text-[#6e6e73] leading-relaxed">
                 Atendemos solicitudes para operaciones en Venezuela desde San Francisco, Estado Zulia.
                 La movilización, disponibilidad y alcance del servicio se coordinan según la ubicación
-                y las condiciones del proyecto. <Link href="/contacto" className="text-[#1a8c3c] underline underline-offset-4">Consulte su operación con nuestro equipo.</Link>
+                y las condiciones del proyecto. <Link href="/contacto" className="text-[#167b34] underline underline-offset-4">Consulte su operación con nuestro equipo.</Link>
               </p>
             </div>
           </section>
@@ -149,7 +149,7 @@ export default function ServicePageClient({ service, relatedServices }: { servic
                       <Image src={step.src} alt={step.title} fill className="object-cover transition-transform duration-500 hover:scale-105" sizes="(max-width: 640px) 100vw, 33vw" />
                     </div>
                     <div className="flex items-center gap-3">
-                      <span className="w-8 h-8 rounded-[10px] flex items-center justify-center text-[14px] font-extrabold text-white flex-shrink-0" style={{ background: "#1a8c3c" }}>{i + 1}</span>
+                      <span className="w-8 h-8 rounded-[10px] flex items-center justify-center text-[14px] font-extrabold text-white flex-shrink-0" style={{ background: "#167b34" }}>{i + 1}</span>
                       <h3 className="text-[19px] font-bold text-[#1d1d1f] leading-tight">{step.title}</h3>
                     </div>
                     <p className="text-[15px] text-[#6e6e73] leading-relaxed">{step.text}</p>
@@ -207,10 +207,10 @@ export default function ServicePageClient({ service, relatedServices }: { servic
               <h2 id="related-services-title" className="section-label mb-5">Servicios que complementan esta operación</h2>
               <div className="grid md:grid-cols-3 gap-4">
                 {relatedServices.map(related => (
-                  <Link key={related.slug} href={`/servicios/${related.slug}`} className="block rounded-2xl p-6 transition-colors hover:border-[#1a8c3c] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1a8c3c]" style={{ border: "1.5px solid #e5e5ea" }}>
+                  <Link key={related.slug} href={`/servicios/${related.slug}`} className="block rounded-2xl p-6 transition-colors hover:border-[#167b34] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#167b34]" style={{ border: "1.5px solid #e5e5ea" }}>
                     <h3 className="text-[17px] font-bold text-[#1d1d1f] mb-2">{related.title}</h3>
                     <p className="text-[14px] text-[#6e6e73] leading-relaxed">{related.description}</p>
-                    <span className="inline-block text-[#1a8c3c] font-semibold text-[14px] mt-4" aria-hidden="true">Ver servicio →</span>
+                    <span className="inline-block text-[#167b34] font-semibold text-[14px] mt-4" aria-hidden="true">Ver servicio →</span>
                   </Link>
                 ))}
               </div>
@@ -232,7 +232,7 @@ export default function ServicePageClient({ service, relatedServices }: { servic
               </div>
               <h2 className="text-[clamp(24px,3.5vw,40px)] font-bold text-white mb-4">
                 Solicite una cotización para<br />
-                <span style={{ background: "linear-gradient(135deg,#30d158 0%,#1a8c3c 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{service.title}</span>
+                <span style={{ background: "linear-gradient(135deg,#30d158 0%,#167b34 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>{service.title}</span>
               </h2>
               <p className="text-[16px] mb-8 max-w-lg mx-auto" style={{ color: "rgba(255,255,255,0.5)" }}>
                 Nuestro equipo técnico responde en menos de 2 horas hábiles. Disponibles 24/7 para emergencias.
@@ -272,7 +272,7 @@ function FaqItem({ q, a }: { q: string; a: string }) {
       <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none select-none">
         <span className="text-[15px] font-semibold text-[#1d1d1f] pr-4">{q}</span>
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="flex-shrink-0 transition-transform duration-300 group-open:rotate-180">
-          <path d="M4 7l5 5 5-5" stroke="#1a8c3c" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
+          <path d="M4 7l5 5 5-5" stroke="#167b34" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       </summary>
       <div className="px-6 pb-6 -mt-1">

@@ -69,7 +69,7 @@
   text-decoration: none;
   transition: background-color .2s, color .2s;
 }
-.primaryLink { color: #fff; background: #1a8c3c; border-radius: 100px; padding: 13px 25px; }
+.primaryLink { color: #fff; background: #167b34; border-radius: 100px; padding: 13px 25px; }
 .primaryLink:hover { background: #167b34; }
 .secondaryLink { color: #fff; padding: 10px 0; text-decoration: underline; text-decoration-color: #84978b; text-underline-offset: 6px; }
 .secondaryLink:hover { color: #72df92; }

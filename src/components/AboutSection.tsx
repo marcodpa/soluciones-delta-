@@ -119,10 +119,10 @@ export default function AboutSection() {
       {/* ── HEADER (centered) ── */}
       <div className="site-container relative">
         <div ref={headerRef} className="text-center max-w-3xl mx-auto mb-14">
-          <div className={`${typography.eyebrow} text-[#1a8c3c] mb-4`}>Quiénes Somos</div>
+          <div className={`${typography.eyebrow} text-[#167b34] mb-4`}>Quiénes Somos</div>
           <h2 className={`${typography.sectionTitle} text-[#1d1d1f] mb-6`}>
             Expertos en el{" "}
-            <span style={{ background: "linear-gradient(135deg,#30d158 0%,#1a8c3c 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span style={{ background: "linear-gradient(135deg,#30d158 0%,#167b34 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
               sector petrolero
             </span>{" "}
             venezolano.
@@ -189,7 +189,7 @@ export default function AboutSection() {
                       onClick={prev}
                       aria-label="Anterior"
                       className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition-transform duration-200 hover:scale-110 active:scale-95"
-                      style={{ background: "#1a8c3c", boxShadow: "0 4px 16px rgba(0,0,0,0.3)" }}
+                      style={{ background: "#167b34", boxShadow: "0 4px 16px rgba(0,0,0,0.3)" }}
                     >
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                         <path d="M10 3L5 8l5 5" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -199,7 +199,7 @@ export default function AboutSection() {
                       onClick={next}
                       aria-label="Siguiente"
                       className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center transition-transform duration-200 hover:scale-110 active:scale-95"
-                      style={{ background: "#1a8c3c", boxShadow: "0 4px 16px rgba(0,0,0,0.3)" }}
+                      style={{ background: "#167b34", boxShadow: "0 4px 16px rgba(0,0,0,0.3)" }}
                     >
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                         <path d="M6 3l5 5-5 5" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -213,19 +213,26 @@ export default function AboutSection() {
         </div>
 
         {/* Dots */}
-        <div className="flex items-center justify-center gap-2 mt-6">
+        <div className="flex items-center justify-center mt-4">
           {slides.map((_, i) => (
             <button
               key={i}
+              type="button"
               onClick={() => setIndex(i)}
               aria-label={`Ir a la imagen ${i + 1}`}
-              className="rounded-full transition-all duration-300"
-              style={{
-                width: i === index ? 22 : 8,
-                height: 8,
-                background: i === index ? "#1a8c3c" : "#d3d8d4",
-              }}
-            />
+              aria-current={i === index ? "true" : undefined}
+              className="flex items-center justify-center rounded-full"
+              style={{ width: 28, height: 28, background: "transparent", border: 0, padding: 0, cursor: "pointer" }}
+            >
+              <span
+                className="block rounded-full transition-all duration-300"
+                style={{
+                  width: i === index ? 22 : 8,
+                  height: 8,
+                  background: i === index ? "#167b34" : "#d3d8d4",
+                }}
+              />
+            </button>
           ))}
         </div>
       </div>

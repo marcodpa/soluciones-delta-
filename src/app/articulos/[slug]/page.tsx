@@ -57,9 +57,9 @@ export default async function ArticuloPage({ params }: Props) {
           <header className="pt-36 pb-10" style={{ background: "linear-gradient(180deg, #eef1f0 0%, #ffffff 100%)" }}>
             <div className="site-container max-w-4xl">
               <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-[13px] text-[#6e6e73] mb-6">
-                <Link href="/" className="hover:text-[#1a8c3c] transition-colors">Inicio</Link>
+                <Link href="/" className="hover:text-[#167b34] transition-colors">Inicio</Link>
                 <span>/</span>
-                <Link href="/articulos" className="hover:text-[#1a8c3c] transition-colors">Artículos</Link>
+                <Link href="/articulos" className="hover:text-[#167b34] transition-colors">Artículos</Link>
               </nav>
               <span className="section-label">{article.eyebrow}</span>
               <h1 className="text-[clamp(30px,4vw,50px)] font-bold tracking-tight leading-[1.1] text-[#1d1d1f] mt-3" style={{ textWrap: "balance" }}>{article.title}</h1>
@@ -86,7 +86,7 @@ export default async function ArticuloPage({ params }: Props) {
                     <ul className="flex flex-col gap-2.5 mt-1">
                       {section.list.map((item, k) => (
                         <li key={k} className="flex items-start gap-3 text-[16px] text-[#3a3a3c] leading-relaxed">
-                          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="flex-shrink-0 mt-1"><circle cx="9" cy="9" r="8" stroke="rgba(26,140,60,0.35)"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#1a8c3c" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="flex-shrink-0 mt-1"><circle cx="9" cy="9" r="8" stroke="rgba(26,140,60,0.35)"/><path d="M5.5 9l2.5 2.5 4.5-4.5" stroke="#167b34" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
                           <span>{item}</span>
                         </li>
                       ))}
@@ -102,7 +102,7 @@ export default async function ArticuloPage({ params }: Props) {
                     <details key={i} className="group rounded-2xl overflow-hidden bg-white" style={{ border: "1.5px solid #e5e5ea" }}>
                       <summary className="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none select-none">
                         <span className="text-[15px] font-semibold text-[#1d1d1f] pr-4">{item.q}</span>
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="flex-shrink-0 transition-transform duration-300 group-open:rotate-180"><path d="M4 7l5 5 5-5" stroke="#1a8c3c" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" className="flex-shrink-0 transition-transform duration-300 group-open:rotate-180"><path d="M4 7l5 5 5-5" stroke="#167b34" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
                       </summary>
                       <div className="px-6 pb-6 -mt-1"><p className="text-[14.5px] text-[#6e6e73] leading-relaxed">{item.a}</p></div>
                     </details>

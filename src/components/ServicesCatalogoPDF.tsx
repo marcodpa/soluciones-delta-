@@ -36,7 +36,7 @@ async function preloadImages(origin: string, paths: string[]): Promise<Record<st
 }
 
 // ── Constants ─────────────────────────────────────────────────────────────────
-const GREEN       = "#1a8c3c";
+const GREEN       = "#167b34";
 const GREEN_LIGHT = "#30d158";
 const DARK        = "#0d1f14";
 const GRAY        = "#6e6e73";
@@ -590,7 +590,7 @@ function PDFBtn({ onClick, loading, label }: { onClick: () => void; loading: boo
       style={{
         background: "rgba(26,140,60,0.08)",
         border: "1.5px solid rgba(26,140,60,0.25)",
-        color: "#1a8c3c",
+        color: "#167b34",
       }}
       onMouseEnter={e => {
         if (!loading) {

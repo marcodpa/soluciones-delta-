@@ -31,7 +31,7 @@ const contactCards = [
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-        <path d="M5 3h3.5l1.5 4.5-2 1.5a9 9 0 004.5 4.5L14 11l4.5 1.5V16a1.5 1.5 0 01-1.5 1.5C6.5 17.5 3.5 10 3.5 4.5A1.5 1.5 0 015 3z" stroke="#1a8c3c" strokeWidth="1.5" strokeLinejoin="round"/>
+        <path d="M5 3h3.5l1.5 4.5-2 1.5a9 9 0 004.5 4.5L14 11l4.5 1.5V16a1.5 1.5 0 01-1.5 1.5C6.5 17.5 3.5 10 3.5 4.5A1.5 1.5 0 015 3z" stroke="#167b34" strokeWidth="1.5" strokeLinejoin="round"/>
       </svg>
     ),
     label: "Teléfono / WhatsApp",
@@ -42,8 +42,8 @@ const contactCards = [
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-        <rect x="3" y="5" width="16" height="12" rx="2" stroke="#1a8c3c" strokeWidth="1.5"/>
-        <path d="M3 8l8 5 8-5" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round"/>
+        <rect x="3" y="5" width="16" height="12" rx="2" stroke="#167b34" strokeWidth="1.5"/>
+        <path d="M3 8l8 5 8-5" stroke="#167b34" strokeWidth="1.5" strokeLinecap="round"/>
       </svg>
     ),
     label: "Correo Electrónico",
@@ -54,8 +54,8 @@ const contactCards = [
   {
     icon: (
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-        <circle cx="11" cy="9" r="3" stroke="#1a8c3c" strokeWidth="1.5"/>
-        <path d="M11 2C7.134 2 4 5.134 4 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.866-3.134-7-7-7z" stroke="#1a8c3c" strokeWidth="1.5"/>
+        <circle cx="11" cy="9" r="3" stroke="#167b34" strokeWidth="1.5"/>
+        <path d="M11 2C7.134 2 4 5.134 4 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.866-3.134-7-7-7z" stroke="#167b34" strokeWidth="1.5"/>
       </svg>
     ),
     label: "Ubicación",
@@ -151,7 +151,7 @@ export default function ContactoClient() {
                   </div>
                   <h1 className="text-[clamp(36px,5vw,66px)] font-bold tracking-tight leading-[1.05] text-white mb-6">
                     Hablemos de su<br />
-                    <span style={{ background: "linear-gradient(135deg,#30d158 0%,#1a8c3c 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                    <span style={{ background: "linear-gradient(135deg,#30d158 0%,#167b34 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
                       próxima operación.
                     </span>
                   </h1>
@@ -385,7 +385,7 @@ export default function ContactoClient() {
                       style={{ background: "rgba(26,140,60,0.1)", border: "1px solid rgba(26,140,60,0.25)" }}
                     >
                       <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                        <path d="M6 14l6 6L22 8" stroke="#1a8c3c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M6 14l6 6L22 8" stroke="#167b34" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                       </svg>
                     </div>
                     <h3 className="text-xl font-bold text-[#1d1d1f] mb-3">¡Solicitud enviada!</h3>
@@ -425,7 +425,7 @@ export default function ContactoClient() {
                     </div>
                     <div>
                       <div className="text-[11px] text-[#6e6e73] mb-1 font-semibold tracking-widest uppercase">{card.label}</div>
-                      <div className="text-[14px] font-bold text-[#1d1d1f] group-hover:text-[#1a8c3c] transition-colors mb-1">{card.value}</div>
+                      <div className="text-[14px] font-bold text-[#1d1d1f] group-hover:text-[#167b34] transition-colors mb-1">{card.value}</div>
                       <div className="text-[12px] text-[#6e6e73]">{card.sub}</div>
                     </div>
                   </a>
@@ -434,7 +434,7 @@ export default function ContactoClient() {
                 {/* Schedule */}
                 <div className="p-6 rounded-2xl" style={{ background: "#f9f9fb", border: "1.5px solid #ebebef" }}>
                   <div className="flex items-center gap-2 mb-5">
-                    <div className="w-2 h-2 rounded-full bg-[#1a8c3c] animate-pulse" />
+                    <div className="w-2 h-2 rounded-full bg-[#167b34] animate-pulse" />
                     <span className="text-[13px] font-bold text-[#1d1d1f]">Horario de atención</span>
                   </div>
                   <div className="space-y-3">
@@ -445,7 +445,7 @@ export default function ContactoClient() {
                         style={{ borderBottom: i < schedule.length - 1 ? "1px solid #f0f0f0" : "none", paddingBottom: i < schedule.length - 1 ? "10px" : "0" }}
                       >
                         <span className="text-[#6e6e73]">{row.day}</span>
-                        <span className={row.highlight ? "text-[#1a8c3c] font-bold" : "text-[#1d1d1f] font-semibold"}>{row.hours}</span>
+                        <span className={row.highlight ? "text-[#167b34] font-bold" : "text-[#1d1d1f] font-semibold"}>{row.hours}</span>
                       </div>
                     ))}
                   </div>
@@ -479,8 +479,8 @@ export default function ContactoClient() {
                 >
                   <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(26,140,60,0.1)" }}>
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                      <path d="M10 2L3 5v4c0 4.2 3 8.1 7 9 4-0.9 7-4.8 7-9V5L10 2z" stroke="#1a8c3c" strokeWidth="1.5" strokeLinejoin="round"/>
-                      <path d="M7 10l2 2 4-4" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M10 2L3 5v4c0 4.2 3 8.1 7 9 4-0.9 7-4.8 7-9V5L10 2z" stroke="#167b34" strokeWidth="1.5" strokeLinejoin="round"/>
+                      <path d="M7 10l2 2 4-4" stroke="#167b34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                   </div>
                   <div>

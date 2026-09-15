@@ -56,7 +56,7 @@ export default function Navbar() {
                     href={link.href}
                     className={`px-4 py-2 rounded-lg text-[14px] font-medium transition-all duration-200 ${
                       active
-                        ? "text-[#1a8c3c] bg-[rgba(26,140,60,0.08)]"
+                        ? "text-[#167b34] bg-[rgba(26,140,60,0.08)]"
                         : "text-[#6e6e73] hover:text-[#1d1d1f] hover:bg-[#f5f5f7]"
                     }`}
                   >
@@ -112,7 +112,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="text-[20px] font-semibold text-[#1d1d1f] hover:text-[#1a8c3c] transition-colors py-3 border-b border-[#f0f0f0]"
+              className="text-[20px] font-semibold text-[#1d1d1f] hover:text-[#167b34] transition-colors py-3 border-b border-[#f0f0f0]"
             >
               {link.label}
             </Link>

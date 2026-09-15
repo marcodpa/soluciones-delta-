@@ -33,20 +33,20 @@
   --foreground: #1d1d1f;
   --card: #ffffff;
   --card-foreground: #1d1d1f;
-  --primary: #1a8c3c;
+  --primary: #167b34;
   --primary-foreground: #ffffff;
   --secondary: #f5f5f7;
   --secondary-foreground: #1d1d1f;
   --muted: #f5f5f7;
   --muted-foreground: #6e6e73;
-  --accent: #1a8c3c;
+  --accent: #167b34;
   --accent-foreground: #ffffff;
   --border: rgba(0, 0, 0, 0.08);
   --input: rgba(0, 0, 0, 0.06);
-  --ring: #1a8c3c;
+  --ring: #167b34;
 
   /* Delta brand colors — light theme */
-  --delta-green: #1a8c3c;
+  --delta-green: #167b34;
   --delta-green-mid: #22a84a;
   --delta-green-light: #30d158;
   --delta-green-glow: rgba(26, 140, 60, 0.15);
@@ -110,7 +110,7 @@
 
 /* Gradient text */
 .text-gradient {
-  background: linear-gradient(135deg, #1a8c3c 0%, #30d158 60%, #22a84a 100%);
+  background: linear-gradient(135deg, #167b34 0%, #30d158 60%, #22a84a 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -237,7 +237,7 @@
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.02em;
-  background: linear-gradient(180deg, #1d1d1f 0%, #1a8c3c 100%);
+  background: linear-gradient(180deg, #1d1d1f 0%, #167b34 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -297,7 +297,7 @@ nextjs-portal { display: none !important; }
 
 /* FAQ accordion icon color */
 .faq-path {
-  stroke: #1a8c3c;
+  stroke: #167b34;
 }
 details[open] .faq-path {
   stroke: #ffffff;

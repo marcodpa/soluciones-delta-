@@ -99,10 +99,10 @@ export default function EquipmentSection() {
               <div className="flex items-center gap-3">
                 <div className="feature-icon w-10 h-10">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <rect x="2" y="6" width="16" height="8" rx="2" stroke="#1a8c3c" strokeWidth="1.5"/>
-                    <path d="M2 9h16" stroke="#1a8c3c" strokeWidth="1" opacity="0.5"/>
-                    <circle cx="6" cy="16" r="2" stroke="#1a8c3c" strokeWidth="1.5"/>
-                    <circle cx="14" cy="16" r="2" stroke="#1a8c3c" strokeWidth="1.5"/>
+                    <rect x="2" y="6" width="16" height="8" rx="2" stroke="#167b34" strokeWidth="1.5"/>
+                    <path d="M2 9h16" stroke="#167b34" strokeWidth="1" opacity="0.5"/>
+                    <circle cx="6" cy="16" r="2" stroke="#167b34" strokeWidth="1.5"/>
+                    <circle cx="14" cy="16" r="2" stroke="#167b34" strokeWidth="1.5"/>
                   </svg>
                 </div>
                 <div>
@@ -144,13 +144,13 @@ export default function EquipmentSection() {
                   {systems.map((sys, i) => (
                     <div key={i}>
                       <div className="flex items-center gap-2 mb-2">
-                        <div className="w-1 h-4 rounded-full bg-[#1a8c3c]" />
+                        <div className="w-1 h-4 rounded-full bg-[#167b34]" />
                         <h4 className="text-[13px] font-semibold text-[#1d1d1f]">{sys.title}</h4>
                       </div>
                       <ul className="space-y-1.5 pl-3">
                         {sys.items.map((item, j) => (
                           <li key={j} className="flex items-center gap-2 text-[12px] text-[#6e6e73]">
-                            <span className="w-1 h-1 rounded-full bg-[#1a8c3c] flex-shrink-0" />
+                            <span className="w-1 h-1 rounded-full bg-[#167b34] flex-shrink-0" />
                             {item}
                           </li>
                         ))}
@@ -164,7 +164,7 @@ export default function EquipmentSection() {
             {/* Toggle button */}
             <button
               onClick={() => setExpanded(!expanded)}
-              className="w-full flex items-center justify-center gap-2 py-3.5 text-[13px] font-semibold text-[#1a8c3c] transition-colors"
+              className="w-full flex items-center justify-center gap-2 py-3.5 text-[13px] font-semibold text-[#167b34] transition-colors"
               style={{ borderTop: "1px solid rgba(0,0,0,0.06)", background: "rgba(26,140,60,0.03)" }}
             >
               {expanded ? "Ocultar especificaciones" : "Ver ficha técnica completa"}
@@ -173,7 +173,7 @@ export default function EquipmentSection() {
                 className="transition-transform duration-300"
                 style={{ transform: expanded ? "rotate(180deg)" : "rotate(0deg)" }}
               >
-                <path d="M2 5l5 5 5-5" stroke="#1a8c3c" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M2 5l5 5 5-5" stroke="#167b34" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
           </div>
@@ -187,10 +187,10 @@ export default function EquipmentSection() {
               <div className="flex items-center gap-3">
                 <div className="feature-icon w-10 h-10">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                    <rect x="2" y="6" width="16" height="8" rx="2" stroke="#1a8c3c" strokeWidth="1.5"/>
-                    <path d="M2 9h16" stroke="#1a8c3c" strokeWidth="1" opacity="0.5"/>
-                    <circle cx="6" cy="16" r="2" stroke="#1a8c3c" strokeWidth="1.5"/>
-                    <circle cx="14" cy="16" r="2" stroke="#1a8c3c" strokeWidth="1.5"/>
+                    <rect x="2" y="6" width="16" height="8" rx="2" stroke="#167b34" strokeWidth="1.5"/>
+                    <path d="M2 9h16" stroke="#167b34" strokeWidth="1" opacity="0.5"/>
+                    <circle cx="6" cy="16" r="2" stroke="#167b34" strokeWidth="1.5"/>
+                    <circle cx="14" cy="16" r="2" stroke="#167b34" strokeWidth="1.5"/>
                   </svg>
                 </div>
                 <div>
@@ -220,13 +220,13 @@ export default function EquipmentSection() {
             {systems.map((sys, i) => (
               <div key={i} className="glass-card rounded-2xl p-6">
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-1.5 h-5 rounded-full bg-[#1a8c3c]" />
+                  <div className="w-1.5 h-5 rounded-full bg-[#167b34]" />
                   <h4 className="text-[#1d1d1f] font-semibold text-[15px]">{sys.title}</h4>
                 </div>
                 <ul className="space-y-2">
                   {sys.items.map((item, j) => (
                     <li key={j} className="flex items-center gap-3 text-[14px] text-[#6e6e73]">
-                      <span className="w-1 h-1 rounded-full bg-[#1a8c3c] flex-shrink-0" />
+                      <span className="w-1 h-1 rounded-full bg-[#167b34] flex-shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -242,7 +242,7 @@ export default function EquipmentSection() {
               <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
                 style={{ background: "rgba(26,140,60,0.12)" }}>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M10 2l1.9 5.9H18l-4.9 3.6 1.9 5.9L10 14l-5 3.4 1.9-5.9L2 8h6.1L10 2z" stroke="#1a8c3c" strokeWidth="1.5" strokeLinejoin="round" fill="rgba(26,140,60,0.15)"/>
+                  <path d="M10 2l1.9 5.9H18l-4.9 3.6 1.9 5.9L10 14l-5 3.4 1.9-5.9L2 8h6.1L10 2z" stroke="#167b34" strokeWidth="1.5" strokeLinejoin="round" fill="rgba(26,140,60,0.15)"/>
                 </svg>
               </div>
               <div>

@@ -185,13 +185,13 @@ export default function ContactSection() {
                   style={{ background: "rgba(26,140,60,0.1)", border: "1px solid rgba(26,140,60,0.25)" }}
                 >
                   <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-                    <path d="M6 14l6 6L22 8" stroke="#1a8c3c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M6 14l6 6L22 8" stroke="#167b34" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
                 <h3 className="text-xl font-semibold text-[#1d1d1f] mb-3">¡Solicitud enviada!</h3>
                 <p className="text-[15px] text-[#6e6e73]">
                   Su cliente de correo debería haberse abierto. Si no, contáctenos directamente al{" "}
-                  <a href="https://wa.me/584246472446" className="text-[#1a8c3c] hover:underline font-medium">+58 424-6472446</a>.
+                  <a href="https://wa.me/584246472446" className="text-[#167b34] hover:underline font-medium">+58 424-6472446</a>.
                 </p>
                 <button onClick={() => setSubmitted(false)} className="btn-secondary mt-6 text-sm">
                   Enviar otra consulta
@@ -206,8 +206,8 @@ export default function ContactSection() {
               {
                 icon: (
                   <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                    <path d="M4 4h14v14H4V4z" stroke="#1a8c3c" strokeWidth="1.5"/>
-                    <path d="M4 7l7 5 7-5" stroke="#1a8c3c" strokeWidth="1.5"/>
+                    <path d="M4 4h14v14H4V4z" stroke="#167b34" strokeWidth="1.5"/>
+                    <path d="M4 7l7 5 7-5" stroke="#167b34" strokeWidth="1.5"/>
                   </svg>
                 ),
                 title: "Email",
@@ -217,7 +217,7 @@ export default function ContactSection() {
               {
                 icon: (
                   <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                    <path d="M5 3h4l2 5-2.5 1.5a10 10 0 005 5L15 12l5 2v4a2 2 0 01-2 2C8.4 20 2 13.6 2 5a2 2 0 012-2z" stroke="#1a8c3c" strokeWidth="1.5" strokeLinejoin="round"/>
+                    <path d="M5 3h4l2 5-2.5 1.5a10 10 0 005 5L15 12l5 2v4a2 2 0 01-2 2C8.4 20 2 13.6 2 5a2 2 0 012-2z" stroke="#167b34" strokeWidth="1.5" strokeLinejoin="round"/>
                   </svg>
                 ),
                 title: "Teléfono / WhatsApp",
@@ -227,8 +227,8 @@ export default function ContactSection() {
               {
                 icon: (
                   <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
-                    <circle cx="11" cy="9" r="3" stroke="#1a8c3c" strokeWidth="1.5"/>
-                    <path d="M11 2C7.134 2 4 5.134 4 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.866-3.134-7-7-7z" stroke="#1a8c3c" strokeWidth="1.5"/>
+                    <circle cx="11" cy="9" r="3" stroke="#167b34" strokeWidth="1.5"/>
+                    <path d="M11 2C7.134 2 4 5.134 4 9c0 5.25 7 11 7 11s7-5.75 7-11c0-3.866-3.134-7-7-7z" stroke="#167b34" strokeWidth="1.5"/>
                   </svg>
                 ),
                 title: "Ubicación",
@@ -245,14 +245,14 @@ export default function ContactSection() {
                 <div className="feature-icon flex-shrink-0">{item.icon}</div>
                 <div>
                   <div className="text-[12px] text-[#6e6e73] mb-1">{item.title}</div>
-                  <div className="text-[14px] text-[#1d1d1f] font-medium group-hover:text-[#1a8c3c] transition-colors">{item.value}</div>
+                  <div className="text-[14px] text-[#1d1d1f] font-medium group-hover:text-[#167b34] transition-colors">{item.value}</div>
                 </div>
               </a>
             ))}
 
             <div className="glass-card rounded-2xl p-6">
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-2 h-2 rounded-full bg-[#1a8c3c] animate-pulse" />
+                <div className="w-2 h-2 rounded-full bg-[#167b34] animate-pulse" />
                 <span className="text-[#1d1d1f] font-semibold text-[15px]">Disponibilidad</span>
               </div>
               <div className="space-y-2">
@@ -263,7 +263,7 @@ export default function ContactSection() {
                 ].map((row, i) => (
                   <div key={i} className="flex justify-between text-[14px]">
                     <span className="text-[#6e6e73]">{row.day}</span>
-                    <span className={row.highlight ? "text-[#1a8c3c] font-semibold" : "text-[#1d1d1f] font-medium"}>{row.hours}</span>
+                    <span className={row.highlight ? "text-[#167b34] font-semibold" : "text-[#1d1d1f] font-medium"}>{row.hours}</span>
                   </div>
                 ))}
               </div>
