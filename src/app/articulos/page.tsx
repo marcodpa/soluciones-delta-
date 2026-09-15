@@ -7,7 +7,7 @@ import { ARTICLES } from "@/lib/articles-data";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata = pageMetadata(
-  "Artículos sobre servicios petroleros: vacuum, frac tanks y más",
+  "Guías sobre servicios petroleros",
   "Guías prácticas de Soluciones Delta sobre camiones vacuum, frac tanks, recuperación de crudo y limpieza industrial para operaciones petroleras en Venezuela.",
   "/articulos"
 );
