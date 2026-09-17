@@ -40,3 +40,4 @@ next-env.d.ts
 
 # Isolated SEO production validation
 /.next-seo/
+/.next-services-check/

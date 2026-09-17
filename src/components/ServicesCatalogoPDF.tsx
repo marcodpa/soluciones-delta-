@@ -526,26 +526,30 @@ function ServicioPDF({ service, imgs }: { service: ServiceData; imgs: Record<str
 
 
 // ── Download button: ALL services catalog ─────────────────────────────────────
+export async function downloadServicesCatalog() {
+  const origin = window.location.origin;
+  const allPaths = [
+    "/logo.png",
+    "/vapor/campo-pozos.jpg",
+    ...Object.values(SERVICE_PHOTOS).flatMap(p => [p.main, ...p.gallery.map(g => g.src)]),
+  ];
+  const imgs = await preloadImages(origin, [...new Set(allPaths)]);
+  const blob = await pdf(<CatalogoPDF imgs={imgs} />).toBlob();
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = "Catalogo-Servicios-Soluciones-Delta.pdf";
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
 export default function DescargarCatalogoBtnn() {
   const [loading, setLoading] = useState(false);
 
   const handleDownload = async () => {
     setLoading(true);
     try {
-      const origin = window.location.origin;
-      const allPaths = [
-        "/logo.png",
-        "/vapor/campo-pozos.jpg",
-        ...Object.values(SERVICE_PHOTOS).flatMap(p => [p.main, ...p.gallery.map(g => g.src)]),
-      ];
-      const imgs = await preloadImages(origin, [...new Set(allPaths)]);
-      const blob = await pdf(<CatalogoPDF imgs={imgs} />).toBlob();
-      const url    = URL.createObjectURL(blob);
-      const a      = document.createElement("a");
-      a.href       = url;
-      a.download   = "Catalogo-Servicios-Soluciones-Delta.pdf";
-      a.click();
-      URL.revokeObjectURL(url);
+      await downloadServicesCatalog();
     } finally {
       setLoading(false);
     }
