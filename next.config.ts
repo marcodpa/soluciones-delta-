@@ -41,6 +41,12 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        source: '/hero-scroll-v2.mp4',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+      {
         source: '/frames/:file',
         headers: [
           { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },

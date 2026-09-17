@@ -20,7 +20,7 @@ export default function ClientPage() {
         <HeroSection />
         <AboutSection />
         <ServicesSection />
-        <CoverageSection id="fortalezas" compactBottom />
+        <CoverageSection id="fortalezas" variant="delta" />
         <HomeArticlesSection />
         <HomeTrustSection />
         <HomeCoverageSection />

@@ -1,9 +1,12 @@
 "use client";
 
+import { useLocale, useLocalizedTree } from "@/lib/i18n/client";
 import { useState } from "react";
 import styles from "./services.module.css";
 
 export default function CatalogDownload() {
+  const localize = useLocalizedTree();
+  const locale = useLocale();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -12,7 +15,7 @@ export default function CatalogDownload() {
     setError(false);
     try {
       const { downloadServicesCatalog } = await import("@/components/ServicesCatalogoPDF");
-      await downloadServicesCatalog();
+      await downloadServicesCatalog(locale);
     } catch {
       setError(true);
     } finally {
@@ -20,7 +23,7 @@ export default function CatalogDownload() {
     }
   }
 
-  return (
+  return localize((
     <div className={styles.download}>
       <button type="button" onClick={download} disabled={loading} className={styles.textLink}>
         {loading ? "Preparando catálogo…" : "Descargar catálogo"}
@@ -28,5 +31,5 @@ export default function CatalogDownload() {
       </button>
       {error && <p role="alert">No se pudo descargar. Intente de nuevo o solicítelo por WhatsApp.</p>}
     </div>
-  );
+  ));
 }

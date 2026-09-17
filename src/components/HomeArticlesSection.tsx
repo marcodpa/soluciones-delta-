@@ -1,10 +1,14 @@
+"use client";
+
+import { useLocalizedTree } from "@/lib/i18n/client";
 import Link from "next/link";
 import ArticleHighlights from "./ArticleHighlights";
 import ArticlesMotion from "./ArticlesMotion";
 import styles from "./HomeArticlesSection.module.css";
 
 export default function HomeArticlesSection() {
-  return (
+  const localize = useLocalizedTree();
+  return localize((
     <section id="articulos" className={styles.section} aria-labelledby="home-articles-title">
       <div className={`site-container ${styles.container}`}>
         <ArticlesMotion>
@@ -23,5 +27,5 @@ export default function HomeArticlesSection() {
         </ArticlesMotion>
       </div>
     </section>
-  );
+  ));
 }

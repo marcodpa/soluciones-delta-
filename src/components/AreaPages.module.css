@@ -1,0 +1,30 @@
+.intro { background:#fff; padding:70px 0; }
+.layout { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(300px,.8fr); gap:8%; align-items:start; }
+.copy section:first-child { padding-top:0; }
+.coverage { background:#edf3ee; border:1px solid #cfddd1; position:sticky; top:110px; padding:30px; }
+.coverage h2 { font-size:28px; font-weight:600; line-height:1.2; margin:14px 0 24px; }
+.coverage ul { display:grid; gap:14px; padding-bottom:22px; border-bottom:1px solid #cbd9ce; }
+.coverage li { display:flex; align-items:start; gap:10px; color:#3e5747; font-size:14px; line-height:1.65; }
+.coverage li svg { flex-shrink:0; margin-top:4px; color:#167b34; }
+.coverage p { color:#52635b; font-size:13px; line-height:1.75; margin-top:22px; }
+.coverage>a { display:inline-flex; align-items:center; gap:12px; font-size:14px; color:#167b34; margin-top:22px; font-weight:600; }
+.map { width:100%; height:170px; position:relative; margin-bottom:25px; }
+.services { background:#dfeadd; padding:68px 0; }
+.serviceGrid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.service { display:grid; grid-template-columns:120px minmax(0,1fr) 20px; gap:22px; padding:18px; background:#f8faf7; align-items:center; border:1px solid #c7d8ca; transition:background .2s; }
+.service:hover { background:#fff; }
+.servicePhoto { position:relative; height:110px; overflow:hidden; }
+.servicePhoto img { object-fit:cover; }
+.service h3 { font-size:18px; line-height:1.3; margin-bottom:10px; font-weight:600; }
+.service p { font-size:13px; color:#52635b; line-height:1.5; }
+.service>svg { color:#167b34; }
+.faq { background:#edf3ee; padding:65px 0; }
+.faqLayout { display:grid; grid-template-columns:.8fr 1.2fr; gap:8%; }
+.faqLayout>div:first-child h2 { font-size:clamp(28px,3vw,42px); font-weight:600; line-height:1.15; margin:12px 0 25px; }
+.faqDetails { margin-top:0; }
+.locations { display:flex; flex-wrap:wrap; gap:10px; }
+.locations a { padding:8px 12px; border:1px solid #b9cbbc; color:#167b34; font-size:13px; }
+.locations a:hover { background:#dfeadd; }
+.heroActions { display:flex; flex-wrap:wrap; align-items:center; gap:25px; margin-top:28px; }
+@media(max-width:900px) { .layout,.faqLayout { grid-template-columns:1fr; gap:36px; } .coverage { position:static; } .serviceGrid { grid-template-columns:1fr; } .intro,.services,.faq { padding:44px 0; } }
+@media(max-width:450px) { .service { grid-template-columns:78px minmax(0,1fr) 16px; gap:14px; padding:14px; } .servicePhoto { height:96px; } .service h3 { font-size:17px; } .coverage { padding:24px; } }

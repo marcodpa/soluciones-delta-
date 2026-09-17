@@ -1,3 +1,6 @@
+"use client";
+
+import { useLocalizedTree } from "@/lib/i18n/client";
 import Link from "next/link";
 import { ArrowUpRight, Workflow, ScanLine, FileCheck2 } from "lucide-react";
 import styles from "./HomeStrengths.module.css";
@@ -27,7 +30,8 @@ const benefits = [
 ];
 
 export default function HomeTrustSection() {
-  return (
+  const localize = useLocalizedTree();
+  return localize((
     <section id="por-que-elegirnos" aria-labelledby="trust-title" className={styles.trust}>
       <div className="site-container">
         <header className={styles.trustHeader}>
@@ -58,5 +62,5 @@ export default function HomeTrustSection() {
         </div>
       </div>
     </section>
-  );
+  ));
 }

@@ -1,15 +1,25 @@
-/* Telefonos: hero estatico de una pantalla. Escritorio: escenario pegajoso con scroll de 340svh. */
-.wrapper { height: 100svh; }
+/* The truck animation follows scrolling at every screen size. */
+.wrapper { height: 340svh; }
+.wrapper[data-static="true"] { height: 100svh; }
+.poster, .video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.poster { z-index: 0; }
+.video { z-index: 1; opacity: 0; pointer-events: none; }
+.video[data-ready="true"] { opacity: 1; }
+.shade {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(3, 18, 12, .66), rgba(3, 18, 12, .20) 57%, rgba(3, 18, 12, .05)),
+    linear-gradient(0deg, rgba(3, 18, 12, .72), transparent 75%);
+}
 .stage {
-  position: relative;
+  position: sticky;
+  top: 0;
   width: 100%;
-  height: 100%;
+  height: 100svh;
   overflow: hidden;
   background: #000;
-}
-@media (min-width: 1024px) {
-  .wrapper { height: 340svh; }
-  .stage { position: sticky; top: 0; height: 100vh; height: 100dvh; }
 }
 .content {
   position: absolute;
@@ -115,5 +125,8 @@
   .dots { bottom: 20px; }
 }
 @media (prefers-reduced-motion: reduce) {
+  .video { display: none; }
+  .wrapper { height: 100svh; }
+  .stage { position: relative; height: 100%; }
   .primaryLink, .secondaryLink { transition: none; }
 }

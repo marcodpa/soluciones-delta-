@@ -1,16 +1,22 @@
 "use client";
 
+import { useLocale, useLocalizedTree } from "@/lib/i18n/client";
+import { translateText } from "@/lib/i18n/translate";
 import { useState } from "react";
 import { CATALOG_SERVICES } from "@/lib/services-catalog";
 import styles from "./services.module.css";
 
-export default function QuoteForm() {
-  const [service, setService] = useState("");
+export default function QuoteForm({ initialService = "", initialSlug }: { initialService?: string; initialSlug?: string }) {
+  const localize = useLocalizedTree();
+  const locale = useLocale();
+  const [service, setService] = useState(CATALOG_SERVICES.find(item => item.slug === initialSlug)?.title ?? initialService);
   const [location, setLocation] = useState("");
   const [phone, setPhone] = useState("");
-  const message = `Hola, Soluciones Delta. Quisiera solicitar una cotización.\nServicio: ${service}\nUbicación del proyecto: ${location.trim()}\nTeléfono de contacto: ${phone.trim()}`;
+  const message = locale === "en"
+    ? `Hello, Soluciones Delta. I would like to request a quote.\nService: ${translateText(service, locale)}\nProject location: ${location.trim()}\nContact phone: ${phone.trim()}`
+    : `Hola, Soluciones Delta. Quisiera solicitar una cotización.\nServicio: ${service}\nUbicación del proyecto: ${location.trim()}\nTeléfono de contacto: ${phone.trim()}`;
 
-  return (
+  return localize((
     <form action="https://wa.me/584246472446" method="get" target="_blank" rel="noopener noreferrer" className={styles.quoteForm}>
       <input type="hidden" name="text" value={message} />
       <label htmlFor="quote-service">Servicio</label>
@@ -29,5 +35,5 @@ export default function QuoteForm() {
       <button type="submit" className={styles.primary}>Solicitar cotización <span aria-hidden="true">↗</span></button>
       <p>Se abrirá WhatsApp para que revise y envíe su solicitud.</p>
     </form>
-  );
+  ));
 }

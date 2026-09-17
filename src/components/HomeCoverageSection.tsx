@@ -1,9 +1,13 @@
+"use client";
+
+import { useLocalizedTree } from "@/lib/i18n/client";
 import Link from "next/link";
 import typography from "./HomeTypography.module.css";
 import styles from "./HomeCoverageSection.module.css";
 
 export default function HomeCoverageSection() {
-  return (
+  const localize = useLocalizedTree();
+  return localize((
     <section id="cobertura" aria-labelledby="coverage-title" className={styles.section}>
       <div className={`site-container ${styles.layout}`}>
         <div>
@@ -54,5 +58,5 @@ export default function HomeCoverageSection() {
         </div>
       </div>
     </section>
-  );
+  ));
 }

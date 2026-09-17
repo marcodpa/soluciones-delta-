@@ -1,121 +1,33 @@
 "use client";
 
+import { useLocalizedTree } from "@/lib/i18n/client";
 import Image from "next/image";
 import Link from "next/link";
-
+import { ArrowRight, Mail, Phone } from "lucide-react";
+import styles from "./Footer.module.css";
 const services = [
-  { label: "Bombeo de Crudo",         slug: "bombeo-de-crudo" },
-  { label: "Transporte de Fluidos",   slug: "trasegado-vacuum" },
-  { label: "Frac Tanks 500 Bbl",      slug: "frac-tanks" },
-  { label: "Manejo de Desechos",      slug: "manejo-de-desechos" },
+  { label: "Bombeo de Crudo", slug: "bombeo-de-crudo" },
+  { label: "Transporte de Fluidos", slug: "trasegado-vacuum" },
+  { label: "Frac Tanks 500 Bbl", slug: "frac-tanks" },
+  { label: "Manejo de Desechos", slug: "manejo-de-desechos" },
   { label: "Calderas e Inyección de Vapor", slug: "alquiler-calderas-inyeccion-vapor" },
-  { label: "Limpieza Hydrojet UHP",   slug: "limpieza-industrial-hidrojet" },
+  { label: "Limpieza Hydrojet UHP", slug: "limpieza-industrial-hidrojet" },
   { label: "Recuperación de Crudo en Fosas", slug: "recuperacion-de-crudo-en-fosas" },
 ];
-
-const navLinks = [
-  { label: "Inicio",    href: "/" },
-  { label: "Servicios", href: "/servicios" },
-  { label: "Nosotros",  href: "/nosotros" },
-  { label: "Contacto",  href: "/contacto" },
-  { label: "Artículos", href: "/articulos" },
-  { label: "Servicios petroleros en Zulia", href: "/servicios-petroleros/zulia" },
-  { label: "Maracaibo", href: "/servicios-petroleros/maracaibo" },
-  { label: "Costa Oriental del Lago", href: "/servicios-petroleros/costa-oriental-del-lago" },
-];
-
+const navigation = [{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios" }, { label: "Nosotros", href: "/nosotros" }, { label: "Artículos", href: "/articulos" }, { label: "Contacto", href: "/contacto" }];
+const coverage = [{ label: "Servicios petroleros en Zulia", slug: "zulia" }, { label: "Maracaibo", slug: "maracaibo" }, { label: "Costa Oriental del Lago", slug: "costa-oriental-del-lago" }, { label: "San Francisco", slug: "san-francisco" }];
 export default function Footer() {
-  const year = new Date().getFullYear();
-
-  return (
-    <footer className="relative pt-20 pb-10 overflow-hidden" style={{ background: "#111" }}>
-      <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 80% 30% at 50% 0%, rgba(26,140,60,0.07) 0%, transparent 60%)" }} />
-      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(90deg, transparent, rgba(48,209,88,0.2), transparent)" }} />
-
-      <div className="site-container relative">
-        <div className="grid md:grid-cols-4 gap-12 mb-16">
-
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <div className="mb-5">
-              <Image
-                src="/logo-v2.png"
-                alt="Soluciones Delta C.A."
-                width={150}
-                height={60}
-                className="h-14 w-14 object-contain"
-              />
-            </div>
-            <p className="text-[14px] text-[#6e6e73] leading-relaxed max-w-sm mb-6">
-              Empresa venezolana especializada en servicios técnicos para la industria petrolera.
-              Flota propia, operación continua 24/7. San Francisco, Estado Zulia.
-            </p>
-            <div className="flex flex-col gap-2.5">
-              <a href="mailto:solucionesdeltaca@gmail.com" className="flex items-center gap-2 text-[13px] text-[#6e6e73] hover:text-[#30d158] transition-colors w-fit">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <rect x="1" y="3" width="12" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.2"/>
-                  <path d="M1 5l6 4 6-4" stroke="currentColor" strokeWidth="1.2"/>
-                </svg>
-                solucionesdeltaca@gmail.com
-              </a>
-              <a href="https://wa.me/584246472446" className="flex items-center gap-2 text-[13px] text-[#6e6e73] hover:text-white transition-colors w-fit">
-                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <path d="M3 2h2l1 3-1.5 1a6 6 0 003.5 3.5L9 8l3 1v2a1 1 0 01-1 1C4.5 12 1.5 8 1.5 3.5A1.5 1.5 0 013 2z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/>
-                </svg>
-                +58 424-6472446
-              </a>
-            </div>
-          </div>
-
-          {/* Navigation */}
-          <div>
-            <div className="text-white font-bold text-[12px] mb-5 tracking-widest uppercase">Navegación</div>
-            <ul className="space-y-3">
-              {navLinks.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-[13px] text-[#6e6e73] hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <div className="text-white font-bold text-[12px] mb-5 tracking-widest uppercase">Servicios</div>
-            <ul className="space-y-3">
-              {services.map((s) => (
-                <li key={s.slug}>
-                  <Link
-                    href={`/servicios/${s.slug}`}
-                    className="text-[13px] text-[#6e6e73] hover:text-white transition-colors"
-                  >
-                    {s.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Bottom */}
-        <div
-          className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
-        >
-          <div className="text-[12px] text-[#3a3a3c]">
-            © {year} Soluciones Delta, C.A. — RIF J-50735393-1
-          </div>
-          <div className="flex items-center gap-2">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#30d158] animate-pulse" />
-            <span className="text-[12px] text-[#3a3a3c]">San Francisco, Estado Zulia · Venezuela</span>
-          </div>
-        </div>
+  const localize = useLocalizedTree();
+  return localize(<footer className={styles.footer}>
+    <div className="site-container">
+      <div className={styles.top}><div><h2>Hablemos de su próximo proyecto.</h2><p>Equipos propios y capacidad técnica para su operación.</p></div><Link href="/contacto" className={styles.cta}>Contactar al equipo <ArrowRight size={18} aria-hidden="true" /></Link></div>
+      <div className={styles.grid}>
+        <div className={styles.brand}><Link href="/" aria-label="Soluciones Delta, inicio" className={styles.brandLogo}><Image src="/logo-v2.png" alt="Soluciones Delta C.A." width={88} height={98} /></Link><p>Empresa venezolana especializada en servicios técnicos para la industria petrolera. Flota propia, operación continua 24/7. San Francisco, Estado Zulia.</p><div className={styles.direct}><a href="https://wa.me/584246472446"><Phone size={16} aria-hidden="true" />+58 424-6472446</a><a href="mailto:delta@soluciones-delta.com"><Mail size={16} aria-hidden="true" />delta@soluciones-delta.com</a></div></div>
+        <nav className={styles.column} aria-label="Navegación del pie de página"><h3>La empresa</h3><ul>{navigation.map(item => <li key={item.href}><Link href={item.href}>{item.label}</Link></li>)}</ul></nav>
+        <nav className={styles.column} aria-label="Servicios del pie de página"><h3>Servicios</h3><ul>{services.map(item => <li key={item.slug}><Link href={`/servicios/${item.slug}`}>{item.label}</Link></li>)}</ul></nav>
+        <div className={styles.column}><h3>Cobertura</h3><ul>{coverage.map(item => <li key={item.slug}><Link href={`/servicios-petroleros/${item.slug}`}>{item.label}</Link></li>)}</ul><address>Calle 13 con Av. 5, Local 26A-162, Oficina 2.<br />Sector Manzanillo, San Francisco, Estado Zulia, Venezuela.</address></div>
       </div>
-    </footer>
-  );
+      <div className={styles.bottom}><span>© {new Date().getFullYear()} Soluciones Delta, C.A. — RIF J-50735393-1</span><span><i aria-hidden="true" />San Francisco, Estado Zulia · Venezuela</span></div>
+    </div>
+  </footer>);
 }

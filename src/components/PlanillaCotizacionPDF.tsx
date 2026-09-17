@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useLocalizedTree } from "@/lib/i18n/client";
 import { pdf, Document, Page, Text, View, StyleSheet, Image as PDFImage } from "@react-pdf/renderer";
 
 async function toDataURL(url: string): Promise<string> {
@@ -63,7 +64,7 @@ function PlanillaPDF({ logoData }: { logoData: string }) {
           <PDFImage src={logoData} style={S.headerLogo} />
           <View style={S.headerRight}>
             <Text style={S.headerTitle}>Soluciones Delta, C.A.</Text>
-            <Text style={S.headerSub}>solucionesdeltaca@gmail.com · +58 424-6472446</Text>
+            <Text style={S.headerSub}>delta@soluciones-delta.com · +58 424-6472446</Text>
           </View>
         </View>
         <View style={S.greenBar} />
@@ -72,7 +73,7 @@ function PlanillaPDF({ logoData }: { logoData: string }) {
         <View style={{ flex: 1 }} />
 
         <View style={S.footer} fixed>
-          <Text style={S.footerLeft}>{"Soluciones Delta, C.A.\nsolucionesdeltaca@gmail.com · +58 424-6472446 · 24/7"}</Text>
+          <Text style={S.footerLeft}>{"Soluciones Delta, C.A.\ndelta@soluciones-delta.com · +58 424-6472446 · 24/7"}</Text>
           <View style={S.footerRight}>
             <Text style={S.footerRIF}>RIF J-50735393-1</Text>
             <Text style={S.footerAddr}>Calle 13 con Av 5, Local 26A-162, Of. 2, Sector Manzanillo · San Francisco, Edo. Zulia</Text>
@@ -85,6 +86,7 @@ function PlanillaPDF({ logoData }: { logoData: string }) {
 }
 
 export default function DescargarPlanillaBtn() {
+  const localize = useLocalizedTree();
   const [loading, setLoading] = useState(false);
 
   const handleDownload = async () => {
@@ -104,7 +106,7 @@ export default function DescargarPlanillaBtn() {
     }
   };
 
-  return (
+  return localize(
     <button
       onClick={handleDownload}
       disabled={loading}

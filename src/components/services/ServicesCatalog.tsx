@@ -1,5 +1,7 @@
 "use client";
 
+import { useLocale, useLocalizedTree } from "@/lib/i18n/client";
+import { translateText } from "@/lib/i18n/translate";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -14,6 +16,8 @@ const filters: { value: ServiceCategory; label: string }[] = [
 ];
 
 export default function ServicesCatalog() {
+  const localize = useLocalizedTree();
+  const locale = useLocale();
   const [category, setCategory] = useState<ServiceCategory>("all");
 
   useEffect(() => {
@@ -38,7 +42,7 @@ export default function ServicesCatalog() {
   const showFeatured = category === "all" || category === "transport";
   const showDetails = category !== "transport";
 
-  return (
+  return localize((
     <section id="catalogo" className={styles.catalog} aria-labelledby="catalog-title">
       <div className={styles.filters} role="group" aria-label="Filtrar servicios según su necesidad">
         {filters.map(filter => (
@@ -49,7 +53,7 @@ export default function ServicesCatalog() {
         ))}
       </div>
       <div className={styles.filterStatus}>
-        <p role="status" aria-live="polite">{category === "all" ? "Explore nuestros 7 servicios" : `${count} servicios para ${filters.find(filter => filter.value === category)?.label.toLowerCase()}`}</p>
+        <p role="status" aria-live="polite">{category === "all" ? "Explore nuestros 7 servicios" : locale === "en" ? `${count} services · ${translateText(filters.find(filter => filter.value === category)?.label ?? "", locale)}` : `${count} servicios para ${filters.find(filter => filter.value === category)?.label.toLowerCase()}`}</p>
         <button type="button" aria-pressed={category === "all"} onClick={() => chooseCategory("all")} aria-controls="services-results">Ver todos</button>
       </div>
       <div className={styles.catalogHeading}>
@@ -60,8 +64,8 @@ export default function ServicesCatalog() {
         <div className={styles.featuredList} hidden={!showFeatured}>
           {CATALOG_SERVICES.filter(service => service.featured).map(service => (
             <article key={service.slug} className={styles.featured}>
-              <Link href={`/servicios/${service.slug}`} className={styles.featuredImage} aria-label={`Conocer ${service.title}`}>
-                <Image src={service.img} alt={`${service.title}: equipo propio de Soluciones Delta`} fill
+              <Link href={`/servicios/${service.slug}`} className={styles.featuredImage} aria-label={locale === "en" ? `Explore ${translateText(service.title, locale)}` : `Conocer ${service.title}`}>
+                <Image src={service.img} alt={locale === "en" ? `${translateText(service.title, locale)}: equipment owned by Soluciones Delta` : `${service.title}: equipo propio de Soluciones Delta`} fill
                   sizes="(max-width: 760px) 100vw, 46vw" className={styles.equipmentPhoto} />
               </Link>
               <h3><Link href={`/servicios/${service.slug}`}>{service.title}</Link></h3>
@@ -93,5 +97,5 @@ export default function ServicesCatalog() {
         </div>
       </div>
     </section>
-  );
+  ));
 }

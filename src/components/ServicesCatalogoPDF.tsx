@@ -1,8 +1,11 @@
 "use client";
 
 import { useState } from "react";
+import { useLocale, useLocalizedTree } from "@/lib/i18n/client";
+import { translateText, type Locale } from "@/lib/i18n/translate";
+import { PdfLocale, Text } from "./PdfLocale";
 import {
-  pdf, Document, Page, Text, View, StyleSheet, Image as PDFImage,
+  pdf, Document, Page, View, StyleSheet, Image as PDFImage,
 } from "@react-pdf/renderer";
 import { SERVICES, type ServiceData } from "@/lib/services-data";
 
@@ -253,7 +256,7 @@ function ContactPage({ logoUrl, pageNum }: { logoUrl: string; pageNum: number; }
         </View>
         <View style={S.contactItem}>
           <Text style={S.contactItemLabel}>Correo Electrónico</Text>
-          <Text style={S.contactItemValue}>solucionesdeltaca@gmail.com</Text>
+          <Text style={S.contactItemValue}>delta@soluciones-delta.com</Text>
           <Text style={S.contactItemSub}>Respuesta en menos de 2 horas hábiles</Text>
         </View>
         <View style={S.contactItem}>
@@ -270,7 +273,7 @@ function ContactPage({ logoUrl, pageNum }: { logoUrl: string; pageNum: number; }
         </View>
       </View>
       <View style={S.footer} fixed>
-        <Text style={S.footerText}>Soluciones Delta, C.A. · solucionesdeltaca@gmail.com · +58 424-6472446</Text>
+        <Text style={S.footerText}>Soluciones Delta, C.A. · delta@soluciones-delta.com · +58 424-6472446</Text>
         <View style={S.footerLine} />
         <Text style={S.footerText}>Pág. {pageNum}</Text>
       </View>
@@ -279,7 +282,7 @@ function ContactPage({ logoUrl, pageNum }: { logoUrl: string; pageNum: number; }
 }
 
 // ── FULL CATALOG PDF ──────────────────────────────────────────────────────────
-function CatalogoPDF({ imgs }: { imgs: Record<string, string> }) {
+function CatalogoPDF({ imgs, locale }: { imgs: Record<string, string>; locale: Locale }) {
   const logoUrl = imgs["/logo.png"] || "";
 
   return (
@@ -287,6 +290,7 @@ function CatalogoPDF({ imgs }: { imgs: Record<string, string> }) {
       title="Catálogo de Servicios — Soluciones Delta, C.A."
       author="Soluciones Delta, C.A."
     >
+      <PdfLocale.Provider value={locale}>
       {/* Cover */}
       <Page size="A4" style={S.pageNoPad}>
         <View style={S.cover}>
@@ -395,7 +399,7 @@ function CatalogoPDF({ imgs }: { imgs: Record<string, string> }) {
             </View>
 
             <View style={S.footer} fixed>
-              <Text style={S.footerText}>Soluciones Delta, C.A. · solucionesdeltaca@gmail.com · +58 424-6472446</Text>
+              <Text style={S.footerText}>Soluciones Delta, C.A. · delta@soluciones-delta.com · +58 424-6472446</Text>
               <View style={S.footerLine} />
               <Text style={S.footerText}>Pág. {idx + 2}</Text>
             </View>
@@ -403,12 +407,13 @@ function CatalogoPDF({ imgs }: { imgs: Record<string, string> }) {
         );
       })}
 
+    </PdfLocale.Provider>
     </Document>
   );
 }
 
 // ── SINGLE SERVICE PDF ────────────────────────────────────────────────────────
-function ServicioPDF({ service, imgs }: { service: ServiceData; imgs: Record<string, string> }) {
+function ServicioPDF({ service, imgs, locale }: { service: ServiceData; imgs: Record<string, string>; locale: Locale }) {
   const logoUrl = imgs["/logo.png"] || "";
   const photos  = SERVICE_PHOTOS[service.slug];
   const mainImg = imgs[photos.main] || "";
@@ -420,6 +425,7 @@ function ServicioPDF({ service, imgs }: { service: ServiceData; imgs: Record<str
       title={`${service.title} — Soluciones Delta, C.A.`}
       author="Soluciones Delta, C.A."
     >
+      <PdfLocale.Provider value={locale}>
       {/* ── Pág. 1: Portada — imagen + título + breve descripción + footer ── */}
       <Page size="A4" style={[S.pageNoPad, { paddingBottom: 40 }]}>
         <View style={S.svcCover}>
@@ -439,7 +445,7 @@ function ServicioPDF({ service, imgs }: { service: ServiceData; imgs: Record<str
           </View>
         </View>
         <View style={S.footer}>
-          <Text style={S.footerText}>Soluciones Delta, C.A. · solucionesdeltaca@gmail.com · +58 424-6472446</Text>
+          <Text style={S.footerText}>Soluciones Delta, C.A. · delta@soluciones-delta.com · +58 424-6472446</Text>
           <View style={S.footerLine} />
           <Text style={S.footerText}>Pág. 1</Text>
         </View>
@@ -449,7 +455,7 @@ function ServicioPDF({ service, imgs }: { service: ServiceData; imgs: Record<str
       <Page size="A4" style={S.page}>
         <View style={S.headerBar}>
           {logoUrl && <PDFImage src={logoUrl} style={S.headerLogo} />}
-          <Text style={S.headerRight}>{service.tag.toUpperCase()} · FICHA TÉCNICA</Text>
+          <Text style={S.headerRight}>{translateText(service.tag, locale).toUpperCase()} · FICHA TÉCNICA</Text>
         </View>
 
         <View style={[S.body, { paddingTop: 14, paddingBottom: 50 }]}>
@@ -507,7 +513,7 @@ function ServicioPDF({ service, imgs }: { service: ServiceData; imgs: Record<str
               <View style={{ marginTop: 12, padding: "8px 10px", backgroundColor: "#0d1f14", borderRadius: 5 }}>
                 <Text style={[S.secLabel, { color: "#30d158", marginBottom: 6 }]}>Contacto</Text>
                 <Text style={{ fontSize: 8.5, color: "#ffffff", fontFamily: "Helvetica-Bold", marginBottom: 2 }}>+58 424-6472446</Text>
-                <Text style={{ fontSize: 7.5, color: "rgba(255,255,255,0.5)", marginBottom: 4 }}>solucionesdeltaca@gmail.com</Text>
+                <Text style={{ fontSize: 7.5, color: "rgba(255,255,255,0.5)", marginBottom: 4 }}>delta@soluciones-delta.com</Text>
                 <Text style={{ fontSize: 7, color: "rgba(255,255,255,0.35)" }}>San Francisco, Estado Zulia · 24/7</Text>
               </View>
             </View>
@@ -515,18 +521,19 @@ function ServicioPDF({ service, imgs }: { service: ServiceData; imgs: Record<str
         </View>
 
         <View style={S.footer} fixed>
-          <Text style={S.footerText}>Soluciones Delta, C.A. · solucionesdeltaca@gmail.com · +58 424-6472446</Text>
+          <Text style={S.footerText}>Soluciones Delta, C.A. · delta@soluciones-delta.com · +58 424-6472446</Text>
           <View style={S.footerLine} />
           <Text style={S.footerText}>Pág. 2</Text>
         </View>
       </Page>
+    </PdfLocale.Provider>
     </Document>
   );
 }
 
 
 // ── Download button: ALL services catalog ─────────────────────────────────────
-export async function downloadServicesCatalog() {
+export async function downloadServicesCatalog(locale: Locale = "es") {
   const origin = window.location.origin;
   const allPaths = [
     "/logo.png",
@@ -534,7 +541,7 @@ export async function downloadServicesCatalog() {
     ...Object.values(SERVICE_PHOTOS).flatMap(p => [p.main, ...p.gallery.map(g => g.src)]),
   ];
   const imgs = await preloadImages(origin, [...new Set(allPaths)]);
-  const blob = await pdf(<CatalogoPDF imgs={imgs} />).toBlob();
+  const blob = await pdf(<CatalogoPDF imgs={imgs} locale={locale} />).toBlob();
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
@@ -544,12 +551,13 @@ export async function downloadServicesCatalog() {
 }
 
 export default function DescargarCatalogoBtnn() {
+  const locale = useLocale();
   const [loading, setLoading] = useState(false);
 
   const handleDownload = async () => {
     setLoading(true);
     try {
-      await downloadServicesCatalog();
+      await downloadServicesCatalog(locale);
     } finally {
       setLoading(false);
     }
@@ -560,6 +568,7 @@ export default function DescargarCatalogoBtnn() {
 
 // ── Download button: SINGLE service ──────────────────────────────────────────
 export function DescargarServicioPDF({ service }: { service: ServiceData }) {
+  const locale = useLocale();
   const [loading, setLoading] = useState(false);
 
   const handleDownload = async () => {
@@ -569,7 +578,7 @@ export function DescargarServicioPDF({ service }: { service: ServiceData }) {
       const photos = SERVICE_PHOTOS[service.slug];
       const paths = ["/logo.png", photos.main, ...photos.gallery.map(g => g.src)];
       const imgs  = await preloadImages(origin, paths);
-      const blob  = await pdf(<ServicioPDF service={service} imgs={imgs} />).toBlob();
+      const blob  = await pdf(<ServicioPDF service={service} imgs={imgs} locale={locale} />).toBlob();
       const url    = URL.createObjectURL(blob);
       const a      = document.createElement("a");
       a.href       = url;

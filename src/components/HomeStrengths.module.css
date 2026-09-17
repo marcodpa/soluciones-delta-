@@ -59,7 +59,10 @@
 .capability svg, .benefit svg { color: var(--section-green); }
 .capability h3 { margin: 16px 0 10px; font-size: var(--home-card-title, 18px); line-height: 1.35; font-weight: 600; letter-spacing: -.025em; }
 .capability p { font-size: var(--home-body-small, 15px); line-height: 1.7; margin: 0; color: var(--section-muted); }
-.trust { background: #0a100d; padding: 76px 0 30px; border-top: 1px solid #26342b; scroll-margin-top: 80px; }
+.trust { --section-green: #b7de9e; --section-muted: #c2d6c8; position: relative; isolation: isolate; overflow: clip; background: var(--delta-forest, #123f2b); padding: 76px 0 36px; scroll-margin-top: 80px; }
+.trust::before { content: ""; position: absolute; z-index: -1; inset: 0; background: #194c32; clip-path: polygon(82% 0, 100% 0, 100% 100%, 48% 100%); pointer-events: none; }
+.trust .benefit { border-top-color: #ffffff36; }
+.trust .trustFooter { border-top-color: #ffffff26; }
 .trustHeader { display: flex; align-items: flex-end; justify-content: space-between; gap: 38px; margin-bottom: 48px; }
 .trustHeader .title { margin-top: 17px; }
 .trustHeader .intro { max-width: 310px; margin: 0; font-size: var(--home-body-size, 16px); }

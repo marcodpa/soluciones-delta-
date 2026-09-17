@@ -1,0 +1,6 @@
+.switcher { display: inline-flex; flex-shrink: 0; align-items: center; border: 1px solid #d7e2d5; border-radius: 8px; padding: 2px; background: #f7faf5; }
+.switcher a { display: grid; place-items: center; min-width: 38px; min-height: 38px; color: #53645a; font-size: 12px; font-weight: 600; border-radius: 5px; }
+.switcher a[aria-current] { background: #167b34; color: white; }
+.switcher a:focus-visible { outline: 3px solid #167b34; outline-offset: 4px; }
+.switcher a:hover:not([aria-current]) { background: #e1eddd; color: #123f2b; }
+@media (max-width: 1023px) { .switcher a { min-width: 42px; min-height: 40px; } }

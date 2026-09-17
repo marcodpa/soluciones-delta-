@@ -1,6 +1,8 @@
 "use client";
 
+import { useLocalizedTree } from "@/lib/i18n/client";
 import typography from "./HomeTypography.module.css";
+import surfaces from "./HomeSurfaces.module.css";
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
@@ -9,12 +11,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const highlights = [
-  { stat: "100%", label: "Cumplimiento en todos los contratos" },
-  { stat: "1,500", label: "Bbl/día de capacidad demostrada" },
-  { stat: "24/7", label: "Operación continua" },
-];
 
 const slides = [
   {
@@ -46,10 +42,10 @@ const slides = [
 const GAP_PCT = 1; // margin at each side of a slide, in % of container width
 
 export default function AboutSection() {
+  const localize = useLocalizedTree();
   const sectionRef  = useRef<HTMLElement>(null);
   const headerRef   = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
-  const statsRef    = useRef<HTMLDivElement>(null);
 
   const [index, setIndex] = useState(1);
   const [containerW, setContainerW] = useState(0);
@@ -93,11 +89,6 @@ export default function AboutSection() {
         onEnter: () => gsap.fromTo(carouselRef.current,
           { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.9, ease: "power3.out" }),
       });
-      ScrollTrigger.create({
-        trigger: statsRef.current, start: "top 92%", once: true,
-        onEnter: () => gsap.fromTo(statsRef.current?.children as unknown as Element[],
-          { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", stagger: 0.08 }),
-      });
     }, sectionRef);
     return () => ctx.revert();
   }, []);
@@ -105,29 +96,24 @@ export default function AboutSection() {
   const step = slidePct + GAP_PCT * 2;                       // outer width of one slide, % of container
   const offsetPx = containerW * ((100 - step) / 2 - index * step) / 100;
 
-  return (
+  return localize((
     <section
       id="nosotros"
       ref={sectionRef}
-      className="pt-28 pb-24 relative overflow-hidden"
-      style={{ background: "linear-gradient(180deg, #eef1f0 0%, #ffffff 42%)" }}
+      className={surfaces.about}
     >
-      {/* Subtle top green line */}
-      <div className="absolute top-0 inset-x-0 h-px pointer-events-none"
-        style={{ background: "linear-gradient(90deg,transparent,rgba(26,140,60,0.15),transparent)" }} />
-
       {/* ── HEADER (centered) ── */}
       <div className="site-container relative">
         <div ref={headerRef} className="text-center max-w-3xl mx-auto mb-14">
           <div className={`${typography.eyebrow} text-[#167b34] mb-4`}>Quiénes Somos</div>
           <h2 className={`${typography.sectionTitle} text-[#1d1d1f] mb-6`}>
             Expertos en el{" "}
-            <span style={{ background: "linear-gradient(135deg,#30d158 0%,#167b34 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+            <span className="text-[#167b34]">
               sector petrolero
             </span>{" "}
             venezolano.
           </h2>
-          <p className="text-[16px] leading-relaxed mx-auto" style={{ color: "#6e6e73" }}>
+          <p className="text-[16px] leading-relaxed mx-auto" style={{ color: "#53645a" }}>
             <strong className="text-[#1d1d1f]">Soluciones Delta, C.A.</strong> es una empresa venezolana especializada en
             servicios petroleros e industriales, con sede en San Francisco, Estado Zulia.
             Atendemos solicitudes de proyectos en Venezuela: bombeo de crudo, transporte con vacuum,
@@ -237,28 +223,8 @@ export default function AboutSection() {
         </div>
       </div>
 
-      {/* ── STATS + CTA ── */}
+      {/* Company link */}
       <div className="site-container relative">
-        <div
-          ref={statsRef}
-          className="grid grid-cols-3 rounded-2xl overflow-hidden mt-10"
-          style={{ border: "1px solid #e5e5ea" }}
-        >
-          {highlights.map((h, i) => (
-            <div
-              key={i}
-              className="px-7 py-6 flex flex-col gap-1"
-              style={{
-                background: i % 2 === 0 ? "#ffffff" : "#fafafa",
-                borderRight: i < highlights.length - 1 ? "1px solid #e5e5ea" : "none",
-              }}
-            >
-              <div className="text-[26px] font-bold text-[#1d1d1f] leading-none tracking-tight">{h.stat}</div>
-              <div className="text-[11px] font-medium text-[#6e6e73]">{h.label}</div>
-            </div>
-          ))}
-        </div>
-
         <div className="flex justify-center mt-10">
           <Link href="/nosotros" className="btn-primary">
             Conocer más sobre nosotros
@@ -269,5 +235,5 @@ export default function AboutSection() {
         </div>
       </div>
     </section>
-  );
+  ));
 }

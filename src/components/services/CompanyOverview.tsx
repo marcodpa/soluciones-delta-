@@ -1,3 +1,6 @@
+"use client";
+
+import { useLocalizedTree } from "@/lib/i18n/client";
 import Link from "next/link";
 import styles from "./services.module.css";
 
@@ -33,7 +36,8 @@ const groups = [
 ] as const;
 
 function OverviewIcon({ name }: { name: "pump" | "truck" | "leaf" | "pin" | "document" }) {
-  return (
+  const localize = useLocalizedTree();
+  return localize((
     <svg viewBox="0 0 64 48" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       {name === "pump" && <><path d="M7 44h45M19 43l7-28 9 28M22 31h10M11 26l32-15M12 26v15M16 25v16M43 10v33M40 3c7 3 10 10 8 16l-7-3-3-7Z" /><path d="m25 18 13-6" /></>}
       {name === "truck" && <><rect x="3" y="9" width="40" height="22" rx="10" /><path d="M3 36v-5h45V15h6l8 12v12h-5M47 39H29M17 39h-3M51 20v8h10M45 9v22" /><circle cx="10" cy="39" r="4" /><circle cx="24" cy="39" r="4" /><circle cx="52" cy="39" r="4" /></>}
@@ -41,11 +45,12 @@ function OverviewIcon({ name }: { name: "pump" | "truck" | "leaf" | "pin" | "doc
       {name === "pin" && <><path d="M32 45S16 29 16 19a16 16 0 0 1 32 0c0 10-16 26-16 26Z" /><circle cx="32" cy="19" r="5" /></>}
       {name === "document" && <><path d="M20 4h17l10 10v30H20ZM37 4v11h10M26 23h15M26 30h15M26 37h10" /></>}
     </svg>
-  );
+  ));
 }
 
 export default function CompanyOverview() {
-  return (
+  const localize = useLocalizedTree();
+  return localize((
     <section id="empresa" className={styles.company} aria-labelledby="services-company-title">
       <div className={styles.companyGrid}>
         <div>
@@ -93,5 +98,5 @@ export default function CompanyOverview() {
         </div>
       </div>
     </section>
-  );
+  ));
 }

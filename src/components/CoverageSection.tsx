@@ -1,3 +1,6 @@
+"use client";
+
+import { useLocalizedTree } from "@/lib/i18n/client";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./CoverageSection.module.css";
@@ -9,9 +12,10 @@ const regions = [
   { name: "San Francisco", slug: "san-francisco" },
 ];
 
-export default function CoverageSection({ id = "cobertura", embedded = false, compactBottom = false }: { id?: string; embedded?: boolean; compactBottom?: boolean }) {
-  return (
-    <section id={id} className={`${styles.section} ${embedded ? styles.embedded : ""} ${compactBottom ? styles.compactBottom : ""}`} aria-labelledby={`${id}-title`}>
+export default function CoverageSection({ id = "cobertura", embedded = false, compactBottom = false, variant = "plain" }: { id?: string; embedded?: boolean; compactBottom?: boolean; variant?: "plain" | "delta" }) {
+  const localize = useLocalizedTree();
+  return localize((
+    <section id={id} className={`${styles.section} ${embedded ? styles.embedded : ""} ${compactBottom ? styles.compactBottom : ""} ${variant === "delta" ? styles.delta : ""}`} aria-labelledby={`${id}-title`}>
       <div className={styles.grid}>
         <div className={styles.copy}>
           <p className={styles.kicker}>Cobertura nacional</p>
@@ -40,5 +44,5 @@ export default function CoverageSection({ id = "cobertura", embedded = false, co
         </figure>
       </div>
     </section>
-  );
+  ));
 }

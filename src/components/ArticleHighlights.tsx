@@ -1,17 +1,22 @@
+"use client";
+
+import { useLocalizedTree } from "@/lib/i18n/client";
 import Image from "next/image";
 import Link from "next/link";
 import { ARTICLES, type Article } from "@/lib/articles-data";
 import styles from "./ArticleHighlights.module.css";
 
 function ArticleMeta({ article }: { article: Article }) {
-  return <div className={styles.meta}><span>{article.eyebrow.replace("Guía · ", "")}</span><span>{article.readingMinutes} min de lectura</span></div>;
+  const localize = useLocalizedTree();
+  return localize(<div className={styles.meta}><span>{article.eyebrow.replace("Guía · ", "")}</span><span>{article.readingMinutes} min de lectura</span></div>);
 }
 
 export default function ArticleHighlights() {
+  const localize = useLocalizedTree();
   const [featured, ...rest] = ARTICLES;
   if (!featured) return null;
 
-  return (
+  return localize((
     <div className={styles.layout}>
       <article className={styles.featured} data-article-motion="card">
         <Link href={`/articulos/${featured.slug}`} className={styles.featuredLink}>
@@ -42,5 +47,5 @@ export default function ArticleHighlights() {
         ))}
       </div>
     </div>
-  );
+  ));
 }

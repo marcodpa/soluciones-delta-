@@ -26,6 +26,25 @@
 .embedded { padding: 44px 0 48px; }
 .embedded .grid { padding-inline: 0; }
 .compactBottom { padding-bottom: 28px; }
+.delta { position: relative; isolation: isolate; overflow: clip; background: var(--delta-mist, #edf3ee); padding-block: 64px; }
+.delta::before, .delta::after { content: ""; position: absolute; z-index: -1; inset: 0; pointer-events: none; }
+.delta::before { background: var(--delta-lime, #8ac66a); clip-path: polygon(73% 0, 100% 0, 100% 100%, 36% 100%); }
+.delta::after { background: var(--delta-plane, #197b36); clip-path: polygon(76% 0, 100% 0, 100% 100%, 39% 100%); }
+.delta .grid { gap: clamp(40px, 5vw, 72px); grid-template-columns: 1.05fr 1fr; }
+.delta .copy { align-self: start; padding-top: clamp(24px, 4vw, 56px); }
+.delta .copy h2 { font-size: clamp(32px, 3.5vw, 48px); max-width: 560px; }
+.delta .copy p { max-width: 440px; }
+.delta .regionLinks { max-width: 520px; }
+.delta .map { border-color: #ffffff80; border-radius: 16px; box-shadow: 0 16px 40px #0a38231a; }
+@media (max-width: 900px) {
+  .delta .grid { grid-template-columns: 1fr; gap: 28px; }
+  .delta .copy { padding-top: 0; }
+  .delta .copy h2, .delta .copy p { max-width: 640px; }
+  .delta .map { justify-self: center; max-width: 560px; }
+  .delta::before, .delta::after { top: 35%; }
+  .delta::before { clip-path: polygon(95% 0, 100% 0, 100% 100%, 0 100%); }
+  .delta::after { clip-path: polygon(100% 0, 100% 0, 100% 100%, 6% 100%); }
+}
 @media (max-width:760px) {
   .section { padding: 48px 0; }
   .grid { grid-template-columns: 1fr; gap: 20px; }
@@ -38,4 +57,5 @@
   .mapFootnote { font-size: 11px; }
   .embedded { padding: 36px 0; }
   .compactBottom { padding-bottom: 24px; }
+  .delta { padding-block: 40px; }
 }

@@ -1,6 +1,8 @@
 "use client";
 
+import { useLocalizedTree } from "@/lib/i18n/client";
 import typography from "./HomeTypography.module.css";
+import surfaces from "./HomeSurfaces.module.css";
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
@@ -112,6 +114,7 @@ const services = [
 ];
 
 export default function ServicesSection() {
+  const localize = useLocalizedTree();
   const sectionRef = useRef<HTMLElement>(null);
   const headerRef  = useRef<HTMLDivElement>(null);
   const listRef    = useRef<HTMLDivElement>(null);
@@ -144,16 +147,15 @@ export default function ServicesSection() {
     return () => ctx.revert();
   }, []);
 
-  return (
+  return localize((
     <section
       id="servicios"
       ref={sectionRef}
       aria-labelledby="servicios-heading"
-      className="relative overflow-hidden"
-      style={{ background: "#080f09" }}
+      className={`${surfaces.services} relative overflow-hidden`}
     >
       {/* Background image — right half */}
-      <div className="absolute inset-y-0 right-0 w-full lg:w-[52%] pointer-events-none">
+      <div className={`${surfaces.servicePhoto} absolute inset-y-0 right-0 w-full lg:w-[56%] pointer-events-none`}>
         <img
           src="/servicios-campo.webp"
           loading="lazy"
@@ -164,14 +166,14 @@ export default function ServicesSection() {
         />
         {/* Mobile: uniform translucent veil (same treatment as the /servicios hero) */}
         <div className="absolute inset-0 lg:hidden" style={{
-          background: "linear-gradient(180deg, rgba(8,15,9,0.88) 0%, rgba(8,15,9,0.62) 45%, rgba(8,15,9,0.7) 100%)"
+          background: "rgba(18,63,43,0.88)"
         }} />
         {/* Desktop: fades photo into dark bg on the left */}
         <div className="absolute inset-0 hidden lg:block" style={{
-          background: "linear-gradient(90deg, #080f09 0%, #080f09 18%, rgba(8,15,9,0.95) 42%, rgba(8,15,9,0.65) 65%, rgba(8,15,9,0.25) 100%)"
+          background: "linear-gradient(90deg, #123f2b 0%, rgba(18,63,43,0.95) 20%, rgba(18,63,43,0.7) 48%, rgba(18,63,43,0.18) 100%)"
         }} />
         <div className="absolute inset-0 hidden lg:block" style={{
-          background: "linear-gradient(180deg, rgba(8,15,9,0.6) 0%, transparent 18%, transparent 72%, #080f09 100%)"
+          background: "linear-gradient(180deg, rgba(18,63,43,0.4) 0%, transparent 25%, transparent 75%, #123f2b 100%)"
         }} />
       </div>
 
@@ -185,7 +187,7 @@ export default function ServicesSection() {
         <div ref={headerRef} className="mb-14 max-w-lg">
           <div className="flex items-center gap-2 mb-5">
             <div className="w-6 h-px" style={{ background: "#167b34" }} />
-            <span className={typography.eyebrow} style={{ color: "#30d158" }}>
+            <span className={typography.eyebrow} style={{ color: "#b7de9e" }}>
               Lo que hacemos
             </span>
           </div>
@@ -194,7 +196,7 @@ export default function ServicesSection() {
             className={`${typography.sectionTitle} text-white`}
           >
             Nuestros<br />
-            <span style={{ color: "#30d158" }}>Servicios.</span>
+            <span style={{ color: "#b7de9e" }}>Servicios.</span>
           </h2>
         </div>
 
@@ -238,11 +240,12 @@ export default function ServicesSection() {
       <div className="absolute bottom-0 inset-x-0 h-px pointer-events-none"
         style={{ background: "linear-gradient(90deg,transparent,rgba(26,140,60,0.25),transparent)" }} />
     </section>
-  );
+  ));
 }
 
 function ServiceRow({ s }: { s: typeof services[number] }) {
-  return (
+  const localize = useLocalizedTree();
+  return localize((
     <Link
       href={`/servicios/${s.slug}`}
       className="group flex items-start gap-5 py-5 transition-all duration-200"
@@ -259,7 +262,7 @@ function ServiceRow({ s }: { s: typeof services[number] }) {
     >
       {/* Number */}
       <span className="text-[11px] font-bold tracking-widest flex-shrink-0 w-7 pt-0.5"
-        style={{ color: "rgba(48,209,88,0.85)" }}>
+        style={{ color: "#b7de9e" }}>
         {s.num}
       </span>
 
@@ -269,7 +272,7 @@ function ServiceRow({ s }: { s: typeof services[number] }) {
         style={{
           background: "rgba(26,140,60,0.12)",
           border: "1px solid rgba(48,209,88,0.2)",
-          color: "#30d158",
+          color: "#b7de9e",
         }}
       >
         {s.icon}
@@ -278,17 +281,17 @@ function ServiceRow({ s }: { s: typeof services[number] }) {
       {/* Text */}
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-3 mb-1">
-          <h3 className="text-[18px] font-semibold text-white group-hover:text-[#30d158] transition-colors duration-200 leading-snug">
+          <h3 className="text-[18px] font-semibold text-white group-hover:text-[#b7de9e] transition-colors duration-200 leading-snug">
             {s.title}
           </h3>
           <span
             className="text-[10px] font-bold tracking-widest uppercase px-2 py-0.5 rounded-full flex-shrink-0 hidden sm:inline-block"
-            style={{ background: "rgba(26,140,60,0.15)", color: "#30d158", border: "1px solid rgba(48,209,88,0.2)" }}
+            style={{ background: "rgba(26,140,60,0.15)", color: "#b7de9e", border: "1px solid rgba(48,209,88,0.2)" }}
           >
             {s.tag}
           </span>
         </div>
-        <p className="text-[15px] leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>
+        <p className="text-[15px] leading-relaxed" style={{ color: "#d1dfd5" }}>
           {s.tagline}
         </p>
       </div>
@@ -297,10 +300,10 @@ function ServiceRow({ s }: { s: typeof services[number] }) {
       <svg
         width="14" height="14" viewBox="0 0 16 16" fill="none"
         className="flex-shrink-0 mt-2 opacity-0 group-hover:opacity-100 -translate-x-1 group-hover:translate-x-0 transition-all duration-200"
-        style={{ color: "#30d158" }}
+        style={{ color: "#b7de9e" }}
       >
         <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
       </svg>
     </Link>
-  );
+  ));
 }

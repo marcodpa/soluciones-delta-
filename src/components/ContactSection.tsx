@@ -56,7 +56,7 @@ export default function ContactSection() {
     e.preventDefault();
     const subject = encodeURIComponent(`Solicitud de Servicio: ${form.service || "Consulta"}`);
     const body = encodeURIComponent(`Nombre: ${form.name}\nEmpresa: ${form.company}\nTeléfono: ${form.phone}\nEmail: ${form.email}\nServicio: ${form.service}\n\nMensaje:\n${form.message}`);
-    window.location.href = `mailto:solucionesdeltaca@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:delta@soluciones-delta.com?subject=${subject}&body=${body}`;
     setSubmitted(true);
   };
 
@@ -211,8 +211,8 @@ export default function ContactSection() {
                   </svg>
                 ),
                 title: "Email",
-                value: "solucionesdeltaca@gmail.com",
-                href: "mailto:solucionesdeltaca@gmail.com",
+                value: "delta@soluciones-delta.com",
+                href: "mailto:delta@soluciones-delta.com",
               },
               {
                 icon: (

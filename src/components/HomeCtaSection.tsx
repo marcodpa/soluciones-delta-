@@ -1,6 +1,8 @@
 "use client";
 
+import { useLocalizedTree } from "@/lib/i18n/client";
 import typography from "./HomeTypography.module.css";
+import surfaces from "./HomeSurfaces.module.css";
 
 import { useEffect, useRef } from "react";
 import Link from "next/link";
@@ -10,6 +12,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HomeCtaSection() {
+  const localize = useLocalizedTree();
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -26,50 +29,24 @@ export default function HomeCtaSection() {
     return () => ctx.revert();
   }, []);
 
-  return (
-    <section ref={sectionRef} className="py-8 pb-24 relative overflow-hidden" style={{ background: "#f5f5f7" }}>
+  return localize((
+    <section ref={sectionRef} className={surfaces.cta}>
       <div className="site-container">
-        <div
-          className="rounded-3xl px-10 py-20 text-center relative overflow-hidden"
-          style={{ background: "linear-gradient(135deg, #0a1a10 0%, #0e2416 50%, #071410 100%)" }}
-        >
-          {/* Glow rings */}
-          <div className="absolute inset-0 pointer-events-none"
-            style={{ background: "radial-gradient(ellipse 55% 60% at 50% 110%, rgba(48,209,88,0.22) 0%, transparent 65%)" }} />
-          <div className="absolute inset-0 pointer-events-none"
-            style={{ background: "radial-gradient(ellipse 30% 30% at 80% 20%, rgba(26,140,60,0.1) 0%, transparent 60%)" }} />
-
-          {/* Top line */}
-          <div className="absolute top-0 left-0 right-0 h-px"
-            style={{ background: "linear-gradient(90deg, transparent, rgba(48,209,88,0.4), transparent)" }} />
-
-          {/* Dot grid overlay */}
-          <div className="absolute inset-0 pointer-events-none opacity-[0.03]"
-            style={{
-              backgroundImage: "radial-gradient(circle, #ffffff 1px, transparent 1px)",
-              backgroundSize: "28px 28px",
-            }} />
-
+        <div className={surfaces.ctaPanel}>
           <div className="relative">
             <div className="cta-animate flex items-center justify-center gap-2 mb-6">
-              <span className="w-2 h-2 rounded-full bg-[#30d158] animate-pulse" />
-              <span className={`${typography.eyebrow} text-[#30d158]`}>Disponibles ahora · 24/7</span>
+              <span className={surfaces.ctaStatusDot} aria-hidden="true" />
+              <span className={`${typography.eyebrow} ${surfaces.ctaStatus}`}>Disponibles ahora · 24/7</span>
             </div>
 
             <h2 className={`${typography.sectionTitle} cta-animate text-white mb-5`}>
               ¿Tiene una operación{" "}
-              <span style={{
-                background: "linear-gradient(135deg,#30d158 0%,#167b34 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}>
+              <span>
                 en campo?
               </span>
             </h2>
 
-            <p className="cta-animate text-[16px] max-w-lg mx-auto leading-relaxed mb-10"
-              style={{ color: "rgba(255,255,255,0.5)" }}>
+            <p className={`${surfaces.ctaDescription} cta-animate text-[16px] max-w-lg mx-auto leading-relaxed mb-10`}>
               Nuestro equipo técnico responde en menos de 2 horas hábiles. Para emergencias, operamos las 24 horas del día, los 7 días de la semana.
             </p>
 
@@ -103,11 +80,9 @@ export default function HomeCtaSection() {
             </div>
 
             {/* Trust strip */}
-            <div className="cta-animate flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-14 pt-10"
-              style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+            <div className={`${surfaces.ctaStrip} cta-animate flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mt-14 pt-10`}>
               {["RIF J-50735393-1", "San Francisco, Edo. Zulia", "Operación 24/7", "Flota propia 2026"].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 text-[11px] font-medium"
-                  style={{ color: "rgba(255,255,255,0.28)" }}>
+                <div key={i} className={`${surfaces.ctaStripItem} flex items-center gap-2 text-[11px] font-medium`}>
                   <span className="w-1 h-1 rounded-full bg-[#30d158] opacity-60" />
                   {item}
                 </div>
@@ -117,5 +92,5 @@ export default function HomeCtaSection() {
         </div>
       </div>
     </section>
-  );
+  ));
 }

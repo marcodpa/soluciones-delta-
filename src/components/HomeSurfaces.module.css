@@ -1,0 +1,76 @@
+/* The same Delta angle connects the page; each section uses a different scale. */
+.about {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  padding-block: clamp(64px, 7vw, 104px);
+  background: var(--delta-mist, #edf3ee);
+}
+.about::before, .about::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  pointer-events: none;
+}
+.about::before {
+  inset: 0;
+  background: var(--delta-sage, #dfeadd);
+  clip-path: polygon(83% 0, 100% 0, 100% 100%, 26% 100%);
+}
+.about::after {
+  left: 0;
+  bottom: 0;
+  width: 21%;
+  height: 34%;
+  background: #cadfc9;
+  clip-path: polygon(0 0, 100% 100%, 0 100%);
+}
+.aboutHighlights { background: #ffffff; border: 1px solid #c9dacd; }
+.aboutHighlight { border-right: 1px solid #dbe6dc; }
+.aboutHighlight:last-child { border-right: 0; }
+.services { background: var(--delta-forest, #123f2b); }
+.services::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 32%;
+  height: 28%;
+  background: var(--delta-lime, #8ac66a);
+  opacity: .16;
+  clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  pointer-events: none;
+}
+.servicePhoto { clip-path: polygon(36% 0, 100% 0, 100% 100%, 0 100%); }
+.cta { padding: 12px 0 clamp(48px, 6vw, 88px); background: var(--delta-mist, #edf3ee); }
+.ctaPanel {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: clamp(48px, 6vw, 80px) clamp(24px, 4vw, 56px);
+  background: var(--delta-forest, #123f2b);
+  text-align: center;
+}
+.ctaPanel::before, .ctaPanel::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  pointer-events: none;
+}
+.ctaPanel::before { background: #1b5738; clip-path: polygon(0 0, 24% 0, 0 70%); }
+.ctaPanel::after { background: #21623e; clip-path: polygon(100% 24%, 100% 100%, 72% 100%); }
+.ctaStatus { color: #c4e4b8; }
+.ctaStatusDot { width: 7px; height: 7px; border-radius: 50%; background: var(--delta-lime, #8ac66a); }
+.ctaDescription { color: #d1dfd5; }
+.ctaStrip { border-top: 1px solid #ffffff26; }
+.ctaStripItem { color: #c2d4c8; }
+@media (max-width: 1023px) { .servicePhoto { clip-path: none; } }
+@media (max-width: 760px) {
+  .about::before { clip-path: polygon(100% 20%, 100% 100%, 0 100%); }
+  .about::after { display: none; }
+  .ctaPanel { border-radius: 16px; }
+  .ctaPanel::before { clip-path: polygon(0 0, 32% 0, 0 22%); }
+  .ctaPanel::after { clip-path: polygon(100% 70%, 100% 100%, 62% 100%); }
+}

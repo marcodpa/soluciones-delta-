@@ -1,18 +1,21 @@
 import type { Metadata } from "next";
+import { translateText, localePath, type Locale } from "./i18n/translate";
 
 export const SITE_URL = "https://soluciones-delta.com";
 export const BUSINESS_NAME = "Soluciones Delta, C.A.";
 export const HOME_DESCRIPTION = "Servicios petroleros en Venezuela: bombeo de crudo, vacuum, Frac Tanks, desechos, vapor, hydrojet y recuperación de crudo en fosas. Sede en Zulia. Cotice hoy.";
 
-export function pageMetadata(title: string, description: string, path: string): Metadata {
-  const url = new URL(path, SITE_URL).href;
+export function pageMetadata(title: string, description: string, path: string, locale: Locale = "es"): Metadata {
+  title = translateText(title, locale);
+  description = translateText(description, locale);
+  const url = new URL(localePath(path, locale), SITE_URL).href;
   const fullTitle = `${title} | Soluciones Delta`;
   return {
     title: { absolute: fullTitle },
     description,
-    alternates: { canonical: url },
+    alternates: { canonical: url, languages: { es: new URL(path, SITE_URL).href, en: new URL(localePath(path, "en"), SITE_URL).href, "x-default": new URL(path, SITE_URL).href } },
     openGraph: {
-      type: "website", locale: "es_VE", siteName: BUSINESS_NAME,
+      type: "website", locale: locale === "en" ? "en_US" : "es_VE", siteName: BUSINESS_NAME,
       title: fullTitle, description, url,
       images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630, alt: BUSINESS_NAME }],
     },

@@ -13,3 +13,6 @@ build
 
 .next-seo
 output/seo
+.next-services-check
+.next-dev-redesign
+tmp

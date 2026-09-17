@@ -1,6 +1,10 @@
+"use client";
+
+import { useLocalizedTree } from "@/lib/i18n/client";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import CoverageSection from "@/components/CoverageSection";
 import ServicesCatalog from "./services/ServicesCatalog";
 import CompanyOverview from "./services/CompanyOverview";
@@ -9,7 +13,8 @@ import CatalogDownload from "./services/CatalogDownload";
 import styles from "./services/services.module.css";
 
 export default function ServiciosClient() {
-  return (
+  const localize = useLocalizedTree();
+  return localize((
     <>
       <Navbar />
       <main id="main-content" className={styles.page}>
@@ -30,10 +35,15 @@ export default function ServiciosClient() {
           </div>
         </section>
 
-        <div className={`site-container ${styles.container}`}>
-          <CompanyOverview />
-          <ServicesCatalog />
-          <CoverageSection embedded />
+        <div className={styles.overviewBand}>
+          <div className={`site-container ${styles.container}`}><CompanyOverview /></div>
+        </div>
+        <div className={styles.catalogBand}>
+          <div className={`site-container ${styles.container}`}><ServicesCatalog /></div>
+        </div>
+        <CoverageSection variant="delta" />
+        <div className={styles.quoteBand}>
+          <div className={`site-container ${styles.container}`}>
           <section id="cotizar" className={styles.quote} aria-labelledby="quote-title">
             <div>
               <p className={styles.kicker}>Consulta directa</p>
@@ -43,18 +53,14 @@ export default function ServiciosClient() {
                 <span aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M5 3h4l2 5-3 2a15 15 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2C9 21 3 15 3 5a2 2 0 0 1 2-2Z" /></svg></span>
                 +58 424-6472446
               </a>
-              <a href="mailto:solucionesdeltaca@gmail.com" className={styles.email}>solucionesdeltaca@gmail.com</a>
+              <a href="mailto:delta@soluciones-delta.com" className={styles.email}>delta@soluciones-delta.com</a>
             </div>
             <QuoteForm />
           </section>
-          <footer className={styles.footer}>
-            <Link href="/" aria-label="Soluciones Delta, inicio"><Image src="/logo-v2.png" alt="Soluciones Delta C.A." width={70} height={80} className={styles.footerLogo} /></Link>
-            <div><strong>Soluciones Delta, C.A.</strong><p>Servicios petroleros e industriales.</p></div>
-            <nav aria-label="Navegación al pie"><Link href="/nosotros">Nosotros</Link><Link href="/articulos">Artículos</Link><Link href="/contacto">Contacto</Link></nav>
-            <div className={styles.footerLocation}><p>San Francisco, Zulia · Venezuela</p><p>RIF J-50735393-1</p></div>
-          </footer>
+          </div>
         </div>
       </main>
+      <Footer />
     </>
-  );
+  ));
 }

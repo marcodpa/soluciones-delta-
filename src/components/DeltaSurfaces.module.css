@@ -1,0 +1,61 @@
+.page { background: var(--delta-mist); color: var(--delta-ink); }
+.page :is(a, button, input, textarea, select, summary):focus-visible { outline: 3px solid #167b34; outline-offset: 4px; }
+.heroDark, .heroLight, .lightSection, .sageSection, .darkSection, .formSection { position: relative; isolation: isolate; overflow: clip; }
+.heroDark, .darkSection { background: var(--delta-forest); color: #fff; }
+.heroDark::before, .heroDark::after, .heroLight::before, .heroLight::after,
+.lightSection::before, .sageSection::before, .darkSection::before, .formSection::before, .formSection::after {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+}
+.heroDark::before { background: #2a663e; clip-path: polygon(74% 0, 100% 0, 100% 100%, 35% 100%); }
+.heroDark::after { background: #1a5235; clip-path: polygon(77% 0, 100% 0, 100% 100%, 38% 100%); }
+.heroDark :is(a, button):focus-visible, .darkSection :is(a, button):focus-visible { outline-color: #b7de9e; }
+.heroLight { background: var(--delta-mist); padding-block: 140px 56px; }
+.heroLight::before { background: var(--delta-lime); clip-path: polygon(94% 0, 100% 0, 100% 100%, 74% 100%); }
+.heroLight::after { background: var(--delta-plane); clip-path: polygon(97% 0, 100% 0, 100% 100%, 77% 100%); }
+.heroLightCopy { max-width: 74%; }
+.heroLightCopy > p { color: #53645a; }
+.lightSection { background: var(--delta-mist); }
+.lightSection::before { background: var(--delta-sage); clip-path: polygon(100% 14%, 100% 100%, 28% 100%); }
+.sageSection { background: var(--delta-sage); }
+.sageSection::before { background: #d2e2cf; clip-path: polygon(100% 30%, 100% 100%, 54% 100%); }
+.darkSection::before { background: #1a5035; clip-path: polygon(100% 0, 100% 100%, 32% 100%); }
+.card { background: #fff; border: 1px solid #cedfd1; }
+.cardHeader { background: #e8f1e6; border-bottom: 1px solid #cedfd1; }
+.companyValue { min-width: 0; overflow-wrap: anywhere; }
+.formSection { background: var(--delta-sage); }
+.formSection::before { background: var(--delta-lime); clip-path: polygon(100% 4%, 100% 100%, 60% 100%); }
+.formSection::after { background: var(--delta-plane); clip-path: polygon(100% 10%, 100% 100%, 63% 100%); }
+.formPanel { min-width: 0; align-self: start; background: #fff; border: 1px solid #ccdece; border-radius: 20px; padding: clamp(24px, 3vw, 42px); }
+.formPanel label { color: #53645a; }
+.contactCard { display: flex; align-items: flex-start; gap: 16px; padding: 20px; border-radius: 16px; border: 1px solid #ccdece; background: #fff; text-decoration: none; transition: border-color .2s, background-color .2s; }
+.contactCard:hover { border-color: #167b34; background: #f5f9f3; }
+.contactCard > div:last-child { min-width: 0; overflow-wrap: anywhere; }
+.articleList { padding-block: 48px 80px; }
+.articleCard { display: flex; flex-direction: column; background: #fff; border: 1px solid #c8dacb; border-radius: 16px; overflow: hidden; text-decoration: none; }
+.articleCard:hover h2 { color: #116b2d; }
+.articlePhoto { position: relative; aspect-ratio: 16 / 9; overflow: hidden; }
+.articlePhoto img { object-fit: cover; transition: transform .3s ease; }
+.articleCard:hover .articlePhoto img { transform: scale(1.025); }
+.articleCopy { display: flex; flex: 1; flex-direction: column; gap: 12px; padding: clamp(22px, 2.5vw, 32px); }
+.articleRead { margin-top: auto; padding-top: 8px; min-height: 44px; display: flex; align-items: center; color: #116b2d; font-size: 14px; font-weight: 600; }
+@media (max-width: 1023px) {
+  .heroLightCopy { max-width: 85%; }
+  .heroLight::before { clip-path: polygon(100% 0, 100% 100%, 90% 100%); }
+  .heroLight::after { clip-path: polygon(100% 28%, 100% 100%, 94% 100%); }
+  .heroDark::before { clip-path: polygon(100% 14%, 100% 100%, 10% 100%); }
+  .heroDark::after { clip-path: polygon(100% 19%, 100% 100%, 15% 100%); }
+  .formSection::before, .formSection::after { top: 52%; }
+}
+@media (max-width: 600px) {
+  .heroLight { padding-block: 118px 42px; }
+  .heroLightCopy { max-width: 100%; }
+  .heroLight::before, .heroLight::after { top: auto; height: 64px; width: 55px; left: auto; }
+  .heroLight::before { clip-path: polygon(100% 0, 100% 100%, 0 100%); }
+  .heroLight::after { clip-path: polygon(100% 28%, 100% 100%, 24% 100%); }
+  .formPanel { padding: 24px 20px; border-radius: 16px; }
+  .articleList { padding-block: 32px 48px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contactCard, .articlePhoto img { transition: none; }
+  .articleCard:hover .articlePhoto img { transform: none; }
+}
