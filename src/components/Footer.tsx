@@ -15,7 +15,7 @@ const services = [
   { label: "Recuperación de Crudo en Fosas", slug: "recuperacion-de-crudo-en-fosas" },
 ];
 const navigation = [{ label: "Inicio", href: "/" }, { label: "Servicios", href: "/servicios" }, { label: "Nosotros", href: "/nosotros" }, { label: "Artículos", href: "/articulos" }, { label: "Contacto", href: "/contacto" }];
-const coverage = [{ label: "Servicios petroleros en Zulia", slug: "zulia" }, { label: "Maracaibo", slug: "maracaibo" }, { label: "Costa Oriental del Lago", slug: "costa-oriental-del-lago" }, { label: "San Francisco", slug: "san-francisco" }];
+const coverage = [{ label: "Servicios petroleros en Venezuela", slug: "venezuela" }, { label: "Servicios petroleros en Zulia", slug: "zulia" }, { label: "Maracaibo", slug: "maracaibo" }, { label: "Costa Oriental del Lago", slug: "costa-oriental-del-lago" }, { label: "San Francisco", slug: "san-francisco" }];
 export default function Footer() {
   const localize = useLocalizedTree();
   return localize(<footer className={styles.footer}>

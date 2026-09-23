@@ -9,7 +9,7 @@ export interface ZonaData {
   /** Nombre corto de la zona para títulos y migas. */
   nombre: string;
   /** Tipo de lugar para los datos estructurados (schema.org). */
-  areaType: "State" | "City" | "AdministrativeArea";
+  areaType: "Country" | "State" | "City" | "AdministrativeArea";
   seoTitle: string;
   description: string;
   eyebrow: string;
@@ -24,6 +24,50 @@ export interface ZonaData {
 }
 
 export const ZONAS: ZonaData[] = [
+  {
+    slug: "venezuela",
+    nombre: "Venezuela",
+    areaType: "Country",
+    seoTitle: "Empresa de servicios petroleros en Venezuela",
+    description: "Servicios petroleros para operaciones en Venezuela: bombeo y recuperación de crudo, camión vacuum, frac tanks, vapor, limpieza industrial y manejo de desechos. Base en Zulia; cotice la movilización según su proyecto.",
+    eyebrow: "Servicios petroleros en Venezuela",
+    h1: "Servicios petroleros en Venezuela",
+    lead: "Soluciones Delta coordina servicios para operadoras, contratistas y plantas industriales desde su sede en San Francisco, Zulia. Según la ubicación y el alcance del proyecto, evaluamos la movilización de equipos y personal para atender operaciones en el país.",
+    hero: "/servicios-campo.webp",
+    heroAlt: "Equipo industrial en una operación petrolera en Venezuela",
+    cobertura: [
+      "Base operativa: San Francisco, estado Zulia",
+      "Atención en Maracaibo y la Costa Oriental del Lago",
+      "Proyectos en otros estados sujetos a evaluación de alcance, acceso y disponibilidad",
+      "Cotización con equipos, logística y condiciones del trabajo definidos",
+    ],
+    sections: [
+      {
+        heading: "Servicios para cada etapa de la operación",
+        paragraphs: [
+          "La oferta reúne bombeo y recuperación de crudo en fosas, succión y transporte de fluidos con camión vacuum, almacenamiento temporal con frac tanks, inyección de vapor, limpieza industrial con hydrojet y manejo de desechos. Cada servicio tiene una ficha con su alcance para ayudarle a elegir la combinación adecuada.",
+          "Una operación puede requerir varios equipos en secuencia: por ejemplo, vapor para fluidificar crudo, bombeo para recuperarlo y vacuum para retirar los residuos. La propuesta se define tras conocer el fluido, el volumen, el sitio y las condiciones de acceso.",
+        ],
+      },
+      {
+        heading: "De la solicitud a la movilización",
+        paragraphs: [
+          "Indíquenos el servicio, la ubicación de la instalación, el volumen estimado y la fecha prevista. Nuestro equipo revisa la disponibilidad y la logística desde Zulia antes de confirmar tiempos, equipos y alcance en una cotización.",
+          "Para proyectos fuera del estado Zulia, coordinamos la movilización según las necesidades de la operación. La cobertura nacional significa que podemos evaluar solicitudes en el país; la atención se confirma para cada proyecto.",
+        ],
+        list: [
+          "Evaluación técnica del trabajo y sus condiciones de acceso",
+          "Selección de equipos y servicios complementarios",
+          "Cotización con alcance y movilización definidos",
+        ],
+      },
+    ],
+    faq: [
+      { q: "¿Atienden proyectos petroleros fuera de Zulia?", a: "Sí. Recibimos solicitudes de otros estados y evaluamos el servicio, la ubicación, los accesos y la disponibilidad antes de confirmar la movilización y cotizar." },
+      { q: "¿Qué datos necesitan para preparar una cotización?", a: "Indique la ubicación, el tipo de fluido o residuo, el volumen estimado, el servicio requerido, las fechas y las condiciones de acceso. Las fotografías o fichas técnicas ayudan a precisar el alcance." },
+      { q: "¿Puedo contratar varios servicios para una misma operación?", a: "Sí. Según la evaluación, podemos combinar bombeo, vacuum, frac tanks, vapor, limpieza industrial o manejo de desechos en una propuesta de trabajo." },
+    ],
+  },
   {
     slug: "zulia",
     nombre: "Zulia",

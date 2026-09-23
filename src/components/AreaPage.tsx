@@ -31,7 +31,9 @@ export default async function ZonaPage({ params, locale = "es" }: Props) {
         name: translateText(zona.seoTitle, locale), description: translateText(zona.description, locale), url,
         serviceType: locale === "en" ? "Oilfield services" : "Servicios petroleros",
         provider: { "@id": `${SITE_URL}/#organization` },
-        areaServed: { "@type": zona.areaType, name: zona.nombre, containedInPlace: { "@type": "Country", name: "Venezuela" } },
+        areaServed: zona.areaType === "Country"
+          ? { "@type": "Country", name: zona.nombre }
+          : { "@type": zona.areaType, name: zona.nombre, containedInPlace: { "@type": "Country", name: "Venezuela" } },
         hoursAvailable: { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"], opens: "00:00", closes: "23:59" },
         hasOfferCatalog: {
           "@type": "OfferCatalog", name: (locale === "en" ? "Oilfield services in " : "Servicios petroleros en ") + zona.nombre,

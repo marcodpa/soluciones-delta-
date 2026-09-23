@@ -17,7 +17,7 @@ export default function HomeCoverageSection() {
           </h2>
           <p className={styles.description}>
             Su proyecto empieza con una evaluación del trabajo en campo. Desde nuestra sede en
-            San Francisco coordinamos solicitudes de servicios petroleros en Venezuela,
+            San Francisco coordinamos solicitudes de <Link href="/servicios-petroleros/venezuela">servicios petroleros en Venezuela</Link>,
             confirmando disponibilidad, movilización y alcance antes de cotizar. Conozca nuestros
             <Link href="/servicios-petroleros/zulia"> servicios petroleros en Zulia</Link>,
             <Link href="/servicios-petroleros/maracaibo"> Maracaibo</Link> y la

@@ -86,7 +86,7 @@ export default function CompanyOverview() {
           <OverviewIcon name="pin" />
           <div>
             <span className={styles.companyLabel}>Nuestra cobertura</span>
-            <p>Sede en <Link href="/servicios-petroleros/san-francisco">San Francisco</Link>, <Link href="/servicios-petroleros/zulia">Zulia</Link>. Movilización a <Link href="/servicios-petroleros/maracaibo">Maracaibo</Link>, <Link href="/servicios-petroleros/costa-oriental-del-lago">Costa Oriental del Lago</Link> y el resto del país.</p>
+            <p>Sede en <Link href="/servicios-petroleros/san-francisco">San Francisco</Link>, <Link href="/servicios-petroleros/zulia">Zulia</Link>. Movilización a <Link href="/servicios-petroleros/maracaibo">Maracaibo</Link>, <Link href="/servicios-petroleros/costa-oriental-del-lago">Costa Oriental del Lago</Link> y coordinación de <Link href="/servicios-petroleros/venezuela">servicios petroleros en Venezuela</Link> según el proyecto.</p>
           </div>
         </div>
         <div className={styles.companyNote}>
