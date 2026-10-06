@@ -12,6 +12,7 @@ import JsonLd from "@/components/JsonLd";
 import { ZONAS, getZonaBySlug } from "@/lib/zonas-data";
 import { SERVICES } from "@/lib/services-data";
 import { pageMetadata, SITE_URL, BUSINESS_NAME } from "@/lib/seo";
+import { OPERATIONS_BASE_MAPS_URL, OPERATIONS_BASE_EMBED_URL } from "@/lib/location";
 
 type Props = { params: Promise<{ zona: string }>; locale?: Locale };
 
@@ -58,7 +59,15 @@ export default async function ZonaPage({ params, locale = "es" }: Props) {
       </div></header>
       <section className={area.intro}><div className={["site-container",area.layout].join(" ")}>
         <div className={area.copy}>{zona.sections.map(section => <section key={section.heading} className={styles.bodySection}><h2>{section.heading}</h2>{section.paragraphs.map(p => <p key={p}>{p}</p>)}{section.list && <ul>{section.list.map(item => <li key={item}><Check size={17} aria-hidden="true" /><span>{item}</span></li>)}</ul>}</section>)}</div>
-        <aside className={area.coverage}><div className={area.map}><Image src="/maps/venezuela-zulia.svg" alt="Venezuela, con el estado Zulia destacado" fill sizes="350px" className="object-contain" /></div><span className={styles.eyebrow}>Cobertura operativa</span><h2>{zona.nombre}</h2><ul>{zona.cobertura.map(item => <li key={item}><MapPin size={16} aria-hidden="true" /><span>{item}</span></li>)}</ul><p>Sede: Calle 13 con Av. 5, sector Manzanillo, San Francisco, Zulia. Operación 24 horas, 7 días.</p><Link href="/contacto">Coordinar un servicio <ArrowUpRight size={17} aria-hidden="true" /></Link></aside>
+        <aside className={area.coverage}>
+          {slug === "san-francisco" ? <div className={area.locationMap}><iframe src={OPERATIONS_BASE_EMBED_URL} title="Mapa de la sede operativa de Soluciones Delta en San Francisco, Zulia" loading="lazy" referrerPolicy="no-referrer-when-downgrade" allowFullScreen /></div> : <div className={area.map}><Image src="/maps/venezuela-zulia.svg" alt="Venezuela, con el estado Zulia destacado" fill sizes="350px" className="object-contain" /></div>}
+          <span className={styles.eyebrow}>{slug === "san-francisco" ? "Sede operativa" : "Cobertura operativa"}</span>
+          <h2>{zona.nombre}</h2>
+          <ul>{zona.cobertura.map(item => <li key={item}><MapPin size={16} aria-hidden="true" /><span>{item}</span></li>)}</ul>
+          <p>{slug === "san-francisco" ? "Calle 13 con Av. 5, Local 26A-162, Oficina 2. Sector Manzanillo, San Francisco, Estado Zulia, Venezuela." : "Sede: Calle 13 con Av. 5, sector Manzanillo, San Francisco, Zulia. Operación 24 horas, 7 días."}</p>
+          {slug === "san-francisco" && <a href={OPERATIONS_BASE_MAPS_URL} target="_blank" rel="noopener noreferrer" className={area.mapsAction}>Abrir en Google Maps <ArrowUpRight size={17} aria-hidden="true" /></a>}
+          <Link href="/contacto">Coordinar un servicio <ArrowUpRight size={17} aria-hidden="true" /></Link>
+        </aside>
       </div></section>
       <section id="servicios-zona" className={area.services}><div className="site-container"><div className={styles.sectionHeading}><div><span className={styles.eyebrow}>Lo que hacemos</span><h2>{locale === "en" ? "Oilfield services in " : "Servicios petroleros en "}{zona.nombre}</h2></div><Link href="/servicios" className={styles.textLink}>Todos los servicios <ArrowUpRight size={17} aria-hidden="true" /></Link></div><div className={area.serviceGrid}>{SERVICES.map(service => {
         const hero = getServicePageContent(service.slug)?.hero;
