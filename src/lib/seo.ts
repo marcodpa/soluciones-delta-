@@ -11,6 +11,7 @@ export function pageMetadata(title: string, description: string, path: string, l
   const url = new URL(localePath(path, locale), SITE_URL).href;
   const fullTitle = `${title} | Soluciones Delta`;
   return {
+    metadataBase: new URL(SITE_URL),
     title: { absolute: fullTitle },
     description,
     alternates: { canonical: url, languages: { es: new URL(path, SITE_URL).href, en: new URL(localePath(path, "en"), SITE_URL).href, "x-default": new URL(path, SITE_URL).href } },

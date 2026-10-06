@@ -32,7 +32,7 @@ export const ZONAS: ZonaData[] = [
     description: "Servicios petroleros para operaciones en Venezuela: bombeo y recuperación de crudo, camión vacuum, frac tanks, vapor, limpieza industrial y manejo de desechos. Base en Zulia; cotice la movilización según su proyecto.",
     eyebrow: "Servicios petroleros en Venezuela",
     h1: "Servicios petroleros en Venezuela",
-    lead: "Soluciones Delta coordina servicios para operadoras, contratistas y plantas industriales desde su sede en San Francisco, Zulia. Según la ubicación y el alcance del proyecto, evaluamos la movilización de equipos y personal para atender operaciones en el país.",
+    lead: "Desde San Francisco, Zulia, Soluciones Delta coordina camiones vacuum, frac tanks, bombeo de crudo, vapor, hydrojet y manejo de desechos para operadoras, contratistas y plantas industriales. Evaluamos cada proyecto en Venezuela antes de confirmar equipos, disponibilidad y movilización.",
     hero: "/servicios-campo.webp",
     heroAlt: "Equipo industrial en una operación petrolera en Venezuela",
     cobertura: [
@@ -61,6 +61,13 @@ export const ZONAS: ZonaData[] = [
           "Cotización con alcance y movilización definidos",
         ],
       },
+      {
+        heading: "Qué recibirá antes de movilizar equipos",
+        paragraphs: [
+          "La cotización debe dejar claro el servicio requerido, la unidad propuesta, el lugar de trabajo y el destino de los fluidos o residuos. También revisamos conexiones, accesos y requisitos de seguridad de la instalación para definir el alcance con el cliente.",
+          "Si la operación combina varios servicios, coordinamos su secuencia para reducir traslados innecesarios. La disponibilidad y los tiempos se confirman según las condiciones del proyecto; nuestra sede operativa permanece en San Francisco, estado Zulia.",
+        ],
+      },
     ],
     faq: [
       { q: "¿Atienden proyectos petroleros fuera de Zulia?", a: "Sí. Recibimos solicitudes de otros estados y evaluamos el servicio, la ubicación, los accesos y la disponibilidad antes de confirmar la movilización y cotizar." },
@@ -76,7 +83,7 @@ export const ZONAS: ZonaData[] = [
     description: "Empresa de servicios petroleros en el estado Zulia: bombeo de crudo, camión vacuum, frac tanks, desechos, calderas, hydrojet y recuperación de fosas. Sede en San Francisco, 24/7.",
     eyebrow: "Servicios petroleros en Zulia",
     h1: "Servicios petroleros en el estado Zulia",
-    lead: "Soluciones Delta, C.A. es una empresa de servicios petroleros con sede en San Francisco, Zulia. Atendemos operadoras, contratistas y plantas industriales en la Costa Oriental y Occidental del Lago de Maracaibo con equipos propios y personal técnico certificado, las 24 horas.",
+    lead: "Soluciones Delta, C.A. tiene su sede en San Francisco, Zulia. Para operadoras, contratistas y plantas industriales de ambas costas del Lago coordinamos camión vacuum, bombeo de crudo, frac tanks, vapor, hydrojet y manejo de desechos, según el alcance de cada trabajo.",
     hero: "/vacuum/vacuum-truck-howo-pdvsa.webp",
     heroAlt: "Camión vacuum de Soluciones Delta en una locación petrolera del estado Zulia",
     cobertura: [
@@ -104,6 +111,13 @@ export const ZONAS: ZonaData[] = [
           "Operación continua, 24 horas, 7 días",
           "Capacidad demostrada de 1,500 barriles por día en recuperación de crudo",
           "Contratos ejecutados al 100% en campos del estado Zulia",
+        ],
+      },
+      {
+        heading: "Cómo coordinamos un proyecto en Zulia",
+        paragraphs: [
+          "Para preparar la propuesta solicitamos la ubicación de la locación, el fluido o residuo, el volumen aproximado, las fechas y los requisitos de ingreso. Con esos datos seleccionamos el equipo y confirmamos rutas, disponibilidad y condiciones de movilización desde San Francisco.",
+          "Si el trabajo requiere varios equipos, podemos planificar el almacenamiento temporal, la transferencia de fluidos y la limpieza en una misma secuencia. El alcance final queda definido en la cotización, según la evaluación técnica del sitio.",
         ],
       },
     ],

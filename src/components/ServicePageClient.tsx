@@ -7,7 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import { gsap } from "gsap";
-import { ArrowRight, ArrowUpRight, ChevronDown, ChevronsLeftRight, Check, MapPin, Phone } from "lucide-react";
+import { ArrowRight, ArrowUpRight, ChevronDown, ChevronsLeftRight, Check, MapPin, Phone, BookOpen } from "lucide-react";
 import type { ServiceData } from "@/lib/services-data";
 import type { RelatedService } from "@/lib/related-services";
 import { getServicePageContent, type ServiceHero } from "@/lib/service-page-content";
@@ -23,6 +23,11 @@ const navigation = [
   { href: "#ficha-tecnica", label: "Ficha técnica" },
   { href: "#preguntas", label: "Preguntas frecuentes" },
 ];
+const serviceGuides: Record<string, { href: string; label: string }> = {
+  "trasegado-vacuum": { href: "/articulos/que-es-un-camion-vacuum-y-para-que-sirve", label: "Qué es un camión vacuum y cuándo contratarlo" },
+  "frac-tanks": { href: "/articulos/frac-tank-que-es-capacidad-y-cuando-alquilarlo", label: "Qué es un frac tank y cómo elegirlo" },
+  "manejo-de-desechos": { href: "/articulos/decreto-2635-manejo-de-desechos-petroleros", label: "Qué establece el Decreto 2635" },
+};
 
 export default function ServicePageClient({ service, relatedServices }: { service: ServiceData; relatedServices: RelatedService[] }) {
   const localize = useLocalizedTree();
@@ -30,6 +35,7 @@ export default function ServicePageClient({ service, relatedServices }: { servic
   const heroRef = useRef<HTMLElement>(null);
   const [stepIndex, setStepIndex] = useState(0);
   const content = getServicePageContent(service.slug);
+  const guide = serviceGuides[service.slug];
   const hero: ServiceHero = content?.hero ?? { kind: "single", src: "/vacuum-truck.webp" };
   const activeStep = content?.steps[stepIndex];
 
@@ -52,7 +58,7 @@ export default function ServicePageClient({ service, relatedServices }: { servic
           <div className={styles.heroCopy}>
             <nav aria-label="Breadcrumb" className={styles.breadcrumb}><Link href="/">Inicio</Link><span>/</span><Link href="/servicios">Servicios</Link></nav>
             <p className={styles.category} data-hero-entry>Servicios petroleros en Venezuela</p>
-            <h1 data-hero-entry>{service.title}</h1>
+            <h1 data-hero-entry>{service.heading ?? service.title}</h1>
             <p className={styles.promise} data-hero-entry>{content?.headline ?? service.subtitle}</p>
             <p className={styles.lead} data-hero-entry>{content?.stepsIntro ?? service.summary}</p>
             <div className={styles.heroActions} data-hero-entry>
@@ -83,6 +89,7 @@ export default function ServicePageClient({ service, relatedServices }: { servic
             <p className={styles.sectionLabel}>El servicio</p>
             <h2>{content?.subtitle ?? service.subtitle}</h2>
             <p className={styles.overviewText}>{service.overview}</p>
+            {guide && <Link href={guide.href} className={styles.textLink}><BookOpen size={17} aria-hidden="true" />{guide.label}<ArrowUpRight size={17} aria-hidden="true" /></Link>}
             <Link href="/contacto" className={styles.textLink}>Consulte su operación con nuestro equipo<ArrowUpRight size={17} aria-hidden="true" /></Link>
           </div>
           {content && <aside className={styles.application}>

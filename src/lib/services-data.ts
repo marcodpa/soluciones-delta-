@@ -147,14 +147,25 @@ export const SERVICES: ServiceData[] = [
     slug: "trasegado-vacuum",
     tag: "Vacuum",
     title: "Transporte de Fluidos",
+    heading: "Camión vacuum para succión y transporte de fluidos",
     subtitle: "Servicio de Vacuum — 160 Barriles",
     summary:
       "Succión, transporte y descarga de fluidos industriales con unidades vacuum propias de 160 Bbl (fabricación 2026). Limpieza de tanques, extracción de borras y manejo de efluentes.",
     heroColor: "#eef4ff",
     icon: "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8",
     overview:
-      "El servicio de trasegado con vacuum es la solución definitiva para el manejo de fluidos de alta densidad y viscosidad que no pueden ser movilizados por medios convencionales. Contamos con una unidad vacuum propia de 160 barriles, fabricada en 2026 bajo los más estrictos estándares de la industria petrolera venezolana.",
+      "Un camión vacuum succiona lodos, borras, efluentes y otros fluidos desde fosas, tanques o áreas de difícil acceso; después los transporta al destino acordado para su tratamiento, almacenamiento o disposición, según el material. Nuestra unidad propia tiene capacidad nominal de 160 barriles. Desde San Francisco, Zulia, evaluamos el volumen, el fluido, el acceso y la distancia antes de cotizar la operación.",
     sections: [
+      {
+        heading: "Qué necesitamos para cotizar un camión vacuum",
+        body: "Indíquenos dónde se encuentra el fluido, qué material necesita retirar y el destino previsto. Con esos datos definimos el equipo, las conexiones, la movilización y la documentación aplicable antes de confirmar el servicio.",
+        list: [
+          "Ubicación de la operación y condiciones de acceso para el semirremolque",
+          "Tipo de fluido o residuo, volumen estimado y presencia de sólidos",
+          "Distancia entre la unidad y el punto de succión",
+          "Destino de descarga y requisitos de seguridad o documentación del sitio",
+        ],
+      },
       {
         heading: "¿Qué es el trasegado con vacuum?",
         body: "El trasegado por vacío consiste en crear una diferencia de presión que succiona el fluido hacia el interior del tanque de la unidad. A diferencia del bombeo por presión positiva, el vacuum trabaja desde adentro hacia afuera, permitiendo extraer fluidos desde espacios confinados, fosas, fondos de tanques y locaciones de difícil acceso.",
@@ -299,14 +310,25 @@ export const SERVICES: ServiceData[] = [
     slug: "frac-tanks",
     tag: "Almacenamiento",
     title: "Frac Tanks",
+    heading: "Alquiler de frac tanks de 500 barriles",
     subtitle: "Tanques Portátiles de 500 Barriles",
     summary:
       "Semirremolque tipo Frac Tank de 500 barriles. 14 m de largo, peso 10,000 kg, capacidad de carga 15,000 kg. Tomas de 4\", 8\" y 12\" con válvulas mariposa, boca de visita con escalera interna y traslado en un solo eje.",
     heroColor: "#fff8ee",
     icon: "M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z",
     overview:
-      "Los Frac Tanks son tanques de almacenamiento temporal portátiles, montados sobre ruedas, diseñados para operaciones de campo en la industria de petróleo y gas. A continuación mencionamos los principales tipos de servicios que ofrecemos con estos equipos.",
+      "Alquilamos frac tanks de 500 barriles para almacenar temporalmente agua, crudo y fluidos de proceso en campo, según la compatibilidad del tanque con el producto. Evaluamos la configuración, las conexiones y el número de unidades que requiere cada operación; la movilización desde Zulia y la disponibilidad se confirman al cotizar.",
     sections: [
+      {
+        heading: "Cómo elegir y cotizar un frac tank",
+        body: "La selección empieza por el fluido y el volumen máximo que debe permanecer en sitio. También revisamos el espacio, la forma de llenado y vaciado y las conexiones necesarias antes de proponer una configuración.",
+        list: [
+          "Tipo de fluido, temperatura y necesidades de aislamiento o hermeticidad",
+          "Volumen requerido y duración estimada del alquiler",
+          "Espacio disponible, acceso para el traslado y condiciones de la locación",
+          "Diámetro de las conexiones y plan para vaciar o limpiar el tanque al finalizar",
+        ],
+      },
       {
         heading: "1. Gestión de Fluidos en Campo (Oil & Gas)",
         body: "Nuestros Frac Tanks cubren todas las necesidades de almacenamiento temporal en operaciones petroleras activas:",

@@ -21,13 +21,14 @@ export default async function ArticuloPage({ params, locale = "es" }: Props) {
   const service = getServiceBySlug(article.serviceSlug);
   const url = `${SITE_URL}${localePath(`/articulos/${article.slug}`, locale)}`;
   const fecha = new Date(`${article.published}T12:00:00`).toLocaleDateString(locale === "en" ? "en-US" : "es-VE", { day: "numeric", month: "long", year: "numeric" });
+  const updated = article.updated ? new Date(`${article.updated}T12:00:00`).toLocaleDateString(locale === "en" ? "en-US" : "es-VE", { day: "numeric", month: "long", year: "numeric" }) : null;
 
   const articleLd = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Article", "@id": `${url}#article`, headline: translateText(article.title, locale), description: translateText(article.description, locale),
-        image: `${SITE_URL}${article.cover}`, datePublished: article.published, dateModified: article.published,
+        image: `${SITE_URL}${article.cover}`, datePublished: article.published, dateModified: article.updated ?? article.published,
         inLanguage: locale === "en" ? "en" : "es-VE", mainEntityOfPage: url,
         author: { "@type": "Organization", name: BUSINESS_NAME, url: SITE_URL },
         publisher: { "@type": "Organization", name: BUSINESS_NAME, url: SITE_URL, logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.png` } },
@@ -52,7 +53,7 @@ export default async function ArticuloPage({ params, locale = "es" }: Props) {
               <nav aria-label="Ruta de navegación" className={styles.breadcrumbs}><Link href="/">Inicio</Link><span>/</span><Link href="/articulos">Artículos</Link></nav>
               <span className={styles.eyebrow}>{article.eyebrow}</span>
               <h1>{article.title}</h1>
-              <div className={styles.heroMeta}><span><Clock3 size={15} aria-hidden="true" /> {article.readingMinutes} min de lectura</span><time dateTime={article.published}>{fecha}</time><span>Equipo técnico de Soluciones Delta</span></div>
+              <div className={styles.heroMeta}><span><Clock3 size={15} aria-hidden="true" /> {article.readingMinutes} min de lectura</span><time dateTime={article.published}>{fecha}</time>{updated && <span>Actualizado: <time dateTime={article.updated}>{updated}</time></span>}<span>Equipo técnico de Soluciones Delta</span></div>
             </div>
             <figure className={styles.heroPhoto}><Image src={article.cover} alt={article.coverAlt} fill priority sizes="(max-width:760px) 100vw, 45vw" /></figure>
           </div>
@@ -64,6 +65,7 @@ export default async function ArticuloPage({ params, locale = "es" }: Props) {
           </aside>
           <div className={styles.readingBody}>
             <p className={styles.lead}>{article.lead}</p>
+            {article.slug === "decreto-2635-manejo-de-desechos-petroleros" && <p className={styles.sourceNote}>Fuente normativa: <a href="https://faolex.fao.org/docs/pdf/ven181011.pdf" target="_blank" rel="noopener noreferrer">Decreto N.º 2.635, Gaceta Oficial Extraordinaria N.º 5.245</a>. La clasificación y las obligaciones aplicables se revisan para cada material y operación.</p>}
             {article.sections.map((section,i) => <section key={section.heading} id={`seccion-${i+1}`} className={styles.bodySection}>
               <h2>{section.heading}</h2>{section.paragraphs.map(p => <p key={p}>{p}</p>)}
               {section.list && <ul>{section.list.map(item => <li key={item}><Check size={17} aria-hidden="true" /><span>{item}</span></li>)}</ul>}

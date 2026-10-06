@@ -45,6 +45,8 @@
 .sidebarHelp p { font-size:15px; line-height:1.6; margin:12px 0 18px; }
 .readingBody { min-width:0; }
 .lead { font-size:20px; line-height:1.75; color:#294535; padding-bottom:38px; border-bottom:1px solid var(--line); }
+.sourceNote { margin-top:24px; padding:16px 20px; background:#edf3ee; border-left:3px solid #167b34; color:#365240; font-size:14px; line-height:1.7; }
+.sourceNote a { color:#11632d; font-weight:600; text-decoration:underline; text-underline-offset:3px; }
 .bodySection { padding-top:42px; scroll-margin-top:110px; }
 .bodySection h2 { font-size:clamp(24px,2.5vw,32px); line-height:1.22; font-weight:600; margin-bottom:22px; }
 .bodySection p { font-size:17px; line-height:1.85; color:#47574f; margin-bottom:18px; }

@@ -2,7 +2,7 @@ import { localizeTree, translateText, localePath, type Locale } from "@/lib/i18n
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowUpRight, Check, MapPin, ChevronDown } from "lucide-react";
+import { ArrowUpRight, Check, MapPin, ChevronDown, BookOpen } from "lucide-react";
 import { getServicePageContent } from "@/lib/service-page-content";
 import styles from "./Editorial.module.css";
 import area from "./AreaPages.module.css";
@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { ZONAS, getZonaBySlug } from "@/lib/zonas-data";
 import { SERVICES } from "@/lib/services-data";
+import { ARTICLES } from "@/lib/articles-data";
 import { pageMetadata, SITE_URL, BUSINESS_NAME } from "@/lib/seo";
 import { OPERATIONS_BASE_MAPS_URL, OPERATIONS_BASE_EMBED_URL } from "@/lib/location";
 
@@ -74,6 +75,7 @@ export default async function ZonaPage({ params, locale = "es" }: Props) {
         const src = hero?.kind === "split" ? hero.despues : hero?.src ?? "/vacuum-truck.webp";
         return <Link key={service.slug} href={"/servicios/"+service.slug} className={area.service}><div className={area.servicePhoto}><Image src={src} alt={service.title} fill sizes="120px" /></div><div><h3>{service.title}</h3><p>{service.subtitle}</p></div><ArrowUpRight size={20} aria-hidden="true" /></Link>;
       })}</div></div></section>
+      {(slug === "venezuela" || slug === "zulia") && <aside className={area.guides}><div className="site-container"><div><span className={styles.eyebrow}>Antes de cotizar</span><h2>Guías para elegir el servicio adecuado.</h2></div><div className={area.guideLinks}>{ARTICLES.filter(article => ["que-es-un-camion-vacuum-y-para-que-sirve", "frac-tank-que-es-capacidad-y-cuando-alquilarlo", "decreto-2635-manejo-de-desechos-petroleros"].includes(article.slug)).map(article => <Link key={article.slug} href={`/articulos/${article.slug}`}><BookOpen size={18} aria-hidden="true" /><span>{article.title}</span><ArrowUpRight size={17} aria-hidden="true" /></Link>)}</div></div></aside>}
       <section className={area.faq}><div className={["site-container",area.faqLayout].join(" ")}><div><span className={styles.eyebrow}>Antes de comenzar</span><h2>Preguntas frecuentes.</h2><p className="mb-5 text-sm text-[#52635b]">También atendemos:</p><nav className={area.locations} aria-label="Otras zonas de cobertura">{otras.map(z => <Link key={z.slug} href={"/servicios-petroleros/"+z.slug}>{z.nombre}</Link>)}</nav></div><div className={[styles.faq,area.faqDetails].join(" ")}>{zona.faq.map(item => <details key={item.q}><summary>{item.q}<ChevronDown size={18} aria-hidden="true" /></summary><p>{item.a}</p></details>)}</div></div></section>
       <section className={styles.serviceCta}><div className="site-container"><div><span className={styles.eyebrow}>Hablemos de su proyecto</span><h2>Su operación, nuestro compromiso.</h2><p>Cuéntenos el trabajo, la ubicación y las fechas para coordinar los equipos y el alcance del servicio.</p></div><Link href="/contacto" className="btn-primary">Solicitar cotización <ArrowUpRight size={18} aria-hidden="true" /></Link></div></section>
     </main><Footer />

@@ -17,6 +17,7 @@ export interface Article {
   cover: string;
   coverAlt: string;
   published: string; // ISO date
+  updated?: string; // ISO date when the editorial content has materially changed
   readingMinutes: number;
   serviceSlug: string;
   serviceLabel: string;
@@ -259,18 +260,23 @@ export const ARTICLES: Article[] = [
   },
   {
     slug: "decreto-2635-manejo-de-desechos-petroleros",
-    title: "Decreto 2635: qué exige para el manejo de desechos petroleros",
-    seoTitle: "Decreto 2635 y desechos petroleros",
-    description: "Qué regula el Decreto 2635 en Venezuela, cómo se clasifican los desechos petroleros y qué documentación exige: manifiesto y certificado de disposición final.",
+    title: "Decreto 2635 en Venezuela: qué regula y cómo gestionar desechos peligrosos",
+    seoTitle: "Decreto 2635 en Venezuela: desechos peligrosos",
+    description: "Conozca qué regula el Decreto 2635 en Venezuela y qué revisar al clasificar, transportar y documentar desechos peligrosos de una operación petrolera.",
     eyebrow: "Guía · Gestión ambiental",
-    lead: "El Decreto 2635 es la norma venezolana que clasifica y regula el manejo de desechos y materiales peligrosos. Para una operación petrolera no es un trámite: define qué residuos son peligrosos, cómo deben transportarse y qué papeles deben respaldar cada movimiento hasta la disposición final.",
+    lead: "El Decreto 2635 de Venezuela establece normas para recuperar materiales peligrosos y manejar desechos peligrosos. En una operación petrolera, el primer paso es caracterizar el material; de esa evaluación dependen las medidas de manejo, transporte y documentación que corresponden. Esta guía resume los puntos que conviene revisar antes de contratar el servicio.",
     cover: "/desechos/retroexcavadora-fosa.webp",
     coverAlt: "Retroexcavadora en saneamiento de una fosa petrolera durante un manejo de desechos",
     published: "2026-09-10",
+    updated: "2026-10-06",
     readingMinutes: 5,
     serviceSlug: "manejo-de-desechos",
     serviceLabel: "Ver el servicio de manejo de desechos industriales",
     sections: [
+      {
+        heading: "Qué revisar antes de retirar un desecho",
+        paragraphs: ["No todo fluido o lodo se maneja igual. Identifique su origen y composición, estime el volumen y confirme el destino previsto. Con esa información se puede evaluar la clasificación del material y definir las condiciones de recolección, transporte y entrega que correspondan al caso."],
+      },
       {
         heading: "Qué residuos genera una operación petrolera",
         paragraphs: ["Los cuatro grupos que más se manejan en campo, y cómo se tratan:"],

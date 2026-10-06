@@ -24,6 +24,14 @@
 .service h3 { font-size:18px; line-height:1.3; margin-bottom:10px; font-weight:600; }
 .service p { font-size:13px; color:#52635b; line-height:1.5; }
 .service>svg { color:#167b34; }
+.guides { background:#f8faf7; border-top:1px solid #c7d8ca; padding:46px 0; }
+.guides>div { display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr); gap:8%; align-items:start; }
+.guides h2 { margin-top:12px; font-size:clamp(24px,2.8vw,34px); font-weight:600; line-height:1.2; }
+.guideLinks { display:grid; }
+.guideLinks a { display:flex; align-items:center; gap:14px; padding:15px 0; border-bottom:1px solid #c7d8ca; color:#176936; font-size:14px; font-weight:600; line-height:1.45; }
+.guideLinks a:first-child { border-top:1px solid #c7d8ca; }
+.guideLinks a span { flex:1; }
+.guideLinks a:hover { color:#0d4e26; }
 .faq { background:#edf3ee; padding:65px 0; }
 .faqLayout { display:grid; grid-template-columns:.8fr 1.2fr; gap:8%; }
 .faqLayout>div:first-child h2 { font-size:clamp(28px,3vw,42px); font-weight:600; line-height:1.15; margin:12px 0 25px; }
@@ -32,5 +40,5 @@
 .locations a { padding:8px 12px; border:1px solid #b9cbbc; color:#167b34; font-size:13px; }
 .locations a:hover { background:#dfeadd; }
 .heroActions { display:flex; flex-wrap:wrap; align-items:center; gap:25px; margin-top:28px; }
-@media(max-width:900px) { .layout,.faqLayout { grid-template-columns:1fr; gap:36px; } .coverage { position:static; } .serviceGrid { grid-template-columns:1fr; } .intro,.services,.faq { padding:44px 0; } }
+@media(max-width:900px) { .layout,.faqLayout,.guides>div { grid-template-columns:1fr; gap:36px; } .coverage { position:static; } .serviceGrid { grid-template-columns:1fr; } .intro,.services,.faq,.guides { padding:44px 0; } }
 @media(max-width:450px) { .service { grid-template-columns:78px minmax(0,1fr) 16px; gap:14px; padding:14px; } .servicePhoto { height:96px; } .service h3 { font-size:17px; } .coverage { padding:24px; } }
