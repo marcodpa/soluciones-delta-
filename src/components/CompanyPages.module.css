@@ -91,6 +91,7 @@
 .channelsHeading p { font-size: 16px; color: #53645a; margin-top: 12px; }
 .channelGrid { display: grid; grid-template-columns: 1fr 1.35fr 1fr; margin-top: 36px; gap: 30px; }
 .channel { display: flex; align-items: flex-start; gap: 14px; min-width: 0; padding-right: 20px; }
+.channelButton { width: 100%; border: 0; background: transparent; color: inherit; font: inherit; text-align: left; cursor: pointer; }
 .channel + .channel { border-left: 1px solid #bcd0b8; padding-left: 28px; }
 .channel svg { flex: none; width: 40px; height: 40px; padding: 9px; border-radius: 50%; background: var(--delta-green); color: white; }
 .channel > div { min-width: 0; }
@@ -107,6 +108,7 @@
 .visit dt { color: #53645a; }
 .visit dd { font-weight: 600; text-align: right; }
 .visitExtras { margin-top: 22px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+.visitMapButton { padding: 0; border: 0; background: transparent; color: inherit; font: inherit; font-size: 15px; cursor: pointer; }
 @media (min-width: 1800px) { .heroContent { padding-block: 48px 90px; } .hero { min-height: 700px; } }
 @media (max-width: 1023px) {
   .hero { min-height: 580px; }

@@ -3,6 +3,7 @@
 import { useLocalizedTree } from "@/lib/i18n/client";
 import Image from "next/image";
 import Link from "next/link";
+import LocationDialog from "./LocationDialog";
 import styles from "./CoverageSection.module.css";
 
 const regions = [
@@ -37,7 +38,7 @@ export default function CoverageSection({ id = "cobertura", embedded = false, co
           <figcaption className={styles.mapCaption}>
             <div className={styles.base}>
               <span className={styles.baseIcon} aria-hidden="true"><svg width="22" height="26" viewBox="0 0 24 28" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M21 10c0 7-9 15-9 15S3 17 3 10a9 9 0 1 1 18 0Z" /><circle cx="12" cy="10" r="3" /></svg></span>
-              <div><span className={styles.baseLabel}>Sede operativa</span><Link href="/servicios-petroleros/san-francisco" className={styles.baseLink}>San Francisco, Zulia <span aria-hidden="true">↗</span></Link></div>
+              <div><span className={styles.baseLabel}>Sede operativa</span><LocationDialog><button type="button" className={styles.baseLink}>San Francisco, Zulia <span aria-hidden="true">↗</span></button></LocationDialog></div>
             </div>
             <div className={styles.mapFootnote}><span>Atención a proyectos en todo el país.</span><a href="https://www.geoboundaries.org/api/current/gbOpen/VEN/ADM1/" target="_blank" rel="noopener noreferrer">Fuente cartográfica</a></div>
           </figcaption>

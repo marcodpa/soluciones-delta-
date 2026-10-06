@@ -9,6 +9,7 @@ import dynamic from "next/dynamic";
 import { ArrowRight, Phone, Mail, MapPin, Clock3, Building2, MessageCircle } from "lucide-react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import LocationDialog from "./LocationDialog";
 import styles from "./CompanyPages.module.css";
 
 const DescargarPlanillaBtn = dynamic(() => import("./PlanillaCotizacionPDF"), { ssr: false });
@@ -16,7 +17,7 @@ const services = ["Bombeo de Crudo (Extracción / Transferencia)", "Transporte d
 const channels = [
   { icon: Phone, title: "WhatsApp", value: "+58 424-6472446", href: "https://wa.me/584246472446", description: "Atención directa y emergencias 24/7." },
   { icon: Mail, title: "Correo electrónico", value: "delta@soluciones-delta.com", href: "mailto:delta@soluciones-delta.com", description: "Cuéntenos los detalles de su proyecto." },
-  { icon: MapPin, title: "Sede operativa", value: "San Francisco, Estado Zulia", href: "https://maps.google.com/?q=San+Francisco+Zulia+Venezuela", description: "Nuestra base de operaciones en Venezuela." },
+  { icon: MapPin, title: "Sede operativa", value: "San Francisco, Estado Zulia", href: "", description: "Nuestra base de operaciones en Venezuela." },
 ];
 const schedule = [
   { day: "Lunes — Viernes", hours: "7:00 AM – 6:00 PM" },
@@ -67,11 +68,11 @@ export default function ContactoClient() {
         </div>
       </section>
       <section className={styles.channels}>
-        <div className="site-container"><div className={styles.channelsHeading}><h2>Nuestros canales de contacto</h2><p>Estamos a su disposición para atender sus consultas y requerimientos.</p></div><div className={styles.channelGrid}>{channels.map(({ icon: Icon, title, value, href, description }) => <a key={title} href={href} className={styles.channel}><Icon aria-hidden="true" /><div><h3>{title}</h3><strong>{value}</strong><p>{description}</p></div></a>)}</div></div>
+        <div className="site-container"><div className={styles.channelsHeading}><h2>Nuestros canales de contacto</h2><p>Estamos a su disposición para atender sus consultas y requerimientos.</p></div><div className={styles.channelGrid}>{channels.map(({ icon: Icon, title, value, href, description }) => title === "Sede operativa" ? <LocationDialog key={title}><button type="button" className={`${styles.channel} ${styles.channelButton}`}><Icon aria-hidden="true" /><div><h3>{title}</h3><strong>{value}</strong><p>{description}</p></div></button></LocationDialog> : <a key={title} href={href} className={styles.channel}><Icon aria-hidden="true" /><div><h3>{title}</h3><strong>{value}</strong><p>{description}</p></div></a>)}</div></div>
       </section>
       <section className={styles.visit}>
         <div className={`site-container ${styles.visitGrid}`}>
-          <div><h2><Building2 size={25} aria-hidden="true" />Nuestra sede</h2><address>Calle 13 con Av. 5, Local 26A-162, Oficina 2.<br />Sector Manzanillo, San Francisco, Estado Zulia, Venezuela.</address><p>Soluciones Delta, C.A. · RIF J-50735393-1</p><div className={styles.visitExtras}><a href="https://maps.google.com/?q=San+Francisco+Zulia+Venezuela" className={styles.textLink}>Ver ubicación <ArrowRight size={17} aria-hidden="true" /></a><DescargarPlanillaBtn /></div></div>
+          <div><h2><Building2 size={25} aria-hidden="true" />Nuestra sede</h2><address>Calle 13 con Av. 5, Local 26A-162, Oficina 2.<br />Sector Manzanillo, San Francisco, Estado Zulia, Venezuela.</address><p>Soluciones Delta, C.A. · RIF J-50735393-1</p><div className={styles.visitExtras}><LocationDialog><button type="button" className={`${styles.textLink} ${styles.visitMapButton}`}>Ver ubicación <ArrowRight size={17} aria-hidden="true" /></button></LocationDialog><DescargarPlanillaBtn /></div></div>
           <div><h2><Clock3 size={25} aria-hidden="true" />Horario de atención</h2><dl>{schedule.map(row => <div key={row.day}><dt>{row.day}</dt><dd>{row.hours}</dd></div>)}</dl></div>
         </div>
       </section>
