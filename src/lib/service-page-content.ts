@@ -151,6 +151,25 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
     ],
     closing: { src: "/fosas/fosa-2-despues.jpg", label: "Dónde aplica", heading: "Fosas, canales y fondos de tanque", text: "Cualquier acumulación de crudo solidificado o lodo petrolizado, incluidos pasivos ambientales heredados." },
   },
+  "tratamiento-de-efluentes": {
+    eyebrow: "Tratamiento de efluentes · Aguas con hidrocarburos",
+    headline: "Agua contaminada que vuelve a servir.",
+    hero: { kind: "single", src: "/frac-tanks/bateria-frac-tanks-2.webp" },
+    subtitle: "Tres etapas en una planta modular",
+    stepsIntro: "Biodegradación molecular orgánica para hidrocarburos disueltos y emulsionados, en su propia locación.",
+    steps: [
+      { src: "/vacuum/vacuum-truck-howo-pdvsa.webp", title: "Recolectamos el efluente", text: "Unidad vacuum de 160 Bbl y frac tanks para almacenarlo." },
+      { src: "/frac-tanks/bateria-frac-tanks.webp", title: "Depuramos en planta modular", text: "Extracción del crudo libre y biodegradación del disuelto." },
+      { src: "/vapor/campo-pozos.webp", title: "Entregamos agua acondicionada", text: "Lista para reutilizar o disponer, con su documentación." },
+    ],
+    stats: [
+      { value: "3", label: "Etapas de tratamiento", highlight: true },
+      { value: "883", label: "Decreto de efluentes" },
+      { value: "24/7", label: "Operación" },
+      { value: "MPPEA", label: "Documentación incluida" },
+    ],
+    closing: { src: "/frac-tanks/bateria-frac-tanks.webp", label: "Qué tratamos", heading: "Aguas de producción y efluentes industriales", text: "Aguas oleosas de estaciones de flujo, patios de tanques, plantas y limpiezas industriales con hidrocarburos disueltos o emulsionados." },
+  },
 };
 
 export function getServicePageContent(slug: string): ServicePageContent | undefined {

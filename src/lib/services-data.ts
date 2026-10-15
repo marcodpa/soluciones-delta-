@@ -981,6 +981,130 @@ export const SERVICES: ServiceData[] = [
       },
     ],
   },
+  {
+    slug: "tratamiento-de-efluentes",
+    tag: "Tratamiento de Aguas",
+    title: "Tratamiento de Efluentes",
+    heading: "Tratamiento de efluentes líquidos y aguas con hidrocarburos en Venezuela",
+    subtitle: "Efluentes industriales y aguas de producción",
+    summary:
+      "Tratamiento de efluentes industriales y aguas de producción con alta concentración de hidrocarburos disueltos y emulsionados, mediante biodegradación molecular orgánica y plantas modulares que extraen, depuran y acondicionan el agua para su reutilización o disposición final segura.",
+    heroColor: "#eef7f6",
+    icon: "M12 3c-3.5 4.5-6 7.8-6 11a6 6 0 0012 0c0-3.2-2.5-6.5-6-11zM8.5 15.5c1.2.8 2.3.8 3.5 0s2.3-.8 3.5 0",
+    overview:
+      "En Soluciones Delta, C.A. ofrecemos soluciones integrales para el tratamiento de efluentes industriales y aguas de producción con alta concentración de hidrocarburos disueltos y emulsionados. Implementamos tecnología avanzada mediante biodegradación molecular orgánica, complementada con la instalación de plantas modulares de tratamiento diseñadas para extraer, depurar y acondicionar el efluente, garantizando el cumplimiento de los estándares ambientales más exigentes para su reutilización o disposición final segura.",
+    sections: [
+      {
+        heading: "Qué efluentes tratamos",
+        body: "Atendemos corrientes de agua contaminadas con hidrocarburos que no pueden descargarse ni reutilizarse sin un tratamiento previo:",
+        list: [
+          "Aguas de producción separadas del crudo en estaciones de flujo y patios de tanques",
+          "Efluentes industriales de plantas, talleres y refinerías con aceites y grasas",
+          "Aguas oleosas del lavado de tanques y equipos y de limpiezas con hydrojet",
+          "Agua libre decantada en frac tanks durante la recuperación de crudo en fosas",
+          "Aguas de escorrentía de áreas impactadas por derrames de crudo",
+          "Emulsiones agua-crudo con hidrocarburos disueltos y en suspensión",
+        ],
+      },
+      {
+        heading: "Biodegradación molecular orgánica",
+        body: "El hidrocarburo libre se separa por decantación, pero la fracción disuelta y emulsionada exige un tratamiento de fondo. La biodegradación molecular orgánica la transforma en lugar de trasladarla a otro residuo:",
+        list: [
+          "Degradación biológica de las moléculas de hidrocarburo en compuestos más simples",
+          "Tratamiento de la fracción disuelta y emulsionada, que no se separa por gravedad",
+          "Alternativa a los métodos que solo trasladan el contaminante a un lodo o a otro residuo",
+          "Agua acondicionada para su reutilización o su disposición final segura",
+        ],
+      },
+      {
+        heading: "Plantas modulares de tratamiento",
+        body: "Instalamos plantas modulares en la propia locación, cerca de la fuente del efluente, dimensionadas según el caudal y la carga de hidrocarburos de cada proyecto:",
+        list: [
+          "Extracción: separación del hidrocarburo libre y de los sólidos en suspensión",
+          "Depuración: biodegradación de los hidrocarburos disueltos y emulsionados",
+          "Acondicionamiento: ajuste final del agua según su destino",
+          "Montaje en sitio, sin trasladar grandes volúmenes de agua contaminada",
+          "Plantas escalables y trasladables entre locaciones según el avance del proyecto",
+        ],
+      },
+      {
+        heading: "Proceso operativo",
+        body: "Cada tratamiento sigue un procedimiento controlado y documentado, desde la caracterización del efluente hasta la entrega del agua tratada:",
+        list: [
+          "1. Caracterización del efluente: caudal, tipo de hidrocarburo y concentración",
+          "2. Diseño del tratamiento y dimensionamiento de la planta modular",
+          "3. Recolección del efluente con unidad vacuum y almacenamiento en frac tanks",
+          "4. Tratamiento en planta: extracción, biodegradación y acondicionamiento",
+          "5. Verificación de la calidad del agua tratada mediante análisis",
+          "6. Reutilización en la operación o disposición final segura, con su documentación",
+        ],
+      },
+      {
+        heading: "Cumplimiento ambiental y documentación",
+        body: "El agua tratada debe cumplir la normativa venezolana antes de reutilizarse o descargarse. Acompañamos cada proyecto con la documentación necesaria:",
+        list: [
+          "Tratamiento orientado a los límites del Decreto 883 sobre vertidos y efluentes líquidos",
+          "Manejo de los lodos y residuos del proceso bajo el Decreto 2635",
+          "Registro de volúmenes tratados y resultados de calidad del agua",
+          "Reportes para expedientes ambientales ante el MPPEA",
+        ],
+      },
+    ],
+    specs: [
+      { label: "Método", value: "Biodegradación molecular orgánica" },
+      { label: "Instalación", value: "Plantas modulares en sitio" },
+      { label: "Efluentes", value: "Aguas de producción · Efluentes industriales" },
+      { label: "Contaminantes", value: "Hidrocarburos disueltos y emulsionados" },
+      { label: "Destino del agua", value: "Reutilización o disposición final" },
+      { label: "Normativa", value: "Decreto 883 · Decreto 2635" },
+      { label: "Logística", value: "Vacuum 160 Bbl · Frac Tanks 500 Bbl" },
+      { label: "Disponibilidad", value: "24 horas / 7 días" },
+    ],
+    benefits: [
+      {
+        title: "Agua reutilizable",
+        desc: "El efluente tratado puede volver a la operación, reduciendo el consumo de agua fresca y los costos de transporte.",
+        icon: "M12 3c-3.5 4.5-6 7.8-6 11a6 6 0 0012 0c0-3.2-2.5-6.5-6-11z",
+      },
+      {
+        title: "Tratamiento en sitio",
+        desc: "Plantas modulares instaladas en la locación: menos viajes de camiones y menor riesgo en el traslado de fluidos contaminados.",
+        icon: "M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6",
+      },
+      {
+        title: "Hidrocarburo disuelto",
+        desc: "La biodegradación actúa sobre la fracción disuelta y emulsionada, la más difícil de eliminar por métodos físicos.",
+        icon: "M9 3h6M10 3v6l-5 9a2 2 0 001.8 3h10.4a2 2 0 001.8-3l-5-9V3",
+      },
+      {
+        title: "Cumplimiento verificable",
+        desc: "Resultados de calidad del agua y documentación para demostrar el cumplimiento ante la autoridad ambiental.",
+        icon: "M9 12l2 2 4-4M12 3l7 4v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9V7l7-4z",
+      },
+    ],
+    faq: [
+      {
+        q: "¿Qué diferencia hay entre separar el crudo del agua y tratar el efluente?",
+        a: "La decantación y el desnatado retiran el hidrocarburo libre que flota. Pero el agua sigue cargada de hidrocarburos disueltos y emulsionados que no se separan por gravedad. El tratamiento de efluentes elimina esa fracción para que el agua pueda reutilizarse o descargarse cumpliendo la normativa.",
+      },
+      {
+        q: "¿Qué es la biodegradación molecular orgánica?",
+        a: "Es un tratamiento biológico que descompone las moléculas de hidrocarburo presentes en el agua en compuestos más simples. A diferencia de los métodos que solo trasladan el contaminante a otro residuo, la biodegradación lo transforma, lo que facilita la reutilización del agua.",
+      },
+      {
+        q: "¿La planta de tratamiento se instala en nuestra locación?",
+        a: "Sí. Las plantas modulares se montan cerca de la fuente del efluente y se dimensionan según el caudal y la carga de hidrocarburos de cada proyecto. Así se evita transportar grandes volúmenes de agua contaminada fuera del sitio.",
+      },
+      {
+        q: "¿Para qué se puede reutilizar el agua tratada?",
+        a: "Depende del uso que defina el cliente y de los resultados de calidad del agua: procesos industriales, lavado de equipos o reinyección, entre otros. Si no se reutiliza, se dispone de forma segura cumpliendo los límites del Decreto 883.",
+      },
+      {
+        q: "¿Qué pasa con los residuos del tratamiento?",
+        a: "El hidrocarburo recuperado puede reincorporarse a la cadena productiva. Los lodos y sólidos generados se manejan con nuestro servicio de manejo de desechos bajo el Decreto 2635, con manifiesto y certificado de disposición final.",
+      },
+    ],
+  },
 ];
 
 export function getServiceBySlug(slug: string): ServiceData | undefined {

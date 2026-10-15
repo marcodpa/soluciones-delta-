@@ -102,6 +102,13 @@ const SERVICE_PHOTOS: Record<string, { main: string; gallery: { src: string; cap
       { src: "/fosas/fosa-2-despues.jpg", caption: "DESPUÉS — Fosa vaciada tras la recuperación térmica" },
     ],
   },
+  "tratamiento-de-efluentes": {
+    main: "/frac-tanks/bateria-frac-tanks-2.jpg",
+    gallery: [
+      { src: "/vacuum/vacuum-truck-howo-pdvsa.jpg", caption: "Recolección del efluente con unidad vacuum" },
+      { src: "/frac-tanks/bateria-frac-tanks.jpg",  caption: "Almacenamiento del agua en frac tanks" },
+    ],
+  },
 };
 
 // ── Styles ────────────────────────────────────────────────────────────────────
@@ -306,7 +313,7 @@ function CatalogoPDF({ imgs, locale }: { imgs: Record<string, string>; locale: L
               <Text style={S.coverGreen}>petrolera.</Text>
             </Text>
             <Text style={S.coverSub}>
-              Siete servicios especializados para operaciones de petróleo y gas en Venezuela. Flota propia, personal certificado y operación continua 24/7.
+              Ocho servicios especializados para operaciones de petróleo y gas en Venezuela. Flota propia, personal certificado y operación continua 24/7.
             </Text>
             <View style={S.coverServices}>
               {SERVICES.map(s => (

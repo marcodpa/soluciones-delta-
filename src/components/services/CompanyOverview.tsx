@@ -27,10 +27,11 @@ const groups = [
   {
     icon: "leaf",
     title: "Limpieza y residuos",
-    description: "Limpieza industrial y gestión de residuos bajo el Decreto 2635.",
+    description: "Limpieza industrial, tratamiento de aguas y gestión de residuos bajo el Decreto 2635.",
     links: [
       { label: "Hidrojet de 40.000 PSI", slug: "limpieza-industrial-hidrojet" },
       { label: "Manejo de desechos", slug: "manejo-de-desechos" },
+      { label: "Tratamiento de efluentes", slug: "tratamiento-de-efluentes" },
     ],
   },
 ] as const;

@@ -20,7 +20,7 @@ const CONNECTIONS: Record<string, { slug: string; description: string }[]> = {
   ],
   "manejo-de-desechos": [
     { slug: "trasegado-vacuum", description: "Succión y transporte de lodos, borras y fluidos industriales." },
-    { slug: "limpieza-industrial-hidrojet", description: "Limpieza industrial con coordinación de los residuos generados." },
+    { slug: "tratamiento-de-efluentes", description: "Tratamiento de las aguas con hidrocarburos antes de su reutilización o descarga." },
     { slug: "recuperacion-de-crudo-en-fosas", description: "Recuperación térmica del crudo solidificado en fosas y canales." },
   ],
   "alquiler-calderas-inyeccion-vapor": [
@@ -36,7 +36,12 @@ const CONNECTIONS: Record<string, { slug: string; description: string }[]> = {
   "limpieza-industrial-hidrojet": [
     { slug: "trasegado-vacuum", description: "Recolección de aguas, lodos y fluidos generados durante la limpieza." },
     { slug: "manejo-de-desechos", description: "Coordinación del manejo de residuos desde la recolección hasta su destino." },
-    { slug: "frac-tanks", description: "Almacenamiento temporal de fluidos durante el mantenimiento." },
+    { slug: "tratamiento-de-efluentes", description: "Tratamiento de las aguas oleosas generadas durante la limpieza." },
+  ],
+  "tratamiento-de-efluentes": [
+    { slug: "trasegado-vacuum", description: "Recolección y traslado del efluente hasta la planta de tratamiento." },
+    { slug: "frac-tanks", description: "Almacenamiento temporal del agua antes y después del tratamiento." },
+    { slug: "manejo-de-desechos", description: "Manejo de los lodos y sólidos del proceso bajo el Decreto 2635." },
   ],
 };
 

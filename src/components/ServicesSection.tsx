@@ -111,6 +111,19 @@ const services = [
       </svg>
     ),
   },
+  {
+    slug: "tratamiento-de-efluentes",
+    num: "08",
+    tag: "Aguas",
+    title: "Tratamiento de Efluentes",
+    tagline: "Aguas con hidrocarburos: biodegradación y plantas modulares.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
+        <path d="M14 4c-4 5-7 8.8-7 12.5a7 7 0 0014 0C21 12.8 18 9 14 4z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/>
+        <path d="M10 18c1.3.9 2.7.9 4 0s2.7-.9 4 0" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" opacity="0.6"/>
+      </svg>
+    ),
+  },
 ];
 
 export default function ServicesSection() {

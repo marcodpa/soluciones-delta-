@@ -83,6 +83,18 @@ const entries = [
     img: "/fosas/fosa-1-antes.jpg",
     color: "#fdf3ee",
   },
+  {
+    slug: "tratamiento-de-efluentes",
+    tag: "Tratamiento de Aguas",
+    num: "08",
+    title: "Tratamiento de Efluentes",
+    subtitle: "Aguas de producción · Efluentes industriales",
+    summary:
+      "Biodegradación molecular orgánica y plantas modulares para extraer, depurar y acondicionar aguas con hidrocarburos disueltos y emulsionados.",
+    highlights: ["Biodegradación orgánica", "Plantas modulares", "Reutilización del agua", "Decreto 883"],
+    img: "/frac-tanks/bateria-frac-tanks-2.webp",
+    color: "#eef7f6",
+  },
 ];
 
 export type ServiceCategory = "all" | "extraction" | "transport" | "industrial";
@@ -94,6 +106,7 @@ const categories: Record<string, Exclude<ServiceCategory, "all">> = {
   "alquiler-calderas-inyeccion-vapor": "extraction",
   "limpieza-industrial-hidrojet": "industrial",
   "recuperacion-de-crudo-en-fosas": "extraction",
+  "tratamiento-de-efluentes": "industrial",
 };
 const descriptions: Record<string, string> = {
   "bombeo-de-crudo": "Extracción y transferencia de crudo pesado.",
@@ -103,6 +116,7 @@ const descriptions: Record<string, string> = {
   "alquiler-calderas-inyeccion-vapor": "Soluciones térmicas para pozos y tanques.",
   "limpieza-industrial-hidrojet": "Limpieza de equipos, tuberías y superficies.",
   "recuperacion-de-crudo-en-fosas": "Recuperación térmica de crudos y lodos petrolizados.",
+  "tratamiento-de-efluentes": "Tratamiento de aguas de producción y efluentes con hidrocarburos.",
 };
 export const CATALOG_SERVICES = entries.map(service => ({
   ...service,

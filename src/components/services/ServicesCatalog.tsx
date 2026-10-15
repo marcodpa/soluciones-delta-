@@ -53,7 +53,7 @@ export default function ServicesCatalog() {
         ))}
       </div>
       <div className={styles.filterStatus}>
-        <p role="status" aria-live="polite">{category === "all" ? "Explore nuestros 7 servicios" : locale === "en" ? `${count} services · ${translateText(filters.find(filter => filter.value === category)?.label ?? "", locale)}` : `${count} servicios para ${filters.find(filter => filter.value === category)?.label.toLowerCase()}`}</p>
+        <p role="status" aria-live="polite">{category === "all" ? "Explore nuestros 8 servicios" : locale === "en" ? `${count} services · ${translateText(filters.find(filter => filter.value === category)?.label ?? "", locale)}` : `${count} servicios para ${filters.find(filter => filter.value === category)?.label.toLowerCase()}`}</p>
         <button type="button" aria-pressed={category === "all"} onClick={() => chooseCategory("all")} aria-controls="services-results">Ver todos</button>
       </div>
       <div className={styles.catalogHeading}>
