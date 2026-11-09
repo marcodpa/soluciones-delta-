@@ -43,6 +43,11 @@ const CONNECTIONS: Record<string, { slug: string; description: string }[]> = {
     { slug: "frac-tanks", description: "Almacenamiento temporal del agua antes y después del tratamiento." },
     { slug: "manejo-de-desechos", description: "Manejo de los lodos y sólidos del proceso bajo el Decreto 2635." },
   ],
+  "automatizacion-y-control": [
+    { slug: "bombeo-de-crudo", description: "Bombeo de crudo pesado en pozos y estaciones que también automatizamos." },
+    { slug: "alquiler-calderas-inyeccion-vapor", description: "Generadores de vapor automatizados para pozos y patios de tanques." },
+    { slug: "tratamiento-de-efluentes", description: "Plantas modulares de tratamiento de aguas en la locación." },
+  ],
 };
 
 export function getRelatedServices(slug: string): RelatedService[] {

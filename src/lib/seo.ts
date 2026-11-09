@@ -3,7 +3,7 @@ import { translateText, localePath, type Locale } from "./i18n/translate";
 
 export const SITE_URL = "https://soluciones-delta.com";
 export const BUSINESS_NAME = "Soluciones Delta, C.A.";
-export const HOME_DESCRIPTION = "Servicios petroleros en Venezuela: bombeo de crudo, vacuum, Frac Tanks, desechos, vapor, hydrojet, fosas y tratamiento de efluentes. Sede en Zulia.";
+export const HOME_DESCRIPTION = "Servicios petroleros en Venezuela: bombeo de crudo, vacuum, Frac Tanks, desechos, vapor, hydrojet, efluentes y automatización. Sede en Zulia.";
 
 export function pageMetadata(title: string, description: string, path: string, locale: Locale = "es"): Metadata {
   title = translateText(title, locale);
@@ -51,6 +51,10 @@ export const SERVICE_SEO: Record<string, { title: string; description: string }>
   "tratamiento-de-efluentes": {
     title: "Tratamiento de efluentes y aguas oleosas",
     description: "Tratamiento de aguas de producción y efluentes con hidrocarburos disueltos y emulsionados: biodegradación orgánica y plantas modulares en Zulia y Venezuela.",
+  },
+  "automatizacion-y-control": {
+    title: "Automatización y telemetría de pozos",
+    description: "Automatización petrolera en Zulia: telemetría de pozos y estaciones, programación de PLC y RTU, SCADA Wonderware, variadores BCP e instrumentación.",
   },
   "recuperacion-de-crudo-en-fosas": {
     title: "Recuperación de crudo en fosas · Zulia",

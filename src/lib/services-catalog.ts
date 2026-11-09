@@ -95,6 +95,18 @@ const entries = [
     img: "/frac-tanks/bateria-frac-tanks-2.webp",
     color: "#eef7f6",
   },
+  {
+    slug: "automatizacion-y-control",
+    tag: "Automatización",
+    num: "09",
+    title: "Automatización y Control",
+    subtitle: "Telemetría · PLC · RTU · SCADA",
+    summary:
+      "Instrumentación, control y comunicaciones para pozos, estaciones y plantas: telemetría, PLC, RTU, SCADA Wonderware y variadores BCP.",
+    highlights: ["Telemetría de pozos", "PLC y RTU", "SCADA Wonderware", "Variadores BCP"],
+    img: "/automatizacion/tablero-plc-scada.webp",
+    color: "#eef3f8",
+  },
 ];
 
 export type ServiceCategory = "all" | "extraction" | "transport" | "industrial";
@@ -107,6 +119,7 @@ const categories: Record<string, Exclude<ServiceCategory, "all">> = {
   "limpieza-industrial-hidrojet": "industrial",
   "recuperacion-de-crudo-en-fosas": "extraction",
   "tratamiento-de-efluentes": "industrial",
+  "automatizacion-y-control": "industrial",
 };
 const descriptions: Record<string, string> = {
   "bombeo-de-crudo": "Extracción y transferencia de crudo pesado.",
@@ -117,6 +130,7 @@ const descriptions: Record<string, string> = {
   "limpieza-industrial-hidrojet": "Limpieza de equipos, tuberías y superficies.",
   "recuperacion-de-crudo-en-fosas": "Recuperación térmica de crudos y lodos petrolizados.",
   "tratamiento-de-efluentes": "Tratamiento de aguas de producción y efluentes con hidrocarburos.",
+  "automatizacion-y-control": "Telemetría, control y supervisión de pozos y estaciones.",
 };
 export const CATALOG_SERVICES = entries.map(service => ({
   ...service,

@@ -34,6 +34,14 @@ const groups = [
       { label: "Tratamiento de efluentes", slug: "tratamiento-de-efluentes" },
     ],
   },
+  {
+    icon: "document",
+    title: "Automatización y control",
+    description: "Telemetría, PLC, RTU, SCADA e instrumentación para pozos y estaciones.",
+    links: [
+      { label: "Automatización y control", slug: "automatizacion-y-control" },
+    ],
+  },
 ] as const;
 
 function OverviewIcon({ name }: { name: "pump" | "truck" | "leaf" | "pin" | "document" }) {

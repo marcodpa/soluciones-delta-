@@ -109,6 +109,13 @@ const SERVICE_PHOTOS: Record<string, { main: string; gallery: { src: string; cap
       { src: "/frac-tanks/bateria-frac-tanks.jpg",  caption: "Almacenamiento del agua en frac tanks" },
     ],
   },
+  "automatizacion-y-control": {
+    main: "/automatizacion/tablero-plc-scada.jpg",
+    gallery: [
+      { src: "/automatizacion/telemetria-solar-pozo.jpg", caption: "Telemetría con panel solar en pozo remoto" },
+      { src: "/automatizacion/estacion-campo.jpg",        caption: "Estación de campo con instrumentación" },
+    ],
+  },
 };
 
 // ── Styles ────────────────────────────────────────────────────────────────────
@@ -313,7 +320,7 @@ function CatalogoPDF({ imgs, locale }: { imgs: Record<string, string>; locale: L
               <Text style={S.coverGreen}>petrolera.</Text>
             </Text>
             <Text style={S.coverSub}>
-              Ocho servicios especializados para operaciones de petróleo y gas en Venezuela. Flota propia, personal certificado y operación continua 24/7.
+              Nueve servicios especializados para operaciones de petróleo y gas en Venezuela. Flota propia, personal certificado y operación continua 24/7.
             </Text>
             <View style={S.coverServices}>
               {SERVICES.map(s => (

@@ -124,6 +124,19 @@ const services = [
       </svg>
     ),
   },
+  {
+    slug: "automatizacion-y-control",
+    num: "09",
+    tag: "Control",
+    title: "Automatización y Control",
+    tagline: "Telemetría, PLC, RTU y SCADA para pozos y estaciones.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 28 28" fill="none">
+        <path d="M6 24v-8M6 11V4M14 24V13M14 8V4M22 24v-5M22 14V4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round"/>
+        <path d="M3 16h6M11 9h6M19 15h6" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" opacity="0.6"/>
+      </svg>
+    ),
+  },
 ];
 
 export default function ServicesSection() {

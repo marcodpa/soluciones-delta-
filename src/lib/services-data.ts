@@ -1105,6 +1105,128 @@ export const SERVICES: ServiceData[] = [
       },
     ],
   },
+  {
+    slug: "automatizacion-y-control",
+    tag: "Automatización",
+    title: "Automatización y Control",
+    heading: "Automatización, control y telemetría para pozos y estaciones en Venezuela",
+    subtitle: "Instrumentación, PLC, RTU y SCADA",
+    summary:
+      "Integración de instrumentación, control y comunicaciones para pozos, estaciones de flujo y plantas industriales: telemetría, programación de PLC y RTU, SCADA Wonderware, variadores para bombas BCP, puesta a tierra y energía solar para pozos remotos.",
+    heroColor: "#eef3f8",
+    icon: "M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6",
+    overview:
+      "En Soluciones Delta, C.A. conectamos lo que pasa en el campo con quien supervisa la operación. Integramos instrumentación, control y comunicaciones en pozos de producción e inyección, estaciones de flujo y plantas industriales: rehabilitamos telemetría, programamos PLC y RTU, configuramos sistemas SCADA Wonderware, automatizamos variadores de bombas BCP y dejamos la instalación protegida con puesta a tierra y pararrayos. En pozos sin electricidad, alimentamos la telemetría con paneles solares.",
+    sections: [
+      {
+        heading: "Qué automatizamos",
+        body: "Atendemos los puntos de la operación donde se mide, se controla y se comunica la información del proceso:",
+        list: [
+          "Pozos de producción y pozos de inyección de agua",
+          "Pozos con bombas de cavidad progresiva (BCP) y sus variadores",
+          "Estaciones de flujo y de descarga",
+          "Patios de tanques y plantas industriales",
+          "Pozos remotos sin suministro eléctrico",
+        ],
+      },
+      {
+        heading: "Telemetría, RTU y comunicaciones",
+        body: "Recuperamos la comunicación entre el campo y la sala de supervisión para que las variables lleguen completas y a tiempo:",
+        list: [
+          "Rehabilitación de telemetría de pozos y estaciones",
+          "Programación de RTU para pozos de producción e inyección de agua",
+          "Integración de la RTU con las señales de campo y el sistema existente",
+          "Paneles solares para alimentar la telemetría en pozos sin electricidad",
+        ],
+      },
+      {
+        heading: "PLC, SCADA y variadores",
+        body: "Programamos el control de la estación y lo llevamos a la pantalla del operador:",
+        list: [
+          "Programación de PLC en estaciones de flujo",
+          "Servicio SCADA Wonderware: pantallas, variables, alarmas y comunicación con los controladores",
+          "Variadores de pozos con bombas BCP y su integración con la RTU",
+          "Diagnóstico y puesta en marcha de sistemas de control existentes",
+        ],
+      },
+      {
+        heading: "Instrumentación y protección eléctrica",
+        body: "La información de la operación empieza en el instrumento y depende de una instalación bien protegida:",
+        list: [
+          "Instrumentación de pozos y estaciones: presión, nivel, flujo y temperatura",
+          "Integración de las señales de los instrumentos al PLC, la RTU o el SCADA",
+          "Sistemas de puesta a tierra para instalaciones de campo",
+          "Protección con pararrayos de estaciones, tableros y equipos de comunicación",
+        ],
+      },
+      {
+        heading: "Cómo trabajamos",
+        body: "Cada proyecto parte de la instalación real y termina con el sistema operando y documentado:",
+        list: [
+          "1. Levantamiento en sitio: equipos instalados, señales y medios de comunicación",
+          "2. Diagnóstico de la condición del sistema existente",
+          "3. Propuesta técnica: instrumentos, controladores, comunicaciones y energía",
+          "4. Instalación, cableado y programación de PLC, RTU y SCADA",
+          "5. Pruebas de señales y puesta en marcha junto al operador",
+          "6. Entrega de documentación y respaldo de la programación",
+        ],
+      },
+    ],
+    specs: [
+      { label: "Control", value: "PLC · RTU" },
+      { label: "Supervisión", value: "SCADA Wonderware" },
+      { label: "Comunicación", value: "Telemetría de pozos y estaciones" },
+      { label: "Accionamientos", value: "Variadores para bombas BCP" },
+      { label: "Instrumentación", value: "Presión · Nivel · Flujo · Temperatura" },
+      { label: "Energía remota", value: "Paneles solares para telemetría" },
+      { label: "Protección", value: "Puesta a tierra · Pararrayos" },
+      { label: "Cobertura", value: "Zulia y Venezuela" },
+    ],
+    benefits: [
+      {
+        title: "Operación visible",
+        desc: "Las variables de pozos y estaciones llegan a la sala de supervisión, sin depender de recorridos para saber qué está pasando.",
+        icon: "M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12zM12 15a3 3 0 100-6 3 3 0 000 6z",
+      },
+      {
+        title: "Menos paradas",
+        desc: "Las alarmas y el control remoto permiten actuar antes de que una falla detenga la producción.",
+        icon: "M12 9v4M12 17h.01M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z",
+      },
+      {
+        title: "Pozos remotos conectados",
+        desc: "Paneles solares y RTU llevan la telemetría a pozos sin electricidad.",
+        icon: "M12 3v2M12 19v2M5 12H3M21 12h-2M6.3 6.3L4.9 4.9M19.1 19.1l-1.4-1.4M6.3 17.7l-1.4 1.4M19.1 4.9l-1.4 1.4M12 16a4 4 0 100-8 4 4 0 000 8z",
+      },
+      {
+        title: "Instalación protegida",
+        desc: "Puesta a tierra y pararrayos cuidan los equipos de control y comunicación de descargas y fallas eléctricas.",
+        icon: "M9 12l2 2 4-4M12 3l7 4v5c0 4.5-3 8-7 9-4-1-7-4.5-7-9V7l7-4z",
+      },
+    ],
+    faq: [
+      {
+        q: "¿Trabajan con sistemas que ya están instalados?",
+        a: "Sí. La mayoría de los proyectos parte de una instalación existente. Hacemos un levantamiento de los equipos, las señales y los medios de comunicación, diagnosticamos su condición y proponemos qué rehabilitar, reprogramar o reemplazar.",
+      },
+      {
+        q: "¿Qué información necesitan para cotizar?",
+        a: "Ubicación de la instalación, modelo de los controladores (PLC o RTU), instrumentos instalados, plataforma SCADA y su versión, medio de comunicación actual y las variables que necesita supervisar. Si no tiene todos los datos, los levantamos en sitio.",
+      },
+      {
+        q: "¿Pueden poner telemetría en un pozo sin electricidad?",
+        a: "Sí. Instalamos paneles solares dimensionados para alimentar la RTU y los equipos de comunicación del pozo, de modo que la telemetría funcione sin red eléctrica.",
+      },
+      {
+        q: "¿Con qué SCADA trabajan?",
+        a: "Prestamos servicio sobre SCADA Wonderware: configuración de pantallas, variables, alarmas y comunicación con los PLC y RTU de campo.",
+      },
+      {
+        q: "¿Automatizan variadores de bombas BCP?",
+        a: "Sí. Integramos los variadores de pozos con bombas de cavidad progresiva con su RTU para supervisar y controlar el accionamiento a distancia.",
+      },
+    ],
+  },
 ];
 
 export function getServiceBySlug(slug: string): ServiceData | undefined {

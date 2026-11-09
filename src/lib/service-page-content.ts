@@ -170,6 +170,25 @@ export const SERVICE_PAGE_CONTENT: Record<string, ServicePageContent> = {
     ],
     closing: { src: "/frac-tanks/bateria-frac-tanks.webp", label: "Qué tratamos", heading: "Aguas de producción y efluentes industriales", text: "Aguas oleosas de estaciones de flujo, patios de tanques, plantas y limpiezas industriales con hidrocarburos disueltos o emulsionados." },
   },
+  "automatizacion-y-control": {
+    eyebrow: "Automatización y control · Pozos y estaciones",
+    headline: "El campo, a la vista de la operación.",
+    hero: { kind: "single", src: "/automatizacion/tablero-plc-scada.webp" },
+    subtitle: "Del instrumento a la pantalla del operador",
+    stepsIntro: "Instrumentación, control y comunicaciones integradas en pozos, estaciones de flujo y plantas.",
+    steps: [
+      { src: "/automatizacion/estacion-campo.webp", title: "Medimos en campo", text: "Instrumentos de presión, nivel, flujo y temperatura." },
+      { src: "/automatizacion/telemetria-solar-pozo.webp", title: "Comunicamos el pozo", text: "RTU y telemetría, con energía solar donde no hay red." },
+      { src: "/automatizacion/tablero-plc-scada.webp", title: "Controlamos y supervisamos", text: "PLC en estaciones y pantallas SCADA Wonderware." },
+    ],
+    stats: [
+      { value: "PLC", label: "Programación en estaciones", highlight: true },
+      { value: "RTU", label: "Pozos de producción e inyección" },
+      { value: "SCADA", label: "Wonderware" },
+      { value: "BCP", label: "Variadores de pozos" },
+    ],
+    closing: { src: "/automatizacion/telemetria-solar-pozo.webp", label: "Dónde aplica", heading: "Pozos, estaciones y plantas", text: "Pozos de producción e inyección, pozos con bombas BCP, estaciones de flujo, patios de tanques y pozos remotos sin electricidad." },
+  },
 };
 
 export function getServicePageContent(slug: string): ServicePageContent | undefined {
