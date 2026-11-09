@@ -33,12 +33,12 @@ export const SERVICE_SEO: Record<string, { title: string; description: string }>
     description: "Bombeo y desnatado de crudo pesado con bomba de tornillo hidráulica: 1,500 barriles/día, sin emulsificar. Operación 24/7 en Zulia y toda Venezuela.",
   },
   "trasegado-vacuum": {
-    title: "Camión vacuum 160 Bbl en Zulia 24/7",
-    description: "Camión vacuum de 160 barriles para lodos, borras, efluentes y limpieza de tanques. Unidad propia, compresor NVE, operación 24/7 en Zulia y Venezuela.",
+    title: "Camión vacuum petrolero: alquiler 24/7",
+    description: "Alquiler de camión vacuum de 160 barriles en Zulia: succión de lodos, borras y efluentes y limpieza de tanques. Salida el mismo día, 24/7. Cotice ya.",
   },
   "frac-tanks": {
-    title: "Alquiler de frac tanks 500 Bbl en Zulia",
-    description: "Alquiler de frac tanks de 500 barriles: V-Bottom, Flat, Insulated y Gas Tight. Baterías de hasta 20 tanques con movilización en Zulia y Venezuela.",
+    title: "Frac tank 500 Bbl: alquiler en Zulia",
+    description: "Frac tanks de 500 barriles en alquiler: V-Bottom, Flat, Insulated y Gas Tight. Baterías de hasta 20 tanques y entrega rápida en Zulia y Venezuela.",
   },
   "manejo-de-desechos": {
     title: "Desechos petroleros en Zulia · Decreto 2635",
