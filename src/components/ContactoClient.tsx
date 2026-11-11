@@ -10,10 +10,11 @@ import { ArrowRight, Phone, Mail, MapPin, Clock3, Building2, MessageCircle } fro
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import LocationDialog from "./LocationDialog";
+import ProposalForm from "./ProposalForm";
 import styles from "./CompanyPages.module.css";
 
 const DescargarPlanillaBtn = dynamic(() => import("./PlanillaCotizacionPDF"), { ssr: false });
-const services = ["Bombeo de Crudo (Extracción / Transferencia)", "Transporte de Fluidos con Vacuum (160 Bbl)", "Suministro de Frac Tanks 500 Bbl", "Manejo de Desechos Industriales", "Inyección de Vapor para Tanques / Patio de Tanques", "Limpieza Industrial Hydrojet (20.000 / 40.000 PSI)", "Recuperación de Crudo en Fosas, Canales o Tanques", "Otro / Consulta General"];
+const services = ["Bombeo de Crudo (Extracción / Transferencia)", "Transporte de Fluidos con Vacuum (160 Bbl)", "Suministro de Frac Tanks 500 Bbl", "Manejo de Desechos Industriales", "Inyección de Vapor para Tanques / Patio de Tanques", "Limpieza Industrial Hydrojet (20.000 / 40.000 PSI)", "Recuperación de Crudo en Fosas, Canales o Tanques", "Tratamiento de Efluentes y Aguas con Hidrocarburos", "Automatización y Control (Telemetría, PLC, SCADA)", "Otro / Consulta General"];
 const channels = [
   { icon: Phone, title: "WhatsApp", value: "+58 424-6472446", href: "https://wa.me/584246472446", description: "Atención directa y emergencias 24/7." },
   { icon: Mail, title: "Correo electrónico", value: "delta@soluciones-delta.com", href: "mailto:delta@soluciones-delta.com", description: "Cuéntenos los detalles de su proyecto." },
@@ -43,6 +44,7 @@ export default function ContactoClient() {
             <nav aria-label="Breadcrumb" className={styles.breadcrumb}><Link href="/">Inicio</Link><span aria-hidden="true">/</span><span>Contacto</span></nav>
             <h1>Hablemos de su operación.</h1>
             <p>Contáctenos directamente por WhatsApp o prepare su solicitud. Nuestro equipo técnico le ayudará a definir el servicio que necesita.</p>
+            <a href="#propuesta" className={styles.textLink}>Enviar propuesta con archivos por correo <ArrowRight size={17} aria-hidden="true" /></a>
             <a href="https://wa.me/584246472446" className={styles.whatsapp}><MessageCircle size={25} aria-hidden="true" />+58 424-6472446<ArrowRight size={18} aria-hidden="true" /></a>
             <small>Atención directa. Emergencias 24/7.</small>
           </div>
@@ -70,6 +72,7 @@ export default function ContactoClient() {
       <section className={styles.channels}>
         <div className="site-container"><div className={styles.channelsHeading}><h2>Nuestros canales de contacto</h2><p>Estamos a su disposición para atender sus consultas y requerimientos.</p></div><div className={styles.channelGrid}>{channels.map(({ icon: Icon, title, value, href, description }) => title === "Sede operativa" ? <LocationDialog key={title}><button type="button" className={`${styles.channel} ${styles.channelButton}`}><Icon aria-hidden="true" /><div><h3>{title}</h3><strong>{value}</strong><p>{description}</p></div></button></LocationDialog> : <a key={title} href={href} className={styles.channel}><Icon aria-hidden="true" /><div><h3>{title}</h3><strong>{value}</strong><p>{description}</p></div></a>)}</div></div>
       </section>
+      <ProposalForm />
       <section className={styles.visit}>
         <div className={`site-container ${styles.visitGrid}`}>
           <div><h2><Building2 size={25} aria-hidden="true" />Nuestra sede</h2><address>Calle 13 con Av. 5, Local 26A-162, Oficina 2.<br />Sector Manzanillo, San Francisco, Estado Zulia, Venezuela.</address><p>Soluciones Delta, C.A. · RIF J-50735393-1</p><div className={styles.visitExtras}><LocationDialog><button type="button" className={`${styles.textLink} ${styles.visitMapButton}`}>Ver ubicación <ArrowRight size={17} aria-hidden="true" /></button></LocationDialog><DescargarPlanillaBtn /></div></div>
