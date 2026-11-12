@@ -11,6 +11,7 @@ import CompanyOverview from "./services/CompanyOverview";
 import QuoteForm from "./services/QuoteForm";
 import CatalogDownload from "./services/CatalogDownload";
 import styles from "./services/services.module.css";
+import EmailLink from "./EmailLink";
 
 export default function ServiciosClient() {
   const localize = useLocalizedTree();
@@ -53,7 +54,7 @@ export default function ServiciosClient() {
                 <span aria-hidden="true"><svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M5 3h4l2 5-3 2a15 15 0 0 0 6 6l2-3 5 2v4a2 2 0 0 1-2 2C9 21 3 15 3 5a2 2 0 0 1 2-2Z" /></svg></span>
                 +58 424-6472446
               </a>
-              <a href="mailto:delta@soluciones-delta.com" className={styles.email}>delta@soluciones-delta.com</a>
+              <EmailLink className={styles.email}>delta@soluciones-delta.com</EmailLink>
             </div>
             <QuoteForm />
           </section>

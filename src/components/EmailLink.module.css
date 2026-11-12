@@ -1,0 +1,23 @@
+.overlay { position: fixed; inset: 0; z-index: 1000; background: rgb(6 22 14 / 62%); animation: fadeIn .2s ease-out; }
+.dialog { position: fixed; z-index: 1001; top: 50%; left: 50%; transform: translate(-50%, -50%); width: min(94vw, 520px); max-height: calc(100dvh - 20px); overflow-y: auto; border: 1px solid #d4e5d8; border-radius: 20px; background: #f7faf7; box-shadow: 0 28px 80px rgb(0 0 0 / 25%); animation: riseIn .25s ease-out; }
+.dialog:focus { outline: none; }
+.header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 24px 26px 20px; background: #103d27; color: #fff; }
+.kicker { display: flex; align-items: center; gap: 8px; margin: 0 0 9px; color: #a8dbb3; font-size: 12px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+.title { margin: 0; font-size: clamp(19px, 3.4vw, 25px); line-height: 1.2; letter-spacing: -.02em; overflow-wrap: anywhere; }
+.description { margin: 8px 0 0; color: #d3e8d8; font-size: 15px; }
+.close { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border: 1px solid rgb(255 255 255 / 30%); border-radius: 50%; background: transparent; color: #fff; cursor: pointer; }
+.close:hover { background: rgb(255 255 255 / 12%); }
+.options { display: grid; gap: 10px; padding: 20px 22px 24px; }
+.option { display: flex; align-items: center; gap: 14px; width: 100%; padding: 14px 16px; border: 1px solid #cfe0d3; border-radius: 12px; background: #fff; color: #17251c; font: inherit; text-align: left; text-decoration: none; cursor: pointer; transition: border-color .15s, background .15s; }
+.option:hover { border-color: #197b36; background: #f0f7f1; }
+.option svg { flex: none; color: #197b36; }
+.option span { display: grid; gap: 2px; }
+.option strong { font-size: 16px; font-weight: 600; }
+.option small { color: #5b6b61; font-size: 13px; line-height: 1.4; }
+.main { background: #197b36; border-color: #197b36; color: #fff; }
+.main:hover { background: #12632a; border-color: #12632a; }
+.main svg, .main small { color: #dff0e3; }
+@keyframes fadeIn { from { opacity: 0; } }
+@keyframes riseIn { from { opacity: 0; transform: translate(-50%, -46%); } }
+@media (max-width: 700px) { .header { padding: 20px 18px 16px; } .options { padding: 16px; } }
+@media (prefers-reduced-motion: reduce) { .overlay, .dialog { animation: none; } }

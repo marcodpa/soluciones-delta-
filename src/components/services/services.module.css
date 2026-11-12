@@ -121,7 +121,7 @@
 .phone > span { display: flex; align-items: center; justify-content: center; flex: 0 0 50px; width: 50px; height: 50px; border-radius: 50%; background: var(--green); color: #fff; }
 .email { font-size: 14px; color: #d1dfd5; overflow-wrap: anywhere; }
 .quote > div a:focus-visible { outline-color: #b7de9e; }
-.quoteForm { display: grid; gap: 8px; background: #fff; color: var(--ink); border: 1px solid #d0e0d3; border-radius: 12px; padding: 24px; }
+.quoteForm { --green: #167b34; --ink: #14261b; --muted: #53645a; display: grid; gap: 8px; background: #fff; color: var(--ink); border: 1px solid #d0e0d3; border-radius: 12px; padding: 24px; }
 .quoteForm label { font-size: 13px; font-weight: 500; margin-top: 6px; }
 .quoteForm :is(input:not([type="hidden"]), select) { width: 100%; min-width: 0; height: 48px; border: 1px solid #bfcfc5; border-radius: 5px; background: #fff; padding: 10px 13px; color: var(--ink); font-size: 16px; }
 .quoteForm input::placeholder { color: #65766b; }
@@ -189,3 +189,5 @@
   .footerLocation { text-align: left; }
 }
 @media (prefers-reduced-motion: reduce) { .page *, .page *::before, .page *::after { transition: none !important; scroll-behavior: auto !important; } }
+.quoteForm .secondary { display: inline-flex; gap: 12px; justify-content: center; align-items: center; width: 100%; min-height: 48px; padding: 12px 20px; background: #fff; border: 1.5px solid var(--green); color: var(--green); font: inherit; font-weight: 600; font-size: 15px; border-radius: 6px; cursor: pointer; }
+.quoteForm .secondary:hover { background: #eef6ef; }

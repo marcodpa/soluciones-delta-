@@ -11,6 +11,8 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import LocationDialog from "./LocationDialog";
 import ProposalForm from "./ProposalForm";
+import EmailLink from "./EmailLink";
+import { openEmail } from "@/lib/email";
 import styles from "./CompanyPages.module.css";
 
 const DescargarPlanillaBtn = dynamic(() => import("./PlanillaCotizacionPDF"), { ssr: false });
@@ -34,6 +36,10 @@ export default function ContactoClient() {
   const message = locale === "en"
     ? `Hello, Soluciones Delta. I would like to request a quote.\nName: ${form.name.trim()}\nCompany: ${form.company.trim()}\nPhone: ${form.phone.trim()}\nEmail: ${form.email.trim()}\nService: ${translateText(form.service, locale)}\nLocation: ${form.location.trim()}\n\nOperation details:\n${form.message.trim()}`
     : `Hola, Soluciones Delta. Quisiera solicitar una cotización.\nNombre: ${form.name.trim()}\nEmpresa: ${form.company.trim()}\nTeléfono: ${form.phone.trim()}\nCorreo: ${form.email.trim()}\nServicio: ${form.service}\nUbicación: ${form.location.trim()}\n\nDescripción de la operación:\n${form.message.trim()}`;
+  const sendByEmail = (event: React.MouseEvent<HTMLButtonElement>) => {
+    if (!event.currentTarget.form?.reportValidity()) return;
+    openEmail(`${locale === "en" ? "Quote request" : "Solicitud de cotización"}: ${translateText(form.service, locale)}`, message);
+  };
   const update = (key: keyof typeof form) => (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm(current => ({ ...current, [key]: event.target.value }));
   return localize(<>
     <Navbar />
@@ -63,14 +69,14 @@ export default function ContactoClient() {
               <div className={`${styles.field} ${styles.full}`}><label htmlFor="contact-service">Servicio de interés *</label><select id="contact-service" value={form.service} onChange={update("service")} required><option value="" disabled>Seleccione un servicio</option>{services.map(service => <option key={service} value={service}>{service}</option>)}</select></div>
               <div className={`${styles.field} ${styles.full}`}><label htmlFor="contact-location">Ubicación del proyecto *</label><input id="contact-location" autoComplete="address-level2" value={form.location} onChange={update("location")} placeholder="Ciudad, campo o locación" required pattern=".*\S.*" maxLength={180} /></div>
               <div className={`${styles.field} ${styles.full}`}><label htmlFor="contact-message">Descripción de la operación</label><textarea id="contact-message" value={form.message} onChange={update("message")} placeholder="Tipo de trabajo, volumen aproximado y detalles de su operación…" rows={3} maxLength={1800} /></div>
-              <button type="submit" className={`${styles.submit} ${styles.full}`}>Preparar solicitud <ArrowRight size={18} aria-hidden="true" /></button>
+              <div className={`${styles.quoteActions} ${styles.full}`}><button type="submit" className={styles.submit}><MessageCircle size={19} aria-hidden="true" />Enviar por WhatsApp</button><button type="button" className={`${styles.submit} ${styles.submitEmail}`} onClick={sendByEmail}><Mail size={19} aria-hidden="true" />Enviar por correo</button></div>
             </form>
-            <div className={styles.formHelp}><MessageCircle size={19} aria-hidden="true" /><p>Revise y envíe su solicitud por WhatsApp. Los campos con * son obligatorios.</p></div>
+            <div className={styles.formHelp}><MessageCircle size={19} aria-hidden="true" /><p>Elija cómo enviar su solicitud: por WhatsApp o por correo (Gmail). Los campos con * son obligatorios.</p></div>
           </div>
         </div>
       </section>
       <section className={styles.channels}>
-        <div className="site-container"><div className={styles.channelsHeading}><h2>Nuestros canales de contacto</h2><p>Estamos a su disposición para atender sus consultas y requerimientos.</p></div><div className={styles.channelGrid}>{channels.map(({ icon: Icon, title, value, href, description }) => title === "Sede operativa" ? <LocationDialog key={title}><button type="button" className={`${styles.channel} ${styles.channelButton}`}><Icon aria-hidden="true" /><div><h3>{title}</h3><strong>{value}</strong><p>{description}</p></div></button></LocationDialog> : <a key={title} href={href} className={styles.channel}><Icon aria-hidden="true" /><div><h3>{title}</h3><strong>{value}</strong><p>{description}</p></div></a>)}</div></div>
+        <div className="site-container"><div className={styles.channelsHeading}><h2>Nuestros canales de contacto</h2><p>Estamos a su disposición para atender sus consultas y requerimientos.</p></div><div className={styles.channelGrid}>{channels.map(({ icon: Icon, title, value, href, description }) => title === "Sede operativa" ? <LocationDialog key={title}><button type="button" className={`${styles.channel} ${styles.channelButton}`}><Icon aria-hidden="true" /><div><h3>{title}</h3><strong>{value}</strong><p>{description}</p></div></button></LocationDialog> : href.startsWith("mailto:") ? <EmailLink key={title} className={styles.channel}><Icon aria-hidden="true" /><div><h3>{title}</h3><strong>{value}</strong><p>{description}</p></div></EmailLink> : <a key={title} href={href} className={styles.channel}><Icon aria-hidden="true" /><div><h3>{title}</h3><strong>{value}</strong><p>{description}</p></div></a>)}</div></div>
       </section>
       <ProposalForm />
       <section className={styles.visit}>

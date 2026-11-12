@@ -209,3 +209,7 @@
   .visit { padding-block: 36px; }
 }
 @media (prefers-reduced-motion: reduce) { .page *, .page *::after { scroll-behavior: auto; transition: none !important; } }
+.quoteActions { display: grid; gap: 10px; }
+.quoteActions .submit { gap: 10px; }
+.submitEmail { background: #fff; color: var(--delta-green); border: 1.5px solid var(--delta-green); }
+.submitEmail:hover { background: #eef6ef; }

@@ -4,6 +4,7 @@ import { ArrowUpRight, ChevronRight, Download, Instagram, Leaf, Mail, MapPin, Me
 import { OPERATIONS_BASE_MAPS_URL } from "@/lib/location";
 import type { Metadata } from "next";
 import styles from "./tarjeta.module.css";
+import EmailLink from "@/components/EmailLink";
 
 export const metadata: Metadata = {
   title: "Contacto directo y tarjeta digital",
@@ -41,11 +42,11 @@ export default function DigitalCard() {
           <a className={styles.whatsapp} href={whatsapp} target="_blank" rel="noopener noreferrer"><WhatsAppIcon/>Escribir por WhatsApp<ChevronRight size={22}/></a>
           <div className={styles.actions}>
             <a href="tel:+584246472446"><Phone/><span>Llamar</span></a>
-            <a href="mailto:delta@soluciones-delta.com"><Mail/><span>Correo</span></a>
+            <EmailLink><Mail/><span>Correo</span></EmailLink>
             <a href="https://www.instagram.com/soluciones_delta/" target="_blank" rel="noopener noreferrer"><Instagram/><span>Instagram</span></a>
             <a href={OPERATIONS_BASE_MAPS_URL} target="_blank" rel="noopener noreferrer"><MapPin/><span>Ubicación</span></a>
           </div>
-          <a className={styles.email} href="mailto:delta@soluciones-delta.com">delta@soluciones-delta.com</a>
+          <EmailLink className={styles.email}>delta@soluciones-delta.com</EmailLink>
         </section>
       </section>
       <section className={styles.services} aria-labelledby="services-title"><div className={styles.servicesHeading}><h2 id="services-title">Nuestros servicios</h2><Link href="/servicios">Ver todos <ArrowUpRight size={16}/></Link></div><div className={styles.serviceGrid}>{services.map(service=><a className={styles.service} href={`/servicios/${service.slug}`} key={service.slug}><div><Image src={service.image} alt="" fill sizes="(max-width: 760px) 45vw, 260px"/></div><span>{service.title}<ArrowUpRight size={16}/></span></a>)}</div><a className={styles.save} href="/tarjeta/soluciones-delta.vcf" download><UserRoundPlus/>Guardar contacto<Download size={20}/></a></section>

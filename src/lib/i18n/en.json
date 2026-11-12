@@ -1827,5 +1827,20 @@
   "PDF, Word, Excel, PowerPoint o imágenes · hasta 5 archivos, 10 MB en total": "PDF, Word, Excel, PowerPoint or images · up to 5 files, 10 MB in total",
   "Quitar": "Remove",
   "Enviando…": "Sending…",
-  "Enviar propuesta": "Send proposal"
+  "Enviar propuesta": "Send proposal",
+  "Enviar por WhatsApp": "Send via WhatsApp",
+  "Enviar por correo": "Send by email",
+  "Elija cómo enviar su solicitud: por WhatsApp o por correo (Gmail). Los campos con * son obligatorios.": "Choose how to send your request: by WhatsApp or by email (Gmail). Fields marked * are required.",
+  "Elija cómo quiere escribirnos.": "Choose how you would like to write to us.",
+  "Cerrar": "Close",
+  "Escribir por Gmail": "Write with Gmail",
+  "Se abre Gmail con nuestro correo ya puesto.": "Gmail opens with our address already filled in.",
+  "Usar el formulario de la web": "Use the website form",
+  "Llega directo a nuestro correo, con archivos adjuntos.": "It goes straight to our inbox, with attachments.",
+  "Otra aplicación de correo": "Another email app",
+  "Outlook, Correo de Windows u otra.": "Outlook, Windows Mail or another one.",
+  "¡Correo copiado!": "Email copied!",
+  "Copiar el correo": "Copy the email address",
+  "Para pegarlo donde usted prefiera.": "To paste it wherever you prefer.",
+  "Elija WhatsApp o correo (Gmail) para revisar y enviar su solicitud.": "Choose WhatsApp or email (Gmail) to review and send your request."
 }
