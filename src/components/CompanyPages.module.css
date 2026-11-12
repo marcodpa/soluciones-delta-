@@ -81,7 +81,7 @@
 .field textarea { resize: vertical; min-height: 95px; }
 .field input::placeholder, .field textarea::placeholder { color: #69766a; }
 .full { grid-column: 1/-1; }
-.submit { display: flex; align-items: center; justify-content: center; gap: 16px; width: 100%; min-height: 50px; border: 0; border-radius: 5px; background: var(--delta-green); color: white; font-size: 15px; font-weight: 600; cursor: pointer; }
+.submit { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; min-height: 50px; border: 0; border-radius: 5px; background: var(--delta-green); color: white; font-size: 15px; font-weight: 600; cursor: pointer; }
 .submit:hover { background: #12632a; }
 .formHelp { font-size: 12px; line-height: 1.6; color: #53645a; display: flex; align-items: flex-start; gap: 10px; margin-top: 12px; }
 .formHelp svg { flex: none; margin-top: 2px; color: var(--delta-green); }
@@ -209,7 +209,3 @@
   .visit { padding-block: 36px; }
 }
 @media (prefers-reduced-motion: reduce) { .page *, .page *::after { scroll-behavior: auto; transition: none !important; } }
-.quoteActions { display: grid; gap: 10px; }
-.quoteActions .submit { gap: 10px; }
-.submitEmail { background: #fff; color: var(--delta-green); border: 1.5px solid var(--delta-green); }
-.submitEmail:hover { background: #eef6ef; }

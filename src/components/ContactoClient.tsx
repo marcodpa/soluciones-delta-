@@ -36,8 +36,8 @@ export default function ContactoClient() {
   const message = locale === "en"
     ? `Hello, Soluciones Delta. I would like to request a quote.\nName: ${form.name.trim()}\nCompany: ${form.company.trim()}\nPhone: ${form.phone.trim()}\nEmail: ${form.email.trim()}\nService: ${translateText(form.service, locale)}\nLocation: ${form.location.trim()}\n\nOperation details:\n${form.message.trim()}`
     : `Hola, Soluciones Delta. Quisiera solicitar una cotización.\nNombre: ${form.name.trim()}\nEmpresa: ${form.company.trim()}\nTeléfono: ${form.phone.trim()}\nCorreo: ${form.email.trim()}\nServicio: ${form.service}\nUbicación: ${form.location.trim()}\n\nDescripción de la operación:\n${form.message.trim()}`;
-  const sendByEmail = (event: React.MouseEvent<HTMLButtonElement>) => {
-    if (!event.currentTarget.form?.reportValidity()) return;
+  const sendByEmail = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     openEmail(`${locale === "en" ? "Quote request" : "Solicitud de cotización"}: ${translateText(form.service, locale)}`, message);
   };
   const update = (key: keyof typeof form) => (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => setForm(current => ({ ...current, [key]: event.target.value }));
@@ -60,8 +60,7 @@ export default function ContactoClient() {
           </figure>
           <div className={styles.formPanel}>
             <h2>Prepare su solicitud</h2><p>Cuéntenos qué necesita y dónde se realizará el trabajo.</p>
-            <form className={styles.form} action="https://wa.me/584246472446" method="get" target="_blank" rel="noopener noreferrer">
-              <input type="hidden" name="text" value={message} />
+            <form className={styles.form} onSubmit={sendByEmail}>
               <div className={styles.field}><label htmlFor="contact-name">Nombre completo *</label><input id="contact-name" autoComplete="name" value={form.name} onChange={update("name")} placeholder="Su nombre" required pattern=".*\S.*" maxLength={120} /></div>
               <div className={styles.field}><label htmlFor="contact-company">Empresa</label><input id="contact-company" autoComplete="organization" value={form.company} onChange={update("company")} placeholder="Nombre de su empresa" maxLength={160} /></div>
               <div className={styles.field}><label htmlFor="contact-phone">Teléfono *</label><input id="contact-phone" type="tel" inputMode="tel" autoComplete="tel" value={form.phone} onChange={update("phone")} placeholder="+58 424 1234567" required minLength={7} maxLength={30} pattern="\+?[0-9\s\(\)\-]{7,30}" title="Escriba su teléfono con código de área." /></div>
@@ -69,9 +68,9 @@ export default function ContactoClient() {
               <div className={`${styles.field} ${styles.full}`}><label htmlFor="contact-service">Servicio de interés *</label><select id="contact-service" value={form.service} onChange={update("service")} required><option value="" disabled>Seleccione un servicio</option>{services.map(service => <option key={service} value={service}>{service}</option>)}</select></div>
               <div className={`${styles.field} ${styles.full}`}><label htmlFor="contact-location">Ubicación del proyecto *</label><input id="contact-location" autoComplete="address-level2" value={form.location} onChange={update("location")} placeholder="Ciudad, campo o locación" required pattern=".*\S.*" maxLength={180} /></div>
               <div className={`${styles.field} ${styles.full}`}><label htmlFor="contact-message">Descripción de la operación</label><textarea id="contact-message" value={form.message} onChange={update("message")} placeholder="Tipo de trabajo, volumen aproximado y detalles de su operación…" rows={3} maxLength={1800} /></div>
-              <div className={`${styles.quoteActions} ${styles.full}`}><button type="submit" className={styles.submit}><MessageCircle size={19} aria-hidden="true" />Enviar por WhatsApp</button><button type="button" className={`${styles.submit} ${styles.submitEmail}`} onClick={sendByEmail}><Mail size={19} aria-hidden="true" />Enviar por correo</button></div>
+              <button type="submit" className={`${styles.submit} ${styles.full}`}><Mail size={19} aria-hidden="true" />Enviar por correo</button>
             </form>
-            <div className={styles.formHelp}><MessageCircle size={19} aria-hidden="true" /><p>Elija cómo enviar su solicitud: por WhatsApp o por correo (Gmail). Los campos con * son obligatorios.</p></div>
+            <div className={styles.formHelp}><Mail size={19} aria-hidden="true" /><p>Se abrirá su correo (Gmail) con la solicitud lista para enviar a Soluciones Delta. Los campos con * son obligatorios.</p></div>
           </div>
         </div>
       </section>

@@ -1842,5 +1842,6 @@
   "¡Correo copiado!": "Email copied!",
   "Copiar el correo": "Copy the email address",
   "Para pegarlo donde usted prefiera.": "To paste it wherever you prefer.",
-  "Elija WhatsApp o correo (Gmail) para revisar y enviar su solicitud.": "Choose WhatsApp or email (Gmail) to review and send your request."
+  "Elija WhatsApp o correo (Gmail) para revisar y enviar su solicitud.": "Choose WhatsApp or email (Gmail) to review and send your request.",
+  "Se abrirá su correo (Gmail) con la solicitud lista para enviar a Soluciones Delta. Los campos con * son obligatorios.": "Your email (Gmail) will open with the request ready to send to Soluciones Delta. Fields marked * are required."
 }
