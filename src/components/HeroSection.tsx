@@ -252,8 +252,8 @@ export default function HeroSection() {
               <Eyebrow>Soluciones Delta · Zulia, Venezuela</Eyebrow>
               <h1 className={styles.title}>{locale === "en" ? "Oilfield" : "Servicios"} <br />{locale === "en" ? "services" : "petroleros"} <span className={styles.location}>{locale === "en" ? "in Venezuela." : "en Venezuela."}</span></h1>
               <p className={styles.description}>
-                Bombeo, manejo de fluidos y servicios industriales en Venezuela.
-                Respaldo técnico desde nuestra sede en Zulia.
+                Empresa de servicios petroleros en el Zulia, con sede en San Francisco.
+                Bombeo, manejo de fluidos y servicios industriales en toda Venezuela.
               </p>
             </div>
 
